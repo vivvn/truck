@@ -170,6 +170,27 @@
 				font-size: 18px;
 				margin-right: 110px;
 			}
+			.weixin_qdcode{
+				width: 653px;
+				height: 520px;
+				background-color: #3A4E62;
+				text-align: center;
+				border-radius: 15px;
+				padding-top: 35px;
+			}
+			.weixin_qdcode img{
+				width: 50%;
+				margin-top: 55px;
+			}
+			.weixin_qdcode p{
+				color: #fff;
+				font-family: "微软雅黑";
+				font-size: 22px;
+				text-align: center;
+			}
+			#weixin_1,#weixin_2{
+				display: none;
+			}
 		</style>
 	</head>
 
@@ -204,7 +225,7 @@
 		<!--头部导航结束-->
 		<div class="container" style="padding: 0;">
 			<a onclick="weixinstep()">
-				<img src="imgs/mort_nav.jpg" style="width: 100%;">
+				<img src="imgs/mort_nav.jpg" style="width: 100%;margin: 0;">
 			</a>
 		</div>
 		<!-- 贷款资料填写  -->
@@ -214,9 +235,9 @@
 			</div>
 			<div class="row">
 				<div class="col-ms-7 col-xs-7" style="margin: 10px 0 0 0;padding: 0;">
-					<img src="imgs/m_peitu.jpg" style="width: 100%;height: 467px;">
+					<img src="imgs/m_peitu.jpg" style="width: 100%;height: 446px;">
 				</div>
-				<div class="col-ms-5 col-xs-5 form_mort">
+				<div class="col-ms-5 col-xs-5 form_mort" style="height: 447px;">
 					<p style="font-size: 20px; font-weight: bold;margin-bottom: 20px;text-align: center;">办理贷款申请</p>
 					<div class="form-horizontal">
 						<div class="form-group">
@@ -236,12 +257,12 @@
 							<div class="col-xs-5" style="padding-right: 0;">
 								<input type="text" class="form-control" id="car">
 							</div>
-							<div class="col-xs-3">
-								<a href="javascript:;" class="btn btn-default">验证码</a>
+							<div>
+								<a href="javascript:;"  style="width: 83px;" class="btn btn-default">验证码</a>
 							</div>
 
 						</div>
-						<div class="form-group">
+						<div class="form-group" style="margin-bottom: 5px;">
 							<label for="iden" class="col-xs-3 control-label" style="padding-right: 0;">验证码</label>
 							<div class="col-xs-8">
 								<input type="email" class="form-control" id="iden">
@@ -253,20 +274,20 @@
 								<div class="col-md-3 col-xs-2" style="text-align: right;padding: 0;font-weight: bold;margin-top: 12px;">身份证</div>
 								<div class="uploader white" style="margin-left: 14px;">
 									<input type="text" class="filename" data-value="身份证正面" readonly="" style="width: 185px;">
-									<input type="button" name="file" class="button" value="上传..." style="width: 50px;">
+									<input type="button" name="file" class="button" value="上传" style="width: 50px;">
 									<input type="file" size="30">
 								</div>
 								<div class="col-md-3 col-xs-2" style=""></div>
-								<div class="uploader white" style="margin-left: 14px;">
+								<div class="uploader white" style="margin-left: 14px;margin-top: 0;">
 									<input type="text" class="filename" data-value="身份证反面" readonly="" style="width: 185px;">
-									<input type="button" name="file" class="button" value="上传..." style="width: 50px;">
+									<input type="button" name="file" class="button" value="上传" style="width: 50px;">
 									<input type="file" size="30">
 								</div>
 
 							</div>
 						</form>
 						<div class="form-group" style="text-align: center;margin-bottom: 0;">
-							<button type="submit" class="btn btn-default ">提 交</button>
+							<button type="submit" class="btn btn-default" style="width: 84px;margin-left: 42px;">提 交</button>
 						</div>
 					</div>
 				</div>
@@ -376,7 +397,7 @@
 								<div class="row">
 									<div class="col-xs-3"></div>
 									<div class="col-xs-7">
-										<button class="btn-block btn-danger btn" ms-click="restart">重新开始</button>
+										<button class="btn-block btn-primary btn" ms-click="restart">重新开始</button>
 									</div>
 								</div>
 							</div>
@@ -386,11 +407,11 @@
 			</div>
 		</div>
 		<!--关注微信和微信指引-->
-		<div class="container">
+		<div class="container" id="wx_step" style="margin-bottom: 25px;">
 			<div class="row">
 				<div class="col-xs-4" style="padding: 18px;">
 					<h3 style="text-align: center;margin-top: 0;padding-left: 28px;">微信端辅助功能</h3>
-					<div class="weixin_btn" data-toggle="modal" data-target=".bs-example-modal-sm">
+					<div class="weixin_btn" onclick="wx_code()">
 						<span class="glyphicon glyphicon-qrcode weixin_font" aria-hidden="true"></span>
 						<p>请先关注微信公众号</p>
 					</div>
@@ -405,8 +426,12 @@
 				</div>
 				<div class="col-xs-1"></div>
 				<div class="col-xs-8">
+					<div class="weixin_qdcode">
+						<p>请扫描下面的二维码关注我们吧！</p>
+						<img src="imgs/erweima.png"/>
+					</div>
 					<div class="bs-example" id="weixin_1">
-						<div id="carousel-example-generic" class="carousel slide" style="background-color: #3A4E62;">
+						<div id="carousel-example-generic" class="carousel slide" style="background-color: #3A4E62;border-radius: 15px;padding-bottom: 15px;">
 							<div class="carousel-inner" role="listbox">
 								<div class="item active">
 									<p class="weixin_txt">1.菜单选取查询进度</p>
@@ -425,17 +450,17 @@
 									<img src="imgs/reminder4.jpg" class="weixin_img" />
 								</div>
 							</div>
-							<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+							<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="border-radius: 15px;">
 								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 								<span class="sr-only">Previous</span>
 							</a>
-							<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+							<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="border-radius: 15px;">
 								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 								<span class="sr-only">Next</span>
 							</a>
 						</div>
 					</div>
-					<div id="weixin_2" class="carousel slide" style="display: none;background-color: #3A4E62;">
+					<div id="weixin_2" class="carousel slide" style="background-color: #3A4E62;border-radius: 15px;padding-bottom: 15px;">
 						<!-- Carousel items -->
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
@@ -457,11 +482,11 @@
 						</div>
 
 						<!-- Carousel nav -->
-						<a class="carousel-control left" href="#weixin_2" data-slide="prev" role="button">
+						<a class="carousel-control left" href="#weixin_2" data-slide="prev" role="button" style="border-radius: 15px;">
 							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 							<span class="sr-only">Previous</span>
 						</a>
-						<a class="carousel-control right" href="#weixin_2" data-slide="next" role="button">
+						<a class="carousel-control right" href="#weixin_2" data-slide="next" role="button" style="border-radius: 15px;">
 							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							<span class="sr-only">Next</span>
 						</a>
@@ -470,65 +495,7 @@
 			</div>
 		</div>
 
-		<!--弹出二维码-->
-		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-						</button>
-						<h5 class="modal-title" id="mySmallModalLabel">扫描二维码关注</h5>
-					</div>
-					<div class="modal-body" style="display: inline-block;">
-						<img src="imgs/erweima.png" style="width: 100%;">
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--<div class="container" id="weixin_step" style="background-color: #fff;">
-			<h3 style="border-bottom: 1px solid #ccc;padding: 18px;margin: 15px;">关注微信获得实时提醒，立刻关注吧。<span class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm">扫描二维码</span></h3>
-			<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-sm">
-					<div class="modal-content">
-
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-							</button>
-							<h5 class="modal-title" id="mySmallModalLabel">扫描二维码关注</h5>
-						</div>
-						<div class="modal-body" style="display: inline-block;">
-							<img src="imgs/erweima.png" style="width: 100%;">
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row step_textStyle">及时提醒使用说明：</div>
-			<div class="row">
-				<p class="col-xs-1 step_numStyle">1)</p>
-				<img class="col-xs-2 step_imgStyle" src="imgs/reminder1.jpg" alt="步骤1" />
-				<p class="col-xs-1  step_numStyle">2)</p>
-				<img class="col-xs-2 step_imgStyle" src="imgs/reminder2.jpg" alt="步骤1" />
-				<p class="col-xs-1 step_numStyle">3)</p>
-				<img class="col-xs-2  step_imgStyle" src="imgs/reminder3.jpg" alt="步骤1" />
-				<p class="col-xs-1  step_numStyle">4)</p>
-				<img class="col-xs-2  step_imgStyle" src="imgs/reminder4.jpg" alt="步骤1" />
-			</div>
-			<div class="hr_50"></div>
-			<div class="row step_textStyle">微信端提交身份证：</div>
-			<div class="row">
-				<p class="col-xs-1 step_numStyle">1)</p>
-				<img class="col-xs-2 step_imgStyle" src="imgs/reminder1.jpg" alt="步骤1" />
-				<p class="col-xs-1 step_numStyle">2)</p>
-				<img class="col-xs-2  step_imgStyle" src="imgs/reminder2.jpg" alt="步骤1" />
-				<p class="col-xs-1  step_numStyle">3)</p>
-				<img class="col-xs-2 step_imgStyle" src="imgs/upload3.jpg" alt="步骤1" />
-				<p class="col-xs-1  step_numStyle">4)</p>
-				<img class="col-xs-2 step_imgStyle" src="imgs/upload4.jpg" alt="步骤1" />
-			</div>
-		</div>
-		<!--尾部-->-->
+		<!--尾部-->
 		<div style="width: 100%;background: #01505f;">
 			<footer class="container truck_footer">
 				<div class="row">
@@ -616,18 +583,24 @@
 		<script type="text/javascript">
 			function weixinstep() {
 				$("html,body").animate({
-					scrollTop: $("#weixin_step").offset().top
+					scrollTop: $("#wx_step").offset().top
 				}, 500);
 			}
-
+			function wx_code(){
+				$("#weixin_1").hide();
+				$("#weixin_2").hide();
+				$(".weixin_qdcode").show();
+			}
 			function wx1() {
 				$("#weixin_1").show();
 				$("#weixin_2").hide();
+				$(".weixin_qdcode").hide();
 			}
 
 			function wx2() {
 				$("#weixin_2").show();
 				$("#weixin_1").hide();
+				$(".weixin_qdcode").hide();
 			}
 			$(function(){
 				$(".carousel").carousel("pause");
