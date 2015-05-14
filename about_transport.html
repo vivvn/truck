@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>加盟介绍-货源介绍</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/truck.css" />
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/avalon.min.js"></script>
+		<script>
+            var joinTransModel = avalon.define({
+                $id : "joinTransModel",
+                navData : [
+                    {href:"index",val:"首页"},
+                    {href:"mortgage",val:"车贷服务"},
+                    {href:"trucks",val:"重卡平台"},
+                    {href:"transport",val:"运力云"},
+                    {href:"affiliate",val:"我要挂靠"},
+                    {href:"join",val:"我要加盟"},
+                ],
+                active : 3
+            });
+        </script>
+	</head>
+
+	<body ms-controller="joinTransModel">
+		<!--头部-->
+		<header class="navbar navbar-default navbar_truck">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">
+
+                    Logo
+
+                </a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse">
+					<ul class="nav navbar-nav navbar-right text-info">
+						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+				        </li>
+						<li>
+							<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'">注册</button>
+								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'">登录</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<!--轮播图-->
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item">
+					<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
+				</div>
+				<div class="item">
+					<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
+				</div>
+				<div class="item active">
+					<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 tr_about_card">
+				    <div class="article_wrap">
+                        <div>
+                            <span class="tr_about_card_us"><span class="tr_about_card_us_1"></span>我是运力</span>
+                            <a class="btn btn-default" href="form.html" role="button"style="float: right;background: #DF4A43;color: white;border: none;">填写资料（我是运力）</a>
+                        </div>
+                        <p>&nbsp;</p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="tr_about_text">公司自备车辆共180多辆,仓储面积20000多平方米。现有直属分公司
+
+									三家，经营办事处及联营网点28家。同时与国内各知名物流企业组建了有
+
+									效的物流配送体系。公司遵循一流的服务运作体系，架设了现代化的运输
+
+									平台和电脑信息网络平台，公司拥用专业的装卸队伍和装备精良的运输车队
+
+									，并成功开发了物流运输、仓储中转、物流配送、包装分拣、单据管理、帐
+
+									务处理等为一体的物流信息管理系统。公司的影响日趋深远，已逐步成为长
+
+									三角地区颇具实力的物流企业之一。加入我们，我们一起打造高效优质的团
+
+									队。公司自备车辆共180多辆,仓储面积20000多平方米。现有直属分公司三
+
+									家，经营办事处及联营网点28家。同时与国内各知名物流企业组建了有效的
+
+									物流配送体系。公司遵循一流的服务运作体系，架设了现代化的运输平台和
+
+									电脑信息网络平台，公司拥用专业的装卸队伍和装备精良的运输车队，并成
+
+									功开发了物流运输、仓储中转、物流配送、包装分拣、单据管理、帐务处理等为一体的物流信息
+
+									管理系统。公司的影响日趋深远，已逐步成为长三角地区颇具实力的物流企业之一。加入我们，
+
+									我们一起打造高效优质的团队。公司自备车辆共180多辆,仓储面积20000多平方米。现有直属分
+
+									公司三家，经营办事处及联营网点28家。同时与国内各知名物流企业组建了有效的物流配送体系
+
+									。公司遵循一流的服务运作体系，架设了现代化的运输平台和电脑信息网络平台，公司拥用专业
+
+									的装卸队伍和装备精良的运输车队，并成功开发了物流运输、仓储中转、物流配送、包装分拣、
+
+									单据管理、帐务处理等为一体的物流信息管理系统。公司的影响日趋深远，已逐步成为长三角地
+
+									区颇具实力的物流企业之一。加入我们，我们一起打造高效优质的团队。
+
+						</span>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<!--尾部-->
+			<footer class="container-fluid truck_footer">
+				<div class="row">
+					<div class="col-xs-4 col-sm-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">中国银行</a>
+							</li>
+							<li><a href="javascript:;">平安银行</a>
+							</li>
+							<li><a href="javascript:;">浦发银行</a>
+							</li>
+							<li><a href="javascript:;">工商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-sm-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">农业银行</a>
+							</li>
+							<li><a href="javascript:;">建设银行</a>
+							</li>
+							<li><a href="javascript:;">光大银行</a>
+							</li>
+							<li><a href="javascript:;">招商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-sm-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">汽车之家</a>
+							</li>
+							<li><a href="javascript:;">卡车之家</a>
+							</li>
+							<li><a href="javascript:;">新浪汽车</a>
+							</li>
+							<li><a href="javascript:;">腾讯汽车</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-sm-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">易车汽车论坛</a>
+							</li>
+							<li><a href="javascript:;">中国买车网</a>
+							</li>
+							<li><a href="javascript:;">搜狐汽车</a>
+							</li>
+							<li><a href="javascript:;">中国高速网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-sm-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">二手卡车网</a>
+							</li>
+							<li><a href="javascript:;">汽配英才网</a>
+							</li>
+							<li><a href="javascript:;">北京二手车</a>
+							</li>
+							<li><a href="javascript:;">中国人才网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-sm-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">我爱车网</a>
+							</li>
+							<li><a href="javascript:;">汽配中国网</a>
+							</li>
+							<li><a href="javascript:;">深圳二手车</a>
+							</li>
+							<li><a href="javascript:;">车生活网</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row truck_address">
+					<p>Copyright ©XSJ All Rights Reserved</p>
+					<p>© 2015 鑫森捷 京ICP备14026002号</p>
+				</div>
+			</footer>
+<!--轮播图自动播放时间间隔-->
+		<script>
+			$(function() {
+				$('.carousel').carousel({
+					interval: 3000
+				});
+			});
+		</script>
+	</body>
+
+</html>
