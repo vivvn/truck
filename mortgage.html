@@ -8,6 +8,130 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/truck.css" />
     <link rel="stylesheet" type="text/css" href="css/flowpath_intorduce.css"/>
+    <style type="text/css">
+            body {
+                background-color: #f1f1f1;
+            }
+            .form_mort {
+                margin-top: 19px;
+                padding: 30px;
+                border: 1px solid #ccc;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+            }
+            .fi_steps {
+                width: 100%;
+            }
+            .fill_tit {
+                display: inline-block;
+                width: 100px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 15px;
+                background: #6aa6ce;
+                font-size: 18px;
+                color: #fff;
+                margin-left: 30px;
+            }
+            .m_explain,
+            .m_cost {
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                margin-top: 20px;
+                color: #666;
+                font-family: "微软雅黑";
+            }
+            .m_explain {
+                background-color: #fff;
+                margin: 10px 0px 0px;
+                padding: 10px;
+                padding-top: 25px;
+            }
+            .m_explain div {
+                border-right: 1px solid #f1f1f1;
+            }
+            .m_explain div:last-child {
+                border-right: 0;
+            }
+            .truck_measure {
+                position: absolute;
+                right: 32px;
+                top: 8px;
+                color: #aba9ac;
+            }
+            .fin_box {
+                min-height: 300px;
+                margin-bottom: 20px;
+                background-color: #fff;
+            }
+            .fin_box h3 {
+                border-bottom: 1px solid #ccc;
+                padding: 18px;
+                margin: 15px;
+            }
+            .content_box {
+                padding-left: 30px;
+                line-height: 2;
+            }
+            .step_numStyle {
+                text-align: right;
+            }
+            .step_textStyle {
+                font-weight: bold;
+                margin: 10px 0;
+            }
+            .step_imgStyle {
+                margin-bottom: 40px;
+            }
+            .weixin_img {
+                height: 460px !important;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .weixin_btn {
+                height: 120px;
+                width: 90%;
+                margin-left: 10%;
+                background-color: #3A4E62;
+                border-radius: 8px;
+                margin-top: 14px;
+                text-align: center;
+                color: #fff;
+                font-family: "微软雅黑";
+            }
+            .weixin_font {
+                font-size: 70px;
+                margin: 10px 0;
+            }
+            .weixin_txt {
+                color: #fff;
+                text-align: center;
+                margin-top: 10px;
+                font-size: 18px;
+                margin-right: 110px;
+            }
+            .weixin_qdcode{
+                width: 653px;
+                height: 520px;
+                background-color: #3A4E62;
+                text-align: center;
+                border-radius: 15px;
+                padding-top: 35px;
+            }
+            .weixin_qdcode img{
+                width: 50%;
+                margin-top: 55px;
+            }
+            .weixin_qdcode p{
+                color: #fff;
+                font-family: "微软雅黑";
+                font-size: 22px;
+                text-align: center;
+            }
+            #weixin_1,#weixin_2{
+                display: none;
+            }
+        </style>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/avalon.min.js"></script>
@@ -87,19 +211,101 @@
         </div>
       </div>
     </div>
+        <!--贷款费用-->
+        <div class="container">
+            <div class="row">
+                <div class="col-ms-6 col-xs-6" style="padding-left: 0;">
+                    <div class="m_cost fin_box">
+                        <h3>费用说明</h3>
+                        <div class="content_box">
+                            <p>担保费：贷款金额*3.8%</p>
+                            <p>受理费：3000-5000元/笔</p>
+                            <p>风险保证金：贷款金额*5%</p>
+                            <p>续保押金：1000元/台</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-ms-6 col-xs-6" ms-controller="mortgage" style="padding: 0;">
+                    <div class="m_cost fin_box">
+                        <h3>贷款计算器</h3>
+                        <div class="form-horizontal" style="padding:10px 15px;">
+                            <div ms-if="show == 'start'">
+                                <div class="form-group">
+                                    <label for="borrow" class="col-xs-4 col-md-3 control-label calcu_text">借款金额</label>
+                                    <div class="col-xs-7">
+                                        <input type="text" class="form-control" id="borrow" ms-attr-value="borrow" ms-duplex="borrow">
+                                        <span class="truck_measure">万元</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userType" class="col-xs-4 col-md-3 control-label calcu_text">用户类型</label>
+                                    <div class="col-xs-7">
+                                        <select class="form-control" id="userType">
+                                            <option ms-repeat="typeArray">{{ el }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="monthSalary" class="col-xs-4 col-md-3 control-label calcu_text">税后月薪</label>
+                                    <div class="col-xs-7">
+                                        <input type="text" class="form-control" id="monthSalary" ms-attr-value="monthSalary" ms-duplex="monthSalary">
+                                        <span class="truck_measure">元</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3"></div>
+                                    <div class="col-xs-7">
+                                        <button class="btn-block btn-danger btn" ms-click="start" style="background-color: #2E82BA;border-color: #6aa6ce;">开始计算</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ms-if="show == 'restart'">
+                                <div class="form-group">
+                                    <label for="borrow" class="col-xs-4 col-md-3 control-label calcu_text">借款金额</label>
+                                    <div class="col-xs-7">
+                                        <p class="truck_result">{{ payResult }}元</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userType" class="col-xs-4 col-md-3 control-label calcu_text">还款期限</label>
+                                    <div class="col-xs-7">
+                                        <select class="form-control" id="userType" ms-duplex="monthChange">
+                                            <option ms-repeat="month" ms-attr-value="el">{{ el }}个月</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="monthPay" class="col-xs-4 col-md-3 control-label calcu_text">每月还款</label>
+                                    <div class="col-xs-7">
+                                        <p class="truck_result">{{ payMonth }}元</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3"></div>
+                                    <div class="col-xs-7">
+                                        <button class="btn-block btn-primary btn" ms-click="restart">重新开始</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="container">
         <!--<img src="imgs/steps3.jpg" class="step_img" alt="step">
         <div class="row" style="margin-top:10px;">
        <div role="tabpanel" class="container">
 
- 
+
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active col-x"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">申请办理</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">进度查询</a></li>
             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">利息计算器</a></li>
           </ul>
 
- 
+
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="home">
                 <div class="col-xs-12 col-sm-4 col-md-4">
@@ -238,10 +444,10 @@
 
         </div>
         -->
-        
-        
-        
-        
+
+
+
+
         <div class="row">
 			<div class="col-md-12"><img src="imgs/lct.jpg"width="100%"/></div>
 			<ul class="nav nav-tabs" role="tablist" id="myTab">
@@ -285,11 +491,11 @@
 			<div class="col-md-12 sqbutton">
 			<button type="button" class="btn btn-primary btn-lg btn-block">立即申请</button>
 		</div>
-        
+
 		</div>
-		
-        
-        
+
+
+
 		<div class="row">
             <div class="col-xs-12 col-sm-4">
                 <div class="news_container">
@@ -331,7 +537,7 @@
                 </div>
             </div>
         </div>
-   
+
     </div>
 	<div style="width:100%;background-color:#4394A5;margin-top: 20px;">
 		<div class="container">
