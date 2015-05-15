@@ -7,6 +7,7 @@
     <title>车辆贷款</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/truck.css" />
+    <link rel="stylesheet" type="text/css" href="css/flowpath_intorduce.css"/>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/avalon.min.js"></script>
@@ -87,18 +88,18 @@
       </div>
     </div>
     <div class="container">
-        <img src="imgs/steps3.jpg" class="step_img" alt="step">
+        <!--<img src="imgs/steps3.jpg" class="step_img" alt="step">
         <div class="row" style="margin-top:10px;">
        <div role="tabpanel" class="container">
 
-          <!-- Nav tabs -->
+ 
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active col-x"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">申请办理</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">进度查询</a></li>
             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">利息计算器</a></li>
           </ul>
 
-          <!-- Tab panes -->
+ 
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="home">
                 <div class="col-xs-12 col-sm-4 col-md-4">
@@ -236,7 +237,60 @@
         </div>
 
         </div>
+        -->
+        
+        
+        
+        
         <div class="row">
+			<div class="col-md-12"><img src="imgs/lct.jpg"width="100%"/></div>
+			<ul class="nav nav-tabs" role="tablist" id="myTab">
+				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">申请条件</a></li>
+				<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">申请材料（必要）</a></li>
+				<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">申请材料（可选）</a></li>
+			</ul>
+			<div class="tab-content flowpath_main">
+				<div role="tabpanel" class="tab-pane active flowpath_subbox" id="home">
+					<h4>申请条件：</h4>
+					<ol>
+						<li>须为8年以内的车辆，并通过年检；</li>
+						<li>车辆在9座及9座以下；</li>
+						<li>车险必须在有效期内，被保险人和车主必须一致。</li>
+					</ol>
+				</div>
+				<div role="tabpanel" class="tab-pane flowpath_subbox" id="profile">
+					<h4>提供公司资料</h4>
+					<ol>
+						<li>营业执照</li>
+						<li>组织机构代码 </li>
+						<li>税务登记证 </li>
+						<li>道路运输许可证</li>
+						<li>企业半年银行流水</li>
+						<li>运输合同 </li>
+						<li>资产证明</li>
+						<li>公司章程</li>
+					</ol>
+				</div>
+				<div role="tabpanel" class="tab-pane flowpath_subbox" id="messages">
+					<h4>提供个人资料</h4>
+					<ol>
+						<li>借款人夫妻双方身份证，户口本，结婚证，居住证 </li>
+						<li>个人征信查询授权委托书 </li>
+						<li>订车合同，订金收据</li>
+						<li>收入证明 </li>
+						<li>银行流水 </li>
+					</ol>
+				</div>
+			</div>
+			<div class="col-md-12 sqbutton">
+			<button type="button" class="btn btn-primary btn-lg btn-block">立即申请</button>
+		</div>
+        
+		</div>
+		
+        
+        
+		<div class="row">
             <div class="col-xs-12 col-sm-4">
                 <div class="news_container">
                     <h4><span>?</span>常见问题</h4>
@@ -277,13 +331,13 @@
                 </div>
             </div>
         </div>
+   
     </div>
 	<div style="width:100%;background-color:#4394A5;margin-top: 20px;">
 		<div class="container">
 		   <div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 0;">
 				<span><img src="imgs/mor1.jpg" style="width: 100%;"/></span>
-
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 0;" >
 				<span><img src="imgs/mor2.jpg" style="width: 100%;"/></span>
@@ -293,7 +347,7 @@
 		</div>
 	</div>
    <!--尾部-->
-			<footer class="container-fluid truck_footer">
+	<footer class="container-fluid truck_footer">
 				<div class="row">
 					<div class="col-xs-4 col-sm-2">
 						<ul class="list-unstyled">
