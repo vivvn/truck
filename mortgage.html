@@ -211,18 +211,87 @@
         </div>
       </div>
     </div>
-        <!--贷款费用-->
-        <div class="container">
-            <div class="row">
+       
+    	<div class="container">
+       
+         <div class="row">
+			<div class="col-md-12" style="padding: 0;margin-bottom: 13px;"><img src="imgs/lct.jpg"width="100%"/></div>
+			<ul class="nav nav-tabs" role="tablist" id="myTab">
+				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">申请条件</a></li>
+				<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">申请材料（必要）</a></li>
+				<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">申请材料（可选）</a></li>
+			</ul>
+			<div class="tab-content flowpath_main">
+				<div role="tabpanel" class="tab-pane active flowpath_subbox" id="home" style="background-color: #fff;">
+					<h4>申请条件：</h4>
+					<ol>
+						<li>须为8年以内的车辆，并通过年检；</li>
+						<li>车辆在9座及9座以下；</li>
+						<li>车险必须在有效期内，被保险人和车主必须一致。</li>
+					</ol>
+				</div>
+				<div role="tabpanel" class="tab-pane flowpath_subbox" id="profile" style="background-color: #fff;">
+					<h4>提供公司资料</h4>
+					<ol>
+						<li>营业执照</li>
+						<li>组织机构代码 </li>
+						<li>税务登记证 </li>
+						<li>道路运输许可证</li>
+						<li>企业半年银行流水</li>
+						<li>运输合同 </li>
+						<li>资产证明</li>
+						<li>公司章程</li>
+					</ol>
+				</div>
+				<div role="tabpanel" class="tab-pane flowpath_subbox" id="messages" style="background-color: #fff;">
+					<h4>提供个人资料</h4>
+					<ol>
+						<li>借款人夫妻双方身份证，户口本，结婚证，居住证 </li>
+						<li>个人征信查询授权委托书 </li>
+						<li>订车合同，订金收据</li>
+						<li>收入证明 </li>
+						<li>银行流水 </li>
+					</ol>
+				</div>
+			</div>
+			<div class="col-md-12 sqbutton" style="background: #fff;padding-bottom: 10px;">
+			<a type="button" href="fill_inf.html" class="btn btn-primary btn-lg btn-block" style="width: 70%;margin-left: 15%;">立即申请</a>
+		</div>
+
+		</div>
+
+		 <!--贷款费用-->
+        <div class="row">
                 <div class="col-ms-6 col-xs-6" style="padding-left: 0;">
                     <div class="m_cost fin_box">
-                        <h3>费用说明</h3>
-                        <div class="content_box">
-                            <p>担保费：贷款金额*3.8%</p>
-                            <p>受理费：3000-5000元/笔</p>
-                            <p>风险保证金：贷款金额*5%</p>
-                            <p>续保押金：1000元/台</p>
+                        <h3>进度查询</h3>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-4 col-md-3 control-label calcu_text">姓名</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
                         </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-4 col-md-3 control-label calcu_text">手机号</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-4 col-md-3 control-label calcu_text">验证码</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control truck_code" id="code">
+                                <button class="btn code_btn">获取验证码</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-7">
+                                <a class="btn-block btn-primary btn" href="schedule.html">提交查询</a>
+                            </div>
+                        </div>
+                    </form>
                     </div>
                 </div>
 
@@ -256,7 +325,7 @@
                                 <div class="row">
                                     <div class="col-xs-3"></div>
                                     <div class="col-xs-7">
-                                        <button class="btn-block btn-danger btn" ms-click="start" style="background-color: #2E82BA;border-color: #6aa6ce;">开始计算</button>
+                                        <button class="btn-block btn-primary btn" ms-click="start">开始计算</button>
                                     </div>
                                 </div>
                             </div>
@@ -292,209 +361,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    <div class="container">
-        <!--<img src="imgs/steps3.jpg" class="step_img" alt="step">
-        <div class="row" style="margin-top:10px;">
-       <div role="tabpanel" class="container">
 
-
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active col-x"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">申请办理</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">进度查询</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">利息计算器</a></li>
-          </ul>
-
-
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h3 class="truck_h3">申请办理</h3>
-                    <div class="truck_ask">
-                        <img src="imgs/car4.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h3 class="truck_h3">简单介绍</h3>
-                    <div class="truck_ask">
-                        <img src="imgs/car4.png" alt="">
-                    </div>
-                </div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-                    <h3 class="truck_h3">保险介绍</h3>
-                    <div class="truck_ask">
-                        <img src="imgs/car4.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="profile">
-                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h3 class="truck_h3">进度查询</h3>
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 col-md-3 control-label calcu_text">姓名</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="inputEmail3">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="col-sm-4 col-md-3 control-label calcu_text">手机号</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="phone">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="col-sm-4 col-md-3 control-label calcu_text">验证码</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control truck_code" id="code">
-                                <button class="btn code_btn">获取验证码</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-7">
-                                <a class="btn-block btn-danger btn" href="schedule.html">提交查询</a>
-                            </div>
-                        </div>
-                    </form>
-                    <p class="truck_tip"><em>*</em>真实填写贷款人本人信息，有助于您成功查询</p>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h3 class="truck_h3">简单介绍</h3>
-                    <div class="truck_ask">
-                        <img src="imgs/car4.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="messages">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h3 class="truck_h3">利息计算器</h3>
-                    <div class="form-horizontal">
-                        <div ms-if="show == 'start'">
-                            <div class="form-group">
-                                <label for="borrow" class="col-sm-4 col-md-3 control-label calcu_text">借款金额</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="borrow" ms-attr-value="borrow" ms-duplex="borrow">
-                                    <span class="truck_measure">万元</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="userType" class="col-sm-4 col-md-3 control-label calcu_text">用户类型</label>
-                                <div class="col-sm-7">
-                                    <select class="form-control" id="userType">
-                                      <option ms-repeat="typeArray">{{ el }}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="monthSalary" class="col-sm-4 col-md-3 control-label calcu_text">税后月薪</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="monthSalary" ms-attr-value="monthSalary" ms-duplex="monthSalary">
-                                    <span class="truck_measure">元</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-7">
-                                    <button class="btn-block btn-danger btn" ms-click="start">开始计算</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div ms-if="show == 'restart'">
-                            <div class="form-group">
-                                <label for="borrow" class="col-sm-4 col-md-3 control-label calcu_text">借款金额</label>
-                                <div class="col-sm-7">
-                                    <p class="truck_result">{{ payResult }}元</p>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="userType" class="col-sm-4 col-md-3 control-label calcu_text">还款期限</label>
-                                <div class="col-sm-7">
-                                    <select class="form-control" id="userType" ms-duplex="monthChange">
-                                      <option ms-repeat="month" ms-attr-value="el">{{ el }}个月</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="monthPay" class="col-sm-4 col-md-3 control-label calcu_text">每月还款</label>
-                                <div class="col-sm-7">
-                                    <p class="truck_result">{{ payMonth }}元</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-7">
-                                    <button class="btn-block btn-danger btn" ms-click="restart">重新开始</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="truck_tip"><em>*</em>测算一下您大致能贷款的金额有多少</p>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h3 class="truck_h3">简单介绍</h3>
-                    <div class="truck_ask">
-                        <img src="imgs/car4.png" alt="">
-                    </div>
-                </div>
-            </div>
-          </div>
-
-        </div>
-
-        </div>
-        -->
-
-
-
-
-        <div class="row">
-			<div class="col-md-12"><img src="imgs/lct.jpg"width="100%"/></div>
-			<ul class="nav nav-tabs" role="tablist" id="myTab">
-				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">申请条件</a></li>
-				<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">申请材料（必要）</a></li>
-				<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">申请材料（可选）</a></li>
-			</ul>
-			<div class="tab-content flowpath_main">
-				<div role="tabpanel" class="tab-pane active flowpath_subbox" id="home">
-					<h4>申请条件：</h4>
-					<ol>
-						<li>须为8年以内的车辆，并通过年检；</li>
-						<li>车辆在9座及9座以下；</li>
-						<li>车险必须在有效期内，被保险人和车主必须一致。</li>
-					</ol>
-				</div>
-				<div role="tabpanel" class="tab-pane flowpath_subbox" id="profile">
-					<h4>提供公司资料</h4>
-					<ol>
-						<li>营业执照</li>
-						<li>组织机构代码 </li>
-						<li>税务登记证 </li>
-						<li>道路运输许可证</li>
-						<li>企业半年银行流水</li>
-						<li>运输合同 </li>
-						<li>资产证明</li>
-						<li>公司章程</li>
-					</ol>
-				</div>
-				<div role="tabpanel" class="tab-pane flowpath_subbox" id="messages">
-					<h4>提供个人资料</h4>
-					<ol>
-						<li>借款人夫妻双方身份证，户口本，结婚证，居住证 </li>
-						<li>个人征信查询授权委托书 </li>
-						<li>订车合同，订金收据</li>
-						<li>收入证明 </li>
-						<li>银行流水 </li>
-					</ol>
-				</div>
-			</div>
-			<div class="col-md-12 sqbutton">
-			<button type="button" class="btn btn-primary btn-lg btn-block">立即申请</button>
-		</div>
-
-		</div>
-
-
+    	
 
 		<div class="row">
             <div class="col-xs-12 col-sm-4">
@@ -539,7 +407,8 @@
         </div>
 
     </div>
-	<div style="width:100%;background-color:#4394A5;margin-top: 20px;">
+		
+		<div style="width:100%;background-color:#4394A5;margin-top: 20px;">
 		<div class="container">
 		   <div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 0;">

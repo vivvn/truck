@@ -668,12 +668,12 @@ font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Ser
 }
 .truck_code {
 	display: inline-block;
-	width: 50%;
+	width: 69%;
 	float: left;
 }
 .code_btn {
 	float: right;
-	width: 45%;
+	width: 30%;
 }
 .truck_tip {
 	color: #16b29a;
@@ -731,7 +731,7 @@ font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Ser
 	vertical-align: middle;
 	height: 30px;
 	width: 30px;
-	background: #D9534F;
+	background:#337AB7;
 	border-radius: 5px;
 	margin-right: 6px;
 	text-align: center;
