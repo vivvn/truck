@@ -1,4 +1,4 @@
-a {
+.truck_codea {
 	color: #333;
 	text-decoration: none;
 }
@@ -642,7 +642,6 @@ font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Ser
 }
 .truck_h3 {
 	font-size: 20px;
-	color: #da2c25;
 	position: relative;
 	margin-bottom: 20px;
 	margin-top: 20px;
@@ -668,12 +667,12 @@ font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Ser
 }
 .truck_code {
 	display: inline-block;
-	width: 69%;
+	width: 62%;
 	float: left;
 }
 .code_btn {
 	float: right;
-	width: 30%;
+	width: 37%;
 }
 .truck_tip {
 	color: #16b29a;
@@ -744,8 +743,8 @@ font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Ser
 .news_container li:last-child {
 	border: none;
 }
-.truck_ask {
-	text-align: center;
+.news_container .nav>li>a{
+	color: #333;
 }
 .truck_ask img {
 	width: 82%;
