@@ -1,621 +1,613 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>车辆贷款</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/truck.css" />
-		<style type="text/css">
-			body {
-				background-color: #f1f1f1;
-				min-width: 1024px;
-			}
-			.form_mort {
-				margin-top: 19px;
-				padding: 30px;
-				border: 1px solid #ccc;
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-				background-color: #fff;
-			}
-			.fi_steps {
-				width: 100%;
-			}
-			.fill_tit {
-				display: inline-block;
-				width: 100px;
-				height: 30px;
-				line-height: 30px;
-				text-align: center;
-				border-radius: 15px;
-				background: #6aa6ce;
-				font-size: 18px;
-				color: #fff;
-				margin-left: 30px;
-			}
-			.m_explain,
-			.m_cost {
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-				margin-top: 20px;
-				color: #666;
-				font-family: "微软雅黑";
-			}
-			.m_explain {
-				background-color: #fff;
-				margin: 10px 0px 0px;
-				padding: 10px;
-				padding-top: 25px;
-			}
-			.m_explain div {
-				border-right: 1px solid #f1f1f1;
-			}
-			.m_explain div:last-child {
-				border-right: 0;
-			}
-			.truck_measure {
-				position: absolute;
-				right: 32px;
-				top: 8px;
-				color: #aba9ac;
-			}
-			.fin_box {
-				min-height: 300px;
-				background-color: #fff;
-			}
-			.fin_box h3 {
-				border-bottom: 1px solid #ccc;
-				padding: 18px;
-				margin: 15px;
-			}
-			.content_box {
-				padding-left: 30px;
-				line-height: 2;
-			}
-			.step_numStyle {
-				text-align: right;
-			}
-			.step_textStyle {
-				font-weight: bold;
-				margin: 10px 0;
-			}
-			.step_imgStyle {
-				margin-bottom: 40px;
-			}
-			.weixin_img {
-				height: 460px !important;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			.weixin_btn {
-				height: 120px;
-				width: 90%;
-				margin-left: 10%;
-				background-color: #3A4E62;
-				border-radius: 8px;
-				margin-top: 14px;
-				text-align: center;
-				color: #fff;
-				font-family: "微软雅黑";
-			}
-			.weixin_font {
-				font-size: 70px;
-				margin: 10px 0;
-			}
-			.weixin_txt {
-				color: #fff;
-				text-align: center;
-				margin-top: 10px;
-				font-size: 18px;
-				margin-right: 110px;
-			}
-			.weixin_qdcode {
-				width: 653px;
-				height: 520px;
-				background-color: #3A4E62;
-				text-align: center;
-				border-radius: 15px;
-				padding-top: 35px;
-			}
-			.weixin_qdcode img {
-				width: 50%;
-				margin-top: 55px;
-			}
-			.weixin_qdcode p {
-				color: #fff;
-				font-family: "微软雅黑";
-				font-size: 22px;
-				text-align: center;
-			}
-			#weixin_1,
-			#weixin_2 {
-				display: none;
-			}
-			.container {
-				min-width: 1024px !important;
-			}
-			.form-horizontal .calcu_text {
-				padding-top: 7px;
-				margin-bottom: 0;
-				text-align: right;
-			}
-			.nav>li>a {
-				overflow: hidden;
-				white-space: nowrap;
-				text-overflow: ellipsis;
-			}
-			.apply_con {
-				height: 602px;
-				background-color: #Fff;
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-			}
-			.apply_con img {
-				margin-bottom: 15px;
-			}
-			.apply_con span {
-				font-size: 20px;
-				margin-left: 40px;
-			}
-			.apply_con ul {
-				list-style: none;
-			}
-			.apply_con ul li {
-				margin: 10px;
-				margin: 20px 0 15px 40px;
-				height: 70px;
-			}
-			.apply_con h2 {
-				text-align: center;
-				border-bottom: 1px solid #ccc;
-				padding: 16px;
-				color: #666;
-			}
-			.apply_condition {
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-			}
-			.apply_condition>div {
-				background-color: #fff;
-				height: 240px;
-				border-left: 1px solid #f7f7f7;
-				padding-left: 50px;
-				color: #666;
-			}
-		</style>
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/avalon.min.js"></script>
-		<script>
-			var index = 0;
-			var mortModel = avalon.define({
-				$id: "mortgage",
-				borrow: "10",
-				typeArray: ["公务员", "自雇人士", "公司职员"],
-				monthSalary: "10000",
-				payResult: "",
-				payMonth: "",
-				month: [36, 24, 12],
-				show: "start",
-				start: function() {
-					mortModel.show = "restart";
-					mortModel.payResult = mortModel.borrow * mortModel.monthSalary;
-					mortModel.payMonth = Math.round(mortModel.payResult / 36);
-				},
-				restart: function() {
-					mortModel.show = "start";
-				},
-				monthChange: "36",
-				navData: [{
-					href: "index",
-					val: "首页"
-				}, {
-					href: "mortgage",
-					val: "车贷服务"
-				}, {
-					href: "trucks",
-					val: "重卡平台"
-				}, {
-					href: "transport",
-					val: "运力云"
-				}, {
-					href: "affiliate",
-					val: "我要挂靠"
-				}, {
-					href: "join",
-					val: "我要加盟"
-				}, ],
-				active: 1
-			});
-			mortModel.$watch("monthChange", function(el) {
-				mortModel.payMonth = Math.round(mortModel.payResult / el);
-			});
-		</script>
-	</head>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>车辆贷款</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/truck.css" />
+	<style type="text/css">
+		body {
+			background-color: #f1f1f1;
+			min-width: 1024px;
+		}
+		.form_mort {
+			margin-top: 19px;
+			padding: 30px;
+			border: 1px solid #ccc;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+			background-color: #fff;
+		}
+		.fi_steps {
+			width: 100%;
+		}
+		.fill_tit {
+			display: inline-block;
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border-radius: 15px;
+			background: #6aa6ce;
+			font-size: 18px;
+			color: #fff;
+			margin-left: 30px;
+		}
+		.m_explain,
+		.m_cost {
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+			margin-top: 20px;
+			color: #666;
+			font-family: "微软雅黑";
+		}
+		.m_explain {
+			background-color: #fff;
+			margin: 10px 0px 0px;
+			padding: 10px;
+			padding-top: 25px;
+		}
+		.m_explain div {
+			border-right: 1px solid #f1f1f1;
+		}
+		.m_explain div:last-child {
+			border-right: 0;
+		}
+		.truck_measure {
+			position: absolute;
+			right: 32px;
+			top: 8px;
+			color: #aba9ac;
+		}
+		.fin_box {
+			min-height: 300px;
+			background-color: #fff;
+		}
+		.fin_box h3 {
+			border-bottom: 1px solid #ccc;
+			padding: 18px;
+			margin: 15px;
+		}
+		.content_box {
+			padding-left: 30px;
+			line-height: 2;
+		}
+		.step_numStyle {
+			text-align: right;
+		}
+		.step_textStyle {
+			font-weight: bold;
+			margin: 10px 0;
+		}
+		.step_imgStyle {
+			margin-bottom: 40px;
+		}
+		.weixin_img {
+			height: 460px !important;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.weixin_btn {
+			height: 120px;
+			width: 90%;
+			margin-left: 10%;
+			background-color: #3A4E62;
+			border-radius: 8px;
+			margin-top: 14px;
+			text-align: center;
+			color: #fff;
+			font-family: "微软雅黑";
+		}
+		.weixin_font {
+			font-size: 70px;
+			margin: 10px 0;
+		}
+		.weixin_txt {
+			color: #fff;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 18px;
+			margin-right: 110px;
+		}
+		.weixin_qdcode {
+			width: 653px;
+			height: 520px;
+			background-color: #3A4E62;
+			text-align: center;
+			border-radius: 15px;
+			padding-top: 35px;
+		}
+		.weixin_qdcode img {
+			width: 50%;
+			margin-top: 55px;
+		}
+		.weixin_qdcode p {
+			color: #fff;
+			font-family: "微软雅黑";
+			font-size: 22px;
+			text-align: center;
+		}
+		#weixin_1,
+		#weixin_2 {
+			display: none;
+		}
+		.container {
+			min-width: 1024px !important;
+		}
+		.form-horizontal .calcu_text {
+			padding-top: 7px;
+			margin-bottom: 0;
+			text-align: right;
+		}
+		.nav>li>a {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.apply_con {
+			height: 602px;
+			background-color: #Fff;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		}
+		.apply_con img {
+			margin-bottom: 15px;
+		}
+		.apply_con span {
+			font-size: 20px;
+			margin-left: 40px;
+		}
+		.apply_con ul {
+			list-style: none;
+		}
+		.apply_con ul li {
+			margin: 10px;
+			margin: 20px 0 15px 40px;
+			height: 70px;
+		}
+		.apply_con h2 {
+			text-align: center;
+			border-bottom: 1px solid #ccc;
+			padding: 16px;
+			color: #666;
+		}
+		.apply_condition {
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		}
+		.apply_condition>div {
+			background-color: #fff;
+			height: 240px;
+			border-left: 1px solid #f7f7f7;
+			padding-left: 50px;
+			color: #666;
+		}
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/avalon.min.js"></script>
+	<script>
+		var index = 0;
+		var mortModel = avalon.define({
+			$id: "mortgage",
+			borrow: "10",
+			typeArray: ["公务员", "自雇人士", "公司职员"],
+			monthSalary: "10000",
+			payResult: "",
+			payMonth: "",
+			month: [36, 24, 12],
+			show: "start",
+			start: function() {
+				mortModel.show = "restart";
+				mortModel.payResult = mortModel.borrow * mortModel.monthSalary;
+				mortModel.payMonth = Math.round(mortModel.payResult / 36);
+			},
+			restart: function() {
+				mortModel.show = "start";
+			},
+			monthChange: "36",
+			navData: [{
+				href: "index",
+				val: "首页"
+			}, {
+				href: "mortgage",
+				val: "车贷服务"
+			}, {
+				href: "trucks",
+				val: "重卡平台"
+			}, {
+				href: "transport",
+				val: "运力云"
+			}, {
+				href: "affiliate",
+				val: "我要挂靠"
+			}, {
+				href: "join",
+				val: "我要加盟"
+			}, ],
+			active: 1
+		});
+		mortModel.$watch("monthChange", function(el) {
+			mortModel.payMonth = Math.round(mortModel.payResult / el);
+		});
+	</script>
+</head>
 
-	<body ms-controller="mortgage">
-		<header class="navbar navbar-default navbar_truck">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a href="index.html" class="navbar-brand">
-
-                    Logo
-
-                </a>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-collapse">
+<body ms-controller="mortgage">
+	<!--头部导航开始-->
+	<div class="wrap_header">
+		<div class="niwdoawi_center container">
+			<div class="w1000 logo clearfix">
+				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+				<div class="fr righ">
 					<ul class="nav navbar-nav navbar-right text-info">
 						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
-						</li>
-						<li>
-							<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'">注册</button>
-							<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'">登录</button>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</header>
-		<!--  轮播图  -->
-		<div id="carousel-truck" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carousel-truck" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel-truck" data-slide-to="1"></li>
-			</ol>
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<img src="imgs/车贷.jpg" alt="轮播图1">
-				</div>
-				<div class="item">
-					<img src="imgs/车贷02.jpg" alt="轮播图2">
+							<li>
+								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<img src="imgs/steps3.jpg" style="width: 100%;box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);" alt="step">
-			<!--贷款简介-->
-			<div class="row" style="padding-left: 15px;margin-top: 10px;">
-				<div class="col-xs-7 apply_con">
-					<h2>鑫森捷线上车贷</h2>
-					<ul>
-						<li>
-							<img src="imgs/jiantou_right.png">
-							<span>就那么简单，3步到位！</span>
-						</li>
-						<li>
-							<img src="imgs/jiantou_right.png">
-							<span>全程线上操作，我们帮您安排一切！</span>
-						</li>
-						<li>
-							<img src="imgs/jiantou_right.png">
-							<span>审批高效，到账快！</span>
-						</li>
-						<li>
-							<img src="imgs/jiantou_right.png">
-							<span>贷款金额高，最高可带车辆70%!</span>
-						</li>
-						<li>
-							<img src="imgs/jiantou_right.png">
-							<span>自由选配还款方式!</span>
-						</li>
-					</ul>
-					<a href="fill_inf.html" class="btn-block btn-primary btn btn-lg">立即申请</a>
+	</div>
+	<!--头部导航结束-->
+	<!--  轮播图  -->
+	<div id="carousel-truck" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-truck" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-truck" data-slide-to="1"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="imgs/车贷.jpg" alt="轮播图1">
+			</div>
+			<div class="item">
+				<img src="imgs/车贷02.jpg" alt="轮播图2">
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<img src="imgs/steps3.jpg" style="width: 100%;box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);" alt="step">
+		<!--贷款简介-->
+		<div class="row" style="padding-left: 15px;margin-top: 10px;">
+			<div class="col-xs-7 apply_con">
+				<h2>鑫森捷线上车贷</h2>
+				<ul>
+					<li>
+						<img src="imgs/jiantou_right.png">
+						<span>就那么简单，3步到位！</span>
+					</li>
+					<li>
+						<img src="imgs/jiantou_right.png">
+						<span>全程线上操作，我们帮您安排一切！</span>
+					</li>
+					<li>
+						<img src="imgs/jiantou_right.png">
+						<span>审批高效，到账快！</span>
+					</li>
+					<li>
+						<img src="imgs/jiantou_right.png">
+						<span>贷款金额高，最高可带车辆70%!</span>
+					</li>
+					<li>
+						<img src="imgs/jiantou_right.png">
+						<span>自由选配还款方式!</span>
+					</li>
+				</ul>
+				<a href="fill_inf.html" class="btn-block btn-primary btn btn-lg">立即申请</a>
+			</div>
+			<div class="col-xs-5">
+				<div class="m_cost fin_box" style="margin: 0;">
+					<h3 style="margin-top: 1px;">进度查询</h3>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-xs-3 control-label calcu_text">姓名</label>
+							<div class="col-xs-7">
+								<input type="text" class="form-control" id="inputEmail3">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="phone" class="col-xs-3 control-label calcu_text">手机号</label>
+							<div class="col-xs-7">
+								<input type="text" class="form-control" id="phone">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="phone" class="col-xs-3 control-label calcu_text">验证码</label>
+							<div class="col-xs-7">
+								<input type="text" class="form-control truck_code" id="code">
+								<button class="btn code_btn">获取验证码</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3"></div>
+							<div class="col-xs-7">
+								<a class="btn-block btn-primary btn" href="schedule.html">提交查询</a>
+							</div>
+						</div>
+					</form>
 				</div>
-				<div class="col-xs-5">
-					<div class="m_cost fin_box" style="margin: 0;">
-						<h3 style="margin-top: 1px;">进度查询</h3>
-						<form class="form-horizontal">
+			</div>
+			<div class="col-xs-5" ms-controller="mortgage">
+				<div class="m_cost fin_box" style="margin-top: 0;">
+					<h3 style="margin-top: 1px;">贷款计算器</h3>
+					<div class="form-horizontal" style="padding:10px 15px;">
+						<div ms-if="show == 'start'">
 							<div class="form-group">
-								<label for="inputEmail3" class="col-xs-3 control-label calcu_text">姓名</label>
+								<label for="borrow" class="col-xs-3 control-label calcu_text">借款金额</label>
 								<div class="col-xs-7">
-									<input type="text" class="form-control" id="inputEmail3">
+									<input type="text" class="form-control" id="borrow" ms-attr-value="borrow" ms-duplex="borrow">
+									<span class="truck_measure">万元</span>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="phone" class="col-xs-3 control-label calcu_text">手机号</label>
+								<label for="userType" class="col-xs-3 control-label calcu_text">用户类型</label>
 								<div class="col-xs-7">
-									<input type="text" class="form-control" id="phone">
+									<select class="form-control" id="userType">
+										<option ms-repeat="typeArray">{{ el }}</option>
+									</select>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="phone" class="col-xs-3 control-label calcu_text">验证码</label>
+								<label for="monthSalary" class="col-xs-3 control-label calcu_text">税后月薪</label>
 								<div class="col-xs-7">
-									<input type="text" class="form-control truck_code" id="code">
-									<button class="btn code_btn">获取验证码</button>
+									<input type="text" class="form-control" id="monthSalary" ms-attr-value="monthSalary" ms-duplex="monthSalary">
+									<span class="truck_measure">元</span>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-3"></div>
 								<div class="col-xs-7">
-									<a class="btn-block btn-primary btn" href="schedule.html">提交查询</a>
+									<button class="btn-block btn-primary btn" ms-click="start">开始计算</button>
 								</div>
 							</div>
-						</form>
-					</div>
-				</div>
-				<div class="col-xs-5" ms-controller="mortgage">
-					<div class="m_cost fin_box" style="margin-top: 0;">
-						<h3 style="margin-top: 1px;">贷款计算器</h3>
-						<div class="form-horizontal" style="padding:10px 15px;">
-							<div ms-if="show == 'start'">
-								<div class="form-group">
-									<label for="borrow" class="col-xs-3 control-label calcu_text">借款金额</label>
-									<div class="col-xs-7">
-										<input type="text" class="form-control" id="borrow" ms-attr-value="borrow" ms-duplex="borrow">
-										<span class="truck_measure">万元</span>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="userType" class="col-xs-3 control-label calcu_text">用户类型</label>
-									<div class="col-xs-7">
-										<select class="form-control" id="userType">
-											<option ms-repeat="typeArray">{{ el }}</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="monthSalary" class="col-xs-3 control-label calcu_text">税后月薪</label>
-									<div class="col-xs-7">
-										<input type="text" class="form-control" id="monthSalary" ms-attr-value="monthSalary" ms-duplex="monthSalary">
-										<span class="truck_measure">元</span>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-3"></div>
-									<div class="col-xs-7">
-										<button class="btn-block btn-primary btn" ms-click="start">开始计算</button>
-									</div>
+						</div>
+						<div ms-if="show == 'restart'">
+							<div class="form-group">
+								<label for="borrow" class="col-xs-3 control-label calcu_text">借款金额</label>
+								<div class="col-xs-7">
+									<p class="truck_result">{{ payResult }}元</p>
 								</div>
 							</div>
-							<div ms-if="show == 'restart'">
-								<div class="form-group">
-									<label for="borrow" class="col-xs-3 control-label calcu_text">借款金额</label>
-									<div class="col-xs-7">
-										<p class="truck_result">{{ payResult }}元</p>
-									</div>
+							<div class="form-group">
+								<label for="userType" class="col-xs-3 control-label calcu_text">还款期限</label>
+								<div class="col-xs-7">
+									<select class="form-control" id="userType" ms-duplex="monthChange">
+										<option ms-repeat="month" ms-attr-value="el">{{ el }}个月</option>
+									</select>
 								</div>
-								<div class="form-group">
-									<label for="userType" class="col-xs-3 control-label calcu_text">还款期限</label>
-									<div class="col-xs-7">
-										<select class="form-control" id="userType" ms-duplex="monthChange">
-											<option ms-repeat="month" ms-attr-value="el">{{ el }}个月</option>
-										</select>
-									</div>
+							</div>
+							<div class="form-group">
+								<label for="monthPay" class="col-xs-3 control-label calcu_text">每月还款</label>
+								<div class="col-xs-7">
+									<p class="truck_result">{{ payMonth }}元</p>
 								</div>
-								<div class="form-group">
-									<label for="monthPay" class="col-xs-3 control-label calcu_text">每月还款</label>
-									<div class="col-xs-7">
-										<p class="truck_result">{{ payMonth }}元</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-3"></div>
-									<div class="col-xs-7">
-										<button class="btn-block btn-primary btn" ms-click="restart">重新开始</button>
-									</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-3"></div>
+								<div class="col-xs-7">
+									<button class="btn-block btn-primary btn" ms-click="restart">重新开始</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 
-			</div>
-			<!--申请条件，所需材料-->
-			<div class="row" style="margin: 0;box-shadow: 0 0 5px rgba(0,0,0,.1);margin-top: 10px;">
-				<div role="tabpanel" class="apply_condition" id="home">
-					<div class="col-xs-4">
-						<h3 class="truck_h3">申请条件</h3>
-						<div class="truck_ask">
-							<ol>
-								<li>须为8年以内的车辆，并通过年检；</li>
-								<li>车辆在9座及9座以下；</li>
-								<li>车险必须在有效期内，被保险人和车主必须一致。</li>
-							</ol>
-						</div>
-					</div>
-					<div class="col-xs-4">
-						<h3 class="truck_h3">申请材料（公司）</h3>
-						<div class="truck_ask">
-							<ol>
-								<li>营业执照（两份加盖公章）</li>
-								<li>组织机构代码 （两份加盖公章）</li>
-								<li>税务登记证（两份加盖公章） </li>
-								<li>道路运输许可证（两份加盖公章）</li>
-								<li>企业半年银行流水（两份加盖公章）</li>
-								<li>运输合同 （两份加盖公章）</li>
-								<li>资产证明（两份加盖公章）</li>
-								<li>公司章程（两份加盖公章）</li>
-							</ol>
-						</div>
-					</div>
-					<div class="col-xs-4">
-						<h3 class="truck_h3">申请材料（个人）</h3>
-						<div class="truck_ask">
-							<ol>
-								<li>借款人夫妻双方身份证，户口本，结婚证，居住证 </li>
-								<li>个人征信查询授权委托书 </li>
-								<li>订车合同，订金收据</li>
-								<li>收入证明</li>
-								<li>资产证明 （两份加盖公章）</li>
-								<li>银行流水 （半年）</li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--其他板块广告-->
-			<div class="row">
-				<div class="col-xs-6">
-					<h3 class="truck_h3">重卡商城</h3>
-					<div class="truck_ask" style="text-align: center;">
-						<img src="imgs/重卡.jpg"  style="width: 100%;"/>
-					</div>
-				</div>
-				<div class="col-xs-6">
-					<h3 class="truck_h3">运力云</h3>
-					<div class="truck_ask" style="text-align: center;">
-						<img src="imgs/i_nav_f.jpg" style="width: 100%;" />
-					</div>
-				</div>
-			</div>
-			<!--常见问题，公告-->
-			<div class="row">
+		</div>
+		<!--申请条件，所需材料-->
+		<div class="row" style="margin: 0;box-shadow: 0 0 5px rgba(0,0,0,.1);margin-top: 10px;">
+			<div role="tabpanel" class="apply_condition" id="home">
 				<div class="col-xs-4">
-					<div class="news_container">
-						<h4><span>?</span>常见问题</h4>
-						<ul class="nav">
-							<li><a href="news.html">什么是汽车金融公司？</a>
-							</li>
-							<li><a href="news.html">什么是汽车消费信贷</a>
-							</li>
-							<li><a href="news.html">款未付清期间,车辆发生质量问题怎么办?</a>
-							</li>
-							<li><a href="news.html">消费信贷采用何种计算方法</a>
-							</li>
-							<li><a href="news.html">什么是保证贷款，保证人负什么责任</a>
-							</li>
-							<li><a href="news.html">分期付款购车是否可以当场提车</a>
-							</li>
-						</ul>
+					<h3 class="truck_h3">申请条件</h3>
+					<div class="truck_ask">
+						<ol>
+							<li>须为8年以内的车辆，并通过年检；</li>
+							<li>车辆在9座及9座以下；</li>
+							<li>车险必须在有效期内，被保险人和车主必须一致。</li>
+						</ol>
 					</div>
 				</div>
 				<div class="col-xs-4">
-					<div class="news_container">
-						<h4><span>?</span>新手必读</h4>
-						<ul class="nav">
-							<li><a href="news.html">汽车抵押贷款额度是多少?</a>
-							</li>
-							<li><a href="news.html">如何办理汽车抵押登记手续?</a>
-							</li>
-							<li><a href="news.html">获得汽车抵押贷款后，可以提前还款吗?</a>
-							</li>
-							<li><a href="news.html">如何解除汽车抵押?</a>
-							</li>
-							<li><a href="news.html">消费信贷购车申请人必须具备哪些条件?</a>
-							</li>
-							<li><a href="news.html">购车人应提供哪些资料?</a>
-							</li>
-						</ul>
+					<h3 class="truck_h3">申请材料（公司）</h3>
+					<div class="truck_ask">
+						<ol>
+							<li>营业执照（两份加盖公章）</li>
+							<li>组织机构代码 （两份加盖公章）</li>
+							<li>税务登记证（两份加盖公章） </li>
+							<li>道路运输许可证（两份加盖公章）</li>
+							<li>企业半年银行流水（两份加盖公章）</li>
+							<li>运输合同 （两份加盖公章）</li>
+							<li>资产证明（两份加盖公章）</li>
+							<li>公司章程（两份加盖公章）</li>
+						</ol>
 					</div>
 				</div>
 				<div class="col-xs-4">
-					<div class="news_container">
-						<h4><span>?</span>关于服务</h4>
-						<ul class="nav">
-							<li><a href="news.html">银行信用卡分期购车</a>
-							</li>
-							<li><a href="news.html">汽车企业金融公司贷款</a>
-							</li>
-							<li><a href="news.html">银行个人购车贷款</a>
-							</li>
-							<li><a href="news.html">线上供应链金融</a>
-							</li>
-							<li><a href="news.html">国内贸易融资业务</a>
-							</li>
-							<li><a href="news.html">国际贸易融资业务</a>
-							</li>
-						</ul>
+					<h3 class="truck_h3">申请材料（个人）</h3>
+					<div class="truck_ask">
+						<ol>
+							<li>借款人夫妻双方身份证，户口本，结婚证，居住证 </li>
+							<li>个人征信查询授权委托书 </li>
+							<li>订车合同，订金收据</li>
+							<li>收入证明</li>
+							<li>资产证明 （两份加盖公章）</li>
+							<li>银行流水 （半年）</li>
+						</ol>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div style="width:100%;background-color:#4394A5;margin-top: 20px;">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-6" style="padding: 0;">
-						<span><img src="imgs/mor1.jpg" style="width: 100%;"/></span>
-					</div>
-					<div class="col-xs-6" style="padding: 0;">
-						<span><img src="imgs/mor2.jpg" style="width: 100%;"/></span>
-					</div>
+		<!--其他板块广告-->
+		<div class="row">
+			<div class="col-xs-6">
+				<h3 class="truck_h3">重卡商城</h3>
+				<div class="truck_ask" style="text-align: center;">
+					<img src="imgs/重卡.jpg"  style="width: 100%;"/>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<h3 class="truck_h3">运力云</h3>
+				<div class="truck_ask" style="text-align: center;">
+					<img src="imgs/i_nav_f.jpg" style="width: 100%;" />
 				</div>
 			</div>
 		</div>
-		<!--尾部-->
-		<footer class="container-fluid truck_footer">
+		<!--常见问题，公告-->
+		<div class="row">
+			<div class="col-xs-4">
+				<div class="news_container">
+					<h4><span>?</span>常见问题</h4>
+					<ul class="nav">
+						<li><a href="news.html">什么是汽车金融公司？</a>
+						</li>
+						<li><a href="news.html">什么是汽车消费信贷</a>
+						</li>
+						<li><a href="news.html">款未付清期间,车辆发生质量问题怎么办?</a>
+						</li>
+						<li><a href="news.html">消费信贷采用何种计算方法</a>
+						</li>
+						<li><a href="news.html">什么是保证贷款，保证人负什么责任</a>
+						</li>
+						<li><a href="news.html">分期付款购车是否可以当场提车</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="news_container">
+					<h4><span>?</span>新手必读</h4>
+					<ul class="nav">
+						<li><a href="news.html">汽车抵押贷款额度是多少?</a>
+						</li>
+						<li><a href="news.html">如何办理汽车抵押登记手续?</a>
+						</li>
+						<li><a href="news.html">获得汽车抵押贷款后，可以提前还款吗?</a>
+						</li>
+						<li><a href="news.html">如何解除汽车抵押?</a>
+						</li>
+						<li><a href="news.html">消费信贷购车申请人必须具备哪些条件?</a>
+						</li>
+						<li><a href="news.html">购车人应提供哪些资料?</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="news_container">
+					<h4><span>?</span>关于服务</h4>
+					<ul class="nav">
+						<li><a href="news.html">银行信用卡分期购车</a>
+						</li>
+						<li><a href="news.html">汽车企业金融公司贷款</a>
+						</li>
+						<li><a href="news.html">银行个人购车贷款</a>
+						</li>
+						<li><a href="news.html">线上供应链金融</a>
+						</li>
+						<li><a href="news.html">国内贸易融资业务</a>
+						</li>
+						<li><a href="news.html">国际贸易融资业务</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="width:100%;background-color:#4394A5;margin-top: 20px;">
+		<div class="container">
 			<div class="row">
-				<div class="col-xs-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">中国银行</a>
-						</li>
-						<li><a href="javascript:;">平安银行</a>
-						</li>
-						<li><a href="javascript:;">浦发银行</a>
-						</li>
-						<li><a href="javascript:;">工商银行</a>
-						</li>
-					</ul>
+				<div class="col-xs-6" style="padding: 0;">
+					<span><img src="imgs/mor1.jpg" style="width: 100%;"/></span>
 				</div>
-				<div class="col-xs-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">农业银行</a>
-						</li>
-						<li><a href="javascript:;">建设银行</a>
-						</li>
-						<li><a href="javascript:;">光大银行</a>
-						</li>
-						<li><a href="javascript:;">招商银行</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">汽车之家</a>
-						</li>
-						<li><a href="javascript:;">卡车之家</a>
-						</li>
-						<li><a href="javascript:;">新浪汽车</a>
-						</li>
-						<li><a href="javascript:;">腾讯汽车</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">易车汽车论坛</a>
-						</li>
-						<li><a href="javascript:;">中国买车网</a>
-						</li>
-						<li><a href="javascript:;">搜狐汽车</a>
-						</li>
-						<li><a href="javascript:;">中国高速网</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">二手卡车网</a>
-						</li>
-						<li><a href="javascript:;">汽配英才网</a>
-						</li>
-						<li><a href="javascript:;">北京二手车</a>
-						</li>
-						<li><a href="javascript:;">中国人才网</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">我爱车网</a>
-						</li>
-						<li><a href="javascript:;">汽配中国网</a>
-						</li>
-						<li><a href="javascript:;">深圳二手车</a>
-						</li>
-						<li><a href="javascript:;">车生活网</a>
-						</li>
-					</ul>
+				<div class="col-xs-6" style="padding: 0;">
+					<span><img src="imgs/mor2.jpg" style="width: 100%;"/></span>
 				</div>
 			</div>
+		</div>
+	</div>
+	<!--尾部-->
+	<footer class="container-fluid truck_footer">
+		<div class="row">
+			<div class="col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">中国银行</a>
+					</li>
+					<li><a href="javascript:;">平安银行</a>
+					</li>
+					<li><a href="javascript:;">浦发银行</a>
+					</li>
+					<li><a href="javascript:;">工商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">农业银行</a>
+					</li>
+					<li><a href="javascript:;">建设银行</a>
+					</li>
+					<li><a href="javascript:;">光大银行</a>
+					</li>
+					<li><a href="javascript:;">招商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">汽车之家</a>
+					</li>
+					<li><a href="javascript:;">卡车之家</a>
+					</li>
+					<li><a href="javascript:;">新浪汽车</a>
+					</li>
+					<li><a href="javascript:;">腾讯汽车</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">易车汽车论坛</a>
+					</li>
+					<li><a href="javascript:;">中国买车网</a>
+					</li>
+					<li><a href="javascript:;">搜狐汽车</a>
+					</li>
+					<li><a href="javascript:;">中国高速网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">二手卡车网</a>
+					</li>
+					<li><a href="javascript:;">汽配英才网</a>
+					</li>
+					<li><a href="javascript:;">北京二手车</a>
+					</li>
+					<li><a href="javascript:;">中国人才网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">我爱车网</a>
+					</li>
+					<li><a href="javascript:;">汽配中国网</a>
+					</li>
+					<li><a href="javascript:;">深圳二手车</a>
+					</li>
+					<li><a href="javascript:;">车生活网</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-			<div class="row truck_address">
-				<p>Copyright ©XSJ All Rights Reserved</p>
-				<p>© 2015 鑫森捷 京ICP备14026002号</p>
-			</div>
-		</footer>
-	</body>
+		<div class="row truck_address">
+			<p>Copyright ©XSJ All Rights Reserved</p>
+			<p>© 2015 鑫森捷 京ICP备14026002号</p>
+		</div>
+	</footer>
+</body>
 
 </html>
