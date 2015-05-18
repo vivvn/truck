@@ -1,201 +1,191 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>加盟介绍-货源介绍</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/truck.css" />
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/avalon.min.js"></script>
-		<script>
-            var joinDelModel = avalon.define({
-                $id : "joinDelModel",
-                navData : [
-                    {href:"index",val:"首页"},
-                    {href:"mortgage",val:"车贷服务"},
-                    {href:"trucks",val:"重卡平台"},
-                    {href:"transport",val:"运力云"},
-                    {href:"affiliate",val:"我要挂靠"},
-                    {href:"join",val:"我要加盟"},
-                ],
-                active : 5
-            });
-        </script>
-	</head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>加盟介绍-货源介绍</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/truck.css" />
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/avalon.min.js"></script>
+  <script>
+    var joinDelModel = avalon.define({
+        $id : "joinDelModel",
+        navData : [
+        {href:"index",val:"首页"},
+        {href:"mortgage",val:"车贷服务"},
+        {href:"trucks",val:"重卡平台"},
+        {href:"transport",val:"运力云"},
+        {href:"affiliate",val:"我要挂靠"},
+        {href:"join",val:"我要加盟"},
+        ],
+        active : 5
+    });
+</script>
+</head>
 
-	<body ms-controller="joinDelModel">
-		<!--头部-->
-		<header class="navbar navbar-default navbar_truck">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a href="index.html" class="navbar-brand">
-
-                    Logo
-
-                </a>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-collapse">
-					<ul class="nav navbar-nav navbar-right text-info">
-						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
-				        </li>
-						<li>
-							<button class="btn btn-default truck_sign" type="submit">注册</button>
-							<button class="btn btn-default truck_login" type="submit">登录</button>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</header>
-
-        <!-- 文章内容  -->
-        <div class="container">
-            <div class="col-sm-3"></div>
-            <div class="col-xs-12 col-sm-6 struck_form">
-                <h1 style="text-align:center;margin:20px 0;">填写资料</h1>
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="userName" class="col-sm-2 control-label">姓名</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="userName">
+<body ms-controller="joinDelModel">
+    <!--头部导航开始-->
+    <div class="wrap_header">
+        <div class="niwdoawi_center container">
+            <div class="w1000 logo clearfix">
+                <a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+                <div class="fr righ">
+                    <ul class="nav navbar-nav navbar-right text-info">
+                        <li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+                            <li>
+                                <button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+                                <button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+                            </li>
+                        </ul>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="driving" class="col-sm-2 control-label">行驶证</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="driving">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="type" class="col-sm-2 control-label">车型</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="type">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="car" class="col-sm-2 control-label">车牌</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="car">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="iden" class="col-sm-2 control-label">身份证</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="iden">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="concat" class="col-sm-2 control-label">联系方式</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="concat">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="driving" class="col-sm-2 control-label">简述</label>
-                    <div class="col-sm-10">
-                      <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-10 col-sm-2">
-                      <button type="submit" class="btn btn-default">提  交</button>
-                    </div>
-                  </div>
-                </form>
+                </div>
             </div>
         </div>
-		<!--尾部-->
-			<footer class="container-fluid truck_footer">
-				<div class="row">
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">中国银行</a>
-							</li>
-							<li><a href="javascript:;">平安银行</a>
-							</li>
-							<li><a href="javascript:;">浦发银行</a>
-							</li>
-							<li><a href="javascript:;">工商银行</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">农业银行</a>
-							</li>
-							<li><a href="javascript:;">建设银行</a>
-							</li>
-							<li><a href="javascript:;">光大银行</a>
-							</li>
-							<li><a href="javascript:;">招商银行</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">汽车之家</a>
-							</li>
-							<li><a href="javascript:;">卡车之家</a>
-							</li>
-							<li><a href="javascript:;">新浪汽车</a>
-							</li>
-							<li><a href="javascript:;">腾讯汽车</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">易车汽车论坛</a>
-							</li>
-							<li><a href="javascript:;">中国买车网</a>
-							</li>
-							<li><a href="javascript:;">搜狐汽车</a>
-							</li>
-							<li><a href="javascript:;">中国高速网</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">二手卡车网</a>
-							</li>
-							<li><a href="javascript:;">汽配英才网</a>
-							</li>
-							<li><a href="javascript:;">北京二手车</a>
-							</li>
-							<li><a href="javascript:;">中国人才网</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">我爱车网</a>
-							</li>
-							<li><a href="javascript:;">汽配中国网</a>
-							</li>
-							<li><a href="javascript:;">深圳二手车</a>
-							</li>
-							<li><a href="javascript:;">车生活网</a>
-							</li>
-						</ul>
-					</div>
-				</div>
+    </div>
+    <!--头部导航结束-->
 
-				<div class="row truck_address">
-					<p>Copyright ©XSJ All Rights Reserved</p>
-					<p>© 2015 鑫森捷 京ICP备14026002号</p>
-				</div>
-			</footer>
+    <!-- 文章内容  -->
+    <div class="container">
+        <div class="col-xs-offset-3 col-xs-6 struck_form">
+            <h1 style="text-align:center;margin:20px 0;">填写资料</h1>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="userName" class="col-xs-2 control-label">姓名</label>
+                <div class="col-xs-10">
+                  <input type="text" class="form-control" id="userName">
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="driving" class="col-xs-2 control-label">行驶证</label>
+            <div class="col-xs-10">
+              <input type="text" class="form-control" id="driving">
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="type" class="col-xs-2 control-label">车型</label>
+        <div class="col-xs-10">
+          <input type="text" class="form-control" id="type">
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="car" class="col-xs-2 control-label">车牌</label>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" id="car">
+  </div>
+</div>
+<div class="form-group">
+    <label for="iden" class="col-xs-2 control-label">身份证</label>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" id="iden">
+  </div>
+</div>
+<div class="form-group">
+    <label for="concat" class="col-xs-2 control-label">联系方式</label>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" id="concat">
+  </div>
+</div>
+<div class="form-group">
+    <label for="driving" class="col-xs-2 control-label">简述</label>
+    <div class="col-xs-10">
+      <textarea class="form-control" rows="3"></textarea>
+  </div>
+</div>
+<div class="form-group">
+    <div class="col-xs-offset-10 col-xs-2">
+      <button type="submit" class="btn btn-default">提  交</button>
+  </div>
+</div>
+</form>
+</div>
+</div>
+<!--尾部-->
+<footer class="container-fluid truck_footer">
+    <div class="row">
+     <div class="col-xs-4 col-xs-2">
+      <ul class="list-unstyled">
+       <li><a href="javascript:;">中国银行</a>
+       </li>
+       <li><a href="javascript:;">平安银行</a>
+       </li>
+       <li><a href="javascript:;">浦发银行</a>
+       </li>
+       <li><a href="javascript:;">工商银行</a>
+       </li>
+   </ul>
+</div>
+<div class="col-xs-4 col-xs-2">
+  <ul class="list-unstyled">
+   <li><a href="javascript:;">农业银行</a>
+   </li>
+   <li><a href="javascript:;">建设银行</a>
+   </li>
+   <li><a href="javascript:;">光大银行</a>
+   </li>
+   <li><a href="javascript:;">招商银行</a>
+   </li>
+</ul>
+</div>
+<div class="col-xs-4 col-xs-2">
+  <ul class="list-unstyled">
+   <li><a href="javascript:;">汽车之家</a>
+   </li>
+   <li><a href="javascript:;">卡车之家</a>
+   </li>
+   <li><a href="javascript:;">新浪汽车</a>
+   </li>
+   <li><a href="javascript:;">腾讯汽车</a>
+   </li>
+</ul>
+</div>
+<div class="col-xs-4 col-xs-2">
+  <ul class="list-unstyled">
+   <li><a href="javascript:;">易车汽车论坛</a>
+   </li>
+   <li><a href="javascript:;">中国买车网</a>
+   </li>
+   <li><a href="javascript:;">搜狐汽车</a>
+   </li>
+   <li><a href="javascript:;">中国高速网</a>
+   </li>
+</ul>
+</div>
+<div class="col-xs-4 col-xs-2">
+  <ul class="list-unstyled">
+   <li><a href="javascript:;">二手卡车网</a>
+   </li>
+   <li><a href="javascript:;">汽配英才网</a>
+   </li>
+   <li><a href="javascript:;">北京二手车</a>
+   </li>
+   <li><a href="javascript:;">中国人才网</a>
+   </li>
+</ul>
+</div>
+<div class="col-xs-4 col-xs-2">
+  <ul class="list-unstyled">
+   <li><a href="javascript:;">我爱车网</a>
+   </li>
+   <li><a href="javascript:;">汽配中国网</a>
+   </li>
+   <li><a href="javascript:;">深圳二手车</a>
+   </li>
+   <li><a href="javascript:;">车生活网</a>
+   </li>
+</ul>
+</div>
+</div>
 
-	</body>
+<div class="row truck_address">
+ <p>Copyright ©XSJ All Rights Reserved</p>
+ <p>© 2015 鑫森捷 京ICP备14026002号</p>
+</div>
+</footer>
+
+</body>
 
 </html>

@@ -1,117 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>运力云</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/bootstrap-grid-ms.min.css">
-		<link rel="stylesheet" href="css/truck.css" />
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/hhDrop.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/avalon.min.js"></script>
-		<script>
-			$(function(){
-			    $('#hhDrop00').hhDrop({});
-			    $('#hhDrop01').hhDrop({});
-			    $('#hhDrop02').hhDrop({});
-            });
-            var transportModel = avalon.define({
-                $id : "transport",
-                navData : [
-                    {href:"index",val:"首页"},
-                    {href:"mortgage",val:"车贷服务"},
-                    {href:"trucks",val:"重卡平台"},
-                    {href:"transport",val:"运力云"},
-                    {href:"affiliate",val:"我要挂靠"},
-                    {href:"join",val:"我要加盟"},
-                ],
-                active : 3
-            });
-		</script>
-	</head>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>运力云</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap-grid-ms.min.css">
+	<link rel="stylesheet" href="css/truck.css" />
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/hhDrop.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/avalon.min.js"></script>
+	<script>
+		$(function(){
+			$('#hhDrop00').hhDrop({});
+			$('#hhDrop01').hhDrop({});
+			$('#hhDrop02').hhDrop({});
+		});
+		var transportModel = avalon.define({
+			$id : "transport",
+			navData : [
+			{href:"index",val:"首页"},
+			{href:"mortgage",val:"车贷服务"},
+			{href:"trucks",val:"重卡平台"},
+			{href:"transport",val:"运力云"},
+			{href:"affiliate",val:"我要挂靠"},
+			{href:"join",val:"我要加盟"},
+			],
+			active : 3
+		});
+	</script>
+</head>
 
-	<body ms-controller="transport">
-
-			<!--头部-->
-			<header class="navbar navbar-default navbar_truck">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a href="index.html" class="navbar-brand">
-                    Logo
-                </a>
-					</div>
-					<div class="collapse navbar-collapse" id="navbar-collapse">
-						<ul class="nav navbar-nav navbar-right text-info">
-							<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
-				            </li>
+<body ms-controller="transport">
+	<!--头部导航开始-->
+	<div class="wrap_header">
+		<div class="niwdoawi_center container">
+			<div class="w1000 logo clearfix">
+				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+				<div class="fr righ">
+					<ul class="nav navbar-nav navbar-right text-info">
+						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
 							<li>
-								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'">注册</button>
-								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'">登录</button>
+								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
 							</li>
 						</ul>
 					</div>
 				</div>
-			</header>
+			</div>
+		</div>
+	</div>
+	<!--头部导航结束-->
 
-			<!--轮播图-->
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-					<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-				</ol>
-				<div class="carousel-inner" role="listbox">
-					<div class="item">
-						<img alt="轮播图" src="imgs/运力云01.jpg" data-holder-rendered="true">
-					</div>
-					<div class="item">
-						<img alt="轮播图" src="imgs/运力云02.jpg" data-holder-rendered="true">
-					</div>
-					<div class="item active">
-						<img alt="轮播图" src="imgs/运力云03.jpg" data-holder-rendered="true">
+	<!--轮播图-->
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item">
+				<img alt="轮播图" src="imgs/运力云01.jpg" data-holder-rendered="true">
+			</div>
+			<div class="item">
+				<img alt="轮播图" src="imgs/运力云02.jpg" data-holder-rendered="true">
+			</div>
+			<div class="item active">
+				<img alt="轮播图" src="imgs/运力云03.jpg" data-holder-rendered="true">
+			</div>
+		</div>
+	</div>
+	<!--入口-->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2"></div>
+			<a href="about_transport.html">
+				<div class="col-xs-12 col-ms-6 col-sm-4">
+					<div class="logistics_server transport_index_classify">
+						<div class="transport_logistics_pic1">
+							<img src="imgs/index3.png" />
+						</div>
+						<p>我是运力</p>
+						<span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。有大件运输，仓储，中转分流，空车配货，集装箱运输，冷藏运输等项目。</span>
 					</div>
 				</div>
-			</div>
-			<!--入口-->
-			<div class="container">
-                <div class="row">
-                            <div class="col-sm-2"></div>
-                        <a href="about_transport.html">
-                            <div class="col-xs-12 col-ms-6 col-sm-4">
-                                <div class="logistics_server transport_index_classify">
-                                    <div class="transport_logistics_pic1">
-                                        <img src="imgs/index3.png" />
-                                    </div>
-                                    <p>我是运力</p>
-                                    <span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。有大件运输，仓储，中转分流，空车配货，集装箱运输，冷藏运输等项目。</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="publishi.html">
-                            <div class="col-xs-12 col-ms-6 col-sm-4">
-                                <div class="logistics_server transport_index_classify">
-                                    <div class="transport_logistics_pic2">
-                                        <img src="imgs/index2.png" />
-                                    </div>
-                                    <p>我要发单</p>
-                                    <span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。有大件运输，仓储，中转分流，空车配货，集装箱运输，冷藏运输等项目。</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="col-sm-2"></div>
-                </div>
-			</div>
-			<!--抢单筛选-->
+			</a>
+			<a href="publishi.html">
+				<div class="col-xs-12 col-ms-6 col-sm-4">
+					<div class="logistics_server transport_index_classify">
+						<div class="transport_logistics_pic2">
+							<img src="imgs/index2.png" />
+						</div>
+						<p>我要发单</p>
+						<span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。有大件运输，仓储，中转分流，空车配货，集装箱运输，冷藏运输等项目。</span>
+					</div>
+				</div>
+			</a>
+			<div class="col-sm-2"></div>
+		</div>
+	</div>
+	<!--抢单筛选-->
 			<!--<div class="container select_address_days">
 				<div class="row">
 					<ul style="width: 100%;margin-top: 25px;">
@@ -460,110 +452,110 @@
 						</div>
 
 					</div>
-			</div>-->
-			<!--关于“运力云”平台的介绍-->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="trans_wrap">
-	                        <div>
-	                            <span class="trans_texttit"><span class="trans_texttit_1"></span>关于“运力云”平台</span>
-	                        </div>
-	                        <p>&nbsp;</p>
-	                        <span class="trans_text">
-	                        	<p>“运力云”平台采取货主和司机双方信用机制，透明化管理，运力云平台凭借双方信用机制数据驱动“运力无忧”计划，使的运力团队的质量得到有效的控制；再加上一套运力云团队自主开发的供求对接运作系统，集成运力的供求对接系统及结算系统，实现对货主的“运力无忧”。</p>
-	                        	<p>“运力云”平台中，供需是一手对接的平台，货主准确了解到开车的司机，跟车员工的质量；司机能够了解到货主的习惯，质量与速度都能得以提升之外，更免除了中间多级承包而导致的行业利润低微、质量参次的局面。</p>
-	                        	<p>“运力云”平台为司机提供最为完善的保理服务，车主选择挂靠在“运力云”平台，车主将获得平台提供的保险代购、理赔定损、加油垫付、维修垫付、旧车回收、购车置换等一系列的保理服务，全方位保障车主的利益。</p>
-	                        	<p>“运力云”后台会为每一笔交易做出明确记录，货主、车队、司机、平台间的费用交割都有流水记录，运输费用一目了然。同时，“运力云”平台还将会为车队、司机提供应付款贴现功能，车队、司机的资金调度更灵活！</p>
-	                        	<p>“运力云”平台会为货物运输提供最优化的线路选择，并且实现运输全程定位，物流中的GPS数据会与车主和货主共享，货主可通过网页或手持端软件实时了解运输情况，确认接货上车，卸货，货品换车等行为。并同时进行箱号登记。</p>
-							</span>
-				    	</div>
-					</div>
-				</div>
-			</div>
-
-			<!--尾部-->
-			<footer class="container-fluid truck_footer">
-				<div class="row">
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">中国银行</a>
-							</li>
-							<li><a href="javascript:;">平安银行</a>
-							</li>
-							<li><a href="javascript:;">浦发银行</a>
-							</li>
-							<li><a href="javascript:;">工商银行</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">农业银行</a>
-							</li>
-							<li><a href="javascript:;">建设银行</a>
-							</li>
-							<li><a href="javascript:;">光大银行</a>
-							</li>
-							<li><a href="javascript:;">招商银行</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">汽车之家</a>
-							</li>
-							<li><a href="javascript:;">卡车之家</a>
-							</li>
-							<li><a href="javascript:;">新浪汽车</a>
-							</li>
-							<li><a href="javascript:;">腾讯汽车</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">易车汽车论坛</a>
-							</li>
-							<li><a href="javascript:;">中国买车网</a>
-							</li>
-							<li><a href="javascript:;">搜狐汽车</a>
-							</li>
-							<li><a href="javascript:;">中国高速网</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">二手卡车网</a>
-							</li>
-							<li><a href="javascript:;">汽配英才网</a>
-							</li>
-							<li><a href="javascript:;">北京二手车</a>
-							</li>
-							<li><a href="javascript:;">中国人才网</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">我爱车网</a>
-							</li>
-							<li><a href="javascript:;">汽配中国网</a>
-							</li>
-							<li><a href="javascript:;">深圳二手车</a>
-							</li>
-							<li><a href="javascript:;">车生活网</a>
-							</li>
-						</ul>
+				</div>-->
+				<!--关于“运力云”平台的介绍-->
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="trans_wrap">
+								<div>
+									<span class="trans_texttit"><span class="trans_texttit_1"></span>关于“运力云”平台</span>
+								</div>
+								<p>&nbsp;</p>
+								<span class="trans_text">
+									<p>“运力云”平台采取货主和司机双方信用机制，透明化管理，运力云平台凭借双方信用机制数据驱动“运力无忧”计划，使的运力团队的质量得到有效的控制；再加上一套运力云团队自主开发的供求对接运作系统，集成运力的供求对接系统及结算系统，实现对货主的“运力无忧”。</p>
+									<p>“运力云”平台中，供需是一手对接的平台，货主准确了解到开车的司机，跟车员工的质量；司机能够了解到货主的习惯，质量与速度都能得以提升之外，更免除了中间多级承包而导致的行业利润低微、质量参次的局面。</p>
+									<p>“运力云”平台为司机提供最为完善的保理服务，车主选择挂靠在“运力云”平台，车主将获得平台提供的保险代购、理赔定损、加油垫付、维修垫付、旧车回收、购车置换等一系列的保理服务，全方位保障车主的利益。</p>
+									<p>“运力云”后台会为每一笔交易做出明确记录，货主、车队、司机、平台间的费用交割都有流水记录，运输费用一目了然。同时，“运力云”平台还将会为车队、司机提供应付款贴现功能，车队、司机的资金调度更灵活！</p>
+									<p>“运力云”平台会为货物运输提供最优化的线路选择，并且实现运输全程定位，物流中的GPS数据会与车主和货主共享，货主可通过网页或手持端软件实时了解运输情况，确认接货上车，卸货，货品换车等行为。并同时进行箱号登记。</p>
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<div class="row truck_address">
-					<p>Copyright ©XSJ All Rights Reserved</p>
-					<p>© 2015 鑫森捷 京ICP备14026002号</p>
-				</div>
-			</footer>
+				<!--尾部-->
+				<footer class="container-fluid truck_footer">
+					<div class="row">
+						<div class="col-xs-4 col-sm-2">
+							<ul class="list-unstyled">
+								<li><a href="javascript:;">中国银行</a>
+								</li>
+								<li><a href="javascript:;">平安银行</a>
+								</li>
+								<li><a href="javascript:;">浦发银行</a>
+								</li>
+								<li><a href="javascript:;">工商银行</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<ul class="list-unstyled">
+								<li><a href="javascript:;">农业银行</a>
+								</li>
+								<li><a href="javascript:;">建设银行</a>
+								</li>
+								<li><a href="javascript:;">光大银行</a>
+								</li>
+								<li><a href="javascript:;">招商银行</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<ul class="list-unstyled">
+								<li><a href="javascript:;">汽车之家</a>
+								</li>
+								<li><a href="javascript:;">卡车之家</a>
+								</li>
+								<li><a href="javascript:;">新浪汽车</a>
+								</li>
+								<li><a href="javascript:;">腾讯汽车</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<ul class="list-unstyled">
+								<li><a href="javascript:;">易车汽车论坛</a>
+								</li>
+								<li><a href="javascript:;">中国买车网</a>
+								</li>
+								<li><a href="javascript:;">搜狐汽车</a>
+								</li>
+								<li><a href="javascript:;">中国高速网</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<ul class="list-unstyled">
+								<li><a href="javascript:;">二手卡车网</a>
+								</li>
+								<li><a href="javascript:;">汽配英才网</a>
+								</li>
+								<li><a href="javascript:;">北京二手车</a>
+								</li>
+								<li><a href="javascript:;">中国人才网</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<ul class="list-unstyled">
+								<li><a href="javascript:;">我爱车网</a>
+								</li>
+								<li><a href="javascript:;">汽配中国网</a>
+								</li>
+								<li><a href="javascript:;">深圳二手车</a>
+								</li>
+								<li><a href="javascript:;">车生活网</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row truck_address">
+						<p>Copyright ©XSJ All Rights Reserved</p>
+						<p>© 2015 鑫森捷 京ICP备14026002号</p>
+					</div>
+				</footer>
 
 				<!--轮播图自动播放时间间隔-->
 				<script>
@@ -574,15 +566,15 @@
 					});
 
 					function hengshuping(){
-					  if(window.orientation==180||window.orientation==0){
-					        alert("网页为电脑端网页，请您横屏浏览效果更佳！");
-					   }
+						if(window.orientation==180||window.orientation==0){
+							alert("网页为电脑端网页，请您横屏浏览效果更佳！");
+						}
 						if(window.orientation==90||window.orientation==-90){
-						     return;
-					    }
-					 }
-						hengshuping();
+							return;
+						}
+					}
+					hengshuping();
 				</script>
-		</body>
+			</body>
 
-</html>
+			</html>

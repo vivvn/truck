@@ -1,4 +1,7 @@
-.truck_codea {
+body{
+	min-width: 1024px;
+}
+a {
 	color: #333;
 	text-decoration: none;
 }
@@ -8,6 +11,12 @@ a:hover {
 }
 * {
 	font-family: "微软雅黑";
+}
+.container{
+	min-width: 1024px !important;
+}
+textarea{
+	resize:vertical;
 }
 /*首页页面样式*/
 
@@ -261,17 +270,17 @@ a:hover {
 	top: 45px;
 }
 .tr_about_text {
-font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+	font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 .article_wrap{
-    margin: 10px;
-    margin-top: -20px;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
-    -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
-    -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
-    -o-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
+	margin: 10px;
+	margin-top: -20px;
+	padding: 30px;
+	border-radius: 5px;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
+	-webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
+	-o-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
 }
 
 .tr_call_us {
@@ -562,14 +571,14 @@ em {
 /*线路列表-索引结束*/
 /*“运力云”平台的优势介绍*/
 .trans_wrap{
-    margin: 10px;
-    margin-top: 10px;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
-    -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
-    -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
-    -o-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
+	margin: 10px;
+	margin-top: 10px;
+	padding: 30px;
+	border-radius: 5px;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
+	-webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
+	-o-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;
 }
 .trans_texttit {
 	font-size: 30px;
@@ -584,7 +593,7 @@ em {
 	top: 45px;
 }
 .trans_text {
-font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+	font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 .trans_text p{
 	text-indent: 2rem;
@@ -610,17 +619,84 @@ font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Ser
 .truck_active {
 	background-color: #E8E8E8;
 }
-.truck_sign,
-.truck_login {
+
+/*导航样式b*/
+.wrap_header{
+	width:100%;background-color:#f8f8f8;box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	height: 50px;
+}
+.niwdoawi_center {
+	width: 100%;
+	background-color: #F8F8F8;
+	position: relative;
+	z-index: 990;
+	min-width: 1010px;
+	height: 50px;
+}
+.niwdoawi_center .logo {
+	height: 50px;
+}
+.w1000 {
+	width: 1000px;
+	margin: 0 auto;
+}
+.clearfix {
+	display: block;
+	zoom: 1;
+}
+.niwdoawi_center .fl {
+	display: block;
+	width: 365px;
+}
+.pl_17 {
+	padding-left: 17px;
+}
+.fl {
+	float: left;
+	_display: inline;
+}
+.fr {
+	float: right;
+	_display: inline;
+}
+img {
+	border: 0;
+	display: inline-block;
+	vertical-align: middle;
 	margin-top: 10px;
-	color: #fff;
 }
-.truck_sign {
-	background-color: #00aadd;
+.niwdoawi_center .righ .nav {
+	width: 600px;
 }
-.truck_login {
-	background: #0d5878;
+.niwdoawi_center .righ .nav li {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	_display: inline;
+	position: relative;
 }
+.niwdoawi_center .righ .nav li a{
+	color: #333;
+	font-family: "微软雅黑";
+}
+.niwdoawi_center .righ .nav li .one {
+	padding: 0 26px;
+	color: #333;
+}
+.text-info{
+	margin-top: 0;
+}
+.text-info li:last-child{
+	margin-left: 5px;
+}
+.niwdoawi_center .righ .nav li a{
+	height: 50px;
+	line-height: 50px;
+	padding: 0 15px;
+}
+/*导航样式结束*/
+
+
 /*轮播图图片*/
 
 .carousel-inner>.item>a>img,
@@ -672,6 +748,8 @@ font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Ser
 }
 .code_btn {
 	float: right;
+	padding-left: 0;
+	padding-right: 0;
 	width: 37%;
 }
 .truck_tip {
@@ -977,7 +1055,7 @@ font: 400 20px/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Ser
 /*表单样式*/
 
 .struck_form {
-	margin: 10px;
+	margin-top: 10px;
 	padding: 30px;
 	border-radius: 5px;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 20px rgba(0, 0, 0, 0.1) inset;

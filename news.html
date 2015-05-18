@@ -1,203 +1,193 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>加盟介绍-货源介绍</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/truck.css" />
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/avalon.min.js"></script>
-		<script>
-            var joinDelModel = avalon.define({
-                $id : "joinDelModel",
-                navData : [
-                    {href:"index",val:"首页"},
-                    {href:"mortgage",val:"车贷服务"},
-                    {href:"trucks",val:"重卡平台"},
-                    {href:"transport",val:"运力云"},
-                    {href:"affiliate",val:"我要挂靠"},
-                    {href:"join",val:"我要加盟"},
-                ],
-                active : 5
-            });
-        </script>
-	</head>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>加盟介绍-货源介绍</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/truck.css" />
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/avalon.min.js"></script>
+	<script>
+		var joinDelModel = avalon.define({
+			$id : "joinDelModel",
+			navData : [
+			{href:"index",val:"首页"},
+			{href:"mortgage",val:"车贷服务"},
+			{href:"trucks",val:"重卡平台"},
+			{href:"transport",val:"运力云"},
+			{href:"affiliate",val:"我要挂靠"},
+			{href:"join",val:"我要加盟"},
+			],
+			active : 5
+		});
+	</script>
+</head>
 
-	<body ms-controller="joinDelModel">
-		<!--头部-->
-		<header class="navbar navbar-default navbar_truck">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a href="index.html" class="navbar-brand">
-
-                    Logo
-
-                </a>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-collapse">
+<body ms-controller="joinDelModel">
+	<!--头部导航开始-->
+	<div class="wrap_header">
+		<div class="niwdoawi_center container">
+			<div class="w1000 logo clearfix">
+				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+				<div class="fr righ">
 					<ul class="nav navbar-nav navbar-right text-info">
 						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
-				        </li>
-						<li>
-							<button class="btn btn-default truck_sign" type="submit">注册</button>
-							<button class="btn btn-default truck_login" type="submit">登录</button>
+							<li>
+								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--头部导航结束-->
+
+	<!--轮播图-->
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item">
+				<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
+			</div>
+			<div class="item">
+				<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
+			</div>
+			<div class="item active">
+				<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
+			</div>
+		</div>
+	</div>
+	<!-- 文章内容  -->
+	<div class="container">
+		<div class="starter-template">
+			<h1>文章标题</h1>
+			<p class="lead">我们卓越的品牌理念，尽善尽美的客户关系管理、现代物流企业的营销
+
+				模式、ISO9001国际服务质量标准、现代化的高效信息服务体系、个性化的
+
+				物流服务方式将构成全通物流强大的品牌支撑。团结、协作、务实、奋进、
+
+				高效、创新、共享、快乐、是构成我们企业文化的精髓，是体现诚信专业、
+
+				传承价值、和谐共赢的企业文化内涵。我们坚定不移地相信：经营理念是与
+
+				巨人同行，与国际同轨；加入我们，一起坚持不懈的努力，创造一个美好的
+
+				未来。我们卓越的品牌理念，尽善尽美的客户关系管理、现代物流企业的营
+
+				销模式、ISO9001国际服务质量标准、现代化的高效信息服务体系、个性化
+
+				的物流服务方式将构成全通物流强大的品牌支撑。团结、协作、务实、奋进
+
+				、高效、创新、共享、快乐、是构成我们企业文化的精髓，是体现诚信专业
+
+				、传承价值、和谐共赢的企业文化内涵。我们坚定不移地相信：经营理念是
+
+				与巨人同行，与国际同轨；加入我们，一起坚持不懈的努力，创造一个美好的未来。我们卓越的品牌
+
+				理念，尽善尽美的客户关系管理、现代物流企业的营销模式、ISO9001国际服务质量标准、现代化的
+
+				高效信息服务体系、个性化的物流服务方式将构成全通物流强大的品牌支撑。团结、协作、务实、奋
+
+				进、高效、创新、共享、快乐、是构成我们企业文化的精髓，是体现诚信专业、传承价值、和谐共赢
+
+				的企业文化内涵。我们坚定不移地相信：经营理念是与巨人同行，与国际同轨；加入我们，一起坚持
+
+				不懈的努力，创造一个美好的未来。</p>
+			</div>
+		</div>
+		<!--尾部-->
+		<footer class="container-fluid truck_footer">
+			<div class="row">
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">中国银行</a>
+						</li>
+						<li><a href="javascript:;">平安银行</a>
+						</li>
+						<li><a href="javascript:;">浦发银行</a>
+						</li>
+						<li><a href="javascript:;">工商银行</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">农业银行</a>
+						</li>
+						<li><a href="javascript:;">建设银行</a>
+						</li>
+						<li><a href="javascript:;">光大银行</a>
+						</li>
+						<li><a href="javascript:;">招商银行</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">汽车之家</a>
+						</li>
+						<li><a href="javascript:;">卡车之家</a>
+						</li>
+						<li><a href="javascript:;">新浪汽车</a>
+						</li>
+						<li><a href="javascript:;">腾讯汽车</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">易车汽车论坛</a>
+						</li>
+						<li><a href="javascript:;">中国买车网</a>
+						</li>
+						<li><a href="javascript:;">搜狐汽车</a>
+						</li>
+						<li><a href="javascript:;">中国高速网</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">二手卡车网</a>
+						</li>
+						<li><a href="javascript:;">汽配英才网</a>
+						</li>
+						<li><a href="javascript:;">北京二手车</a>
+						</li>
+						<li><a href="javascript:;">中国人才网</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">我爱车网</a>
+						</li>
+						<li><a href="javascript:;">汽配中国网</a>
+						</li>
+						<li><a href="javascript:;">深圳二手车</a>
+						</li>
+						<li><a href="javascript:;">车生活网</a>
 						</li>
 					</ul>
 				</div>
 			</div>
-		</header>
 
-		<!--轮播图-->
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-				<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-			</ol>
-			<div class="carousel-inner" role="listbox">
-				<div class="item">
-					<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
-				</div>
-				<div class="item">
-					<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
-				</div>
-				<div class="item active">
-					<img alt="轮播图" src="imgs/nav.jpg" data-holder-rendered="true">
-				</div>
+			<div class="row truck_address">
+				<p>Copyright ©XSJ All Rights Reserved</p>
+				<p>© 2015 鑫森捷 京ICP备14026002号</p>
 			</div>
-		</div>
-        <!-- 文章内容  -->
-        <div class="container">
-            <div class="starter-template">
-                <h1>文章标题</h1>
-                <p class="lead">我们卓越的品牌理念，尽善尽美的客户关系管理、现代物流企业的营销
-
-								模式、ISO9001国际服务质量标准、现代化的高效信息服务体系、个性化的
-
-								物流服务方式将构成全通物流强大的品牌支撑。团结、协作、务实、奋进、
-
-								高效、创新、共享、快乐、是构成我们企业文化的精髓，是体现诚信专业、
-
-								传承价值、和谐共赢的企业文化内涵。我们坚定不移地相信：经营理念是与
-
-								巨人同行，与国际同轨；加入我们，一起坚持不懈的努力，创造一个美好的
-
-								未来。我们卓越的品牌理念，尽善尽美的客户关系管理、现代物流企业的营
-
-								销模式、ISO9001国际服务质量标准、现代化的高效信息服务体系、个性化
-
-								的物流服务方式将构成全通物流强大的品牌支撑。团结、协作、务实、奋进
-
-								、高效、创新、共享、快乐、是构成我们企业文化的精髓，是体现诚信专业
-
-								、传承价值、和谐共赢的企业文化内涵。我们坚定不移地相信：经营理念是
-
-								与巨人同行，与国际同轨；加入我们，一起坚持不懈的努力，创造一个美好的未来。我们卓越的品牌
-
-								理念，尽善尽美的客户关系管理、现代物流企业的营销模式、ISO9001国际服务质量标准、现代化的
-
-								高效信息服务体系、个性化的物流服务方式将构成全通物流强大的品牌支撑。团结、协作、务实、奋
-
-								进、高效、创新、共享、快乐、是构成我们企业文化的精髓，是体现诚信专业、传承价值、和谐共赢
-
-								的企业文化内涵。我们坚定不移地相信：经营理念是与巨人同行，与国际同轨；加入我们，一起坚持
-
-								不懈的努力，创造一个美好的未来。</p>
-            </div>
-        </div>
-		<!--尾部-->
-			<footer class="container-fluid truck_footer">
-				<div class="row">
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">中国银行</a>
-							</li>
-							<li><a href="javascript:;">平安银行</a>
-							</li>
-							<li><a href="javascript:;">浦发银行</a>
-							</li>
-							<li><a href="javascript:;">工商银行</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">农业银行</a>
-							</li>
-							<li><a href="javascript:;">建设银行</a>
-							</li>
-							<li><a href="javascript:;">光大银行</a>
-							</li>
-							<li><a href="javascript:;">招商银行</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">汽车之家</a>
-							</li>
-							<li><a href="javascript:;">卡车之家</a>
-							</li>
-							<li><a href="javascript:;">新浪汽车</a>
-							</li>
-							<li><a href="javascript:;">腾讯汽车</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">易车汽车论坛</a>
-							</li>
-							<li><a href="javascript:;">中国买车网</a>
-							</li>
-							<li><a href="javascript:;">搜狐汽车</a>
-							</li>
-							<li><a href="javascript:;">中国高速网</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">二手卡车网</a>
-							</li>
-							<li><a href="javascript:;">汽配英才网</a>
-							</li>
-							<li><a href="javascript:;">北京二手车</a>
-							</li>
-							<li><a href="javascript:;">中国人才网</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">我爱车网</a>
-							</li>
-							<li><a href="javascript:;">汽配中国网</a>
-							</li>
-							<li><a href="javascript:;">深圳二手车</a>
-							</li>
-							<li><a href="javascript:;">车生活网</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="row truck_address">
-					<p>Copyright ©XSJ All Rights Reserved</p>
-					<p>© 2015 鑫森捷 京ICP备14026002号</p>
-				</div>
-			</footer>
+		</footer>
 
 	</body>
 
-</html>
+	</html>

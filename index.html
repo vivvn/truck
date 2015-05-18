@@ -1,360 +1,353 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>首页</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/bootstrap-grid-ms.min.css">
-		<link rel="stylesheet" href="css/truck.css" />
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/avalon.min.js"></script>
-		<script>
-            var indexModel = avalon.define({
-                $id : "index",
-                navData : [
-                    {href:"index",val:"首页"},
-                    {href:"mortgage",val:"车贷服务"},
-                    {href:"trucks",val:"重卡平台"},
-                    {href:"transport",val:"运力云"},
-                    {href:"affiliate",val:"我要挂靠"},
-                    {href:"join",val:"我要加盟"},
-                ],
-                active : 0
-            });
-        </script>
-	</head>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>首页</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap-grid-ms.min.css">
+	<link rel="stylesheet" href="css/truck.css" />
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/avalon.min.js"></script>
+	<script>
+		var indexModel = avalon.define({
+			$id : "index",
+			navData : [
+			{href:"index",val:"首页"},
+			{href:"mortgage",val:"车贷服务"},
+			{href:"trucks",val:"重卡平台"},
+			{href:"transport",val:"运力云"},
+			{href:"affiliate",val:"我要挂靠"},
+			{href:"join",val:"我要加盟"},
+			],
+			active : 0
+		});
+	</script>
+</head>
 
-	<body ms-controller="index">
-			<!--头部-->
-			<header class="navbar navbar-default navbar_truck">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a href="index.html" class="navbar-brand">
-                    Logo
-                </a>
-					</div>
-					<div class="collapse navbar-collapse" id="navbar-collapse">
-						<ul class="nav navbar-nav navbar-right text-info">
-						    <li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
-							</li>
+<body ms-controller="index">
+	<!--头部导航开始-->
+	<div class="wrap_header">
+		<div class="niwdoawi_center container">
+			<div class="w1000 logo clearfix">
+				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+				<div class="fr righ">
+					<ul class="nav navbar-nav navbar-right text-info">
+						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
 							<li>
-								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'">注册</button>
-								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'">登录</button>
+								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
 							</li>
 						</ul>
-					</div>
-				</div>
-			</header>
-			<!--轮播图-->
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-					<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-					<li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-				</ol>
-				<div class="carousel-inner" role="listbox">
-					<div class="item  active">
-						<img alt="轮播图" src="imgs/CCTV.jpg" data-holder-rendered="true">
-					</div>
-					<div class="item">
-						<a href="mortgage.html"><img alt="轮播图" src="imgs/车贷.jpg" data-holder-rendered="true"></a>
-					</div>
-					<div class="item">
-						<a href="trucks.html"><img alt="轮播图" src="imgs/重卡.jpg" data-holder-rendered="true"></a>
-					</div>
-					<div class="item">
-						<a href="transport.html"><img alt="轮播图" src="imgs/运力云.jpg" data-holder-rendered="true"></a>
 					</div>
 				</div>
 			</div>
-			<!--首页三个分类-->
-			<div class="container">
-				<div class="row">
-					<a href="trucks.html">
-						<div class="col-xs-12 col-ms-4 col-sm-4 col-lg-4 col-md-4">
-							<div class="sale_cars index_classify">
-								<div class="sale_pic">
-									<img src="imgs/index1.png" />
-								</div>
-								<p>重卡商城</p>
-								<span>重卡商城为您提供最新的卡车报价、卡车图片、专为卡车人服务,只卖正品卡车配件。</span>
-							</div>
+		</div>
+	</div>
+	<!--头部导航结束-->
+	<!--轮播图-->
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+			<li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item  active">
+				<img alt="轮播图" src="imgs/CCTV.jpg" data-holder-rendered="true">
+			</div>
+			<div class="item">
+				<a href="mortgage.html"><img alt="轮播图" src="imgs/车贷.jpg" data-holder-rendered="true"></a>
+			</div>
+			<div class="item">
+				<a href="trucks.html"><img alt="轮播图" src="imgs/重卡.jpg" data-holder-rendered="true"></a>
+			</div>
+			<div class="item">
+				<a href="transport.html"><img alt="轮播图" src="imgs/运力云.jpg" data-holder-rendered="true"></a>
+			</div>
+		</div>
+	</div>
+	<!--首页三个分类-->
+	<div class="container">
+		<div class="row">
+			<a href="trucks.html">
+				<div class="col-xs-12 col-ms-4 col-xs-4 col-lg-4 col-md-4">
+					<div class="sale_cars index_classify">
+						<div class="sale_pic">
+							<img src="imgs/index1.png" />
 						</div>
-					</a>
-					<a href="mortgage.html">
-						<div class="col-xs-12 col-ms-4 col-sm-4 col-lg-4 col-md-4">
-							<div class="car_grant index_classify">
-								<div class="grant_pic">
-									<img src="imgs/index2.png" />
-								</div>
-								<p>车辆贷款</p>
-								<span>专注于为全国地区个人和企业提供车辆贷款和无抵押贷款等贷款咨询和融资服务。</span>
-							</div>
+						<p>重卡商城</p>
+						<span>重卡商城为您提供最新的卡车报价、卡车图片、专为卡车人服务,只卖正品卡车配件。</span>
+					</div>
+				</div>
+			</a>
+			<a href="mortgage.html">
+				<div class="col-xs-12 col-ms-4 col-xs-4 col-lg-4 col-md-4">
+					<div class="car_grant index_classify">
+						<div class="grant_pic">
+							<img src="imgs/index2.png" />
 						</div>
-					</a>
-					<a href="transport.html">
-						<div class="col-xs-12 col-ms-4 col-sm-4 col-lg-4 col-md-4">
-							<div class="logistics_server index_classify">
-								<div class="logistics_pic">
-									<img src="imgs/index3.png" />
-								</div>
-								<p>物流服务</p>
-								<span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。</span>
-							</div>
+						<p>车辆贷款</p>
+						<span>专注于为全国地区个人和企业提供车辆贷款和无抵押贷款等贷款咨询和融资服务。</span>
+					</div>
+				</div>
+			</a>
+			<a href="transport.html">
+				<div class="col-xs-12 col-ms-4 col-xs-4 col-lg-4 col-md-4">
+					<div class="logistics_server index_classify">
+						<div class="logistics_pic">
+							<img src="imgs/index3.png" />
 						</div>
-					</a>
+						<p>物流服务</p>
+						<span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。</span>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<!--项目荣誉栏-->
+	<div class="project_honor">
+		<p>项目荣誉</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-3 projectHonor_img">
+					<img src="https://mmbiz.qlogo.cn/mmbiz/ibgibZuL1FjjE9AM2eEWXnHQzkxNsGqibP4dBnxHYQxlLK8R9EoIMZCOjjia9FOo5OuSib3iarcAjHtKyibjwAzOTPeYg/0?wx_fmt=png" />
+				</div>
+				<div class="col-xs-3 projectHonor_img">
+					<img src="https://mmbiz.qlogo.cn/mmbiz/ibgibZuL1FjjE9AM2eEWXnHQzkxNsGqibP4Ss3pYOK2DukQTx2jODmfSx1iaaE06OQvsySNH27uKeEEhxGN5qzVic4A/0?wx_fmt=png" />
+				</div>
+				<div class="col-xs-3 projectHonor_img">
+					<img src="https://mmbiz.qlogo.cn/mmbiz/ibgibZuL1FjjE9AM2eEWXnHQzkxNsGqibP4sjoBicF2WFq30asdLKV3vgU5TeWf43KlLnDQhCKBRVQo3IgHwRZQrnQ/0?wx_fmt=png" />
+				</div>
+				<div class="col-xs-3 projectHonor_img">
+					<img src="https://mmbiz.qlogo.cn/mmbiz/ibgibZuL1FjjE9AM2eEWXnHQzkxNsGqibP4dBnxHYQxlLK8R9EoIMZCOjjia9FOo5OuSib3iarcAjHtKyibjwAzOTPeYg/0?wx_fmt=png" />
 				</div>
 			</div>
-			<!--项目荣誉栏-->
-			<div class="project_honor">
-				<p>项目荣誉</p>
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-3 col-xs-6 col-ms-6 projectHonor_img">
-							<img src="https://mmbiz.qlogo.cn/mmbiz/ibgibZuL1FjjE9AM2eEWXnHQzkxNsGqibP4dBnxHYQxlLK8R9EoIMZCOjjia9FOo5OuSib3iarcAjHtKyibjwAzOTPeYg/0?wx_fmt=png" />
-						</div>
-						<div class="col-sm-3 col-xs-6 col-ms-6 projectHonor_img">
-							<img src="https://mmbiz.qlogo.cn/mmbiz/ibgibZuL1FjjE9AM2eEWXnHQzkxNsGqibP4Ss3pYOK2DukQTx2jODmfSx1iaaE06OQvsySNH27uKeEEhxGN5qzVic4A/0?wx_fmt=png" />
-						</div>
-						<div class="col-sm-3 col-xs-6 col-ms-6 projectHonor_img">
-							<img src="https://mmbiz.qlogo.cn/mmbiz/ibgibZuL1FjjE9AM2eEWXnHQzkxNsGqibP4sjoBicF2WFq30asdLKV3vgU5TeWf43KlLnDQhCKBRVQo3IgHwRZQrnQ/0?wx_fmt=png" />
-						</div>
-						<div class="col-sm-3 col-xs-6 col-ms-6 projectHonor_img">
-							<img src="https://mmbiz.qlogo.cn/mmbiz/ibgibZuL1FjjE9AM2eEWXnHQzkxNsGqibP4dBnxHYQxlLK8R9EoIMZCOjjia9FOo5OuSib3iarcAjHtKyibjwAzOTPeYg/0?wx_fmt=png" />
-						</div>
-					</div>
+		</div>
+	</div>
+	<!--新闻公告，合作公司-->
+	<div class="news_announcement">新闻公告</div>
+	<div class="container">
+		<div class="index_news">
+			<div class="row">
+				<div class="col-xs-4 indexNews_list">
+					<p>最新公告</p>
+					<ul>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;获订单357台 重汽举办襄阳T系列推介会</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;法士特重卡变速器自动悬臂装配通过验收</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;冠军奖R490卡车 斯堪尼亚决赛瑞典落幕</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;重卡入驻运城博物馆 大运N9成"座上宾"</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;上海车展：少了两项福利 多了三大看点</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;冠军奖R490卡车 斯堪尼亚决赛瑞典落幕</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;重卡入驻运城博物馆 大运N9成"座上宾"</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;上海车展：少了两项福利 多了三大看点</li>
+						</a>
+					</ul>
+
+				</div>
+				<div class="col-xs-4 indexNews_list">
+					<p>政策解读</p>
+					<ul>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;京将建进京柴油车数据库 广东免托异地办年审</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;环保标志造假 京将建进京柴油车数据库</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;不到7万 购瑞驰电动商用车享将双重补贴</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;服务时代来临 锡柴联合金杯营口推介会</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;上海车展：一站式服务方案才乃大势所趋</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;不到7万 购瑞驰电动商用车享将双重补贴</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;服务时代来临 锡柴联合金杯营口推介会</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;上海车展：一站式服务方案才乃大势所趋</li>
+						</a>
+					</ul>
+				</div>
+				<div class="col-xs-4 indexNews_list">
+					<p>行业解读</p>
+					<ul>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;不到7万 购瑞驰电动商用车享将双重补贴</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;服务时代来临 锡柴联合金杯营口推介会</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;上海车展：一站式服务方案才乃大势所趋</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;重汽石家庄推介会 主推轻量化运煤车型</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;玉柴卡车动力4月订单多 轻重平台各开花</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;首批国四中翻自卸交付 北奔进鄂尔多斯</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;致富的好帮手 南维柯小福星S50贵阳上市</li>
+						</a>
+						<a href="news.html">
+							<li>●&nbsp;&nbsp;停车也能工作 太阳能冷藏车或成新趋势</li>
+						</a>
+					</ul>
 				</div>
 			</div>
-			<!--新闻公告，合作公司-->
-			<div class="news_announcement">新闻公告</div>
-			<div class="container">
-				<div class="index_news">
-					<div class="row">
-						<div class="col-lg-4 indexNews_list">
-							<p>最新公告</p>
-							<ul>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;获订单357台 重汽举办襄阳T系列推介会</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;法士特重卡变速器自动悬臂装配通过验收</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;冠军奖R490卡车 斯堪尼亚决赛瑞典落幕</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;重卡入驻运城博物馆 大运N9成"座上宾"</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;上海车展：少了两项福利 多了三大看点</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;冠军奖R490卡车 斯堪尼亚决赛瑞典落幕</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;重卡入驻运城博物馆 大运N9成"座上宾"</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;上海车展：少了两项福利 多了三大看点</li>
-								</a>
-							</ul>
-
-						</div>
-						<div class="col-lg-4 indexNews_list">
-							<p>政策解读</p>
-							<ul>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;京将建进京柴油车数据库 广东免托异地办年审</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;环保标志造假 京将建进京柴油车数据库</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;不到7万 购瑞驰电动商用车享将双重补贴</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;服务时代来临 锡柴联合金杯营口推介会</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;上海车展：一站式服务方案才乃大势所趋</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;不到7万 购瑞驰电动商用车享将双重补贴</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;服务时代来临 锡柴联合金杯营口推介会</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;上海车展：一站式服务方案才乃大势所趋</li>
-								</a>
-							</ul>
-						</div>
-						<div class="col-lg-4 indexNews_list">
-							<p>行业解读</p>
-							<ul>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;不到7万 购瑞驰电动商用车享将双重补贴</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;服务时代来临 锡柴联合金杯营口推介会</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;上海车展：一站式服务方案才乃大势所趋</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;重汽石家庄推介会 主推轻量化运煤车型</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;玉柴卡车动力4月订单多 轻重平台各开花</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;首批国四中翻自卸交付 北奔进鄂尔多斯</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;致富的好帮手 南维柯小福星S50贵阳上市</li>
-								</a>
-								<a href="news.html">
-									<li>●&nbsp;&nbsp;停车也能工作 太阳能冷藏车或成新趋势</li>
-								</a>
-							</ul>
-						</div>
-					</div>
+		</div>
+		<div class="support_company">
+			<p>支持公司</p>
+			<div class="row">
+				<div class="col-xs-3">
+					<img src="imgs/company1.png">
 				</div>
-				<div class="support_company">
-					<p>支持公司</p>
-					<div class="row">
-						<div class="col-xs-6 col-sm-4 col-md-3">
-							<img src="imgs/company1.png">
-						</div>
-						<div class="col-xs-6 col-sm-4 col-md-3">
-							<img src="imgs/company2.png">
-						</div>
-						<div class="col-xs-6 col-sm-4 col-md-3">
-							<img src="imgs/company3.png">
-						</div>
-						<div class="col-xs-6 col-sm-4 col-md-3">
-							<img src="imgs/company4.png">
-						</div>
-						<div class="col-xs-6 col-sm-4 col-md-3">
-							<img src="imgs/company5.png">
-						</div>
-						<div class="col-xs-6 col-sm-4 col-md-3">
-							<img src="imgs/company6.png">
-						</div>
-					</div>
+				<div class="col-xs-3">
+					<img src="imgs/company2.png">
+				</div>
+				<div class="col-xs-3">
+					<img src="imgs/company3.png">
+				</div>
+				<div class="col-xs-3">
+					<img src="imgs/company4.png">
+				</div>
+				<div class="col-xs-3">
+					<img src="imgs/company5.png">
+				</div>
+				<div class="col-xs-3">
+					<img src="imgs/company6.png">
 				</div>
 			</div>
-			<!--尾部-->
-			<footer class="container-fluid truck_footer">
-				<div class="row">
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">中国银行</a>
-							</li>
-							<li><a href="javascript:;">平安银行</a>
-							</li>
-							<li><a href="javascript:;">浦发银行</a>
-							</li>
-							<li><a href="javascript:;">工商银行</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">农业银行</a>
-							</li>
-							<li><a href="javascript:;">建设银行</a>
-							</li>
-							<li><a href="javascript:;">光大银行</a>
-							</li>
-							<li><a href="javascript:;">招商银行</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">汽车之家</a>
-							</li>
-							<li><a href="javascript:;">卡车之家</a>
-							</li>
-							<li><a href="javascript:;">新浪汽车</a>
-							</li>
-							<li><a href="javascript:;">腾讯汽车</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">易车汽车论坛</a>
-							</li>
-							<li><a href="javascript:;">中国买车网</a>
-							</li>
-							<li><a href="javascript:;">搜狐汽车</a>
-							</li>
-							<li><a href="javascript:;">中国高速网</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">二手卡车网</a>
-							</li>
-							<li><a href="javascript:;">汽配英才网</a>
-							</li>
-							<li><a href="javascript:;">北京二手车</a>
-							</li>
-							<li><a href="javascript:;">中国人才网</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-4 col-sm-2">
-						<ul class="list-unstyled">
-							<li><a href="javascript:;">我爱车网</a>
-							</li>
-							<li><a href="javascript:;">汽配中国网</a>
-							</li>
-							<li><a href="javascript:;">深圳二手车</a>
-							</li>
-							<li><a href="javascript:;">车生活网</a>
-							</li>
-						</ul>
-					</div>
-				</div>
+		</div>
+	</div>
+	<!--尾部-->
+	<footer class="container-fluid truck_footer">
+		<div class="row">
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">中国银行</a>
+					</li>
+					<li><a href="javascript:;">平安银行</a>
+					</li>
+					<li><a href="javascript:;">浦发银行</a>
+					</li>
+					<li><a href="javascript:;">工商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">农业银行</a>
+					</li>
+					<li><a href="javascript:;">建设银行</a>
+					</li>
+					<li><a href="javascript:;">光大银行</a>
+					</li>
+					<li><a href="javascript:;">招商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">汽车之家</a>
+					</li>
+					<li><a href="javascript:;">卡车之家</a>
+					</li>
+					<li><a href="javascript:;">新浪汽车</a>
+					</li>
+					<li><a href="javascript:;">腾讯汽车</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">易车汽车论坛</a>
+					</li>
+					<li><a href="javascript:;">中国买车网</a>
+					</li>
+					<li><a href="javascript:;">搜狐汽车</a>
+					</li>
+					<li><a href="javascript:;">中国高速网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">二手卡车网</a>
+					</li>
+					<li><a href="javascript:;">汽配英才网</a>
+					</li>
+					<li><a href="javascript:;">北京二手车</a>
+					</li>
+					<li><a href="javascript:;">中国人才网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">我爱车网</a>
+					</li>
+					<li><a href="javascript:;">汽配中国网</a>
+					</li>
+					<li><a href="javascript:;">深圳二手车</a>
+					</li>
+					<li><a href="javascript:;">车生活网</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-				<div class="row truck_address">
-					<p>Copyright ©XSJ All Rights Reserved</p>
-					<p>© 2015 鑫森捷 京ICP备14026002号</p>
-				</div>
-			</footer>
+		<div class="row truck_address">
+			<p>Copyright ©XSJ All Rights Reserved</p>
+			<p>© 2015 鑫森捷 京ICP备14026002号</p>
+		</div>
+	</footer>
 
-			<!--轮播图自动播放时间间隔-->
-			<script>
-				$(function() {
-					$('.carousel').carousel({
-						interval: 3000
-					});
-				});
+	<!--轮播图自动播放时间间隔-->
+	<script>
+		$(function() {
+			$('.carousel').carousel({
+				interval: 3000
+			});
+		});
 
-				function hengshuping() {
-					if (window.orientation == 180 || window.orientation == 0) {
-						alert("网页为电脑端网页，请您横屏浏览效果更佳！");
-					}
-					if (window.orientation == 90 || window.orientation == -90) {
-						return;
-					}
-				}
-				hengshuping();
-			</script>
-		</body>
+		function hengshuping() {
+			if (window.orientation == 180 || window.orientation == 0) {
+				alert("网页为电脑端网页，请您横屏浏览效果更佳！");
+			}
+			if (window.orientation == 90 || window.orientation == -90) {
+				return;
+			}
+		}
+		hengshuping();
+	</script>
+</body>
 </html>

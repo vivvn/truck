@@ -125,3 +125,17 @@ img {
     padding: 0 26px;
     color: #333;
 }
+.text-info{
+    margin-top: 0;
+}
+.text-info li:last-child{
+    margin-left: 5px;
+}
+.niwdoawi_center .righ .nav li a{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+}
+.truck_active {
+    background-color: #E8E8E8;
+}

@@ -6,36 +6,41 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>贷款流程介绍</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/flowpath_intorduce.css">
+	<link rel="stylesheet" href="css/main.css">
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/avalon.min.js"></script>
-	<link rel="stylesheet" href="css/flowpath_intorduce.css">
-	<link rel="stylesheet" href="css/main.css">
+	<script>
+		var flowpathModel = avalon.define({
+			$id : "flowpath",
+			navData : [
+			{href:"index",val:"首页"},
+			{href:"mortgage",val:"车贷服务"},
+			{href:"trucks",val:"重卡平台"},
+			{href:"transport",val:"运力云"},
+			{href:"affiliate",val:"我要挂靠"},
+			{href:"join",val:"我要加盟"},
+			],
+			active : 1
+		});
+	</script>
 </head>
-<body>
-		<!--头部导航开始-->
+<body ms-controller="flowpath">
+	<!--头部导航开始-->
 	<div class="wrap_header">
 		<div class="niwdoawi_center container">
 			<div class="w1000 logo clearfix">
-				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size:30px;">Logo</a>
+				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
 				<div class="fr righ">
-					<ul class="nav clearfix">
-						<li>
-							<a rel="nofollow" href="javascript:;" title="首页" class="one">首页</a>
-						</li>
-						<li class="two">
-							<a href="javascript:;" title="我要投资" class="one">我要投资</a>
-						</li>
-						<li class="rela">
-							<a href="javascript:;" title="我要借款" class="one">我要借款</a>
-						</li>
-						<li class="two" style="margin-right:7;">
-							<a href="javascript:;" title="关于我们" class="one">关于我们</a>
-						</li>
-						<li style="margin-right:0;">
-							<a href="javascript:;" target="_blank" title="社区" class="one">社区 </a>
-						</li>
-					</ul>
+					<ul class="nav navbar-nav navbar-right text-info">
+						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+							<li>
+								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -91,8 +96,8 @@
 		</div>
 	</div>
 
-		<!--尾部-->
-		<div style="width: 100%;background: #01505f;">
+	<!--尾部-->
+	<div style="width: 100%;background: #01505f;">
 		<footer class="container truck_footer">
 			<div class="row">
 				<div class="  col-xs-2">
@@ -174,7 +179,7 @@
 				<p>© 2015 鑫森捷 京ICP备14026002号</p>
 			</div>
 		</footer>
-		</div>
-		<!--尾部结束-->
+	</div>
+	<!--尾部结束-->
 </body>
 </html>

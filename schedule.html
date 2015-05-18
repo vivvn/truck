@@ -4,41 +4,42 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>客户查看进度</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/schedule.css" />
-	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/avalon.min.js"></script>
 	<style type="text/css">
 		h2.top_title{border-bottom:none;background:none;text-align:center;line-height:32px; font-size:20px}
 		h2.top_title span{font-size:12px; color:#666;font-weight:500}
 	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/avalon.min.js"></script>
+	<script>
+		var scheduleModel = avalon.define({
+			$id : "schedule",
+			navData : [
+			{href:"index",val:"首页"},
+			{href:"mortgage",val:"车贷服务"},
+			{href:"trucks",val:"重卡平台"},
+			{href:"transport",val:"运力云"},
+			{href:"affiliate",val:"我要挂靠"},
+			{href:"join",val:"我要加盟"},
+			],
+			active : 5
+		});
+	</script>
 </head>
 
-<body>
-				<!--头部导航开始-->
-		<div class="wrap_header">
-			<div class="niwdoawi_center container">
-				<div class="w1000 logo clearfix">
-					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
-					<div class="fr righ">
-						<ul class="nav navbar-nav navbar-right text-info">
-							<li><a href="index.html">首页</a>
-							</li>
-							<li><a href="mortgage.html">车贷服务</a>
-							</li>
-							<li class="truck_active"><a href="trucks.html">重卡平台</a>
-							</li>
-							<li><a href="transport.html">运力云</a>
-							</li>
-							<li><a href="affiliate.html">我要投资</a>
-							</li>
-							<li><a href="join.html">我要加盟</a>
-							</li>
-							<!--repeat342069177189841876127916444092989:end-->
+<body ms-controller="schedule">
+	<!--头部导航开始-->
+	<div class="wrap_header">
+		<div class="niwdoawi_center container">
+			<div class="w1000 logo clearfix">
+				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+				<div class="fr righ">
+					<ul class="nav navbar-nav navbar-right text-info">
+						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
 							<li>
 								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
 								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
@@ -48,7 +49,8 @@
 				</div>
 			</div>
 		</div>
-		<!--头部导航结束-->
+	</div>
+	<!--头部导航结束-->
 	<section id="cd-timeline" class="cd-container">
 		<div class="cd-timeline-block">
 			<div class="cd-timeline-img cd-picture" style="background-color: #75ce66;">
@@ -139,8 +141,8 @@
 			</div>
 		</div>
 	</section>
-		<!--尾部-->
-		<div style="width: 100%;background: #01505f;">
+	<!--尾部-->
+	<div style="width: 100%;background: #01505f;">
 		<footer class="container truck_footer">
 			<div class="row">
 				<div class="  col-xs-2">
@@ -222,8 +224,8 @@
 				<p>© 2015 鑫森捷 京ICP备14026002号</p>
 			</div>
 		</footer>
-		</div>
-		<!--尾部结束-->
+	</div>
+	<!--尾部结束-->
 </body>
 
 </html>
