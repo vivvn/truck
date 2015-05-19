@@ -1157,6 +1157,22 @@ img {
 	list-style: none;
 	float: left;
 }
+/*运力云tab样式开始*/
+.transport_tab{
+	height: 400px;
+	padding: 0 50px;
+}
+.transport_tab ul li{
+	line-height: 40px;
+	font-family: "微软雅黑";
+	font-size: 15px;
+}
+.transport_tab ul span{
+	line-height: 40px;
+	font-family: "微软雅黑";
+	font-size: 15px;
+}
+/*运力云tab样式结束*/
 /*运力云样式结束*/
 /*重卡售卖页面样式开始*/
 
