@@ -1,0 +1,13 @@
+/*运力云底部轮播样式*/
+
+*{padding:0;margin:0;}
+li{list-style:none;}
+img{border:none;}
+/* play */
+.play{height:300px;overflow:hidden;position:relative;}
+.play ol{position:absolute;right:5px;bottom:5px;z-index:99999;}
+.play ol li{float:left;margin-right:3px;display:inline;cursor:pointer;background:#fcf2cf;border:1px solid #f47500;padding:2px 6px;color:#d94b01;font-family:arial;font-size:12px;}
+.play ol li.active{padding:3px 8px;font-weight:bold;color:#ffffff;background:#ffb442;position:relative;bottom:2px;}
+.play ul{position:absolute;top:0;left:0;z-index:1;}
+.play ul li{width:100%;float:left;}
+.play ul img{float:left;width:100%;height: 300px;}

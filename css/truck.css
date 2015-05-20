@@ -663,7 +663,6 @@ img {
 	border: 0;
 	display: inline-block;
 	vertical-align: middle;
-	margin-top: 10px;
 }
 .niwdoawi_center .righ .nav {
 	width: 600px;
@@ -1159,7 +1158,6 @@ img {
 }
 /*运力云tab样式开始*/
 .transport_tab{
-	height: 400px;
 	padding: 0 50px;
 }
 .transport_tab ul li{
