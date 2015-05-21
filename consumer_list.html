@@ -13,13 +13,77 @@
 	<script src="js/avalon.min.js"></script>
 	<script src="laydate/laydate.js"></script>
 	<link rel="stylesheet" href="css/consumer_list.css">
+	<script>
+		var clModel = avalon.define({
+			$id : "conList",
+			getNav : [],
+			getList : [],
+			arrayDetail:["待征信","待征信结果","待用户提交贷款资料","待审贷款资料","待家访预约","待提交至银行","待银行确认函","待付款","待现场手续"],
+			click : function(arg){
+				clModel.getList.clear();
+				if(arg == "快速筛选"){
+					var obj = {role:this.innerText,days:"",status:""};
+					getJson(obj);
+				}else{
+					var obj = {role:arg, days:"", status:this.innerText};
+					getJson(obj);
+				}
+			},
+			chooseName : "",
+			choose : function(){
+				clModel.chooseName = this.innerText;
+				console.log(clModel.chooseName)
+			},
+			detailClick : function(){
+				clModel.getList.clear();
+				var obj = {role:"",days:"",status:clModel.chooseName};
+				console.log(obj)
+				getJson(obj);
+			}
+		});
+		var roleId = getQueryString().roleId;
+		var days = getQueryString().days;
+		$.getJSON("http://127.0.0.1:8083/truck/json/getNav.php",{role:roleId},function(data){
+			for(var i in data.data){
+				clModel.getNav.push(data.data[i]);
+			}
+		});
+		getJson({role:roleId,days:days,status:""});
+		function getJson(obj){
+			$.getJSON("http://127.0.0.1:8083/truck/json/consumerList.php",obj,function(data){
+				console.log(data)
+				for(var i in data.data){
+					clModel.getList.push(data.data[i]);
+				}
+			});
+		}
+		//查询字符串参数
+		function getQueryString(win){
+		    var win = win || window,
+		        qs = win.location.search.length > 0 ? win.location.search.substring(1) : '',
+		        args = {},
+		        items = qs.length ? qs.split('&') : '',
+		        len = items.length,
+		        i = 0,
+		        item = null,
+		        name = null,
+		        value = null;
+		    for(i=0;i<len;i++){
+		        item = items[i].split('=');
+		        name = decodeURIComponent(item[0]);
+		        value = decodeURIComponent(item[1]);
+		        args[name] = value;
+		    }
+		    return args;
+		}
+	</script>
 </head>
 
-<body>
+<body ms-controller="conList">
 	<!--头部导航开始-->
 	<div class="wrap_header">
-		<div class="niwdoawi_center container">
-			<div class="w1000 logo clearfix">
+		<div class="niwdoawi_center w320">
+			<div class="logo clearfix">
 				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size:30px;">Logo</a>
 				<!--<div class="fr righ">
 					<ul class="nav clearfix">
@@ -44,10 +108,16 @@
 		</div>
 	</div>
 	<!--头部导航结束-->
-	<div class="container">
+	<div class="container-fluid cl_wrap">
 		<!--角色选择-->
 		<hr class="soften">
-		<div class="row head_lead">
+		<div class="row head_lead" ms-repeat="getNav">
+			<button type="button" class="btn btn-primary btn_head" disabled="disabled">{{el.role}}</button>
+			<button type="button" class="btn btn-default btn_box" ms-repeat="el.status"
+			ms-click="click($outer.el.role)">{{ el }}</button>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target=".show_detail" ms-if-loop="el.role=='快速筛选'">详细条件</button>
+		</div>
+		<!-- <div class="row head_lead">
 			<button type="button" class="btn btn-primary btn_head" disabled="disabled">征信员订单</button>
 			<button type="button" class="btn btn-default">待征信</button>
 			<button type="button" class="btn btn-default">待征信结果</button>
@@ -58,82 +128,32 @@
 			<button type="button" class="btn btn-default">征信员</button>
 			<button type="button" class="btn btn-default">家访员</button>
 			<button type="button" class="btn btn-default" data-toggle="modal" data-target=".show_detail">详细条件</button>
-		</div>
+		</div> -->
 		<hr class="soften">
 		<!--客户详情-->
-		<div class="row client_list">
-			<div class="col-md-4 col-xs-4">
-				<p>客户姓名:陈小宝</p>
-				<p>客户性别：男</p>
-				<p>客户电话：13688888888</p>
-			</div>
-			<div class="col-md-4 col-xs-4">
-				<p>客户身份证:329294897562948290</p>
-				<p>客户邮箱：男</p>
-				<p>审查进度：待征信</p>
-			</div>
-			<div class="col-md-4 col-xs-4 client_statechange">
-				<a class="btn btn-primary" role="button" href="backstage_operate.html">更改状态</a>
-			</div>
-		</div>
-		<div class="row client_list"  >
-			<div class="col-md-4 col-xs-4">
-				<p>客户姓名:陈小宝</p>
-				<p>客户性别：男</p>
-				<p>客户电话：13688888888</p>
-			</div>
-			<div class="col-md-4 col-xs-4">
-				<p>客户身份证:329294897562948290</p>
-				<p>客户邮箱：男</p>
-				<p>审查进度：待征信</p>
-			</div>
-			<div class="col-md-4 col-xs-4 client_statechange">
-				<a class="btn btn-primary" role="button" href="backstage_operate.html">更改状态</a>
-			</div>
-		</div>
-		<div class="row client_list"  >
-			<div class="col-md-4 col-xs-4">
-				<p>客户姓名:陈小宝</p>
-				<p>客户性别：男</p>
-				<p>客户电话：13688888888</p>
-			</div>
-			<div class="col-md-4 col-xs-4">
-				<p>客户身份证:329294897562948290</p>
-				<p>客户邮箱：男</p>
-				<p>审查进度：待征信</p>
-			</div>
-			<div class="col-md-4 col-xs-4 client_statechange">
-				<a class="btn btn-primary" role="button" href="backstage_operate.html">更改状态</a>
-			</div>
-		</div>
-		<div class="row client_list"  >
-			<div class="col-md-4 col-xs-4">
-				<p>客户姓名:陈小宝</p>
-				<p>客户性别：男</p>
-				<p>客户电话：13688888888</p>
-			</div>
-			<div class="col-md-4 col-xs-4">
-				<p>客户身份证:329294897562948290</p>
-				<p>客户邮箱：男</p>
-				<p>审查进度：待征信</p>
-			</div>
-			<div class="col-md-4 col-xs-4 client_statechange">
-				<a class="btn btn-primary" role="button" href="backstage_operate.html">更改状态</a>
-			</div>
-		</div>
-		<div class="row client_list"  >
-			<div class="col-md-4 col-xs-4">
-				<p>客户姓名:陈小宝</p>
-				<p>客户性别：男</p>
-				<p>客户电话：13688888888</p>
-			</div>
-			<div class="col-md-4 col-xs-4">
-				<p>客户身份证:329294897562948290</p>
-				<p>客户邮箱：男</p>
-				<p>审查进度：待征信</p>
-			</div>
-			<div class="col-md-4 col-xs-4 client_statechange">
-				<a class="btn btn-primary" role="button" href="backstage_operate.html">更改状态</a>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6" ms-repeat="getList">
+					<a class="client_box" ms-href="'backstage_operate.html?orderId='+el.orderId">
+						<div class="row">
+							<div class="client_list clearfix">
+								<div class="col-xs-5">
+									<p>客户姓名:{{ el.userName }}</p>
+									<p>客户性别：{{ el.sex==0?"男":"女" }}</p>
+									<p>客户电话：{{ el.phone }}</p>
+								</div>
+								<div class="col-xs-7">
+									<p>客户身份证:{{el.idNum}}</p>
+									<p>客户邮箱：{{ el.email }}</p>
+									<p>审查进度：{{ el.status }}</p>
+								</div>
+								<div class="col-xs-12 client_statechange">
+									<a class="btn btn-primary" role="button"  ms-href="'backstage_operate.html?orderId='+el.orderId">更改状态</a>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -146,19 +166,20 @@
 					<h4 class="modal-title">详细条件</h4>
 				</div>
 				<div class="modal-body btn_bg" style="display: inline-block;">
-					<button type="button" class="btn btn-default">待征信</button>
-					<button type="button" class="btn btn-default">待征信结果</button>
+					<button type="button" class="btn btn-default btn_box" ms-repeat="arrayDetail" ms-click="choose">{{ el }}</button>
+				<!-- 	<button type="button" class="btn btn-default">待征信结果</button>
 					<button type="button" class="btn btn-default">待用户提交贷款资料</button>
 					<button type="button" class="btn btn-default">待审贷款资料</button>
 					<button type="button" class="btn btn-default">待家访预约</button>
 					<button type="button" class="btn btn-default">待提交至银行</button>
 					<button type="button" class="btn btn-default">待银行确认函</button>
 					<button type="button" class="btn btn-default">待付款</button>
-					<button type="button" class="btn btn-default">待现场手续</button>
+					<button type="button" class="btn btn-default">待现场手续</button> -->
 					<div class="btn_time">
 						<span>完成日期：</span>
 						<input placeholder="请输入日期" class="laydate-icon" onclick="laydate()">-<input placeholder="请输入日期" class="laydate-icon" onclick="laydate()">
-						<button type="button" class="btn btn-primary">筛选</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal"
+						        ms-click="detailClick">筛选</button>
 					</div>
 				</div>
 			</div>

@@ -139,3 +139,14 @@ img {
 .truck_active {
     background-color: #E8E8E8;
 }
+.w320{
+    min-width: 320px !important;
+}
+.table_index{
+      margin-top: 12px;
+}
+
+.cl_wrap{
+  max-width: 1170px;
+  margin:10px auto;
+}

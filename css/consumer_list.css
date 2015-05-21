@@ -15,17 +15,20 @@ body{background-color: #F7F7F7;}
 .role_zjc a{
     width: 80%;padding: 6px 0;font-family: '微软雅黑';
 }
+.box_wrap{
+  padding:0 10px;
+}
+.client_box,.client_box:visited,.client_box:hover,.client_box:active{color:#333;}
 .client_list{
-    color: #333;border: 1px solid;border-radius: 6px;margin-top: 16px;padding-top: 10px;background-color: #fff;
+    color: #333;border: 1px solid;border-radius: 6px;padding-top: 10px;background-color: #fff;margin: 5px 5px 0;
 }
 .client_statechange{
     text-align: center;
-}
-.client_statechange a{
-    margin-top: 20px;
+    padding:5px;
 }
 .head_lead{
     margin-bottom: 10px;
+    padding: 0 10px;
 }
 .btn_head{
     margin-right: 18px;
@@ -60,4 +63,7 @@ hr.soften {
 }
 .btn_bg button{
     margin-bottom: 5px;
+}
+.btn_box{
+  margin-right: 5px;
 }
