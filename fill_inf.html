@@ -200,11 +200,11 @@
 			line-height: 50px;
 			padding: 0 15px;
 		}
-		
-		
-		
-		
-		
+
+
+
+
+
 		.Validform_checktip{
 	margin-left:8px;
 	line-height:20px;
@@ -276,7 +276,7 @@
 			</div>
 			<div class="col-xs-5 form_mort" style="height: 447px;">
 				<p style="font-size: 20px; font-weight: bold;margin-bottom: 20px;text-align: center;">办理贷款申请</p>
-				<form class="form-horizontal demoform" target="hideIframe">
+				<form id="formData"  enctype="multipart/form-data" method="post" name="fileinfo" class="form-horizontal demoform" target="hideIframe">
 					<div class="form-group">
 						<label for="userName" class="col-xs-3 control-label" style="padding-right: 0;">所在城市</label>
 						<div class="col-xs-8">
@@ -622,51 +622,35 @@
 	<!--尾部结束-->
 	<iframe style="display: none;" name="hideIframe"></iframe>
 	<script type="text/javascript">
-	//		使用表单验证插件
 		$(".demoform").Validform();
-		
-		//上传身份证
-//      function ajaxFileUpload() {
-//          $.ajaxFileUpload({
-//                  url: 'fill_inf.php', //用于文件上传的服务器端请求地址
-//                  secureuri: false, //是否需要安全协议，一般设置为false
-//                  fileElementId : ['file1','file2'],  //文件上传域的ID
-//                  dataType: 'json', //返回值类型 般设置为json
-//                  success: function (data, status)  //服务器成功响应处理函数
-//                  {
-//                      $("#img1").attr("src", data.imgurl);
-//                      if (typeof (data.error) != 'undefined') {
-//                          if (data.error != '') {
-//                              alert(data.error);
-//                          } else {
-//                              alert(data.msg);
-//                          }
-//                      }
-//                  },
-//                  error: function (data, status, e)//服务器响应失败处理函数
-//                  {
-//                      alert(e);
-//                  }
-//              }
-//          )
-//          return false;
-//      };
-		var obj = {
-			city : $("#form_city").val(),
-			name : $("#form_userName").val(),
-			phone : $("#form_phone").val(),
-			check_code : $("#form_checkcode").val()
-		}	
-		$("#form_post").click(function(){              
-//			ajaxFileUpload();
-			$.post('fill_inf.php',obj,function(data){
-				console.log(JSON.parse(data))
+		$("#form_post").click(function(){
+			var form = new FormData();
+			var file1 =document.getElementById("file1").files[0];
+			var file2 =document.getElementById("file2").files[0];
+			console.log(file1);
+			form.append("userId",1);
+			form.append("city",$("#form_city").val());
+			form.append("userName",$("#form_userName").val());
+			form.append("phone",$("#form_phone").val());
+			form.append("reviewCode",$("#form_checkcode").val());
+			form.append("file1", file1);
+			form.append("file2", file2);
+			$.ajax({
+			  url: "json/fill_inf.php",
+			  type: "POST",
+			  data: form,
+			  processData: false,  // 告诉jQuery不要去处理发送的数据
+			  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+			  success : function(data){
+			  	var result = JSON.parse(data);
+				console.log(result)
+			  	if(result.res == 0){
+			  		alert(result.msg);
+			  		location.href="schedule.html?userId="+1
+			  	}
+			  }
 			});
 		});
-	
-
-		
-
 		function weixinstep() {
 			$("html,body").animate({
 				scrollTop: $("#wx_step").offset().top
