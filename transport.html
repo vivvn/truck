@@ -63,7 +63,7 @@
 				<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
 				<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
 				<li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-				
+
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
@@ -81,34 +81,7 @@
 			</div>
 		</div>
 		<!--入口-->
-		<!--<div class="container">
-		<div class="row">
-			<div class="col-sm-2"></div>
-			<a href="about_transport.html">
-				<div class="col-xs-12 col-ms-6 col-sm-4">
-					<div class="logistics_server transport_index_classify">
-						<div class="transport_logistics_pic1">
-							<img src="imgs/index3.png" />
-						</div>
-						<p>我是运力</p>
-						<span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。有大件运输，仓储，中转分流，空车配货，集装箱运输，冷藏运输等项目。</span>
-					</div>
-				</div>
-			</a>
-			<a href="publishi.html">
-				<div class="col-xs-12 col-ms-6 col-sm-4">
-					<div class="logistics_server transport_index_classify">
-						<div class="transport_logistics_pic2">
-							<img src="imgs/index2.png" />
-						</div>
-						<p>我要发单</p>
-						<span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。有大件运输，仓储，中转分流，空车配货，集装箱运输，冷藏运输等项目。</span>
-					</div>
-				</div>
-			</a>
-			<div class="col-sm-2"></div>
-		</div>
-	</div>-->
+		
 		<!--抢单筛选-->
 		<!--<div class="container select_address_days">
 				<div class="row">
@@ -539,10 +512,38 @@
 			</div>
 
 		</div>
+		<div class="container" style="margin-bottom: 50px;">
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<a href="join.html">
+					<div class="col-xs-12 col-ms-6 col-sm-4">
+						<div class="logistics_server transport_index_classify">
+							<div class="transport_logistics_pic1">
+								<img src="imgs/index3.png" />
+							</div>
+							<p>我要加盟</p>
+							<!--<span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。有大件运输，仓储，中转分流，空车配货，集装箱运输，冷藏运输等项目。</span>-->
+						</div>
+					</div>
+				</a>
+				<a href="affiliate.html">
+					<div class="col-xs-12 col-ms-6 col-sm-4">
+						<div class="logistics_server transport_index_classify">
+							<div class="transport_logistics_pic2">
+								<img src="imgs/index1.png" />
+							</div>
+							<p>我要挂靠</p>
+							<!--<span>本承着诚信，务实，专业的宗旨，诚信于客户，以重卡，轻卡等多种运输形式服务于客户。有大件运输，仓储，中转分流，空车配货，集装箱运输，冷藏运输等项目。</span>-->
+						</div>
+					</div>
+				</a>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
 		<!--底部轮播图-->
 		<div class="container-fluid" style="margin: 0;padding: 0;">
 			<div class="play" id="play">
-				<ol>
+				<ol style="display: none;">
 					<li class="active">1</li>
 					<li>2</li>
 					<li>3</li>
@@ -553,26 +554,31 @@
 					<li>
 						<a href="javascript:;">
 							<img src="imgs/车贷.jpg" alt="广告一" />
+							<img src="imgs/运力云02.jpg" alt="广告一" />
 						</a>
 					</li>
 					<li>
 						<a href="javascript:;">
 							<img src="imgs/运力云.jpg" alt="广告一" />
+							<img src="imgs/车贷.jpg" alt="广告一" />
 						</a>
 					</li>
 					<li>
 						<a href="javascript:;">
 							<img src="imgs/重卡.jpg" alt="广告一" />
+							<img src="imgs/运力云.jpg" alt="广告一" />
 						</a>
 					</li>
 					<li>
 						<a href="javascript:;">
 							<img src="imgs/车贷02.jpg" alt="广告一" />
+							<img src="imgs/重卡.jpg" alt="广告一" />
 						</a>
 					</li>
 					<li>
 						<a href="javascript:;">
 							<img src="imgs/运力云02.jpg" alt="广告一" />
+							<img src="imgs/车贷.jpg" alt="广告一" />
 						</a>
 					</li>
 				</ul>
@@ -686,7 +692,7 @@
 						  }
 					aLi[now].className='active';
 						
-					startMove(aUl,{top:-300*now});
+					startMove(aUl,{top:-250*now});
 					
 				}
 				function next(){
