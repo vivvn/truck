@@ -37,18 +37,18 @@ function getOperate(){
                 array("status"=>"待用户提交贷款资料","msg"=>"","uby"=>"Larry","utime"=>"2015.04.08"),
             );
             $attach = array(
-                array("att_id"=>1, "url"=>"imgs/car1.jpg", "utime"=>"2015.04.06", "title"=>"身份证", "appr"=>0, "userId"=>99,"aby"=>"Mark"),
-                array("att_id"=>2, "url"=>"imgs/car4.jpg", "utime"=>"2015.04.07", "title"=>"营业执照", "appr"=>1,"userId"=>99, "aby"=>"Mark"),
-                array("att_id"=>3, "url"=>"imgs/car3.jpg", "utime"=>"2015.04.08", "title"=>"公司法人代表", "appr"=>0, "userId"=>99,"aby"=>"Mark"),
+                array("att_id"=>1, "url"=>"/uploads/1.jpg", "utime"=>"2015.04.06", "title"=>"身份证", "appr"=>0, "userId"=>99,"aby"=>"Mark"),
+                array("att_id"=>2, "url"=>"/uploads/2.jpg", "utime"=>"2015.04.07", "title"=>"营业执照", "appr"=>1,"userId"=>99, "aby"=>"Mark"),
+                array("att_id"=>3, "url"=>"/uploads/3.jpg", "utime"=>"2015.04.08", "title"=>"公司法人代表", "appr"=>0, "userId"=>99,"aby"=>"Mark"),
             );
             $array = array("baseInfo"=>$baseInfo,"loanInfo"=>$loanInfo,"flow"=>$flow,"attach"=>$attach);
             echo json_encode($array);
 }
 function resposeStatus(){
-         $orderId = $_POST["orderId"];
+         $attId = $_POST["attId"];
          $array = array(
               "res"=>0,
-              "msg"=>"更新状态成功"
+              "msg"=>"删除成功"
         );
          echo json_encode($array);
 }

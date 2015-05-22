@@ -12,14 +12,16 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/avalon.min.js"></script>
 	<script>
-	var boAvalon = avalon.define({
+	var url = "http://127.0.0.1:8083/truck/json/backOperate.php";
+	var deleteUrl = "http://127.0.0.1:8083/truck/json/delete.php";
+	var boModel = avalon.define({
 		$id : "backOperate",
 		baseInfo : {},
 		loanInfo:{},
 		flow : [],
 		attach : [],
 		newStatus : function(){
-			var index = boAvalon.flow.size();
+			var index = boModel.flow.size();
 			var array = ["待征信","待征信结果","待用户提交贷款资料","待审贷款资料","待家访预约","待提交至银行","待银行确认函","待付款","待现场手续"];
 			if(index >= array.length){
 				alert("项目已完成");
@@ -33,18 +35,38 @@
 				"status":array[index],
 				"msg":""
 			}
-			boAvalon.flow.push(obj)
+			boModel.flow.push(obj)
+			$.post(url,obj,function(data){
+				alert(JSON.parse(data).msg);
+			})
+		},
+		acceptAttach : function(el){
+			boModel.attach.remove(el);
+			var obj = {
+				attId:el.att_id,
+				title:el.title,
+				appr:el.appr,
+				userId:el.userId
+			}
+			$.post(deleteUrl,obj,function(data){
+				alert(JSON.parse(data).msg);
+			});
+		},
+		img : "",
+		showImg : function(el){
+			boModel.img = el.url;
 		}
 	});
 	$(function(){
-		$.getJSON("http://127.0.0.1:8083/truck/json/backOperate.php",{orderId : 1},function(data){
-			boAvalon.baseInfo = data.baseInfo;
-			boAvalon.loanInfo = data.loanInfo;
+		$.getJSON(url,{orderId : 1},function(data){
+			console.log(data);
+			boModel.baseInfo = data.baseInfo;
+			boModel.loanInfo = data.loanInfo;
 			for(var i in data.flow){
-				boAvalon.flow.push(data.flow[i]);
+				boModel.flow.push(data.flow[i]);
 			}
 			for(var i in data.attach){
-				boAvalon.attach.push(data.attach[i]);
+				boModel.attach.push(data.attach[i]);
 			}
 		});
 	});
@@ -132,12 +154,26 @@
 						<td>{{ el.title }}</td>
 						<td>{{ el.utime }}</td>
 						<td>
-							<a class="btn btn-default" href="#" role="button">查看</a>
-							<a class="btn btn-default" href="#" role="button">删除</a>
+							<a class="btn btn-default" role="button" data-target=".show_detail" data-toggle="modal" ms-click="showImg(el)">查看</a>
+							<a class="btn btn-default" role="button" ms-click="acceptAttach(el)">删除</a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
+	<div class="modal fade show_detail" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">详细条件</h4>
+				</div>
+				<div class="modal-body" style="display: inline-block;text-align:center;width:100%;">
+					<img ms-src="img" alt="" style="width:100%;">
+				</div>
+			</div>
+		</div>
+	</div>
 	</body>
 	</html>
