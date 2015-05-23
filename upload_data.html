@@ -16,16 +16,16 @@
 		<script src="js/avalon.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
-	
+
 				$("input[type=file]").change(function(){
 					$(this).parents(".uploader").find(".filename").val($(this).val());
 				});
-	
+
 				$("input[type=text]").each(function(){
 					var str = $(this).data("value");
 					$(this).val(str?str:"请选择文件...");
 				});
-	
+
 			});
 			var uploadMode = avalon.define({
 				$id : "upload",
@@ -68,7 +68,7 @@
 			<div class="row">
 				<img src="imgs/steps1.jpg" alt="步骤" style="width: 100%;">
 			</div>
-			<form class="form_wrap demoform">
+			<div class="form_wrap demoform">
 				<div class="row">
 					<div class="col-xs-2"></div>
 					<div class="col-xs-10" style="color: #b1b1b1;padding: 10px 0;">提示1：您在准备好这些材料后请拍照上传，并选择预约上门时间，工作人员核实后会通知您，到时候工作人员会在家访完毕后收取资料。</div>
@@ -123,7 +123,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!--税务登记证-->
 
 				<div class="form-horizontal">
@@ -390,9 +390,9 @@
 				</div>
 
 				<button type="submit" id="data_post" class="btn btn-primary btn-lg btn-block center-block"  style="width: 50%;">提交资料</button>
-	
 
-			</form>
+
+			</div>
 		</div>
 		<!--尾部-->
 		<div style="width: 100%;background: #01505f;">
@@ -482,15 +482,16 @@
 		</div>
 		<script type="text/javascript">
 			//		使用表单验证插件
-			$(".demoform").Validform({
-				beforeSubmit:function(curform){
-			return false;
-			//这里明确return false的话表单将不会提交;	
-		}
-			});
-			
+		// 	$(".demoform").Validform({
+		// 		beforeSubmit:function(curform){
+		// 	return false;
+		// 	//这里明确return false的话表单将不会提交;
+		// }
+		// 	});
+
 			$("#data_post").click(function(){
 			var form = new FormData();
+			var form2 = new FormData();
 			var file1 =document.getElementById("file1").files[0];
 			var file2 =document.getElementById("file2").files[0];
 			var file3 =document.getElementById("file3").files[0];
@@ -512,7 +513,6 @@
 			var file19 =document.getElementById("file19").files[0];
 			var file20 =document.getElementById("file20").files[0];
 			var file21 =document.getElementById("file21").files[0];
-			console.log(file1);
 			form.append("file1", file1);
 			form.append("file2", file2);
 			form.append("file3", file3);
@@ -522,19 +522,19 @@
 			form.append("file7", file7);
 			form.append("file8", file8);
 			form.append("file9", file9);
-			form.append("file10", file10);
-			form.append("file11", file11);
-			form.append("file12", file12);
-			form.append("file13", file13);
-			form.append("file14", file14);
-			form.append("file15", file15);
-			form.append("file16", file16);
-			form.append("file17", file17);
-			form.append("file18", file18);
-			form.append("file19", file19);
-			form.append("file20", file20);
-			form.append("file21", file21);
-			
+			form2.append("file10", file10);
+			form2.append("file11", file11);
+			form2.append("file12", file12);
+			form2.append("file13", file13);
+			form2.append("file14", file14);
+			form2.append("file15", file15);
+			form2.append("file16", file16);
+			form2.append("file17", file17);
+			form2.append("file18", file18);
+			form2.append("file19", file19);
+			form2.append("file20", file20);
+			form2.append("file21", file21);
+
 			$.ajax({
 			  url: "json/upload_data.php",
 			  type: "POST",
@@ -544,10 +544,25 @@
 			  success : function(data){
 			  	var result = JSON.parse(data);
 				console.log(result)
-			  	if(result.res == 0){
-			  		alert(result.msg);
-			  		location.href="schedule.html?userId="+1
-			  	}
+			  	// if(result.res == 0){
+			  	// 	alert(result.msg);
+			  	// 	location.href="schedule.html?userId="+1
+			  	// }
+			  }
+			});
+			$.ajax({
+			  url: "json/upload_data.php",
+			  type: "POST",
+			  data: form2,
+			  processData: false,  // 告诉jQuery不要去处理发送的数据
+			  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+			  success : function(data){
+			  	var result = JSON.parse(data);
+				console.log(result)
+			  	// if(result.res == 0){
+			  	// 	alert(result.msg);
+			  	// 	location.href="schedule.html?userId="+1
+			  	// }
 			  }
 			});
 		});
