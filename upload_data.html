@@ -14,6 +14,7 @@
 		<script src="js/Validform.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/avalon.min.js"></script>
+		<script src="laydate/laydate.js"></script>
 		<script type="text/javascript">
 			$(function(){
 
@@ -383,14 +384,15 @@
 						<div class="row">
 							<label for="inputEmail3" class="col-xs-3 control-label" style="height: 35px;line-height: 35px;">预约时间</label>
 							<div class="uploader white col-xs-7">
-								<input type="datetime-local" name="" id="" value="" />
+								<input type="text" class="filename" data-value="选择时间" onclick="laydate()" readonly/>
+								<input type="button" name="file" class="button" value="选择" />
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<button type="submit" id="data_post" class="btn btn-primary btn-lg btn-block center-block" data-toggle="modal" data-target=".bs-example-modal-sm" style="width: 50%;">提交资料</button>
-		
+
 			</form>
 		</div>
 		<!--尾部-->
