@@ -68,7 +68,7 @@
 			<div class="row">
 				<img src="imgs/steps1.jpg" alt="步骤" style="width: 100%;">
 			</div>
-			<div class="form_wrap demoform">
+			<form class="form_wrap demoform">
 				<div class="row">
 					<div class="col-xs-2"></div>
 					<div class="col-xs-10" style="color: #b1b1b1;padding: 10px 0;">提示1：您在准备好这些材料后请拍照上传，并选择预约上门时间，工作人员核实后会通知您，到时候工作人员会在家访完毕后收取资料。</div>
@@ -389,10 +389,9 @@
 					</div>
 				</div>
 
-				<button type="submit" id="data_post" class="btn btn-primary btn-lg btn-block center-block"  style="width: 50%;">提交资料</button>
-
-
-			</div>
+				<button type="submit" id="data_post" class="btn btn-primary btn-lg btn-block center-block" data-toggle="modal" data-target=".bs-example-modal-sm" style="width: 50%;">提交资料</button>
+		
+			</form>
 		</div>
 		<!--尾部-->
 		<div style="width: 100%;background: #01505f;">
@@ -482,12 +481,13 @@
 		</div>
 		<script type="text/javascript">
 			//		使用表单验证插件
-		// 	$(".demoform").Validform({
-		// 		beforeSubmit:function(curform){
-		// 	return false;
-		// 	//这里明确return false的话表单将不会提交;
-		// }
-		// 	});
+		 	$(".demoform").Validform({
+		 		beforeSubmit:function(curform){
+		 	alert("您已经上传成功");
+		 	return false;
+		 	//这里明确return false的话表单将不会提交;
+		 }
+		 	});
 
 			$("#data_post").click(function(){
 			var form = new FormData();
