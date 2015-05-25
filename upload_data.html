@@ -371,7 +371,7 @@
 							<div class="uploader white col-xs-7">
 								<input type="text" class="filename" data-value="订金超过5万含，需提供刷卡凭条或转账凭证" readonly/>
 								<input type="button" name="file" class="button" value="上传" />
-								<input type="file" size="30" datatype="*" id="file21" nullmsg="请上传您的定金合同，订金收据。"/>
+								<input type="file" size="30" />
 							</div>
 						</div>
 					</div>
@@ -384,8 +384,8 @@
 						<div class="row">
 							<label for="inputEmail3" class="col-xs-3 control-label" style="height: 35px;line-height: 35px;">预约时间</label>
 							<div class="uploader white col-xs-7">
-								<input type="text" class="filename" data-value="选择时间" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" readonly/>
-								<input type="button" name="file" class="button" value="选择" />
+								<input type="text" class="filename" style="width: 100%;" data-value="选择时间"  id="file22" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" datatype="*"  nullmsg="请选择您的预约时间。">
+								<!--<input type="button" name="file" class="button" value="选择" />-->
 							</div>
 						</div>
 					</div>
