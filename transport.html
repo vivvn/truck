@@ -15,22 +15,33 @@
 		<script src="js/hhDrop.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/avalon.min.js"></script>
 		<script>
-			$(function(){
+			$(function() {
 				$('#hhDrop00').hhDrop({});
 				$('#hhDrop01').hhDrop({});
 				$('#hhDrop02').hhDrop({});
 			});
 			var transportModel = avalon.define({
-				$id : "transport",
-				navData : [
-				{href:"index",val:"首页"},
-				{href:"mortgage",val:"车贷服务"},
-				{href:"trucks",val:"重卡平台"},
-				{href:"transport",val:"运力云"},
-				{href:"affiliate",val:"我要挂靠"},
-				{href:"join",val:"我要加盟"},
-				],
-				active : 3
+				$id: "transport",
+				navData: [{
+					href: "index",
+					val: "首页"
+				}, {
+					href: "mortgage",
+					val: "车贷服务"
+				}, {
+					href: "trucks",
+					val: "重卡平台"
+				}, {
+					href: "transport",
+					val: "运力云"
+				}, {
+					href: "affiliate",
+					val: "我要挂靠"
+				}, {
+					href: "join",
+					val: "我要加盟"
+				}, ],
+				active: 3
 			});
 		</script>
 	</head>
@@ -81,7 +92,7 @@
 			</div>
 		</div>
 		<!--入口-->
-		
+
 		<!--抢单筛选-->
 		<!--<div class="container select_address_days">
 				<div class="row">
@@ -552,33 +563,53 @@
 				</ol>
 				<ul>
 					<li>
-						<a href="javascript:;">
+
+						<a href="mortgage.html">
 							<img src="imgs/车贷.jpg" alt="广告一" />
+						</a>
+						<a href="transport.html">
 							<img src="imgs/运力云02.jpg" alt="广告一" />
 						</a>
+
 					</li>
 					<li>
-						<a href="javascript:;">
+
+						<a href="transport.html">
 							<img src="imgs/运力云.jpg" alt="广告一" />
+						</a>
+						<a href="mortgage.html">
 							<img src="imgs/车贷.jpg" alt="广告一" />
 						</a>
+
 					</li>
 					<li>
-						<a href="javascript:;">
+
+						<a href="trucks.html">
 							<img src="imgs/重卡.jpg" alt="广告一" />
+						</a>
+						<a href="transport.html">
 							<img src="imgs/运力云.jpg" alt="广告一" />
 						</a>
+
 					</li>
 					<li>
-						<a href="javascript:;">
+
+						<a href="mortgage.html">
 							<img src="imgs/车贷02.jpg" alt="广告一" />
+						</a>
+						<a href="trucks.html">
 							<img src="imgs/重卡.jpg" alt="广告一" />
+						</a>
 						</a>
 					</li>
 					<li>
 						<a href="javascript:;">
-							<img src="imgs/运力云02.jpg" alt="广告一" />
-							<img src="imgs/车贷.jpg" alt="广告一" />
+							<a href="transport.html">
+								<img src="imgs/运力云02.jpg" alt="广告一" />
+							</a>
+							<a href="mortgage.html">
+								<img src="imgs/车贷.jpg" alt="广告一" />
+							</a>
 						</a>
 					</li>
 				</ul>
@@ -668,70 +699,62 @@
 		</footer>
 		<script type="text/javascript" src="js/move2.js"></script>
 		<script type="text/javascript">
-			window.onload=function (){
-				var oDiv=document.getElementById('play');
-				var aLi=oDiv.getElementsByTagName('ol')[0].getElementsByTagName('li');
-				
-				var aUl=oDiv.getElementsByTagName('ul')[0];
-				
-				var now=0;
-				
-				for(var i=0;i<aLi.length;i++){
-					aLi[i].index=i;
-					aLi[i].onclick=function()
-					{
-						now=this.index;
+			window.onload = function() {
+				var oDiv = document.getElementById('play');
+				var aLi = oDiv.getElementsByTagName('ol')[0].getElementsByTagName('li');
+				var aUl = oDiv.getElementsByTagName('ul')[0];
+				var now = 0;
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].index = i;
+					aLi[i].onclick = function() {
+						now = this.index;
 						tab();
 					};
 				}
-				
-				function tab(){
-					for(var i=0;i<aLi.length;i++)
-						  {
-							 aLi[i].className=''; 
-						  }
-					aLi[now].className='active';
-						
-					startMove(aUl,{top:-250*now});
-					
-				}
-				function next(){
-					
-					now++;
-					if(now==aLi.length)
-					{
-					  now=0;
+
+				function tab() {
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].className = '';
 					}
-				
+					aLi[now].className = 'active';
+					startMove(aUl, {
+						top: -250 * now
+					});
+				}
+
+				function next() {
+					now++;
+					if (now == aLi.length) {
+						now = 0;
+					}
 					tab();
 				}
-				timer=setInterval(next,2000);
-				oDiv.onmousemove=function(){
+				timer = setInterval(next, 2000);
+				oDiv.onmousemove = function() {
 					clearInterval(timer);
 				}
-				oDiv.onmouseout=function(){
-					timer=setInterval(next,2000);
+				oDiv.onmouseout = function() {
+					timer = setInterval(next, 2000);
 				}
-				
 			};
 		</script>
 		<!--轮播图自动播放时间间隔-->
 		<script>
 			$(function() {
-						$('.carousel').carousel({
-							interval: 3000
-						});
-					});
+				$('.carousel').carousel({
+					interval: 3000
+				});
+			});
 
-					function hengshuping(){
-						if(window.orientation==180||window.orientation==0){
-							alert("网页为电脑端网页，请您横屏浏览效果更佳！");
-						}
-						if(window.orientation==90||window.orientation==-90){
-							return;
-						}
-					}
-					hengshuping();
+			function hengshuping() {
+				if (window.orientation == 180 || window.orientation == 0) {
+					alert("网页为电脑端网页，请您横屏浏览效果更佳！");
+				}
+				if (window.orientation == 90 || window.orientation == -90) {
+					return;
+				}
+			}
+			hengshuping();
 		</script>
 	</body>
 
