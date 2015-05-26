@@ -265,7 +265,7 @@
 							<input type="text" class="form-control" id="form_phone" datatype="m" nullmsg="请输入您的手机号码!" errormsg="请输入正确的手机号码！" >
 						</div>
 						<div>
-							<a href="javascript:;" style="width: 83px;" class="btn btn-default">验证码</a>
+							<a id="reBtn" href="javascript:;" style="width: 83px;" class="btn btn-default">验证码</a>
 						</div>
 
 					</div>
@@ -637,6 +637,78 @@
 		$(function(){
 			$(".carousel").carousel("pause");
 		})
+		var wait = 60;
+		function time(o) {//o为按钮的对象，这里是60秒过后，提示文字的改变
+		    if (wait == 0) {
+		        o.removeAttr("disabled");
+		        o.text("验证码");//改变按钮中value的值
+		        wait = 60;
+		    } else {
+		        o.attr("disabled", "disabled");//倒计时过程中禁止点击按钮
+		        o.text(wait + "秒");//改变按钮中value的值
+		        wait--;
+		        setTimeout(function() {
+		            time(o);//循环调用
+		        }, 1000);
+		    }
+		}
+		$('#reBtn').click(function(){
+			var mobileText = $('#form_phone').val();
+			if(!/^13[0-9]{9}$|15[0-9]{9}$|18[0-9]{9}$/.test(mobileText)){
+				showMsg('请输入正确的手机号码！');
+				return;
+			}
+			time($(this));
+			var obj = {
+				mobile:mobileText
+			}
+			$.post("http://xsj.wiiwoo.cn/sms/vericode/",obj, function(e){
+				console.log(JSON.parse(e));
+				if(JSON.parse(e).code == 2000){
+					$('#form_checkcode').data('sid',JSON.parse(e).sid);
+				}
+			});
+		});
+		$('#form_checkcode').change(function(){
+			console.log($(this).val())
+			var obj = {
+				code : $(this).val(),
+				sid : $(this).data('sid')
+			}
+			$.get("http://xsj.wiiwoo.cn/sms/checkcode/",obj,function(e){
+				var je = JSON.parse(e).code;
+				if(je.code == 1){
+					$('#Validform_msg').css({
+						"display":"block",
+						"left" : $('body').width()-$(this).width() + "px"
+					})
+				}else{
+					console.log(je.code)
+				}
+				console.log(JSON.parse(e));
+			});
+		});
+		function showMsg(msg){
+			var left=($(window).width()-$('#Validform_msg').width())/2;
+			var top=($(window).height()-$('#Validform_msg').height())/2;
+			top=(document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop)+(top>0?top:0);
+			$('#Validform_msg').css({
+					"left":left
+			}).show().animate({
+					top:top
+			},100).find(".Validform_info").text(msg);
+
+			$(window).bind("scroll resize",function(){
+				var left=($(window).width()-$('#Validform_msg').width())/2,
+					top=($(window).height()-$('#Validform_msg').height())/2,
+					topTo=(document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop)+(top>0?top:0);
+
+				$('#Validform_msg').animate({
+					left : left,
+					top : topTo
+				},{ duration:400 , queue:false });
+			});
+		}
 	</script>
 </body>
 
