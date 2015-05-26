@@ -637,6 +637,30 @@
 		$(function(){
 			$(".carousel").carousel("pause");
 		})
+		var wait=60;//时间
+		$('#reCode').click(function(){
+			time($(this));
+			var obj = {
+				mobile : $("#form_phone").val()
+			}
+			$.getJSON("http://xsj.wiiwoo.cn/sms/vericode",obj,function(data){
+				console.log(data);
+			});
+		});
+		function time(o) {//o为按钮的对象，这里是60秒过后，提示文字的改变
+			if (wait == 0) {
+				o.removeAttr("disabled");
+				o.text("验证码");//改变按钮中value的值
+				wait = 60;
+			} else {
+				o.attr("disabled", "disabled");//倒计时过程中禁止点击按钮
+				o.text(wait + "秒");//改变按钮中value的值
+				wait--;
+				setTimeout(function() {
+					time(o);//循环调用
+				}, 1000)
+			}
+		}
 	</script>
 </body>
 
