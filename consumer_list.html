@@ -109,24 +109,6 @@
 		<div class="niwdoawi_center w320">
 			<div class="logo clearfix">
 				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size:30px;">Logo</a>
-				<!--<div class="fr righ">
-					<ul class="nav clearfix">
-						<li>
-							<a rel="nofollow" href="javascript:;" title="首页" class="one">首页</a>
-						</li>
-						<li class="two">
-							<a href="javascript:;" title="我要投资" class="one">我要投资</a>
-						</li>
-						<li class="rela">
-							<a href="javascript:;" title="我要借款" class="one">我要借款</a>
-						</li>
-						<li class="two" style="margin-right:7;">
-							<a href="javascript:;" title="关于我们" class="one">关于我们</a>
-						</li>
-						<li style="margin-right:0;">
-							<a href="javascript:;" target="_blank" title="社区" class="one">社区 </a>
-						</li>
-					</ul>
 				</div>-->
 			</div>
 		</div>
@@ -141,18 +123,6 @@
 			ms-click="click($outer.el.role)">{{ el }}</button>
 			<button type="button" class="btn btn-default" data-toggle="modal" data-target=".show_detail" ms-if-loop="el.role=='快速筛选'">详细条件</button>
 		</div>
-		<!-- <div class="row head_lead">
-			<button type="button" class="btn btn-primary btn_head" disabled="disabled">征信员订单</button>
-			<button type="button" class="btn btn-default">待征信</button>
-			<button type="button" class="btn btn-default">待征信结果</button>
-		</div>
-		<div class="row head_lead">
-			<button type="button" class="btn btn-primary btn_head" disabled="disabled">快速筛选</button>
-			<button type="button" class="btn btn-default">审单员</button>
-			<button type="button" class="btn btn-default">征信员</button>
-			<button type="button" class="btn btn-default">家访员</button>
-			<button type="button" class="btn btn-default" data-toggle="modal" data-target=".show_detail">详细条件</button>
-		</div> -->
 		<hr class="soften">
 		<!--客户详情-->
 		<div class="container-fluid">
@@ -191,14 +161,6 @@
 				</div>
 				<div class="modal-body btn_bg" style="display: inline-block;">
 					<button type="button" class="btn btn-default btn_box" ms-repeat="arrayDetail" ms-click="choose">{{ el }}</button>
-				<!-- 	<button type="button" class="btn btn-default">待征信结果</button>
-					<button type="button" class="btn btn-default">待用户提交贷款资料</button>
-					<button type="button" class="btn btn-default">待审贷款资料</button>
-					<button type="button" class="btn btn-default">待家访预约</button>
-					<button type="button" class="btn btn-default">待提交至银行</button>
-					<button type="button" class="btn btn-default">待银行确认函</button>
-					<button type="button" class="btn btn-default">待付款</button>
-					<button type="button" class="btn btn-default">待现场手续</button> -->
 					<div class="btn_time">
 						<span>完成日期：</span>
 						<input id="start" placeholder="请输入日期" class="laydate-icon" onclick="laydate(start)">-<input id="end" placeholder="请输入日期" class="laydate-icon" onclick="laydate(end)">
