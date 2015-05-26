@@ -376,9 +376,7 @@
 						</div>
 					</div>
 				</div>
-
 				<!--预约时间-->
-
 				<div class="form-horizontal">
 					<div class="form-group">
 						<div class="row">
@@ -481,10 +479,7 @@
 		</div>
 		<!--尾部结束-->
 		</div>
-		<script type="text/javascript">
-				 	
-		
-		
+		<script type="text/javascript">		
 			//		使用表单验证插件
 		 	$(".demoform").Validform({
 		 		beforeSubmit:function(curform){
@@ -493,88 +488,43 @@
 		 	//这里明确return false的话表单将不会提交;
 		 }
 
-		 	});
+		 	});	 	
 
-		 	
-		 	
-
-			$("#data_post").click(function(){
-			var form = new FormData();
-			var form2 = new FormData();
-			var file1 =document.getElementById("file1").files[0];
-			var file2 =document.getElementById("file2").files[0];
-			var file3 =document.getElementById("file3").files[0];
-			var file4 =document.getElementById("file4").files[0];
-			var file5 =document.getElementById("file5").files[0];
-			var file6 =document.getElementById("file6").files[0];
-			var file7 =document.getElementById("file7").files[0];
-			var file8 =document.getElementById("file8").files[0];
-			var file9 =document.getElementById("file9").files[0];
-			var file10 =document.getElementById("file10").files[0];
-			var file11 =document.getElementById("file11").files[0];
-			var file12 =document.getElementById("file12").files[0];
-			var file13 =document.getElementById("file13").files[0];
-			var file14 =document.getElementById("file14").files[0];
-			var file15 =document.getElementById("file15").files[0];
-			var file16 =document.getElementById("file16").files[0];
-			var file17 =document.getElementById("file17").files[0];
-			var file18 =document.getElementById("file18").files[0];
-			var file19 =document.getElementById("file19").files[0];
-			var file20 =document.getElementById("file20").files[0];
-			var file21 =document.getElementById("file21").files[0];
-			form.append("file1", file1);
-			form.append("file2", file2);
-			form.append("file3", file3);
-			form.append("file4", file4);
-			form.append("file5", file5);
-			form.append("file6", file6);
-			form.append("file7", file7);
-			form.append("file8", file8);
-			form.append("file9", file9);
-			form2.append("file10", file10);
-			form2.append("file11", file11);
-			form2.append("file12", file12);
-			form2.append("file13", file13);
-			form2.append("file14", file14);
-			form2.append("file15", file15);
-			form2.append("file16", file16);
-			form2.append("file17", file17);
-			form2.append("file18", file18);
-			form2.append("file19", file19);
-			form2.append("file20", file20);
-			form2.append("file21", file21);
-
-			$.ajax({
-			  url: "json/upload_data.php",
+for(var i=1;i<=$('input[type=file]').length;i++){
+    (function(i){
+		$("#file"+i).change(function(){
+			console.log(i)
+			ff(i);
+		});
+    })(i)
+}
+var obj = {};
+function ff(num){
+		var file1 =document.getElementById("file"+num).files[0];
+		var form = new FormData();
+		form.append("file1", file1);
+		$.ajax({
+			  url: "http://xsj.wiiwoo.cn/file/",
 			  type: "POST",
 			  data: form,
 			  processData: false,  // 告诉jQuery不要去处理发送的数据
 			  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
 			  success : function(data){
 			  	var result = JSON.parse(data);
-				console.log(result)
-			  	// if(result.res == 0){
-			  	// 	alert(result.msg);
-			  	// 	location.href="schedule.html?userId="+1
-			  	// }
+				console.log(result);
+				obj["file"+num] = result.urls.file1;
 			  }
-			});
-			$.ajax({
-			  url: "json/upload_data.php",
-			  type: "POST",
-			  data: form2,
-			  processData: false,  // 告诉jQuery不要去处理发送的数据
-			  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-			  success : function(data){
-			  	var result = JSON.parse(data);
-				console.log(result)
-			  	// if(result.res == 0){
-			  	// 	alert(result.msg);
-			  	// 	location.href="schedule.html?userId="+1
-			  	// }
-			  }
-			});
 		});
+}
+
+			$("#data_post").click(function(){
+				var time = $("#file22").val();
+				obj['time'] = time;
+				$.post("json/upload_data.php",obj,function(){
+					console.log(data)
+				})
+			});
+				
 		</script>
 	</body>
 
