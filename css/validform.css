@@ -1,5 +1,5 @@
-	/*表单插件样式*/
-		.Validform_checktip{
+/*表单插件样式*/
+.Validform_checktip{
 	margin-left:8px;
 	line-height:20px;
 	height:20px;
@@ -22,22 +22,18 @@
 .Validform_error{
 	background-color:#ffe7e7;
 }
-#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');border-radius:5px;text-align:center;}
 #Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
-#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#b1b1b1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#337AB7;border-radius:5px 5px 0 0;}
 #Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{
-	/*line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;*/
-	position: absolute;
-right: 8px;
-top: 33px;
-width: 40px;
-border-radius: 3px;
-line-height: 20px;
-height: 20px;
-text-align: center;
-background: #b1b1b1;
-color: #fff;
-text-decoration: none;
-	}
-#Validform_msg a.Validform_close:hover{color:#cc0;}
-#Validform_msg .Validform_info{padding:8px;border:1px solid #b1b1b1; border-top:none; text-align:left;}
+	  border-radius: 3px;
+	  text-align: center;
+	  background: #337AB7;
+	  color: #fff;
+	  text-decoration: none;
+	  padding: 5px 10px;
+	  margin: 5px auto;
+	  width: 100px;
+	  display: inline-block;
+}
+#Validform_msg .Validform_info{padding:8px; border-top:none; text-align:center;border-radius:0 0 5px 5px;font-size: 16px;color:#333;}
