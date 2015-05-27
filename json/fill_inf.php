@@ -13,13 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function post_form(){
             $city = $_POST["city"];
             $userName = $_POST["userName"];
-            $phone = $_POST["phone"];
+			$num_id = $_POST["num_id"];
+            $phone = $_POST["phone"];			
             $check_code = $_POST["reviewCode"];
             $file1 = $_FILES["file1"];
             $file2 = $_FILES["file2"];
             $result = array(
                 "city"=>$city,
                 "phone"=>$phone,
+                "num_id"=>$num_id,
                 "check_code"=>$check_code,
                 "username"=>$userName,
                 "file1"=>$file1,
