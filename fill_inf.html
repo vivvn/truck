@@ -676,16 +676,13 @@
 				sid : $(this).data('sid')
 			}
 			$.get("http://xsj.wiiwoo.cn/sms/checkcode/",obj,function(e){
-				var je = JSON.parse(e).code;
+				var je = JSON.parse(e);
 				if(je.code == 1){
-					$('#Validform_msg').css({
-						"display":"block",
-						"left" : $('body').width()-$(this).width() + "px"
-					})
+					console.log(je)
 				}else{
-					console.log(je.code)
+					showMsg(je.msg+'  验证码错误')
 				}
-				console.log(JSON.parse(e));
+				console.log(je);
 			});
 		});
 		function showMsg(msg){
