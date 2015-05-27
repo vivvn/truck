@@ -10,6 +10,17 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" type="text/css" href="css/validform.css" />
 		<link rel="stylesheet" type="text/css" href="css/upload_data.css" />
+		<style>
+			#uploadPreview {
+			    width: 168px;
+			    height: 168px;
+			    background-position: center center;
+			    background-size: cover;
+			    border: 4px solid #fff;
+			    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+			    display: inline-block;
+			}
+		</style>
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/Validform.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -93,6 +104,7 @@
 							</div>
 						</div>
 					</div>
+					<div id="uploadPreview"></div>
 				</div>
 
 				<!--组织机构代码证-->
@@ -479,43 +491,65 @@
 		</div>
 		<!--尾部结束-->
 		</div>
-		<script type="text/javascript">		
+		<script type="text/javascript">
 			//		使用表单验证插件
 		 	$(".demoform").Validform({
 		 		beforeSubmit:function(curform){
-		 	alert("您已经上传成功");
-		 	return false;
-		 	//这里明确return false的话表单将不会提交;
-		 }
+			 	alert("您已经上传成功");
+			 	return false;
+			 	//这里明确return false的话表单将不会提交;
+		 		}
 
-		 	});	 	
+		 	});
 
-for(var i=1;i<=$('input[type=file]').length;i++){
-    (function(i){
-		$("#file"+i).change(function(){
-			console.log(i)
-			ff(i);
-		});
-    })(i)
-}
-var obj = {};
-function ff(num){
-		var file1 =document.getElementById("file"+num).files[0];
-		var form = new FormData();
-		form.append("file1", file1);
-		$.ajax({
-			  url: "http://xsj.wiiwoo.cn/file/",
-			  type: "POST",
-			  data: form,
-			  processData: false,  // 告诉jQuery不要去处理发送的数据
-			  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-			  success : function(data){
-			  	var result = JSON.parse(data);
-				console.log(result);
-				obj["file"+num] = result.urls.file1;
-			  }
-		});
-}
+			for(var i=1;i<=$('input[type=file]').length;i++){
+			    (function(i){
+					$("#file"+i).change(function(){
+						console.log(i)
+						var files = !!this.files ? this.files : [];
+
+					    // If no files were selected, or no FileReader support, return
+					    if (!files.length || !window.FileReader) return;
+
+					    // Only proceed if the selected file is an image
+					    if (/^image/.test( files[0].type)){
+
+					        // Create a new instance of the FileReader
+					        var reader = new FileReader();
+
+					        // Read the local file as a DataURL
+					        reader.readAsDataURL(files[0]);
+
+					        // When loaded, set image data as background of div
+					        reader.onloadend = function(){
+
+					       $("#uploadPreview").css("background-image", "url("+this.result+")");
+
+					        }
+
+					    }
+					ff(i);
+					});
+			    })(i)
+			}
+			var obj = {};
+			function ff(num){
+					var file1 =document.getElementById("file"+num).files[0];
+					var form = new FormData();
+					form.append("file1", file1);
+					$.ajax({
+						  url: "http://xsj.wiiwoo.cn/file/",
+						  type: "POST",
+						  data: form,
+						  processData: false,  // 告诉jQuery不要去处理发送的数据
+						  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+						  success : function(data){
+						  	var result = JSON.parse(data);
+							console.log(result);
+							obj["file"+num] = result.urls.file1;
+						  }
+					});
+			}
 
 			$("#data_post").click(function(){
 				var time = $("#file22").val();
@@ -524,7 +558,7 @@ function ff(num){
 					console.log(data)
 				})
 			});
-				
+
 		</script>
 	</body>
 
