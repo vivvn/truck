@@ -25,14 +25,14 @@
 #Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');border-radius:5px;text-align:center;}
 #Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
 #Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#337AB7;border-radius:5px 5px 0 0;}
-#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{
+#Validform_msg a.Validform_close{
 	  border-radius: 3px;
 	  text-align: center;
 	  background: #337AB7;
 	  color: #fff;
 	  text-decoration: none;
-	  padding: 5px 10px;
-	  margin: 5px auto;
+	  padding: 5px 10px 10px;
+	  margin: 5px auto 12px;
 	  width: 100px;
 	  display: inline-block;
 }
