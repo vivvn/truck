@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>提交贷款个人信息</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/main.css" />
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/Validform.js" type="text/javascript" charset="utf-8"></script>
@@ -275,10 +275,12 @@
 						</div>
 
 					</div>
-					<div class="form-group" style="margin-bottom: 5px;">
+					<div class="form-group" style="margin-bottom: 5px;position:relative;">
 						<label for="iden" class="col-xs-3 control-label" style="padding-right: 0;">验证码</label>
 						<div class="col-xs-8">
 							<input type="text" class="form-control" id="form_checkcode" datatype="*" nullmsg="请输入验证码!">
+							<i class="fa fa-close fa-2x error_i"></i>
+							<i class="fa fa-check fa-2x check_i"></i>
 						</div>
 					</div>
 					<div class="form-group">
@@ -596,16 +598,16 @@
 			var file1 =document.getElementById("file1").files[0];
 			var file2 =document.getElementById("file2").files[0];
 			console.log(file1);
-			form.append("userId","");
-			form.append("city",$("#form_city").val());
-			form.append("userName",$("#form_userName").val());
-			form.append("num_id",$("#num_id").val());
-			form.append("phone",$("#form_phone").val());
-			form.append("reviewCode",$("#form_checkcode").val());
-			form.append("file1", file1);
-			form.append("file2", file2);
+			// form.append("userId","");
+			form.append("city_name",$("#form_city").val());
+			form.append("debtor_name",$("#form_userName").val());
+			form.append("mobile",$("#form_phone").val());
+			form.append("idnum",$("#num_id").val());
+			form.append("vericode",$("#form_checkcode").val());
+			form.append("idfront", file1);
+			form.append("idback", file2);
 			$.ajax({
-			  url: "json/fill_inf.php",
+			  url: "http://xsj.wiiwoo.cn/mortgage/insert",
 			  type: "POST",
 			  data: form,
 			  processData: false,  // 告诉jQuery不要去处理发送的数据
@@ -615,7 +617,7 @@
 				console.log(result)
 			  	if(result.res == 0){
 			  		alert(result.msg);
-			  		location.href="schedule.html?userId="+1
+			  		// location.href="schedule.html?userId="+1
 			  	}
 			  }
 			});
@@ -685,9 +687,12 @@
 			$.get("http://xsj.wiiwoo.cn/sms/checkcode/",obj,function(e){
 				var je = JSON.parse(e);
 				if(je.code == 1){
-					console.log(je)
+					// console.log(je)
+					$('.check_i').show();
+					$('.error_i').hide();
 				}else{
-					showMsg(je.msg+'  验证码错误')
+					$('.error_i').show();
+					$('.check_i').hide();
 				}
 				console.log(je);
 			});

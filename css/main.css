@@ -150,3 +150,13 @@ img {
   max-width: 1170px;
   margin:10px auto;
 }
+
+/*显示验证码对错样式*/
+.error_i,.check_i{
+    position: absolute;
+    top: 3px;
+    right: 27px;
+    display: none;
+}
+.error_i{color: #EF4949;}
+.check_i{color: #337AB7;}
