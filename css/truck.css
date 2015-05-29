@@ -165,27 +165,40 @@ textarea{
 	margin: 0 auto;
 	text-align: center;
 	display: inline-block;
-	width: 214px;
-	height: 214px;
+	width: 160px;
+	height: 160px;
 	margin-top: 10px;
+	background-size: 100%;
+	background-position: center;
 }
 .join_table_wapper1 {
 	background-image: url(../imgs/join1.jpg);
 }
 .join_table_wapper2 {
 	background-image: url(../imgs/join2.jpg);
+	background-position: center;
 }
 .join_table_wapper3 {
 	background-image: url(../imgs/join3.jpg);
+	background-position: center;
 }
 .join_table_wapper1 p,
 .join_table_wapper2 p,
 .join_table_wapper3 p {
 	line-height: 2;
-	margin-top: 185px;
+	margin-top: 160px;
 	background: white;
-	font-size: 30px;
+	font-size: 20px;
 }
+
+.join_table_wapper1 span,
+.join_table_wapper2 span,
+.join_table_wapper3 span {
+	margin-top: 15px;
+	font-size: 12px;
+	display: inline-block;
+}
+
 .join_table_wapper1 p {
 	border: 1px solid #f65311;
 	color: #f65311;
