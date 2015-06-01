@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>加盟介绍-货源介绍</title>
+		<link href="http://127.0.0.1:8083/truck/release/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="http://127.0.0.1:8083/truck/release/css/truck.css" />
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://127.0.0.1:8083/truck/release/js/bootstrap.min.js"></script>
+		<script src="http://127.0.0.1:8083/truck/release/js/avalon.min.js"></script>
+		<script>
+			var joinDelModel = avalon.define({
+				$id : "joinDelModel",
+				navData : [
+				{href:"index",val:"首页"},
+				{href:"mortgage",val:"车贷服务"},
+				{href:"trucks",val:"重卡平台"},
+				{href:"transport",val:"运力云"},
+				{href:"affiliate",val:"我要挂靠"},
+				{href:"join",val:"我要加盟"},
+				],
+				active : 5
+			});
+		</script>
+	</head>
+
+	<body ms-controller="joinDelModel">
+		<!--头部导航开始-->
+		<div class="wrap_header">
+			<div class="niwdoawi_center container">
+				<div class="w1000 logo clearfix">
+					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+					<div class="fr righ">
+						<ul class="nav navbar-nav navbar-right text-info">
+							<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+								<li>
+									<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+									<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!--头部导航结束-->
+
+		<!--轮播图-->
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img alt="轮播图" src="http://cdn.wiiwoo.cn/xsj/imgs/货源.jpg" data-holder-rendered="true">
+				</div>
+				<div class="item">
+					<img alt="轮播图" src="http://cdn.wiiwoo.cn/xsj/imgs/运力云03.jpg" data-holder-rendered="true">
+				</div>
+			</div>
+		</div>
+		<!--轮播图自动播放时间间隔-->
+		<script>
+			$(function() {
+				$('.carousel').carousel({
+					interval: 3000
+				});
+			});
+		</script>
+		<div class="container-fluid">
+			<div class="row" style="margin-top: 5%;padding: 0 5%;">
+				<div class="col-md-6" style="text-align: center;">
+					<img src="http://cdn.wiiwoo.cn/xsj/imgs/map.jpg" style="width:100%;" />
+				</div>
+				<div class="col-md-6">
+					<span class="de_about_card_hw">
+
+
+
+					<span class="de_about_card_us_1"></span> 货源介绍
+					</span>
+					<p>&nbsp;</p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="de_about_text" style="font-size: 24px;">我们公司业务遍布全国100多个港口的代理公司，从
+
+
+
+				2000年开始加快构筑华南区服务网。货主可以在深圳、广
+
+
+
+				州、东莞、香港等主要口岸商业城市分别联系我们洽谈业
+
+
+
+				务。万航可用资源还包括大型的中港运输车队，能配套各
+
+
+
+				种型号车辆承运能力，超过9000平方米的物流仓库（其中
+
+
+
+				部分为空运仓储中心）。多年耕耘，基本上形成了能提供华
+
+
+
+				南区多个口岸城市的陆运仓储报关服务、进出口权服务、国
+
+
+
+				际海空代理服务的"综合物流"服务网。所以我们有最优质和
+
+
+
+				最庞大的货源。
+
+
+
+			</span>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 de_about_card">
+					<span class="de_about_card_us">
+
+
+
+				<span class="de_about_card_us_1"></span> 我们的优势
+					</span>
+					<!--<div class="de_call_us">
+				<span style="display: block;text-align: center;">联</span>
+				<span style="display: block;text-align: center;">系</span>
+				<span style="display: block;text-align: center;">我</span>
+				<span style="display: block;text-align: center;">们</span>
+				<div style="font-size: 20px;padding-left: 10px;">135XXXXXX</div>
+			</div>-->
+					<p>&nbsp;</p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="de_about_text">我们公司业务遍布全国100多个港口的代理公司，从2000年开始加快
+
+
+
+			构筑华南区服务网。货主可以在深圳、广州、东莞、香港等主要口岸商业
+
+
+
+			城市分别联系我们洽谈业务。万航可用资源还包括大型的中港运输车队，能
+
+
+
+			配套各种型号车辆承运能力，超过9000平方米的物流仓库（其中部分为空运
+
+
+
+			仓储中心）。多年耕耘，基本上形成了能提供华南区多个口岸城市的陆运储
+
+
+
+			报关服务、进出口权服务、国际海空代理服务的"综合物流"服务网。加入我
+
+
+
+			们享受最优质的服务。我们公司业务遍布全国100多个港口的代理公司，从2
+
+
+
+			000年开始加快构筑华南区服务网。货主可以在深圳、广州、东莞、香港等主
+
+
+
+			要口岸商业城市分别联系我们洽谈业务。万航可用资源还包括大型的中港运
+
+
+
+			输车队，能配套各种型号车辆承运能力，超过9000平方米的物流仓库（其中
+
+
+
+			部分为空运仓储中心）。多年耕耘，基本上形成了能提供华南区多个口岸城
+
+
+
+			市的陆运储报关服务、进出口权服务、国际海空代理服务的"综合物流"服务网。
+
+
+
+			加入我们享受最优质的服务。
+
+
+
+		</span>
+		<button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 20px;">联系我们：135XXXXXXXX</button>
+				</div>
+			</div>
+		</div>
+		<!--尾部-->
+		<footer class="container-fluid truck_footer">
+			<div class="row">
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">中国银行</a>
+						</li>
+						<li><a href="javascript:;">平安银行</a>
+						</li>
+						<li><a href="javascript:;">浦发银行</a>
+						</li>
+						<li><a href="javascript:;">工商银行</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">农业银行</a>
+						</li>
+						<li><a href="javascript:;">建设银行</a>
+						</li>
+						<li><a href="javascript:;">光大银行</a>
+						</li>
+						<li><a href="javascript:;">招商银行</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">汽车之家</a>
+						</li>
+						<li><a href="javascript:;">卡车之家</a>
+						</li>
+						<li><a href="javascript:;">新浪汽车</a>
+						</li>
+						<li><a href="javascript:;">腾讯汽车</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">易车汽车论坛</a>
+						</li>
+						<li><a href="javascript:;">中国买车网</a>
+						</li>
+						<li><a href="javascript:;">搜狐汽车</a>
+						</li>
+						<li><a href="javascript:;">中国高速网</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">二手卡车网</a>
+						</li>
+						<li><a href="javascript:;">汽配英才网</a>
+						</li>
+						<li><a href="javascript:;">北京二手车</a>
+						</li>
+						<li><a href="javascript:;">中国人才网</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">我爱车网</a>
+						</li>
+						<li><a href="javascript:;">汽配中国网</a>
+						</li>
+						<li><a href="javascript:;">深圳二手车</a>
+						</li>
+						<li><a href="javascript:;">车生活网</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row truck_address">
+				<p>Copyright ©XSJ All Rights Reserved</p>
+				<p>© 2015 鑫森捷 京ICP备14026002号</p>
+			</div>
+		</footer>
+
+	</body>
+
+</html>

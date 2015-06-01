@@ -1,0 +1,197 @@
+{
+    "res": {
+        "css/applyof-insurance.css": {
+            "uri": "/css/applyof-insurance.css",
+            "type": "css"
+        },
+        "css/backstage_operate.css": {
+            "uri": "/css/backstage_operate.css",
+            "type": "css"
+        },
+        "css/bootstrap-grid-ms.min.css": {
+            "uri": "/css/bootstrap-grid-ms.min.css",
+            "type": "css"
+        },
+        "css/bootstrap.min.css": {
+            "uri": "/css/bootstrap.min.css",
+            "type": "css"
+        },
+        "css/consumer_list.css": {
+            "uri": "/css/consumer_list.css",
+            "type": "css"
+        },
+        "css/css.css": {
+            "uri": "/css/css.css",
+            "type": "css"
+        },
+        "css/driver_bid_list.css": {
+            "uri": "/css/driver_bid_list.css",
+            "type": "css"
+        },
+        "css/fill_inf.css": {
+            "uri": "/css/fill_inf.css",
+            "type": "css"
+        },
+        "css/flowpath_intorduce.css": {
+            "uri": "/css/flowpath_intorduce.css",
+            "type": "css"
+        },
+        "css/font-awesome.min.css": {
+            "uri": "/css/font-awesome.min.css",
+            "type": "css"
+        },
+        "css/main.css": {
+            "uri": "/css/main.css",
+            "type": "css"
+        },
+        "css/schedule.css": {
+            "uri": "/css/schedule.css",
+            "type": "css"
+        },
+        "css/truck.css": {
+            "uri": "/css/truck.css",
+            "type": "css"
+        },
+        "css/upload_data.css": {
+            "uri": "/css/upload_data.css",
+            "type": "css"
+        },
+        "css/validform.css": {
+            "uri": "/css/validform.css",
+            "type": "css"
+        },
+        "js/Validform.js": {
+            "uri": "/js/Validform.js",
+            "type": "js"
+        },
+        "js/avalon.min.js": {
+            "uri": "/js/avalon.min.js",
+            "type": "js"
+        },
+        "js/bootstrap.min.js": {
+            "uri": "/js/bootstrap.min.js",
+            "type": "js"
+        },
+        "js/fullPage.min.js": {
+            "uri": "/js/fullPage.min.js",
+            "type": "js"
+        },
+        "js/hhDrop.js": {
+            "uri": "/js/hhDrop.js",
+            "type": "js"
+        },
+        "js/move2.js": {
+            "uri": "/js/move2.js",
+            "type": "js"
+        },
+        "laydate/laydate.js": {
+            "uri": "/laydate/laydate.js",
+            "type": "js"
+        },
+        "laydate/need/laydate.css": {
+            "uri": "/laydate/need/laydate.css",
+            "type": "css"
+        },
+        "laydate/skins/default/laydate.css": {
+            "uri": "/laydate/skins/default/laydate.css",
+            "type": "css"
+        },
+        "release/css/applyof-insurance.css": {
+            "uri": "/release/css/applyof-insurance.css",
+            "type": "css"
+        },
+        "release/css/backstage_operate.css": {
+            "uri": "/release/css/backstage_operate.css",
+            "type": "css"
+        },
+        "release/css/bootstrap-grid-ms.min.css": {
+            "uri": "/release/css/bootstrap-grid-ms.min.css",
+            "type": "css"
+        },
+        "release/css/bootstrap.min.css": {
+            "uri": "/release/css/bootstrap.min.css",
+            "type": "css"
+        },
+        "release/css/consumer_list.css": {
+            "uri": "/release/css/consumer_list.css",
+            "type": "css"
+        },
+        "release/css/css.css": {
+            "uri": "/release/css/css.css",
+            "type": "css"
+        },
+        "release/css/driver_bid_list.css": {
+            "uri": "/release/css/driver_bid_list.css",
+            "type": "css"
+        },
+        "release/css/fill_inf.css": {
+            "uri": "/release/css/fill_inf.css",
+            "type": "css"
+        },
+        "release/css/flowpath_intorduce.css": {
+            "uri": "/release/css/flowpath_intorduce.css",
+            "type": "css"
+        },
+        "release/css/font-awesome.min.css": {
+            "uri": "/release/css/font-awesome.min.css",
+            "type": "css"
+        },
+        "release/css/main.css": {
+            "uri": "/release/css/main.css",
+            "type": "css"
+        },
+        "release/css/schedule.css": {
+            "uri": "/release/css/schedule.css",
+            "type": "css"
+        },
+        "release/css/truck.css": {
+            "uri": "/release/css/truck.css",
+            "type": "css"
+        },
+        "release/css/upload_data.css": {
+            "uri": "/release/css/upload_data.css",
+            "type": "css"
+        },
+        "release/css/validform.css": {
+            "uri": "/release/css/validform.css",
+            "type": "css"
+        },
+        "release/js/Validform.js": {
+            "uri": "/release/js/Validform.js",
+            "type": "js"
+        },
+        "release/js/avalon.min.js": {
+            "uri": "/release/js/avalon.min.js",
+            "type": "js"
+        },
+        "release/js/bootstrap.min.js": {
+            "uri": "/release/js/bootstrap.min.js",
+            "type": "js"
+        },
+        "release/js/fullPage.min.js": {
+            "uri": "/release/js/fullPage.min.js",
+            "type": "js"
+        },
+        "release/js/hhDrop.js": {
+            "uri": "/release/js/hhDrop.js",
+            "type": "js"
+        },
+        "release/js/move2.js": {
+            "uri": "/release/js/move2.js",
+            "type": "js"
+        },
+        "release/laydate/laydate.js": {
+            "uri": "/release/laydate/laydate.js",
+            "type": "js"
+        },
+        "release/laydate/need/laydate.css": {
+            "uri": "/release/laydate/need/laydate.css",
+            "type": "css"
+        },
+        "release/laydate/skins/default/laydate.css": {
+            "uri": "/release/laydate/skins/default/laydate.css",
+            "type": "css"
+        }
+    },
+    "pkg": {}
+}

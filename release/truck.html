@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>车辆详情</title>
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/truck.css" />
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script src="/js/avalon.min.js"></script>
+  <script type="text/javascript">
+     window.onload = function() {
+        var titles = $(".giTabtit_box").children('div');
+        var divs = $(".giTab_box").children('table');
+        if (titles.length != divs.length)
+           return;
+       for (var i = 0; i < titles.length; i++) {
+           titles[i].id = i;
+           titles[i].onclick = function() {
+              for (var j = 0; j < titles.length; j++) {
+                 titles[j].className = ' ';
+                 divs[j].style.display = 'none';
+             }
+             this.className = 'giTab_select';
+             divs[this.id].style.display = 'table';
+         }
+     }
+ }
+ var truckModel = avalon.define({
+    $id : "truck",
+    borrow : "10",
+    typeArray : ["公务员","自雇人士","公司职员"],
+    monthSalary : "10000",
+    payResult : "",
+    payMonth : "",
+    month : [36,24,12],
+    show : "start",
+    start : function(){
+        truckModel.show = "restart";
+        truckModel.payResult = truckModel.borrow*truckModel.monthSalary;
+        truckModel.payMonth = Math.round(truckModel.payResult/36);
+    },
+    restart : function(){
+        truckModel.show = "start";
+    },
+    monthChange : "36",
+    navData : [
+    {href:"index",val:"首页"},
+    {href:"mortgage",val:"车贷服务"},
+    {href:"trucks",val:"重卡平台"},
+    {href:"transport",val:"运力云"},
+    {href:"affiliate",val:"我要挂靠"},
+    {href:"join",val:"我要加盟"},
+    ],
+    active : 2
+});
+ truckModel.$watch("monthChange",function(el){
+    truckModel.payMonth = Math.round(truckModel.payResult/el);
+});
+</script>
+</head>
+
+<body ms-controller="truck">
+    <!--头部导航开始-->
+    <div class="wrap_header">
+        <div class="niwdoawi_center container">
+            <div class="w1000 logo clearfix">
+                <a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+                <div class="fr righ">
+                    <ul class="nav navbar-nav navbar-right text-info">
+                        <li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+                            <li>
+                                <button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+                                <button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--头部导航结束-->
+
+    <div class="container">
+     <!--当前位置-->
+<!--      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-xs-11 col-md-11 col-lg-11 truck_ad">当前位置：<span>鑫森捷 > 重卡平台 > XXX车</span>
+        </div>
+    </div> -->
+    <!--车辆总介绍-->
+    <div class="row general_introduction">
+        <!--车辆图片-->
+        <div class="col-xs-5 gi_imgbox col-xs-offset-1">
+           <img src="http://cdn.wiiwoo.cn/xsj/imgs/car1.jpg" alt="车辆详情图" />
+       </div>
+       <!--车两配置-->
+       <div class="col-xs-5">
+           <!--标题-->
+           <h3 class="gi_tie">大运 N8重卡 290马力 8X4 自卸车 （轻量级）卡车大运 N8重卡 290马力 8X4 自卸车 （轻量级）卡车</h3>
+           <!--价格-->
+           <div class="row">
+              <div class="col-xs-5 col-lg-5 gi_money">
+                 ￥ <span>35万</span>
+             </div>
+         </div>
+         <!--配置挑选页-->
+         <div class="row">
+          <!--配置标题-->
+          <div class="col-xs-12 giTabtit_box">
+             <!--<div class="col-xs-6 col-md-6 col-lg-6 giTab_tit">-->
+             <div class="giTab_select">配置方案 1</div>
+             <!--</div>-->
+             <!--<div class="col-xs-6 col-md-6 col-lg-6 giTab_tit">-->
+             <div>配置方案 2</div>
+             <!--</div>-->
+         </div>
+         <!--配置表格-->
+         <div class="col-xs-12 giTab_box">
+             <table class="table table-bordered giTab_table" style="display: table;">
+                <tbody>
+                   <tr>
+                      <td>驱动型号：</td>
+                      <td>8X4</td>
+                  </tr>
+                  <tr>
+                      <td>发动机：</td>
+                      <td>潍柴WP10.290E32</td>
+                  </tr>
+                  <tr>
+                      <td>最大马力：</td>
+                      <td>290马力</td>
+                  </tr>
+                  <tr>
+                      <td>排量：</td>
+                      <td>9.726L</td>
+                  </tr>
+                  <tr>
+                      <td>变速箱：</td>
+                      <td>法士特9JS135B+BH70</td>
+                  </tr>
+              </tbody>
+          </table>
+          <table class="table table-bordered giTab_table">
+            <tbody>
+               <tr>
+                  <td>驱动型号：</td>
+                  <td>9X5</td>
+              </tr>
+              <tr>
+                  <td>发动机：</td>
+                  <td>潍柴WP10.290E32</td>
+              </tr>
+              <tr>
+                  <td>最大马力：</td>
+                  <td>450马力</td>
+              </tr>
+              <tr>
+                  <td>排量：</td>
+                  <td>8.5L</td>
+              </tr>
+              <tr>
+                  <td>变速箱：</td>
+                  <td>法士特96dfdfd89s</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+</div>
+
+<div class="col-xs-1"></div>
+</div>
+
+<!--套餐介绍-->
+<div class="row">
+    <div class="col-xs-1 "></div>
+    <!--配件选择-->
+    <div class=" col-xs-7 truck_package">
+       <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+          <ul id="myTab" class="nav nav-tabs" role="tablist">
+             <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">汽车配件</a>
+             </li>
+             <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">热门选择</a>
+             </li>
+         </ul>
+         <div id="myTabContent" class="tab-content">
+             <div role="tabpanel" class="tab-pane fade in active clearfix" id="home" aria-labelledby="home-tab">
+                <ul class="clearfix">
+                   <li>精选配件</li>
+                   <li>后视镜</li>
+                   <li>轮胎</li>
+                   <li>机油滤芯</li>
+                   <li>3M扎带</li>
+                   <li>挂车配件</li>
+                   <li>回位弹簧</li>
+                   <li>干燥器</li>
+                   <li>其它配件</li>
+               </ul>
+               <div class="row truckPackage_list">
+                   <div class="col-xs-2 list_item">
+                      <img src="http://cdn.wiiwoo.cn/xsj/imgs/car2.jpg" alt="" />
+                      <div>大运 N8重卡 290马X4 自卸车大运 N8重卡 290马X4 自卸车</div>
+                  </div>
+                  <img class="col-xs-1 list_img" src="http://cdn.wiiwoo.cn/xsj/imgs/jia.png" alt="" />
+                  <div class="col-xs-2 list_item">
+                      <img src="http://cdn.wiiwoo.cn/xsj/imgs/truck_other02.jpg" alt="" />
+                      <div>派克滤芯 解放J6套装促销用于锡柴6DM发</div>
+                      <input type="checkbox" />
+                      <label>￥250</label>
+                  </div>
+                  <img class="col-xs-1  list_img" src="http://cdn.wiiwoo.cn/xsj/imgs/jia.png" alt="" />
+                  <div class="col-xs-2   list_item">
+                      <img src="http://cdn.wiiwoo.cn/xsj/imgs/truck_other01.jpg" alt="" />
+                      <div>正品 威伯科WABCO 半挂 车手制动阀</div>
+                      <input type="checkbox" />
+                      <label>￥250</label>
+                  </div>
+                  <img class="col-xs-1  list_img" src="http://cdn.wiiwoo.cn/xsj/imgs/deng.png" alt="" />
+                  <div class="col-xs-3 col-md-3 col-lg-3 list_item">
+                      <p>已选择<span>0</span>个配件</p>
+                      <p>搭配价：<b>￥5088.00</b>
+                      </p>
+                      <button>立即购买</button>
+                  </div>
+              </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+            <ul class="clearfix">
+               <li>精选配件</li>
+               <li>后视镜</li>
+               <li>轮胎</li>
+               <li>机油滤芯</li>
+               <li>3M扎带</li>
+               <li>挂车配件</li>
+               <li>回位弹簧</li>
+               <li>干燥器</li>
+               <li>其它配件</li>
+           </ul>
+           <div class="row truckPackage_list">
+               <div class="col-xs-2  list_item">
+                  <img src="http://cdn.wiiwoo.cn/xsj/imgs/car2.jpg" alt="" />
+                  <div>大运 N8重卡 290马X4 自卸车大运 N8重卡 290马X4 自卸车</div>
+              </div>
+              <img class="col-xs-1 list_img" src="http://cdn.wiiwoo.cn/xsj/imgs/jia.png" alt="" />
+              <div class="col-xs-2 col-md-2 col-lg-2 list_item">
+                  <img src="http://cdn.wiiwoo.cn/xsj/imgs/truck_other02.jpg" alt="" />
+                  <div>派克滤芯 解放J6套装促销用于锡柴6DM发</div>
+                  <input type="checkbox" />
+                  <label>￥250</label>
+              </div>
+              <img class="col-xs-1  list_img" src="http://cdn.wiiwoo.cn/xsj/imgs/jia.png" alt="" />
+              <div class="col-xs-2 col-md-2 col-lg-2 list_item">
+                  <img src="http://cdn.wiiwoo.cn/xsj/imgs/truck_other01.jpg" alt="" />
+                  <div>正品 威伯科WABCO 半挂 车手制动阀</div>
+                  <input type="checkbox" />
+                  <label>￥250</label>
+              </div>
+              <img class="col-xs-1 list_img" src="http://cdn.wiiwoo.cn/xsj/imgs/deng.png" alt="" />
+              <div class="col-xs-3 col-md-3 col-lg-3 list_item">
+                  <p>已选择<span>0</span>个配件</p>
+                  <p>搭配价：<b>￥5088.00</b>
+                  </p>
+                  <button>立即购买</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+<!--计算器-->
+<div class="col-xs-3   truck_claBox">
+   <div class="truckBox_border">
+      <h3 class="truck_h3">利息计算器</h3>
+      <div class="form-horizontal">
+        <div ms-if="show == 'start'">
+            <div class="form-group">
+                <label for="borrow" class="col-xs-4 control-label calcu_text">借款金额</label>
+                <div class="col-xs-7">
+                    <input type="text" class="form-control" id="borrow" ms-attr-value="borrow" ms-duplex="borrow">
+                    <span class="truck_measure">万元</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="userType" class="col-xs-4 control-label calcu_text">用户类型</label>
+                <div class="col-xs-7">
+                    <select class="form-control" id="userType">
+                      <option ms-repeat="typeArray">{{ el }}</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="monthSalary" class="col-xs-4 control-label calcu_text">税后月薪</label>
+            <div class="col-xs-7">
+                <input type="text" class="form-control" id="monthSalary" ms-attr-value="monthSalary" ms-duplex="monthSalary">
+                <span class="truck_measure">元</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 "></div>
+            <div class="col-xs-7">
+                <button class="btn-block btn-danger btn" ms-click="start">开始计算</button>
+            </div>
+        </div>
+    </div>
+    <div ms-if="show == 'restart'">
+        <div class="form-group">
+            <label for="borrow" class="col-xs-4 control-label calcu_text">借款金额</label>
+            <div class="col-xs-7">
+                <p class="truck_result">{{ payResult }}元</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="userType" class="col-xs-4 control-label calcu_text">还款期限</label>
+            <div class="col-xs-7">
+                <select class="form-control" id="userType" ms-duplex="monthChange">
+                  <option ms-repeat="month" ms-attr-value="el">{{ el }}个月</option>
+              </select>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="monthPay" class="col-xs-4 control-label calcu_text">每月还款</label>
+        <div class="col-xs-7">
+            <p class="truck_result">{{ payMonth }}元</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-7">
+            <button class="btn-block btn-danger btn" ms-click="restart">重新开始</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-xs-1 "></div>
+</div>
+<div class="container truck_discuss">
+    <div class="row">
+       <h3 class="truck_h3">用户评论</h3>
+   </div>
+   <div class="bs-example truckDis_table" data-example-id="simple-table">
+       <table class="table">
+          <thead>
+             <tr>
+                <th>评论心得</th>
+                <th>顾客满意度</th>
+                <th>购买信息</th>
+                <th>评论者</th>
+            </tr>
+        </thead>
+        <tbody>
+         <tr>
+            <td>这款平板运输车采用格尔发工程自卸车底盘改装而成，采用经典的黄金动力组合：潍柴310马力发动机（可选择290马力），法士特变速箱，马力强劲，经济性好，可以适应高原山区等复杂道路条件。开着很舒服。</td>
+            <td>
+               <div> </div>
+               <div> </div>
+               <div> </div>
+               <div> </div>
+               <div> </div>
+           </td>
+           <td>派克滤芯 解放J6套装促销用于锡柴6DM发</td>
+           <td>
+               <div class="col-xs-12 col-md-12 col-lg-12 truckDis_username">XXXXXXX</div>
+               <div class="col-xs-12 col-md-12 col-lg-12 truckDis_userad">北京</div>
+               <div class="col-xs-12 col-md-12 col-lg-12 truckDis_time">2015-01-09 15:40 购买</div>
+           </td>
+       </tr>
+       <tr>
+        <td>这款平板运输车采用格尔发工程自卸车底盘改装而成，采用经典的黄金动力组合：潍柴310马力发动机（可选择290马力），法士特变速箱，马力强劲，经济性好，可以适应高原山区等复杂道路条件。开着很舒服。</td>
+        <td>
+           <div> </div>
+           <div> </div>
+           <div> </div>
+           <div> </div>
+           <div> </div>
+       </td>
+       <td>派克滤芯 解放J6套装促销用于锡柴6DM发</td>
+       <td>
+           <div class="col-xs-12 col-md-12 col-lg-12 truckDis_username">XXXXXXX</div>
+           <div class="col-xs-12 col-md-12 col-lg-12 truckDis_userad">北京</div>
+           <div class="col-xs-12 col-md-12 col-lg-12 truckDis_time">2015-01-09 15:40 购买</div>
+       </td>
+   </tr>
+   <tr>
+    <td>这款平板运输车采用格尔发工程自卸车底盘改装而成，采用经典的黄金动力组合：潍柴310马力发动机（可选择290马力），法士特变速箱，马力强劲，经济性好，可以适应高原山区等复杂道路条件。开着很舒服。</td>
+    <td>
+       <div> </div>
+       <div> </div>
+       <div> </div>
+       <div> </div>
+       <div> </div>
+   </td>
+   <td>派克滤芯 解放J6套装促销用于锡柴6DM发</td>
+   <td>
+       <div class="col-xs-12 col-md-12 col-lg-12 truckDis_username">XXXXXXX</div>
+       <div class="col-xs-12 col-md-12 col-lg-12 truckDis_userad">北京</div>
+       <div class="col-xs-12 col-md-12 col-lg-12 truckDis_time">2015-01-09 15:40 购买</div>
+   </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!--底部轮播图-->
+<div style="border: 1px solid #BCBCBC;margin-top: 30px;padding: 10px;margin-bottom: 30px;">
+    <div class="trucks_hotcar"><i class="fa fa-thumbs-up"></i>热门推荐
+       <div class="trucks_xt"></div>
+   </div>
+   <div id="myCarousel" class="carousel slide">
+       <!-- 轮播（Carousel）项目 -->
+       <div class="footer_Carousel">
+          <div class="carousel-inner">
+             <div class="item active">
+                <div class="row" style="width: 90%;margin: 0 auto;">
+                   <div class=" col-xs-3">
+                      <a href="truck.html">
+                         <div class="trucks_product">
+                            <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+                            <div class="trucks_product_xq">
+                               <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+                               <div class="trucks_product_xq_type">载货式半挂车</div>
+                               <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+                               </div>
+                           </div>
+                       </div>
+                   </a>
+               </div>
+               <div class="  col-xs-3">
+                  <a href="truck.html">
+                     <div class="trucks_product">
+                        <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+                        <div class="trucks_product_xq">
+                           <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+                           <div class="trucks_product_xq_type">载货式半挂车</div>
+                           <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+                           </div>
+                       </div>
+                   </div>
+               </a>
+           </div>
+           <div class=" col-xs-3">
+              <a href="truck.html">
+                 <div class="trucks_product">
+                    <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+                    <div class="trucks_product_xq">
+                       <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+                       <div class="trucks_product_xq_type">载货式半挂车</div>
+                       <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+                       </div>
+                   </div>
+               </div>
+           </a>
+       </div>
+       <div class=" col-xs-3">
+          <a href="truck.html">
+             <div class="trucks_product">
+                <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+                <div class="trucks_product_xq">
+                   <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+                   <div class="trucks_product_xq_type">载货式半挂车</div>
+                   <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+                   </div>
+               </div>
+           </div>
+       </a>
+   </div>
+</div>
+</div>
+<div class="item">
+    <div class="row" style="width: 90%;margin: 0 auto;">
+       <div class=" col-xs-3">
+          <a href="truck.html">
+             <div class="trucks_product">
+                <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+                <div class="trucks_product_xq">
+                   <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+                   <div class="trucks_product_xq_type">载货式半挂车</div>
+                   <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+                   </div>
+               </div>
+           </div>
+       </a>
+   </div>
+   <div class="  col-xs-3">
+      <a href="truck.html">
+         <div class="trucks_product">
+            <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+            <div class="trucks_product_xq">
+               <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+               <div class="trucks_product_xq_type">载货式半挂车</div>
+               <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+               </div>
+           </div>
+       </div>
+   </a>
+</div>
+<div class="  col-xs-3">
+  <a href="truck.html">
+     <div class="trucks_product">
+        <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+        <div class="trucks_product_xq">
+           <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+           <div class="trucks_product_xq_type">载货式半挂车</div>
+           <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+           </div>
+       </div>
+   </div>
+</a>
+</div>
+<div class="  col-xs-3">
+  <a href="truck.html">
+     <div class="trucks_product">
+        <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+        <div class="trucks_product_xq">
+           <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+           <div class="trucks_product_xq_type">载货式半挂车</div>
+           <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+           </div>
+       </div>
+   </div>
+</a>
+</div>
+</div>
+</div>
+<div class="item">
+    <div class="row" style="width: 90%;margin: 0 auto;">
+       <div class=" col-xs-3">
+          <a href="truck.html">
+             <div class="trucks_product">
+                <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+                <div class="trucks_product_xq">
+                   <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+                   <div class="trucks_product_xq_type">载货式半挂车</div>
+                   <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+                   </div>
+               </div>
+           </div>
+       </a>
+   </div>
+   <div class=" col-xs-3">
+      <a href="truck.html">
+         <div class="trucks_product">
+            <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+            <div class="trucks_product_xq">
+               <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+               <div class="trucks_product_xq_type">载货式半挂车</div>
+               <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+               </div>
+           </div>
+       </div>
+   </a>
+</div>
+<div class=" col-xs-3">
+  <a href="truck.html">
+     <div class="trucks_product">
+        <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+        <div class="trucks_product_xq">
+           <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+           <div class="trucks_product_xq_type">载货式半挂车</div>
+           <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+           </div>
+       </div>
+   </div>
+</a>
+</div>
+<div class=" col-xs-3">
+  <a href="truck.html">
+     <div class="trucks_product">
+        <img src="http://cdn.wiiwoo.cn/xsj/imgs/car3.jpg" />
+        <div class="trucks_product_xq">
+           <div class="trucks_product_xq_name">解放 J6P重卡 460马力 6X4 牵引车(领航版)(CA4250P66K24T</div>
+           <div class="trucks_product_xq_type">载货式半挂车</div>
+           <div class="trucks_product_xq_pirce">报价36.7万<span class="btn btn-default" style="float: right;">车辆详情</span>
+           </div>
+       </div>
+   </div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!--尾部-->
+<footer class="container-fluid truck_footer">
+    <div class="row">
+       <div class="col-xs-4 col-sm-2">
+          <ul class="list-unstyled">
+             <li><a href="javascript:;">中国银行</a>
+             </li>
+             <li><a href="javascript:;">平安银行</a>
+             </li>
+             <li><a href="javascript:;">浦发银行</a>
+             </li>
+             <li><a href="javascript:;">工商银行</a>
+             </li>
+         </ul>
+     </div>
+     <div class="col-xs-4 col-sm-2">
+      <ul class="list-unstyled">
+         <li><a href="javascript:;">农业银行</a>
+         </li>
+         <li><a href="javascript:;">建设银行</a>
+         </li>
+         <li><a href="javascript:;">光大银行</a>
+         </li>
+         <li><a href="javascript:;">招商银行</a>
+         </li>
+     </ul>
+ </div>
+ <div class="col-xs-4 col-sm-2">
+  <ul class="list-unstyled">
+     <li><a href="javascript:;">汽车之家</a>
+     </li>
+     <li><a href="javascript:;">卡车之家</a>
+     </li>
+     <li><a href="javascript:;">新浪汽车</a>
+     </li>
+     <li><a href="javascript:;">腾讯汽车</a>
+     </li>
+ </ul>
+</div>
+<div class="col-xs-4 col-sm-2">
+  <ul class="list-unstyled">
+     <li><a href="javascript:;">易车汽车论坛</a>
+     </li>
+     <li><a href="javascript:;">中国买车网</a>
+     </li>
+     <li><a href="javascript:;">搜狐汽车</a>
+     </li>
+     <li><a href="javascript:;">中国高速网</a>
+     </li>
+ </ul>
+</div>
+<div class="col-xs-4 col-sm-2">
+  <ul class="list-unstyled">
+     <li><a href="javascript:;">二手卡车网</a>
+     </li>
+     <li><a href="javascript:;">汽配英才网</a>
+     </li>
+     <li><a href="javascript:;">北京二手车</a>
+     </li>
+     <li><a href="javascript:;">中国人才网</a>
+     </li>
+ </ul>
+</div>
+<div class="col-xs-4 col-sm-2">
+  <ul class="list-unstyled">
+     <li><a href="javascript:;">我爱车网</a>
+     </li>
+     <li><a href="javascript:;">汽配中国网</a>
+     </li>
+     <li><a href="javascript:;">深圳二手车</a>
+     </li>
+     <li><a href="javascript:;">车生活网</a>
+     </li>
+ </ul>
+</div>
+</div>
+
+<div class="row truck_address">
+   <p>Copyright ©XSJ All Rights Reserved</p>
+   <p>© 2015 鑫森捷 京ICP备14026002号</p>
+</div>
+</footer>
+<script>
+ $(function() {
+    $('.carousel').carousel({
+       interval: 3000
+   });
+});
+</script>
+</body>
+
+</html>

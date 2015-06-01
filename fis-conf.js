@@ -28,6 +28,16 @@ fis.config.set('pack', {
 fis.config.merge({
     roadmap : {
         //所有静态资源文件都使用 http://s1.example.com 或者 http://s2.example.com 作为域名
-        domain : 'http://127.0.0.1:8083/test,http://127.0.0.1:8080'
+        domain : 'http://127.0.0.1:8083/release,http://ui.jejeso.com/truck'
+    }
+});
+fis.config.merge({
+    roadmap : {
+        domain : {
+            //所有图片文件，使用 http://img.example.com 作为域名
+            'image' : ['http://cdn.wiiwoo.cn/xsj'],
+            // '**.css' : 'http://127.0.0.1:8083/truck/release',
+            // '**.js' : 'http://127.0.0.1:8083/truck/release'
+        }
     }
 });

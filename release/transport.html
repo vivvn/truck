@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>运力云</title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/bootstrap-grid-ms.min.css">
+		<link rel="stylesheet" href="/css/truck.css" />
+		<link rel="stylesheet" type="text/css" href="/css/css.css" />
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/hhDrop.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/avalon.min.js"></script>
+		<script>
+			$(function() {
+				$('#hhDrop00').hhDrop({});
+				$('#hhDrop01').hhDrop({});
+				$('#hhDrop02').hhDrop({});
+			});
+			var transportModel = avalon.define({
+				$id: "transport",
+				navData: [{
+					href: "index",
+					val: "首页"
+				}, {
+					href: "mortgage",
+					val: "车贷服务"
+				}, {
+					href: "trucks",
+					val: "重卡平台"
+				}, {
+					href: "transport",
+					val: "运力云"
+				}, {
+					href: "affiliate",
+					val: "我要挂靠"
+				}, {
+					href: "join",
+					val: "我要加盟"
+				}, ],
+				active: 3
+			});
+		</script>
+		<style type="text/css">
+			.aff_apply_img{
+				padding: 70px 0;
+			}
+			
+			.aff_apply_img:nth-child(2) img{
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body ms-controller="transport">
+		<!--头部导航开始-->
+		<div class="wrap_header">
+			<div class="niwdoawi_center container">
+				<div class="w1000 logo clearfix">
+					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+					<div class="fr righ">
+						<ul class="nav navbar-nav navbar-right text-info">
+							<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+								<li>
+									<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+									<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!--头部导航结束-->
+
+		<!--轮播图-->
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+				<li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<a href="affiliate.html">
+						<img alt="轮播图" src="http://cdn.wiiwoo.cn/xsj/imgs/运力云01.jpg" data-holder-rendered="true">
+					</a>
+				</div>
+				<div class="item">
+					<a href="join_delivery.html">
+						<img alt="轮播图" src="http://cdn.wiiwoo.cn/xsj/imgs/运力云03.jpg" data-holder-rendered="true">
+					</a>
+				</div>
+				<div class="item">
+					<a href="affiliate.html">
+						<img alt="轮播图" src="http://cdn.wiiwoo.cn/xsj/imgs/运力云02.jpg" data-holder-rendered="true">
+					</a>
+				</div>
+				<div class="item">
+					<a href="affiliate.html">
+						<img alt="轮播图" src="http://cdn.wiiwoo.cn/xsj/imgs/保理.jpg" data-holder-rendered="true">
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--入口-->
+
+		<!--抢单筛选-->
+		<!--<div class="container select_address_days">
+				<div class="row">
+					<ul style="width: 100%;margin-top: 25px;">
+						<div class="col-lg-1"></div>
+						<div class="col-lg-3">
+							<li class="thRelative" id="hhDrop02">
+								<div class="boxSearch">
+									<span class="key_word">
+									<span style="margin-right: 10px;">发布时间 ：</span>
+									 <b class="size_14">1小时内</b></span>
+									<a class="thRight ico btn_search" href="javascript:void(0)"></a>
+								</div>
+								<div class="search_form_suggest" style="display:none;">
+									<h3><a class="ico btn_close thRight" item="close">关闭</a>订单发布时间</h3>
+									<dl class="search_hotList">
+										<dd class="clr_after">
+											<a href="javascript:;">一小时内</a>
+											<a href="javascript:;">今天内</a>
+											<a href="javascript:;">三天内</a>
+											<a href="javascript:;">一星期内</a>
+											<a href="javascript:;">一个月内</a>
+										</dd>
+									</dl>
+							</li>
+
+							</div>
+						<div class="col-lg-1"></div>
+						<div class="col-lg-3">
+								<li class="thRelative" id="hhDrop00">
+									<div class="boxSearch">
+										<span class="key_word">
+											<b class="size_14">北京</b><span style="margin-left: 40px;">出发城市</span></span>
+										<em class="ico thLeft ico_shBlue"></em>
+										<a class="thRight ico btn_search" href="javascript:void(0)"></a>
+									</div>
+									<div class="search_form_suggest" style="display:none;">
+										<h3><a class="ico btn_close thRight" item="close">关闭</a>热门出发城市</h3>
+										<dl class="search_hotList">
+											<dd class="clr_after">
+												<a href="javascript:;">北京</a>
+												<a href="javascript:;">上海</a>
+												<a href="javascript:;">广州</a>
+												<a href="javascript:;">成都</a>
+												<a href="javascript:;">杭州</a>
+												<a href="javascript:;">南京</a>
+												<a href="javascript:;">深圳</a>
+												<a href="javascript:;">济南</a>
+												<a href="javascript:;">石家庄</a>
+												<a href="javascript:;">武汉</a>
+												<a href="javascript:;">郑州</a>
+												<a href="javascript:;">重庆</a>
+												<a href="javascript:;">福州</a>
+												<a href="javascript:;">西安</a>
+												<a href="javascript:;">长沙</a>
+												<a href="javascript:;">沈阳</a>
+												<a href="javascript:;">天津</a>
+												<a href="javascript:;">哈尔滨</a>
+												<a href="javascript:;">苏州</a>
+												<a href="javascript:;">南宁</a>
+											</dd>
+										</dl>
+
+										<div class="clear"></div>
+										<div class="thLeft thPadT5 tab_select">
+											<dl class="clrfix">
+												<dt>A-G</dt>
+												<dd class="clr_after">
+													<a href="javascript:;">北京</a>
+													<a href="javascript:;">长沙</a>
+													<a href="javascript:;">成都</a>
+													<a href="javascript:;">重庆</a>
+													<a href="javascript:;">福州</a>
+													<a href="javascript:;">广州</a>
+													<a href="javascript:;">贵阳</a>
+												</dd>
+											</dl>
+											<dl class="clrfix">
+												<dt>H-L</dt>
+												<dd class="clr_after">
+													<a href="javascript:;">哈尔滨</a>
+													<a href="javascript:;">杭州</a>
+													<a href="javascript:;">合肥</a>
+													<a href="javascript:;">济南</a>
+													<a href="javascript:;">昆明</a>
+												</dd>
+											</dl>
+											<dl class="clrfix">
+												<dt>M-T</dt>
+												<dd class="clr_after">
+													<a href="javascript:;">南昌</a>
+													<a href="javascript:;">南京</a>
+													<a href="javascript:;">南宁</a>
+													<a href="javascript:;">宁波</a>
+													<a href="javascript:;">青岛</a>
+													<a href="javascript:;">三亚</a>
+													<a href="javascript:;">上海</a>
+													<a href="javascript:;">沈阳</a>
+													<a href="javascript:;">深圳</a>
+													<a href="javascript:;">石家庄</a>
+													<a href="javascript:;">苏州</a>
+													<a href="javascript:;">太原</a>
+													<a href="javascript:;">天津</a>
+												</dd>
+											</dl>
+											<dl class="clrfix">
+												<dt>W-Z</dt>
+												<dd class="clr_after">
+													<a href="javascript:;">武汉</a>
+													<a href="javascript:;">厦门</a>
+													<a href="javascript:;">西安</a>
+													<a href="javascript:;">郑州</a>
+													<a href="javascript:;">中山</a>
+												</dd>
+											</dl>
+										</div>
+									</div>
+								</li>
+
+							</div>
+						<div class="col-lg-3">
+								<li class="thRelative" id="hhDrop01">
+									<div class="boxSearch">
+										<span class="key_word">
+											<b class="size_14">广州</b><span style="margin-left: 40px;">到达城市</span></span>
+										<em class="ico thLeft ico_shBlue"></em>
+										<a class="thRight ico btn_search" href="javascript:void(0)"></a>
+									</div>
+									<div class="search_form_suggest" style="display:none;">
+										<h3><a class="ico btn_close thRight" item="close">关闭</a>热门出发城市</h3>
+										<dl class="search_hotList">
+											<dd class="clr_after">
+												<a href="javascript:;">北京</a>
+												<a href="javascript:;">上海</a>
+												<a href="javascript:;">广州</a>
+												<a href="javascript:;">成都</a>
+												<a href="javascript:;">杭州</a>
+												<a href="javascript:;">南京</a>
+												<a href="javascript:;">深圳</a>
+												<a href="javascript:;">济南</a>
+												<a href="javascript:;">石家庄</a>
+												<a href="javascript:;">武汉</a>
+												<a href="javascript:;">郑州</a>
+												<a href="javascript:;">重庆</a>
+												<a href="javascript:;">福州</a>
+												<a href="javascript:;">西安</a>
+												<a href="javascript:;">长沙</a>
+												<a href="javascript:;">沈阳</a>
+												<a href="javascript:;">天津</a>
+												<a href="javascript:;">哈尔滨</a>
+												<a href="javascript:;">苏州</a>
+												<a href="javascript:;">南宁</a>
+											</dd>
+										</dl>
+
+										<div class="clear"></div>
+										<div class="thLeft thPadT5 tab_select">
+											<dl class="clrfix">
+												<dt>A-G</dt>
+												<dd class="clr_after">
+													<a href="javascript:;">北京</a>
+													<a href="javascript:;">长沙</a>
+													<a href="javascript:;">成都</a>
+													<a href="javascript:;">重庆</a>
+													<a href="javascript:;">福州</a>
+													<a href="javascript:;">广州</a>
+													<a href="javascript:;">贵阳</a>
+												</dd>
+											</dl>
+											<dl class="clrfix">
+												<dt>H-L</dt>
+												<dd class="clr_after">
+													<a href="javascript:;">哈尔滨</a>
+													<a href="javascript:;">杭州</a>
+													<a href="javascript:;">合肥</a>
+													<a href="javascript:;">济南</a>
+													<a href="javascript:;">昆明</a>
+												</dd>
+											</dl>
+											<dl class="clrfix">
+												<dt>M-T</dt>
+												<dd class="clr_after">
+													<a href="javascript:;">南昌</a>
+													<a href="javascript:;">南京</a>
+													<a href="javascript:;">南宁</a>
+													<a href="javascript:;">宁波</a>
+													<a href="javascript:;">青岛</a>
+													<a href="javascript:;">三亚</a>
+													<a href="javascript:;">上海</a>
+													<a href="javascript:;">沈阳</a>
+													<a href="javascript:;">深圳</a>
+													<a href="javascript:;">石家庄</a>
+													<a href="javascript:;">苏州</a>
+													<a href="javascript:;">太原</a>
+													<a href="javascript:;">天津</a>
+												</dd>
+											</dl>
+											<dl class="clrfix">
+												<dt>W-Z</dt>
+												<dd class="clr_after">
+													<a href="javascript:;">武汉</a>
+													<a href="javascript:;">厦门</a>
+													<a href="javascript:;">西安</a>
+													<a href="javascript:;">郑州</a>
+													<a href="javascript:;">中山</a>
+												</dd>
+											</dl>
+										</div>
+									</div>
+								</li>
+
+							</div>
+						<div class="col-lg-1"></div>
+					</ul>
+				</div>
+				<div class="rob_order">
+						<div class="row" style="border: 1px solid #b1b1b1;position: relative;margin-top: 30px;box-shadow: 2px 2px 2px #b1b1b1;padding: 20px;">
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>路程：<span>深圳——汕头</span>
+								</p>
+								<p>距离：<span>约300公里</span>
+								</p>
+								<p>重量：<span>3吨</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>货物：<span>建筑材料</span>
+								</p>
+								<p>往返：<span>否</span>
+								</p>
+								<p>公司名称：<span>鑫鑫有限公司</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>日期：<span>2015年5月9日</span>
+								</p>
+								<p>联系人：<span>陈先生</span>
+								</p>
+								<p>手机：<span>13688888888</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-12">
+								<a href="javascript:;">
+									<p class="rob_order_btn">我要抢单</p>
+								</a>
+								<p class="rob_order_time">(已出单20分钟)</p>
+							</div>
+						</div>
+						<div class="row" style="border: 1px solid #b1b1b1;position: relative;margin-top: 30px;box-shadow: 2px 2px 2px #b1b1b1;padding: 20px;">
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>路程：<span>深圳——汕头</span>
+								</p>
+								<p>距离：<span>约300公里</span>
+								</p>
+								<p>重量：<span>3吨</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>货物：<span>建筑材料</span>
+								</p>
+								<p>往返：<span>否</span>
+								</p>
+								<p>公司名称：<span>鑫鑫有限公司</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>日期：<span>2015年5月9日</span>
+								</p>
+								<p>联系人：<span>陈先生</span>
+								</p>
+								<p>手机：<span>13688888888</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-12">
+								<a href="javascript:;">
+									<p class="rob_order_btn order_lose">我要抢单</p>
+								</a>
+								<p class="rob_order_time">(已被抢)</p>
+							</div>
+						</div>
+						<div class="row" style="border: 1px solid #b1b1b1;position: relative;margin-top: 30px;box-shadow: 2px 2px 2px #b1b1b1;padding: 20px;">
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>路程：<span>深圳——汕头</span>
+								</p>
+								<p>距离：<span>约300公里</span>
+								</p>
+								<p>重量：<span>3吨</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>货物：<span>钢材</span>
+								</p>
+								<p>往返：<span>是</span>
+								</p>
+								<p>公司名称：<span>某某有限公司</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-4">
+								<b></b>
+								<p>日期：<span>2015年5月9日</span>
+								</p>
+								<p>联系人：<span>陈先生</span>
+								</p>
+								<p>手机：<span>13688888888</span>
+								</p>
+							</div>
+							<div class="col-lg-3 col-sm-12">
+								<a href="javascript:;">
+									<p class="rob_order_btn">我要抢单</p>
+								</a>
+								<p class="rob_order_time">(已出单20分钟)</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4"></div>
+							<div class="col-lg-4">
+								<nav>
+									<ul class="pagination pagination-lg">
+										<li>
+											<a href="javascript:;" aria-label="Previous">
+												<span aria-hidden="true">&laquo;</span>
+											</a>
+										</li>
+										<li><a href="javascript:;">1</a>
+										</li>
+										<li><a href="javascript:;">2</a>
+										</li>
+										<li><a href="javascript:;">3</a>
+										</li>
+										<li>
+											<a href="javascript:;" aria-label="Next">
+												<span aria-hidden="true">&raquo;</span>
+											</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+							<div class="col-lg-4"></div>
+						</div>
+
+					</div>
+				</div>-->
+		<!--关于“运力云”平台的介绍-->
+		<!--<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="trans_wrap">
+								<div>
+									<span class="trans_texttit"><span class="trans_texttit_1"></span>关于“运力云”平台</span>
+								</div>
+								<p>&nbsp;</p>
+								<span class="trans_text">
+									<p>“运力云”平台采取货主和司机双方信用机制，透明化管理，运力云平台凭借双方信用机制数据驱动“运力无忧”计划，使的运力团队的质量得到有效的控制；再加上一套运力云团队自主开发的供求对接运作系统，集成运力的供求对接系统及结算系统，实现对货主的“运力无忧”。</p>
+									<p>“运力云”平台中，供需是一手对接的平台，货主准确了解到开车的司机，跟车员工的质量；司机能够了解到货主的习惯，质量与速度都能得以提升之外，更免除了中间多级承包而导致的行业利润低微、质量参次的局面。</p>
+									<p>“运力云”平台为司机提供最为完善的保理服务，车主选择挂靠在“运力云”平台，车主将获得平台提供的保险代购、理赔定损、加油垫付、维修垫付、旧车回收、购车置换等一系列的保理服务，全方位保障车主的利益。</p>
+									<p>“运力云”后台会为每一笔交易做出明确记录，货主、车队、司机、平台间的费用交割都有流水记录，运输费用一目了然。同时，“运力云”平台还将会为车队、司机提供应付款贴现功能，车队、司机的资金调度更灵活！</p>
+									<p>“运力云”平台会为货物运输提供最优化的线路选择，并且实现运输全程定位，物流中的GPS数据会与车主和货主共享，货主可通过网页或手持端软件实时了解运输情况，确认接货上车，卸货，货品换车等行为。并同时进行箱号登记。</p>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>-->
+		<!--关于“运力云”版块优势的tab介绍-->
+		<div class="row">
+			<div class="col-xs-7">
+				<div role="tabpanel" style="margin: 40px 0;">
+
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist" style="padding: 0 30px;">
+						<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">“运力云”平台</a>
+						</li>
+						<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">车队</a>
+						</li>
+						<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">货主</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content transport_tab">
+						<div role="tabpanel" class="tab-pane active" id="home">
+							<ul>
+								<li>平台的透明化管理</li>
+								<li>平台<b style="color: red;">一手对接货源</b>，一手工程，<b style="color: red;">一手价格</b>，剔除多余的中间环节</li>
+								<li><b style="color: red;">最优化路线匹配，运输全程定位</b>
+								</li>
+								<li>建立<b style="color: red;">双向信用机制</b>，为货主与运力提供更加可靠的保障</li>
+								<span>&nbsp;&nbsp;货主与运力之间的良性循环</span>
+								<li>这是为一个大型企业打造共享的海量运力资源调度平台</li>
+								<span>&nbsp;&nbsp;这不是仅仅是一个资源整合平台，这是<b style="color: red;">新一代物流运输模式</b>的起点！</span>
+								<li>运力中兼容<b style="color: red;">中国食品安全委员会</b>的 多维彩码 的溯源跟踪</li>
+							</ul>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="profile">
+							<ul>
+								<li>一站式车辆管理系统，车队轻松管理旗下车辆、人员、资金、车辆</li>
+								<span>&nbsp;&nbsp;<b style="color: red;">全方位管理人员调动、车辆调配、货物跟踪、资金管理、订单跟进</b></span>
+								<li>完善的金融服务支撑，<b style="color: red;">免费挂靠，自由运输</b>
+								</li>
+								<span>&nbsp;&nbsp;全新一代不挂靠的会员模式，<b style="color: red;">挂靠即可享受</b>含理赔定损、加油垫付、维修垫付、旧车回收、新车置换等一系列服务！</span>
+								<li>提高车队运营能力</li>
+								<span style="display: block;">&nbsp;&nbsp;完善的车辆保理机制（同时称为<b style="color: red;">应收款贴现</b>）：无限量加大运输队伍的资金周转率</span>
+								<span>&nbsp;&nbsp;智能运输回程匹配，<b style="color: red;">运输利润最大化</b></span>
+								<li>货源充足</li>
+								<span style="display: block;">陆续对接全国各大集装箱码头、火车站</span>
+								<span style="display: block;"><b style="color: red;">货源包括钢铁、煤炭、烟草、特种设备 等行业</b></span>
+								<span>国外大型物流货主直接预约</span>
+							</ul>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="messages">
+							<ul>
+								<li>精细化管理，对于 物流园、货主、货代、外国货代 都有<b style="color: red;">专项人员跟进</b>
+								</li>
+								<li><b style="color: red;">覆盖全国的完整物流链</b>，遍布全国的经营办事处以及联营网点</li>
+								<li>运输全程监控，轨迹定位，<b style="color: red;">手机实时推送运输状态</b>，随时随地了解货物运输情况</li>
+								<li>平台双方<b style="color: red;">信用机制</b>
+								</li>
+								<span>我们致力于为货主提供更高质量的运输服务！</span>
+								<li>专业技术人员宇货柜码头和物流园的<b style="color: red;">EDI对接</b>；也有API接口跟企业ERP实时对接，进行预约排期</li>
+								<span>发放订单<b style="color: red;">更便捷</b>，订单信息<b style="color: red;">更及时！</b></span>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-xs-5 aff_apply_img">
+				<a href="join.html">
+					<img src="http://cdn.wiiwoo.cn/xsj/imgs/挂靠页面广告.jpg" alt="挂靠页面广告" />
+				</a>
+				<a href="transport.html">
+					<img src="http://cdn.wiiwoo.cn/xsj/imgs/挂靠页面广告02.jpg" alt="挂靠页面广告02" />
+				</a>
+			</div>
+		</div>
+		<!--<div class="container" style="margin-bottom: 50px;">
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<a href="join.html">
+					<div class="col-xs-12 col-ms-6 col-sm-4">
+						<div class="logistics_server transport_index_classify">
+							<div class="transport_logistics_pic1">
+								<img src="imgs/index3.png" />
+							</div>
+							<p>我要加盟</p>
+						</div>
+					</div>
+				</a>
+				<a href="affiliate.html">
+					<div class="col-xs-12 col-ms-6 col-sm-4">
+						<div class="logistics_server transport_index_classify">
+							<div class="transport_logistics_pic2">
+								<img src="imgs/index1.png" />
+							</div>
+							<p>我要挂靠</p>
+						</div>
+					</div>
+				</a>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 text-center" style="margin-bottom: 20px;">
+					<a href="运力云运营版块首页草图.html">
+						<button type="button" class="btn btn-primary btn-lg">运力云运营入口</button>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--底部轮播图-->
+		<div class="container-fluid" style="margin: 0;padding: 0;">
+			<div class="play" id="play">
+				<ol style="display: none;">
+					<li class="active">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ol>
+				<ul>
+					<li>
+
+						<a href="mortgage.html">
+							<img src="http://cdn.wiiwoo.cn/xsj/imgs/车贷.jpg" alt="广告一" />
+						</a>
+
+					</li>
+					<li>
+
+						<a href="transport.html">
+							<img src="http://cdn.wiiwoo.cn/xsj/imgs/运力云.jpg" alt="广告一" />
+						</a>
+					</li>
+					<li>
+
+						<a href="trucks.html">
+							<img src="http://cdn.wiiwoo.cn/xsj/imgs/重卡.jpg" alt="广告一" />
+						</a>
+
+					</li>
+					<li>
+
+						<a href="mortgage.html">
+							<img src="http://cdn.wiiwoo.cn/xsj/imgs/车贷02.jpg" alt="广告一" />
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<a href="transport.html">
+								<img src="http://cdn.wiiwoo.cn/xsj/imgs/运力云02.jpg" alt="广告一" />
+							</a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--尾部-->
+		<footer class="container-fluid truck_footer">
+			<div class="row">
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">中国银行</a>
+						</li>
+						<li><a href="javascript:;">平安银行</a>
+						</li>
+						<li><a href="javascript:;">浦发银行</a>
+						</li>
+						<li><a href="javascript:;">工商银行</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">农业银行</a>
+						</li>
+						<li><a href="javascript:;">建设银行</a>
+						</li>
+						<li><a href="javascript:;">光大银行</a>
+						</li>
+						<li><a href="javascript:;">招商银行</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">汽车之家</a>
+						</li>
+						<li><a href="javascript:;">卡车之家</a>
+						</li>
+						<li><a href="javascript:;">新浪汽车</a>
+						</li>
+						<li><a href="javascript:;">腾讯汽车</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">易车汽车论坛</a>
+						</li>
+						<li><a href="javascript:;">中国买车网</a>
+						</li>
+						<li><a href="javascript:;">搜狐汽车</a>
+						</li>
+						<li><a href="javascript:;">中国高速网</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">二手卡车网</a>
+						</li>
+						<li><a href="javascript:;">汽配英才网</a>
+						</li>
+						<li><a href="javascript:;">北京二手车</a>
+						</li>
+						<li><a href="javascript:;">中国人才网</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">我爱车网</a>
+						</li>
+						<li><a href="javascript:;">汽配中国网</a>
+						</li>
+						<li><a href="javascript:;">深圳二手车</a>
+						</li>
+						<li><a href="javascript:;">车生活网</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row truck_address">
+				<p>Copyright ©XSJ All Rights Reserved</p>
+				<p>© 2015 鑫森捷 京ICP备14026002号</p>
+			</div>
+		</footer>
+		<script type="text/javascript" src="/js/move2.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oDiv = document.getElementById('play');
+				var aLi = oDiv.getElementsByTagName('ol')[0].getElementsByTagName('li');
+				var aUl = oDiv.getElementsByTagName('ul')[0];
+				var now = 0;
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].index = i;
+					aLi[i].onclick = function() {
+						now = this.index;
+						tab();
+					};
+				}
+
+				function tab() {
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].className = '';
+					}
+					aLi[now].className = 'active';
+					startMove(aUl, {
+						top: -250 * now
+					});
+				}
+
+				function next() {
+					now++;
+					if (now == aLi.length) {
+						now = 0;
+					}
+					tab();
+				}
+				timer = setInterval(next, 2000);
+				oDiv.onmousemove = function() {
+					clearInterval(timer);
+				}
+				oDiv.onmouseout = function() {
+					timer = setInterval(next, 2000);
+				}
+			};
+		</script>
+		<!--轮播图自动播放时间间隔-->
+		<script>
+			$(function() {
+				$('.carousel').carousel({
+					interval: 3000
+				});
+			});
+
+			function hengshuping() {
+				if (window.orientation == 180 || window.orientation == 0) {
+					alert("网页为电脑端网页，请您横屏浏览效果更佳！");
+				}
+				if (window.orientation == 90 || window.orientation == -90) {
+					return;
+				}
+			}
+			hengshuping();
+		</script>
+	</body>
+
+</html>

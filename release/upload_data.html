@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>上传贷款资料</title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="/css/validform.css" />
+		<link rel="stylesheet" type="text/css" href="/css/upload_data.css" />
+		<style>
+			.uploadPreview {
+			    width: 200px;
+			    height: 150px;
+			    background-position: center center;
+			    background-size: cover;
+			    border: 4px solid #fff;
+			    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+			    display: inline-block;
+			    float: left;
+			    margin: 5px;
+			}
+		</style>
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/Validform.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/avalon.min.js"></script>
+		<script src="/laydate/laydate.js"></script>
+		<script type="text/javascript">
+			$(function(){
+
+				$("input[type=file]").change(function(){
+					$(this).parents(".uploader").find(".filename").val($(this).val());
+				});
+
+				$("input[type=text]").each(function(){
+					var str = $(this).data("value");
+					$(this).val(str?str:"请选择文件...");
+				});
+
+			});
+			var uploadMode = avalon.define({
+				$id : "upload",
+				navData : [
+				{href:"index",val:"首页"},
+				{href:"mortgage",val:"车贷服务"},
+				{href:"trucks",val:"重卡平台"},
+				{href:"transport",val:"运力云"},
+				{href:"affiliate",val:"我要挂靠"},
+				{href:"join",val:"我要加盟"},
+				],
+				active : 1
+			});
+		</script>
+
+	</head>
+
+	<body ms-controller="upload">
+		<!--头部导航开始-->
+		<div class="wrap_header">
+			<div class="niwdoawi_center container">
+				<div class="w1000 logo clearfix">
+					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+					<div class="fr righ">
+						<ul class="nav navbar-nav navbar-right text-info">
+							<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+								<li>
+									<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+									<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!--头部导航结束-->
+
+		<div class="container ud_wrap">
+			<div class="row">
+				<img src="http://cdn.wiiwoo.cn/xsj/imgs/steps1.jpg" alt="步骤" style="width: 100%;">
+			</div>
+			<form class="form_wrap demoform">
+				<div class="row">
+					<div class="col-xs-2"></div>
+					<div class="col-xs-10" style="color: #b1b1b1;padding: 10px 0;">提示1：您在准备好这些材料后请拍照上传，并选择预约上门时间，工作人员核实后会通知您，到时候工作人员会在家访完毕后收取资料。</div>
+					<div class="col-xs-2"></div>
+					<div class="col-xs-10" style="color: #b1b1b1;padding: 10px 0;">提示2：公司资料中除企业流水以及场地租赁合同外，均要一式两份并加盖公章</div>
+					<div class="col-xs-2"></div>
+					<div class="col-xs-10" style="color: #b1b1b1;padding: 10px 0;">提示3：个人资料中除征信授权书、收入证明、银行流水、订车合同收据外，均要一式两份并加盖公章</div>
+				</div>
+				<div class="col-xs-12 upload_abc">公司资料</div>
+				<div class="row">
+					<div class="col-xs-6">
+
+						<!--公司营业执照-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">公司营业执照</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview1" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete1" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file1" nullmsg="请上传您的公司营业执照。" />
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<!--组织机构代码证-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">组织机构代码证</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview2" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete2" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file2" nullmsg="请上传您的组织机构代码证。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--公司章程-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">公司章程</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview3" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete3" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file3" nullmsg="请上传您的公司章程。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--税务登记证-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">税务登记证</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview4" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete4" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file4" nullmsg="请上传您的税务登记证。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--道路运输许可证-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">道路运输许可证</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview5" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete5" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file5" nullmsg="请上传您的道路运输许可证。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-xs-6">
+						<!--办公场地租赁合同-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">办公场地租赁合同</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview6" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete6" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file6" nullmsg="请上传您的办公场地租赁合同。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--企业半年银行流水-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">企业半年银行流水</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview7" class="uploadPreview"></div>
+										<input type="text" class="filename" data-value="加盖银行章" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete7" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file7" nullmsg="请上传您的企业半年银行流水。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--运输合同-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">运输合同</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview8" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete8" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file8" nullmsg="请上传您的运输合同。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--资产证明-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">资产证明</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview9" class="uploadPreview"></div>
+										<input type="text" class="filename" data-value="如车辆登记证或行驶证" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete9" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file9" nullmsg="请上传您的资产证明。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-xs-12 upload_abc">个人资料</div>
+
+					<div class="col-xs-6">
+						<!--个人资料-->
+						<!--借款人夫妻双方身份证、户口本、结婚证、居住证-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px" style="height: 35px;line-height: 35px;margin-top:55px">本人身份证正面</label>
+									<div class="uploader white col-xs-7" style="margin-bottom: 25px;">
+										<div id="uploadPreview10" class="uploadPreview"></div>
+										<input type="text" class="filename" data-value="身份证正面" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete10" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file10" nullmsg="请上传您的身份证正面。" />
+									</div>
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">本人身份证反面</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview11" class="uploadPreview"></div>
+										<input type="text" class="filename" data-value="身份证反面" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete11" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file11" nullmsg="请上传您的身份证反面。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">配偶身份证正面</label>
+									<div class="uploader white col-xs-7" style="margin-bottom: 25px;">
+										<div id="uploadPreview12" class="uploadPreview"></div>
+										<input type="text" class="filename" data-value="身份证正面" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete12" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file12" nullmsg="请上传您的配偶身份证正面。" />
+									</div>
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">配偶身份证反面</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview13" class="uploadPreview"></div>
+										<input type="text" class="filename" data-value="身份证反面" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete13" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file13" nullmsg="请上传您的配偶身份证反面。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--户口本-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">户口本</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview14" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete14" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file14" nullmsg="请上传您的户口本。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--结婚证-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">结婚证</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview15" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete15" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" id="file15" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-xs-6">
+
+						<!--居住证-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">居住证</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview16" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete16" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file16" nullmsg="请上传您的居住证。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--征信查询授权委托书-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">征信查询授权委托书</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview17" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete17" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file17" nullmsg="请上传您的征信查询授权委托书。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--收入证明-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">收入证明</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview18" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete18" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file18" nullmsg="请上传您的收入证明。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--银行流水（半年）-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">银行流水（半年）</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview19" class="uploadPreview"></div>
+										<input type="text" class="filename" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete19" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file19" nullmsg="请上传您的银行流水。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--固定资产证明-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">固定资产证明</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview20" class="uploadPreview"></div>
+										<input type="text" class="filename" data-value="如房产证、行驶证、股票、基金、保险" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete20" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file20" nullmsg="请上传您的固定资产证明。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--订车合同，定金收据-->
+
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row">
+									<label for="inputEmail3" class="col-xs-4 control-label" style="height: 35px;line-height: 35px;margin-top:55px">定金合同，订金收据</label>
+									<div class="uploader white col-xs-7">
+										<div id="uploadPreview21" class="uploadPreview"></div>
+										<input type="text" class="filename" data-value="订金超过5万含，需提供刷卡凭条或转账凭证" readonly/>
+										<input type="button" name="file" class="button" value="上传" />
+										<input id="delete21" type="button" name="file" class="button" value="删除" style="margin-top:10px;" />
+										<input type="file" size="30" datatype="*" id="file21" nullmsg="请上传您的定金合同，订金收据。" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<!--预约时间-->
+				<div class="form-horizontal">
+					<div class="form-group">
+						<div class="row">
+							<label for="inputEmail3" class="col-xs-3 control-label" style="height: 35px;line-height: 35px;">预约时间</label>
+							<div class="col-xs-7">
+								<input type="tel" style="width: 100%;margin-top: 12px;" placeholder="请选择您的预约时间。" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"   id="file22"  nullmsg="请上传您的预约时间。" >
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<button type="submit" id="data_post" class="btn btn-primary btn-lg btn-block center-block" data-toggle="modal" data-target=".bs-example-modal-sm" style="width: 50%;">提交资料</button>
+
+			</form>
+		</div>
+		<!--尾部-->
+		<div style="width: 100%;background: #01505f;">
+			<footer class="container truck_footer">
+				<div class="row">
+					<div class="  col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">中国银行</a>
+							</li>
+							<li><a href="javascript:;">平安银行</a>
+							</li>
+							<li><a href="javascript:;">浦发银行</a>
+							</li>
+							<li><a href="javascript:;">工商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="  col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">农业银行</a>
+							</li>
+							<li><a href="javascript:;">建设银行</a>
+							</li>
+							<li><a href="javascript:;">光大银行</a>
+							</li>
+							<li><a href="javascript:;">招商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="  col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">汽车之家</a>
+							</li>
+							<li><a href="javascript:;">卡车之家</a>
+							</li>
+							<li><a href="javascript:;">新浪汽车</a>
+							</li>
+							<li><a href="javascript:;">腾讯汽车</a>
+							</li>
+						</ul>
+					</div>
+					<div class="  col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">易车汽车论坛</a>
+							</li>
+							<li><a href="javascript:;">中国买车网</a>
+							</li>
+							<li><a href="javascript:;">搜狐汽车</a>
+							</li>
+							<li><a href="javascript:;">中国高速网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="  col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">二手卡车网</a>
+							</li>
+							<li><a href="javascript:;">汽配英才网</a>
+							</li>
+							<li><a href="javascript:;">北京二手车</a>
+							</li>
+							<li><a href="javascript:;">中国人才网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="  col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">我爱车网</a>
+							</li>
+							<li><a href="javascript:;">汽配中国网</a>
+							</li>
+							<li><a href="javascript:;">深圳二手车</a>
+							</li>
+							<li><a href="javascript:;">车生活网</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row truck_address">
+					<p>Copyright ©XSJ All Rights Reserved</p>
+					<p>© 2015 鑫森捷 京ICP备14026002号</p>
+				</div>
+			</footer>
+		</div>
+		<!--尾部结束-->
+		</div>
+		<script type="text/javascript">
+			//		使用表单验证插件
+		 	$(".demoform").Validform({
+		 		beforeSubmit:function(curform){
+			 	alert("您已经上传成功");
+			 	return false;
+			 	//这里明确return false的话表单将不会提交;
+		 		}
+
+		 	});
+
+			for(var i=1;i<=$('input[type=file]').length;i++){
+			    (function(i){
+					$("#file"+i).change(function(){
+						console.log(i)
+						var files = !!this.files ? this.files : [];
+
+					    // If no files were selected, or no FileReader support, return
+					    if (!files.length || !window.FileReader) return;
+
+					    // Only proceed if the selected file is an image
+					    if (/^image/.test( files[0].type)){
+
+					        // Create a new instance of the FileReader
+					        var reader = new FileReader();
+
+					        // Read the local file as a DataURL
+					        reader.readAsDataURL(files[0]);
+
+					        // When loaded, set image data as background of div
+					        reader.onloadend = function(){
+
+					       $("#uploadPreview"+i).css("background-image", "url("+this.result+")");
+
+					        }
+
+					    }
+					ff(i);
+					});
+					$('#delete'+i).click(function(){
+						 $("#uploadPreview"+i).css("background-image", "");
+
+					});
+			    })(i)
+			}
+			var obj = {};
+			function ff(num){
+					var file1 =document.getElementById("file"+num).files[0];
+					var form = new FormData();
+					form.append("file1", file1);
+					$.ajax({
+						  url: "http://xsj.wiiwoo.cn/file/",
+						  type: "POST",
+						  data: form,
+						  processData: false,  // 告诉jQuery不要去处理发送的数据
+						  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+						  success : function(data){
+						  	var result = JSON.parse(data);
+							console.log(result);
+							obj["file"+num] = result.urls.file1;
+						  }
+					});
+			}
+
+			$("#data_post").click(function(){
+				var time = $("#file22").val();
+				obj['time'] = time;
+				$.post("json/upload_data.php",obj,function(){
+					console.log(data)
+				})
+			});
+		</script>
+	</body>
+
+</html>

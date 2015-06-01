@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<title>Bootstrap 101 Template</title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<!--<link rel="stylesheet" type="text/css" href="css/main.css"/>-->
+	</head>
+	<style type="text/css">
+		.row {
+			margin: 0;
+		}
+	</style>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="form_wrap">
+
+					<div class="col-md-12 upload_abc">
+						<h3 style="padding-bottom: 20px;">营业用货车/客车保险申请表</h3>
+					</div>
+
+					<!--客户名称，客户性别-->
+
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">客户姓名</label>
+								<div class="uploader white col-md-3">
+									<input type="text" class="form-control" placeholder="请输入您的名字">
+								</div>
+								<div class="uploader white col-md-2" style="padding-left: 20px;">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--客户电话-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">联系方式</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入您的联系方式">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--客户身份证号码-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">身份证号码</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入合法的16位中国大陆身份证号码">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--配偶名称、姓名-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">配偶姓名</label>
+								<div class="uploader white col-md-3">
+									<input type="text" class="form-control" placeholder="请输入配偶名字">
+								</div>
+								<div class="uploader white col-md-2" style="padding-left: 20px;">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--配偶身份证号码-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">配偶身份证号码</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入合法的16位中国大陆身份证号码">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--担保人姓名-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">担保人姓名</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入担保人姓名">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label" style="height: 35px;line-height: 35px;">身份证</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入身份证号码">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--担保人配偶-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">担保人配偶姓名</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入担保人配偶姓名">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label" style="height: 35px;line-height: 35px;">身份证</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入身份证号码">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--车行-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">车行名称</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入车辆所属车行名称">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--车行联系人-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">车行联系人</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入车行联系人名字">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--车行电话-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">车行联系方式</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入车行联系方式">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--银行联系人-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">银行联系人</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入车行联系名字">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--银行联系人电话-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">银行联系人电话</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入银行联系人联系方式">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--保险业务员-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">保险业务员</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入保险业务员名字">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--保险业务员联系方式-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">保险业务员联系方式</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入保险业务员联系方式">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--车辆类型、价格-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">拟购车型</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">购车总价</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label" style="height: 35px;line-height: 35px;">净车价</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--贷款银行、价格、年限-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">贷款银行</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="请输入贷款银行名称">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">贷款金额</label>
+								<!--<div class="uploader white col-md-2">
+							<input type="text" class="form-control" placeholder="" >
+						</div>-->
+								<div class="input-group col-md-2" style="padding: 6px 12px;">
+									<input type="text" class="form-control" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status">
+									<span class="input-group-addon">万</span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">贷款年限</label>
+								<!--<div class="uploader white col-md-2">
+							<input type="text" class="form-control" placeholder="" >
+						</div>-->
+								<div class="input-group col-md-2" style="padding: 6px 12px;">
+									<input type="text" class="form-control" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status">
+									<span class="input-group-addon">年</span>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--挂靠公司名称、组织机构代码-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">挂靠公司名称</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入挂靠公司名称">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label" style="height: 35px;line-height: 35px;">机构代码</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入组织机构代码">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--法人代表-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">法人代表名称</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入法人代表名称">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label" style="height: 35px;line-height: 35px;">身份证</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入法人代表身份证号码">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--个人、家庭情况-->
+					<span style="border: 1px solid #b1b1b1; width: 100%;display: block;"></span>
+					<h4>个人、家庭情况</h4>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">婚姻情况：</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 已婚有子女
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 已婚无子女
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 未婚
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 离异
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 col-xs-3 control-label" style="height: 35px;line-height: 35px;">供养人数</label>
+								<div class="uploader white col-md-2 col-xs-9">
+									<input type="text" class="form-control" placeholder="供养人数">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--家庭住址、家庭电话-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label">家庭地址</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入法人代表名称" style="margin-top: 10px;margin-bottom: 10px;">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label">家庭电话</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入法人代表身份证号码" style="margin-top: 10px;margin-bottom: 10px;">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--来深时间-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">来深时间：</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 7年以上
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 5-7年
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3-5年
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3年以下
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--户口性质-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">户口性质</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 本地户籍
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 非本地户籍
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--深圳社保-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">是否购买深圳社保</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 是
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 否
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--文化程度-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">文化程度：</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 研究生及以上
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 大学本科/大专
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 中专/高中
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 其他
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--工作单位-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label" style="line-height: 40px;">工作单位名称:</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入担保人姓名">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label" style="line-height: 40px;">电话：</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入身份证号码">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label">地址:</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入担保人姓名" style="margin-top: 10px;margin-bottom: 10px;">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label">职务：</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入身份证号码" style="margin-top: 10px;margin-bottom: 10px;">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--月收入-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">平均月收入：</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="" style="margin-top: 10px;margin-bottom: 10px;">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">来源：</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 工资
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 投资
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 租金
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 他人供养
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 其他
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--从事目前工作年限-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">从事目前工作年限：</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 8年以上
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 5-8年
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 2-6年
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 2年以下
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--配偶工作单位、职务-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label" style="line-height: 40px;">配偶工作单位名称:</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入担保人姓名">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label" style="line-height: 40px;">职务：</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="请输入身份证号码">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--购车人与配偶名下物业地址-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">购车人与配偶名下物业地址</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--物业情况-->
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">物业情况1：</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="checkbox-inline">
+										<input type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 红本商品房
+									</label>
+									<label class="checkbox-inline">
+										<input type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 福利房、微利房
+									</label>
+									<label class="checkbox-inline">
+										<input type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 自建房
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">物业情况2：</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="checkbox-inline">
+										<input type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 按揭商品房
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">购买时间</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="yyyy/dd">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">月供</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+								<label for="inputEmail3" class="col-md-1 control-label" style="height: 35px;line-height: 35px;">面积</label>
+								<div class="uploader white col-md-2">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label">物业情况3：</label>
+								<div class="col-md-9 col-xs-12">
+									<label class="checkbox-inline">
+										<input type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 其他无手续房产
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!--负债总额-->
+					<span style="border: 1px solid #b1b1b1; width: 100%;display: block;"></span>
+					<h4>购车人名下负债总额</h4>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">住房按揭</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">汽车消费贷款</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">综合消费贷款</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">其他贷款</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">为他人担保</label>
+								<div class="uploader white col-md-5">
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</form>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;line-height: 35px;">特别声明：</label>
+				<span style="display: block;line-height: 30px;padding: 0 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本人声明保证所有提供信息完整、准确，并授权贷款银行及贵公司从中国人民银行，深圳鹏元个人征信系统基础数据库等相关机构查询并使用本人的个人信用报告及个人基本信息</span>
+
+							</div>
+						</div>
+					</form>
+				</div>
+
+				
+			</div>
+	</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>后台操作</title>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/backstage_operate.css">
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/avalon.min.js"></script>
+	<script>
+	var url = "http://127.0.0.1:8083/truck/json/backOperate.php";
+	var deleteUrl = "http://127.0.0.1:8083/truck/json/delete.php";
+	var boModel = avalon.define({
+		$id : "backOperate",
+		baseInfo : {},
+		loanInfo:{},
+		flow : [],
+		attach : [],
+		detail : "",
+		newStatus : function(){
+			var index = boModel.flow.size();
+			var array = ["待征信","待征信结果","待用户提交贷款资料","待审贷款资料","待家访预约","待提交至银行","待银行确认函","待付款","待现场手续"];
+			if(index >= array.length){
+				alert("项目已完成");
+				return;
+			}
+			var obj = {
+				"orderId":"1",
+				"userId":"1",
+			        	"uby":"Jack",
+			        	"utime":new Date(),
+				"status":array[index]+(!!boModel.detail?('（'+boModel.detail+'）'):''),
+				"msg":""
+			}
+			boModel.flow.push(obj)
+			$.post(url,obj,function(data){
+				alert(JSON.parse(data).msg);
+			})
+		},
+		acceptAttach : function(el){
+			boModel.attach.remove(el);
+			var obj = {
+				attId:el.att_id,
+				title:el.title,
+				appr:el.appr,
+				userId:el.userId
+			}
+			$.post(deleteUrl,obj,function(data){
+				alert(JSON.parse(data).msg);
+			});
+		},
+		img : "",
+		showImg : function(el){
+			boModel.img = el.url;
+		}
+	});
+	$(function(){
+		$.getJSON(url,{orderId : 1},function(data){
+			console.log(data);
+			boModel.baseInfo = data.baseInfo;
+			boModel.loanInfo = data.loanInfo;
+			for(var i in data.flow){
+				boModel.flow.push(data.flow[i]);
+			}
+			for(var i in data.attach){
+				boModel.attach.push(data.attach[i]);
+			}
+		});
+	});
+	</script>
+</head>
+<body ms-controller="backOperate">
+	<!--头部导航开始-->
+	<div class="wrap_header">
+		<div class="niwdoawi_center w320">
+			<div class="logo clearfix">
+				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size:30px;">Logo</a>
+			</div>
+		</div>
+	</div>
+	<!--头部导航结束-->
+	<div class="container-fluid  cl_wrap">
+		<div class="row">
+			<div class="info_wrap">
+				<div class="col-sm-6">
+					<div class="operate_wrap">
+						<h2>个人资料</h2>
+						<li>姓名：{{ baseInfo.userName }}</li>
+						<li>电话：{{ baseInfo.phone }}</li>
+						<li>资料：{{ baseInfo.information1 }}</li>
+						<li>资料：{{ baseInfo.information2 }}</li>
+						<li>资料：{{ baseInfo.information3 }}</li>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="operate_wrap">
+						<h2>贷款资料</h2>
+						<li>公司名称：{{ loanInfo.companyName }}</li>
+						<li>营业执照：{{ loanInfo.licence }}</li>
+						<li>法人代表：{{ loanInfo.delegate }}</li>
+						<li>资料：{{ loanInfo.cInformation1 }}</li>
+						<li>资料：{{ loanInfo.cInformation1 }}</li>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="table_wrap">
+			<table class="table table-hover table-striped" style="margin-top: 10px;text-align: center;border: 1px solid #ccc;">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th style="text-align: center;">操作人</th>
+						<th style="text-align: center;">操作时间</th>
+						<th style="text-align: center;">操作请求</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ms-repeat="flow">
+						<th scope="row">{{ $index }}</th>
+						<td>{{ el.uby }}</td>
+						<td>{{ el.utime | date("yyyy.MM.dd") }}</td>
+						<td>{{ el.status }}</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<div class="form-inline text-right">
+								<div class="form-group" id="description">
+									<input type="text" class="form-control" placeholder="状态详细描述" ms-duplex="detail">
+								</div>
+								<button type="submit" class="btn btn-default" ms-click="newStatus">更新状态</button>
+							</div>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+		<div class="table_wrap">
+			<table class="table table-hover table-striped" style="text-align: center;border: 1px solid #ccc;">
+				<thead>
+					<tr>
+						<th>*</th>
+						<th style="text-align: center;">客户资料(附件)</th>
+						<th style="text-align: center;">上传时间</th>
+						<th style="text-align: center;">资料状态</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ms-repeat="attach">
+						<th scope="row">{{ $index }}</th>
+						<td>{{ el.title }}</td>
+						<td>{{ el.utime }}</td>
+						<td>
+							<a class="btn btn-default" role="button" data-target=".show_detail" data-toggle="modal" ms-click="showImg(el)">查看</a>
+							<a class="btn btn-default" role="button" ms-click="acceptAttach(el)">删除</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<div class="modal fade show_detail" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">详细条件</h4>
+				</div>
+				<div class="modal-body" style="display: inline-block;text-align:center;width:100%;">
+					<img ms-src="img" alt="" style="width:100%;">
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+	</html>

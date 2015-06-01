@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>登陆</title>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/truck.css" />
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+	<script src="/js/avalon.min.js"></script>
+	<script>
+		var loginModel = avalon.define({
+			$id : "login",
+			navData : [
+			{href:"index",val:"首页"},
+			{href:"mortgage",val:"车贷服务"},
+			{href:"trucks",val:"重卡平台"},
+			{href:"transport",val:"运力云"},
+			{href:"affiliate",val:"我要挂靠"},
+			{href:"join",val:"我要加盟"},
+			],
+			//active : 0
+		});
+	</script>
+</head>
+
+<body ms-controller="login">
+	<!--头部导航开始-->
+	<div class="wrap_header">
+		<div class="niwdoawi_center container">
+			<div class="w1000 logo clearfix">
+				<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+				<div class="fr righ">
+					<ul class="nav navbar-nav navbar-right text-info">
+						<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+							<li>
+								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--头部导航结束-->
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-6 login_img">
+				<img src="http://cdn.wiiwoo.cn/xsj/imgs/introduce.jpg" />
+			</div>
+			<div class="col-xs-6">
+				<div class="login_input">
+					<p class="text-left login_text">登录</p>
+					<!--输入用户名-->
+					<div class="input-group input_osize">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control" placeholder="手机号/会员名/邮箱" aria-describedby="basic-addon1">
+					</div>
+					<!--输入登录密码-->
+					<div class="input-group login_input_osize">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input type="text" class="form-control" placeholder="请输入登录密码" aria-describedby="basic-addon1">
+					</div>
+					<p class="text-right login_fogetp"><a href="#">忘记登录密码？</a>
+					</p>
+					<button type="button" class="btn btn-block login_button">登录</button>
+					<p class="text-right login_freez"><a href="#">免费注册</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--尾部-->
+	<footer class="container-fluid truck_footer">
+		<div class="row">
+			<div class="col-xs-4 col-sm-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">中国银行</a>
+					</li>
+					<li><a href="javascript:;">平安银行</a>
+					</li>
+					<li><a href="javascript:;">浦发银行</a>
+					</li>
+					<li><a href="javascript:;">工商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-sm-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">农业银行</a>
+					</li>
+					<li><a href="javascript:;">建设银行</a>
+					</li>
+					<li><a href="javascript:;">光大银行</a>
+					</li>
+					<li><a href="javascript:;">招商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-sm-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">汽车之家</a>
+					</li>
+					<li><a href="javascript:;">卡车之家</a>
+					</li>
+					<li><a href="javascript:;">新浪汽车</a>
+					</li>
+					<li><a href="javascript:;">腾讯汽车</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-sm-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">易车汽车论坛</a>
+					</li>
+					<li><a href="javascript:;">中国买车网</a>
+					</li>
+					<li><a href="javascript:;">搜狐汽车</a>
+					</li>
+					<li><a href="javascript:;">中国高速网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-sm-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">二手卡车网</a>
+					</li>
+					<li><a href="javascript:;">汽配英才网</a>
+					</li>
+					<li><a href="javascript:;">北京二手车</a>
+					</li>
+					<li><a href="javascript:;">中国人才网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-sm-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">我爱车网</a>
+					</li>
+					<li><a href="javascript:;">汽配中国网</a>
+					</li>
+					<li><a href="javascript:;">深圳二手车</a>
+					</li>
+					<li><a href="javascript:;">车生活网</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row truck_address">
+			<p>Copyright ©XSJ All Rights Reserved</p>
+			<p>© 2015 鑫森捷 京ICP备14026002号</p>
+		</div>
+	</footer>
+
+</body>
+
+</html>
