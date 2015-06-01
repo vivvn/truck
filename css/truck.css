@@ -231,7 +231,7 @@ textarea{
 .about_card {
 	word-wrap: break-word;
 	margin-top: 5%;
-	padding: 0 5%;
+	padding-left: 5%;
 	margin-bottom: 20px;
 }
 .about_card_us {
