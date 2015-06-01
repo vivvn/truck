@@ -235,7 +235,8 @@ textarea{
 	margin-bottom: 20px;
 }
 .about_card_us {
-	font-size: 30px;
+	font-size: 28px;
+	font-weight: bold;
 	color: #df4a43;
 	font-family: "微软雅黑";
 	position: relative;
@@ -247,7 +248,7 @@ textarea{
 	top: 45px;
 }
 .about_text {
-	font-size: 28px;
+	font-size: 20px;
 	color: #BCBCBC;
 }
 .call_us {
@@ -271,7 +272,8 @@ textarea{
 	margin-bottom: 20PX;
 }
 .tr_about_card_us {
-	font-size: 30px;
+	font-size: 28px;
+	font-weight: bold;
 	color: #df4a43;
 	font-family: "微软雅黑";
 	position: relative;
@@ -311,7 +313,8 @@ textarea{
 /*加盟货源介绍页面样式开始*/
 
 .de_about_card_hw {
-	font-size: 30px;
+	font-size: 28px;
+	font-weight: bold;
 	color: #0d5877;
 	font-family: "微软雅黑";
 	position: relative;
@@ -323,7 +326,8 @@ textarea{
 	margin-bottom: 20PX;
 }
 .de_about_card_us {
-	font-size: 30px;
+	font-size: 28px;
+	font-weight: bold;
 	color: #df4a43;
 	font-family: "微软雅黑";
 	position: relative;
@@ -335,7 +339,7 @@ textarea{
 	top: 45px;
 }
 .de_about_text {
-	font-size: 28px;
+	font-size: 20px;
 	color: #BCBCBC;
 }
 .de_call_us {
