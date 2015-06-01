@@ -1,99 +1,99 @@
 {
     "res": {
         "css/applyof-insurance.css": {
-            "uri": "/css/applyof-insurance.css",
+            "uri": "http://ui.jejeso.com/truck/css/applyof-insurance.css",
             "type": "css"
         },
         "css/backstage_operate.css": {
-            "uri": "/css/backstage_operate.css",
+            "uri": "http://ui.jejeso.com/truck/css/backstage_operate.css",
             "type": "css"
         },
         "css/bootstrap-grid-ms.min.css": {
-            "uri": "/css/bootstrap-grid-ms.min.css",
+            "uri": "http://ui.jejeso.com/truck/css/bootstrap-grid-ms.min.css",
             "type": "css"
         },
         "css/bootstrap.min.css": {
-            "uri": "/css/bootstrap.min.css",
+            "uri": "http://ui.jejeso.com/truck/css/bootstrap.min.css",
             "type": "css"
         },
         "css/consumer_list.css": {
-            "uri": "/css/consumer_list.css",
+            "uri": "http://ui.jejeso.com/truck/css/consumer_list.css",
             "type": "css"
         },
         "css/css.css": {
-            "uri": "/css/css.css",
+            "uri": "http://ui.jejeso.com/truck/css/css.css",
             "type": "css"
         },
         "css/driver_bid_list.css": {
-            "uri": "/css/driver_bid_list.css",
+            "uri": "http://ui.jejeso.com/truck/css/driver_bid_list.css",
             "type": "css"
         },
         "css/fill_inf.css": {
-            "uri": "/css/fill_inf.css",
+            "uri": "http://ui.jejeso.com/truck/css/fill_inf.css",
             "type": "css"
         },
         "css/flowpath_intorduce.css": {
-            "uri": "/css/flowpath_intorduce.css",
+            "uri": "http://ui.jejeso.com/truck/css/flowpath_intorduce.css",
             "type": "css"
         },
         "css/font-awesome.min.css": {
-            "uri": "/css/font-awesome.min.css",
+            "uri": "http://ui.jejeso.com/truck/css/font-awesome.min.css",
             "type": "css"
         },
         "css/main.css": {
-            "uri": "/css/main.css",
+            "uri": "http://ui.jejeso.com/truck/css/main.css",
             "type": "css"
         },
         "css/schedule.css": {
-            "uri": "/css/schedule.css",
+            "uri": "http://ui.jejeso.com/truck/css/schedule.css",
             "type": "css"
         },
         "css/truck.css": {
-            "uri": "/css/truck.css",
+            "uri": "http://ui.jejeso.com/truck/css/truck.css",
             "type": "css"
         },
         "css/upload_data.css": {
-            "uri": "/css/upload_data.css",
+            "uri": "http://ui.jejeso.com/truck/css/upload_data.css",
             "type": "css"
         },
         "css/validform.css": {
-            "uri": "/css/validform.css",
+            "uri": "http://ui.jejeso.com/truck/css/validform.css",
             "type": "css"
         },
         "js/Validform.js": {
-            "uri": "/js/Validform.js",
+            "uri": "http://ui.jejeso.com/truck/js/Validform.js",
             "type": "js"
         },
         "js/avalon.min.js": {
-            "uri": "/js/avalon.min.js",
+            "uri": "http://ui.jejeso.com/truck/js/avalon.min.js",
             "type": "js"
         },
         "js/bootstrap.min.js": {
-            "uri": "/js/bootstrap.min.js",
+            "uri": "http://ui.jejeso.com/truck/js/bootstrap.min.js",
             "type": "js"
         },
         "js/fullPage.min.js": {
-            "uri": "/js/fullPage.min.js",
+            "uri": "http://ui.jejeso.com/truck/js/fullPage.min.js",
             "type": "js"
         },
         "js/hhDrop.js": {
-            "uri": "/js/hhDrop.js",
+            "uri": "http://ui.jejeso.com/truck/js/hhDrop.js",
             "type": "js"
         },
         "js/move2.js": {
-            "uri": "/js/move2.js",
+            "uri": "http://ui.jejeso.com/truck/js/move2.js",
             "type": "js"
         },
         "laydate/laydate.js": {
-            "uri": "/laydate/laydate.js",
+            "uri": "http://ui.jejeso.com/truck/laydate/laydate.js",
             "type": "js"
         },
         "laydate/need/laydate.css": {
-            "uri": "/laydate/need/laydate.css",
+            "uri": "http://ui.jejeso.com/truck/laydate/need/laydate.css",
             "type": "css"
         },
         "laydate/skins/default/laydate.css": {
-            "uri": "/laydate/skins/default/laydate.css",
+            "uri": "http://ui.jejeso.com/truck/laydate/skins/default/laydate.css",
             "type": "css"
         }
     },

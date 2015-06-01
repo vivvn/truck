@@ -36,8 +36,8 @@ fis.config.merge({
         domain : {
             //所有图片文件，使用 http://img.example.com 作为域名
             'image' : ['http://cdn.wiiwoo.cn/xsj'],
-            // '**.css' : 'http://127.0.0.1:8083/truck/release',
-            // '**.js' : 'http://127.0.0.1:8083/truck/release'
+            '**.css' : 'http://ui.jejeso.com/truck',
+            '**.js' : 'http://ui.jejeso.com/truck'
         }
     }
 });
