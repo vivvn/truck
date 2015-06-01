@@ -5,10 +5,9 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>车主投标列表(个人中心)</title>
+		<title>运力云运营版块首页</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/truck.css" />
-		<link rel="stylesheet" type="text/css" href="css/driver_bid_list.css" />
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/avalon.min.js"></script>
@@ -36,35 +35,22 @@
 				}, ],
 				active: 3
 			});
-			avalon.ready(function() {
-				avalon.define({
-					$id: "test",
-					word: "时间",
-					price: "价格",
-					bidstate: "投标状态",
-					bidstatelist: ["选择状态", "已中标", "未中标", "投标中"],
-					ordernum: "订单号",
-					ordersearch: "搜索",
-				});
-				avalon.scan();
-			});
 		</script>
 	</head>
 
-	<body>
+	<body ms-controller="tr">
 		<!--头部导航开始-->
-		<div class="wrap_header" ms-controller="tr">
+		<div class="wrap_header">
 			<div class="niwdoawi_center container">
 				<div class="w1000 logo clearfix">
 					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
 					<div class="fr righ">
 						<ul class="nav navbar-nav navbar-right text-info">
 							<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
-							</li>
-							<li>
-								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
-								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
-							</li>
+								<li>
+									<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+									<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+								</li>
 						</ul>
 					</div>
 				</div>
@@ -72,72 +58,12 @@
 		</div>
 		</div>
 		<!--头部导航结束-->
-
+		
 		<!--内容-->
-
 		<div class="container">
-			<!--筛选条件-->
-			<div class="row">
-				<div class="col-md-8 screencondition">
-					<div class="row" ms-controller="test">
-						<div class="col-md-1" style="line-height: 34px;">{{word}}</div>
-						<div class="col-md-3" style="line-height: 34px;color: red;">
-							时间插件
-						</div>
-						<div class="col-md-2">
-							<button class="btn btn-default" type="submit">{{price}}
-								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
-							</button>
-						</div>
-						<div class="col-md-2" style="line-height: 34px;">{{bidstate}}</div>
-						<div class="col-md-3">
-							<select class="form-control">
-								<option ms-repeat="bidstatelist">{{el}}</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 ordersearch">
-					<form class="form-inline">
-						<div class="form-group">
-							<label class="sr-only" for="exampleInputAmount">请输入您的订单号</label>
-							<div class="input-group">
-								<div class="input-group-addon">运单号</div>
-								<input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入您的订单号">
-							</div>
-						</div>
-						<button type="submit" class="btn btn-primary">搜索</button>
-					</form>
-				</div>
-			</div>
-			<!--搜索结果-->
-			<div class="row">
-				<div class="col-md-12 text-left driver_bid_searchlist">
-					<span>2015-05-23</span><span>运输单号：949215644817093</span><span> 物流公司：XXX物流有限公司</span>
-					<div class="row driver_bid_searchlist_row">
-						<div class="col-md-4">
-							<ul>
-								<li>货物名称：三文鱼</li>
-								<li>货物类型：鲜活易腐</li>
-								<li>货物重量：1吨</li>
-								<li>货物数量：50件</li>
-							</ul>
-						</div>
-						<div class="col-md-4 text-center">
-							<ul>
-								<li>运输价格：3000元</li>
-							</ul>
-						</div>
-						<div class="col-md-4 text-center">
-							<ul>
-								<li>投标状态</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 		</div>
-
+	
 		<!--尾部-->
 		<footer class="container-fluid truck_footer">
 			<div class="row">
