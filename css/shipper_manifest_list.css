@@ -1,4 +1,7 @@
-/*统一class*/
+
+.lh30{
+	line-height: 30px;
+}
 .lh34{
 	line-height: 34px;
 }
@@ -8,28 +11,28 @@
 .lh80{
 	line-height: 80px;
 }
-.screencondition{
+.shipper_screencondition{
 	margin-top: 40px;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid #b1b1b1;
 }
-.driver_bid_searchlist{
+.shipper_manifest_searchlist{
 	margin-bottom: 20px;
 	border: 1px solid #b1b1b1;
 	border-radius: 20px;
 	padding-top: 20px;
 	padding-bottom: 10px;
 }
-.driver_bid_searchlist_row{
+.shipper_manifest_searchlist_row{
 	margin-top: 10px;
 	padding-top: 10px;
 	border-top: 1px solid #B1B1B1;
 }
-.driver_bid_searchlist_row ul li{
+.shipper_manifest_searchlist_row ul li{
 	list-style-type: none;
 }
 
-.driver_bid_searchlist_bottombutton{
+.shipper_manifest_searchlist_bottombutton{
 	margin-bottom: 20px;
 }

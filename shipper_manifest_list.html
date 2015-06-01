@@ -8,6 +8,7 @@
 		<title>货主货单列表（个人中心）</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/truck.css" />
+		<link rel="stylesheet" type="text/css" href="css/shipper_manifest_list.css" />
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/avalon.min.js"></script>
@@ -35,6 +36,62 @@
 				}, ],
 				active: 3
 			});
+			avalon.ready(function() {
+				avalon.define({
+					$id: "test",
+					word: "时间",
+					price: "价格",
+					bidstate: "投标状态",
+					bidstatelist: ["选择状态", "已中标", "未中标", "投标中"],
+					ordernum: "订单号",
+					ordersearch: "搜索",
+				});
+				avalon.define({
+					$id: "list",
+					orderList: [{
+						ordertime: "2015-05-23",
+						ordernum: "949215644817093",
+						logisticscompany: "AAA物流有限公司",
+						balename: "三文鱼",
+						baletype: "鲜活易腐",
+						baleweight: "1吨",
+						balenum: "50件",
+						transportprice: "3000",
+						endprice:"4000",
+						orderdetail: "订单详情",
+						nextstep:"查看投标",
+						ordertype: "投标中"
+					}, {
+						ordertime: "2015-05-23",
+						ordernum: "949215644817093",
+						logisticscompany: "BBB物流有限公司",
+						balename: "三文鱼",
+						baletype: "鲜活易腐",
+						baleweight: "1吨",
+						balenum: "50件",
+						transportprice: "3000",
+						endprice:"4800",
+						orderdetail: "订单详情",
+						nextstep:"运输进度",
+						ordertype:"运输中"
+					}, {
+						ordertime: "2015-05-23",
+						ordernum: "949215644817093",
+						logisticscompany: "CCC物流有限公司",
+						balename: "三文鱼",
+						baletype: "鲜活易腐",
+						baleweight: "1吨",
+						balenum: "50件",
+						transportprice: "3000",
+						endprice:"2800",
+						orderdetail:"订单详情",
+						nextstep:"去评价",
+						ordertype:"已完成"
+					}, ],
+					a: "test"
+				});
+				avalon.scan();
+			});
 		</script>
 	</head>
 
@@ -58,12 +115,83 @@
 		</div>
 		</div>
 		<!--头部导航结束-->
-		
+
 		<!--内容-->
-		<div class="container">
-			
+		<div class="container" ms-controller="list">
+			<!--筛选条件-->
+			<div class="row shipper_screencondition">
+				<div class="col-md-8">
+					<div class="row" ms-controller="test">
+						<div class="col-md-1 lh34">{{word}}</div>
+						<div class="col-md-4 lh34 text-center" style="color: red;border: 1px solid;">
+							日期插件
+						</div>
+						<div class="col-md-2 text-center">
+							<button class="btn btn-default" type="submit">{{price}}
+								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+							</button>
+						</div>
+						<div class="col-md-2 lh34 text-center">{{bidstate}}</div>
+						<div class="col-md-3">
+							<select class="form-control">
+								<option ms-repeat="bidstatelist">{{el}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<form class="form-inline">
+						<div class="form-group">
+							<label class="sr-only" for="exampleInputAmount">请输入您的订单号</label>
+							<div class="input-group">
+								<div class="input-group-addon">运单号</div>
+								<input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入您的订单号">
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">搜索</button>
+					</form>
+				</div>
+			</div>
+			<!--搜索结果-->
+			<div class="row" ms-repeat="orderList">
+				<div class="col-md-12 text-left shipper_manifest_searchlist">
+					<span>{{el.ordertime}}</span><span>&nbsp;&nbsp;订单号：{{el.ordernum}}</span><span>&nbsp;&nbsp;物流公司：{{el.logisticscompany}}</span>
+					<div class="row shipper_manifest_searchlist_row">
+						<div class="col-md-4">
+							<ul>
+								<li>货物名称：{{ el.balename }}</li>
+								<li>货物类型：{{ el.baletype }}</li>
+								<li>货物重量：{{ el.baleweight }}</li>
+								<li>货物数量：{{ el.balenum }}</li>
+							</ul>
+						</div>
+						<div class="col-md-4 text-center shipper_manifest_searchlist_col lh45">
+							<ul>
+								<li><del>预期价格：{{el.transportprice}}元</del></li>
+								<a>成交价格：{{el.endprice}}元</a>
+							</ul>
+						</div>
+						<div class="col-md-4 text-center shipper_manifest_searchlist_col lh30">
+							<ul>
+								<li>{{el.orderdetail}}</li>
+								<a href="javascript:;">
+									<li>{{el.nextstep}}</li>
+								</a>
+								<li>{{el.ordertype}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row shipper_manifest_searchlist_bottombutton">
+					<div class="col-md-4"></div>
+					<div class="col-md-4 text-center">
+						<button type="button" class="btn btn-default">点击加载更多数据</button>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
 		</div>
-	
+
 		<!--尾部-->
 	<footer style="background-color: #01505f;">
 	<div class="container truck_footer">
