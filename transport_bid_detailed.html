@@ -8,6 +8,7 @@
 		<title>投标详情页面</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/truck.css" />
+		<link rel="stylesheet" href="css/bid_detailed.css">
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/avalon.min.js"></script>
@@ -35,12 +36,20 @@
 				}, ],
 				active: 3
 			});
+			avalon.ready(function(){
+				var con = avalon.define({
+				$id: "bid_detalied",
+				array: ['普通货物','大型货物','鲜活易腐','危险货物','易碎货物','贵重货物','保温冷藏','搬家货物','返空货柜']
+				});
+				scan();
+			})
+
 		</script>
 	</head>
 
-	<body ms-controller="tr">
+	<body>
 		<!--头部导航开始-->
-		<div class="wrap_header">
+		<div class="wrap_header" ms-controller="tr">
 			<div class="niwdoawi_center container">
 				<div class="w1000 logo clearfix">
 					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
@@ -57,95 +66,129 @@
 			</div>
 		</div>
 		</div>
-		<!--头部导航结束-->
-		
+		<!--头部导航结束-->		
 		<!--内容-->
 		<div class="container">
-			
+			<!--进度条-->
+			<div class="bid_detail_s"></div>
+			<!--订单详情-->
+			<div class="bid_order_detail">
+				<!--发货地址-->
+				<div class=""></div>
+				<!--收货地址-->
+				<div class=""></div>
+				<!--收货人，发货人-->
+				<div class="">
+					<select ms-controller="bid_detalied">
+						<option ms-repeat="array">{{el}} --- {{$index}}</option>
+					</select>
+				</div>
+				<!--联系方式-->
+				<!--送达时间-->
+				<!--货物类型  普通货物，大型货物，鲜活易腐，危险货物，易碎货物，贵重货物，保温冷藏，搬家货物，返空货柜，-->
+				<!--货柜规格-->
+				<!--货物名称-->
+				<!--货物体积-->
+				<!--货物数量-->
+				<!--服务车辆车长-->
+				<!--服务车辆设备：后置式升降板，高纬板，托盘，货架，叉车，输送机，起重设备，升降机-->
+				<!--运输价格-->
+				<!--其他选项-->
+				<!--是否需要增值税发票-->
+				<!--是否购买保险（延误、损坏等-->
+				<!--运输公司信用级别限制（待定）-->
+				<!--是否指定物流运输公司-->
+				<!--关于运输订单的备注-->
+			</div>
+			<!--车主投标-->
+			<div class="driver_bid">		
+			</div>
 		</div>
 	
 		<!--尾部-->
-		<footer class="container-fluid truck_footer">
-			<div class="row">
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">中国银行</a>
-						</li>
-						<li><a href="javascript:;">平安银行</a>
-						</li>
-						<li><a href="javascript:;">浦发银行</a>
-						</li>
-						<li><a href="javascript:;">工商银行</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">农业银行</a>
-						</li>
-						<li><a href="javascript:;">建设银行</a>
-						</li>
-						<li><a href="javascript:;">光大银行</a>
-						</li>
-						<li><a href="javascript:;">招商银行</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">汽车之家</a>
-						</li>
-						<li><a href="javascript:;">卡车之家</a>
-						</li>
-						<li><a href="javascript:;">新浪汽车</a>
-						</li>
-						<li><a href="javascript:;">腾讯汽车</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">易车汽车论坛</a>
-						</li>
-						<li><a href="javascript:;">中国买车网</a>
-						</li>
-						<li><a href="javascript:;">搜狐汽车</a>
-						</li>
-						<li><a href="javascript:;">中国高速网</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">二手卡车网</a>
-						</li>
-						<li><a href="javascript:;">汽配英才网</a>
-						</li>
-						<li><a href="javascript:;">北京二手车</a>
-						</li>
-						<li><a href="javascript:;">中国人才网</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">我爱车网</a>
-						</li>
-						<li><a href="javascript:;">汽配中国网</a>
-						</li>
-						<li><a href="javascript:;">深圳二手车</a>
-						</li>
-						<li><a href="javascript:;">车生活网</a>
-						</li>
-					</ul>
-				</div>
+	<footer style="background-color: #01505f;">
+	<div class="container truck_footer">
+		<div class="row">
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">中国银行</a>
+					</li>
+					<li><a href="javascript:;">平安银行</a>
+					</li>
+					<li><a href="javascript:;">浦发银行</a>
+					</li>
+					<li><a href="javascript:;">工商银行</a>
+					</li>
+				</ul>
 			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">农业银行</a>
+					</li>
+					<li><a href="javascript:;">建设银行</a>
+					</li>
+					<li><a href="javascript:;">光大银行</a>
+					</li>
+					<li><a href="javascript:;">招商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">汽车之家</a>
+					</li>
+					<li><a href="javascript:;">卡车之家</a>
+					</li>
+					<li><a href="javascript:;">新浪汽车</a>
+					</li>
+					<li><a href="javascript:;">腾讯汽车</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">易车汽车论坛</a>
+					</li>
+					<li><a href="javascript:;">中国买车网</a>
+					</li>
+					<li><a href="javascript:;">搜狐汽车</a>
+					</li>
+					<li><a href="javascript:;">中国高速网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">二手卡车网</a>
+					</li>
+					<li><a href="javascript:;">汽配英才网</a>
+					</li>
+					<li><a href="javascript:;">北京二手车</a>
+					</li>
+					<li><a href="javascript:;">中国人才网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">我爱车网</a>
+					</li>
+					<li><a href="javascript:;">汽配中国网</a>
+					</li>
+					<li><a href="javascript:;">深圳二手车</a>
+					</li>
+					<li><a href="javascript:;">车生活网</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-			<div class="row truck_address">
-				<p>Copyright ©XSJ All Rights Reserved</p>
-				<p>© 2015 鑫森捷 京ICP备14026002号</p>
-			</div>
-		</footer>
+		<div class="row truck_address">
+			<p>Copyright ©XSJ All Rights Reserved</p>
+			<p>© 2015 鑫森捷 京ICP备14026002号</p>
+		</div>
+	</div>
+</footer>
 	</body>
 
 </html>
