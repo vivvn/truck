@@ -8,6 +8,8 @@
 		<title>物流进度查询页面</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/truck.css" />
+		<link rel="stylesheet" href="css/logistics_progress.css" />
+		<link rel="stylesheet" href="css/qwewq.css" />
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/avalon.min.js"></script>
@@ -58,96 +60,194 @@
 		</div>
 		</div>
 		<!--头部导航结束-->
-		
+
 		<!--内容-->
+		<!--广告推广-->
 		<div class="container">
-			
-		</div>
-	
-		<!--尾部-->
-	<footer style="background-color: #01505f;">
-	<div class="container truck_footer">
-		<div class="row">
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">中国银行</a>
-					</li>
-					<li><a href="javascript:;">平安银行</a>
-					</li>
-					<li><a href="javascript:;">浦发银行</a>
-					</li>
-					<li><a href="javascript:;">工商银行</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">农业银行</a>
-					</li>
-					<li><a href="javascript:;">建设银行</a>
-					</li>
-					<li><a href="javascript:;">光大银行</a>
-					</li>
-					<li><a href="javascript:;">招商银行</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">汽车之家</a>
-					</li>
-					<li><a href="javascript:;">卡车之家</a>
-					</li>
-					<li><a href="javascript:;">新浪汽车</a>
-					</li>
-					<li><a href="javascript:;">腾讯汽车</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">易车汽车论坛</a>
-					</li>
-					<li><a href="javascript:;">中国买车网</a>
-					</li>
-					<li><a href="javascript:;">搜狐汽车</a>
-					</li>
-					<li><a href="javascript:;">中国高速网</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">二手卡车网</a>
-					</li>
-					<li><a href="javascript:;">汽配英才网</a>
-					</li>
-					<li><a href="javascript:;">北京二手车</a>
-					</li>
-					<li><a href="javascript:;">中国人才网</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">我爱车网</a>
-					</li>
-					<li><a href="javascript:;">汽配中国网</a>
-					</li>
-					<li><a href="javascript:;">深圳二手车</a>
-					</li>
-					<li><a href="javascript:;">车生活网</a>
-					</li>
-				</ul>
+			<div class="row">
+				<div class="col-md-12" style="height: 131px;background-color: #00ACED;color: #fff;line-height: 131px;text-align: center;">推广、广告</div>
 			</div>
 		</div>
 
-		<div class="row truck_address">
-			<p>Copyright ©XSJ All Rights Reserved</p>
-			<p>© 2015 鑫森捷 京ICP备14026002号</p>
+		<div class="container">
+			<div class="order-detail">
+				<div class="detail-title">
+					<span class="indent">订单信息</span>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12 LPinf_box">
+						<div class="LPinf_con clearfix">
+							<img src="imgs/goes_pic.jpg" alt="货物图片" class="LPinf_pic"/>
+							<div class="LPinf_list">
+							<p>类型:{{}}</p><br />
+							<p>数量:{{}}</p><br />
+							<p>重量/体积:{{}}</p>
+							</div>
+						</div>
+						<div class="LPinf_adr">
+							<p>上货地点:{{}}</p>
+							<p>下货地点:{{}}</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="detail-content">
+					<div id="progressbar">
+						<ul class="detail-progressbar">
+							<li class="step-1-done"><span class="text">发货<i>√</i></span>
+							</li>
+							<li class="step-2-done"><span class="text">运输<i>√</i></span>
+							</li>
+							<li class="step-3-done"><span class="text">派送</span>
+							</li>
+							<li class="last step-4-current"><span class="text">签收</span>
+							</li>
+						</ul>
+					</div>
+					<div class="detail-panel">
+						<div class="panel-package">
+							<div class="row">
+								<div class="col-md-12">
+								<h3 class="package-title">
+							物流信息
+						</h3>
+						</div>
+							</div>
+							<div class="row">
+								<div class="package-status">
+									<div class="col-md-7">
+									<div class="status-box" id="status_list">
+										<ul class="status-list">
+											<li><span class="date">2015-05-30</span><span class="time">16:20:31</span><span class="text">您的订单开始处理</span>
+											</li>
+											<li><span class="date hidden">2015-05-30</span><span class="week hidden">周六</span><span class="time">16:20:44</span><span class="text">您的订单待配货</span>
+											</li>
+											<li><span class="date hidden">2015-05-30</span><span class="week hidden">周六</span><span class="time">16:21:12</span><span class="text">您的包裹已出库</span>
+											</li>
+											<li><span class="date hidden">2015-05-30</span><span class="week hidden">周六</span><span class="time">18:05:04</span><span class="text">【天津项目客户部】的收件员【四方家用电器】已收件</span>
+											</li>
+											<li><span class="date hidden">2015-05-30</span><span class="week hidden">周六</span><span class="time">19:33:41</span><span class="text">快件已到达【天津中转部】 扫描员是【杨雪娟】上一站是【天津项目客户部】</span>
+											</li>
+											<li><span class="date hidden">2015-05-30</span><span class="week hidden">周六</span><span class="time">19:34:36</span><span class="text">快件已到达【天津航空部】 扫描员是【电子秤21】上一站是【】</span>
+											</li>
+											<li><span class="date hidden">2015-05-30</span><span class="week hidden">周六</span><span class="time">20:26:21</span><span class="text">由【天津公司】发往【广东深圳公司】</span>
+											</li>
+											<li><span class="date hidden">2015-05-30</span><span class="week hidden">周六</span><span class="time">20:26:21</span><span class="text">【天津公司】正在进行【装袋】扫描</span>
+											</li>
+											<li><span class="date">2015-05-31</span><span class="week">周日</span><span class="time">01:39:28</span><span class="text">由【天津公司】发往【广东深圳公司】</span>
+											</li>
+											<li><span class="date hidden">2015-05-31</span><span class="week hidden">周日</span><span class="time">22:59:58</span><span class="text">由【广东深圳公司】发往【深圳罗湖蛇口分点】</span>
+											</li>
+											<li><span class="date">2015-06-01</span><span class="week">周一</span><span class="time">07:37:14</span><span class="text">快件已到达【深圳罗湖蛇口分点】 扫描员是【李顺明】上一站是【】</span>
+											</li>
+											<li><span class="date hidden">2015-06-01</span><span class="week hidden">周一</span><span class="time">09:41:57</span><span class="text">【深圳罗湖蛇口分点】的派件员【王朋飞】正在派件</span>
+											</li>
+											<li><span class="date hidden">2015-06-01</span><span class="week hidden">周一</span><span class="time">09:41:57</span><span class="text">【深圳罗湖蛇口分点】已收入</span>
+											</li>
+											<li class="latest"><span class="date hidden">2015-06-01</span><span class="week hidden">周一</span><span class="time">11:55:40</span><span class="text"><em class="normal">已签收,签收人是本人</em></span>
+											</li>
+										</ul>
+									</div>
+									</div>
+									<div class="col-md-5">
+										<div class="LP_adrpic" style="height: 300px;line-height: 300px;background-color: #16B29A;margin-right: 10px;text-align: center;color: #fff;">
+											地图
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-</footer>
+		</div>
+
+		<!--尾部-->
+		<footer style="background-color: #01505f;">
+			<div class="container truck_footer">
+				<div class="row">
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">中国银行</a>
+							</li>
+							<li><a href="javascript:;">平安银行</a>
+							</li>
+							<li><a href="javascript:;">浦发银行</a>
+							</li>
+							<li><a href="javascript:;">工商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">农业银行</a>
+							</li>
+							<li><a href="javascript:;">建设银行</a>
+							</li>
+							<li><a href="javascript:;">光大银行</a>
+							</li>
+							<li><a href="javascript:;">招商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">汽车之家</a>
+							</li>
+							<li><a href="javascript:;">卡车之家</a>
+							</li>
+							<li><a href="javascript:;">新浪汽车</a>
+							</li>
+							<li><a href="javascript:;">腾讯汽车</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">易车汽车论坛</a>
+							</li>
+							<li><a href="javascript:;">中国买车网</a>
+							</li>
+							<li><a href="javascript:;">搜狐汽车</a>
+							</li>
+							<li><a href="javascript:;">中国高速网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">二手卡车网</a>
+							</li>
+							<li><a href="javascript:;">汽配英才网</a>
+							</li>
+							<li><a href="javascript:;">北京二手车</a>
+							</li>
+							<li><a href="javascript:;">中国人才网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">我爱车网</a>
+							</li>
+							<li><a href="javascript:;">汽配中国网</a>
+							</li>
+							<li><a href="javascript:;">深圳二手车</a>
+							</li>
+							<li><a href="javascript:;">车生活网</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row truck_address">
+					<p>Copyright ©XSJ All Rights Reserved</p>
+					<p>© 2015 鑫森捷 京ICP备14026002号</p>
+				</div>
+			</div>
+		</footer>
 	</body>
 
 </html>
