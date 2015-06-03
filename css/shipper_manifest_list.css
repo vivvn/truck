@@ -36,3 +36,10 @@
 .shipper_manifest_searchlist_bottombutton{
 	margin-bottom: 20px;
 }
+.shipper_manifest_list_bottom{
+	margin-bottom: 20px;
+	
+}
+.shipper_manifest_list_bottom ul{
+	float: right;
+}

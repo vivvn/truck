@@ -57,9 +57,9 @@
 						baleweight: "1吨",
 						balenum: "50件",
 						transportprice: "3000",
-						endprice:"4000",
+						endprice: "4000",
 						orderdetail: "订单详情",
-						nextstep:"查看投标",
+						nextstep: "查看投标",
 						ordertype: "投标中"
 					}, {
 						ordertime: "2015-05-23",
@@ -70,10 +70,10 @@
 						baleweight: "1吨",
 						balenum: "50件",
 						transportprice: "3000",
-						endprice:"4800",
+						endprice: "4800",
 						orderdetail: "订单详情",
-						nextstep:"运输进度",
-						ordertype:"运输中"
+						nextstep: "运输进度",
+						ordertype: "运输中"
 					}, {
 						ordertime: "2015-05-23",
 						ordernum: "949215644817093",
@@ -83,12 +83,44 @@
 						baleweight: "1吨",
 						balenum: "50件",
 						transportprice: "3000",
-						endprice:"2800",
-						orderdetail:"订单详情",
-						nextstep:"去评价",
-						ordertype:"已完成"
+						endprice: "2800",
+						orderdetail: "订单详情",
+						nextstep: "去评价",
+						ordertype: "已完成"
+					}, {
+						ordertime: "2015-05-23",
+						ordernum: "949215644817093",
+						logisticscompany: "CCC物流有限公司",
+						balename: "三文鱼",
+						baletype: "鲜活易腐",
+						baleweight: "1吨",
+						balenum: "60件",
+						transportprice: "3000",
+						endprice: "5500",
+						orderdetail: "订单详情",
+						nextstep: "去评价",
+						ordertype: "已完成"
+					}, {
+						ordertime: "2015-05-23",
+						ordernum: "949215644817093",
+						logisticscompany: "CCC物流有限公司",
+						balename: "三文鱼",
+						baletype: "鲜活易腐",
+						baleweight: "1吨",
+						balenum: "70件",
+						transportprice: "3000",
+						endprice: "6800",
+						orderdetail: "订单详情",
+						nextstep: "去评价",
+						ordertype: "已完成"
 					}, ],
-					a: "test"
+				});
+				var vm = avalon.define({
+					$id: "attr",
+					curruntIndex: 1,
+					toggle: function(index) {
+						vm.curruntIndex = index;
+					}
 				});
 				avalon.scan();
 			});
@@ -115,167 +147,323 @@
 		</div>
 		</div>
 		<!--头部导航结束-->
-
-		<!--内容-->
-		<div class="container" ms-controller="list">
-			<!--筛选条件-->
-			<div class="row shipper_screencondition">
-				<div class="col-md-8">
-					<div class="row" ms-controller="test">
-						<div class="col-md-1 lh34">{{word}}</div>
-						<div class="col-md-4 lh34 text-center" style="color: red;border: 1px solid;">
-							日期插件
-						</div>
-						<div class="col-md-2 text-center">
-							<button class="btn btn-default" type="submit">{{price}}
-								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
-							</button>
-						</div>
-						<div class="col-md-2 lh34 text-center">{{bidstate}}</div>
-						<div class="col-md-3">
-							<select class="form-control">
-								<option ms-repeat="bidstatelist">{{el}}</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<form class="form-inline">
-						<div class="form-group">
-							<label class="sr-only" for="exampleInputAmount">请输入您的订单号</label>
-							<div class="input-group">
-								<div class="input-group-addon">运单号</div>
-								<input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入您的订单号">
+		<!--个人中心头部导航开始-->
+		<div style="background: purple;">
+		<div class="container" style="background: purple;" ms-controller="attr">
+			<div class="col-md-3 lh34 shipper_center">
+				我是货主
+			</div>
+			<div class="col-md-5">
+				<button ms-click="toggle(1)">绿色</button>
+			</div>
+			<div class="col-md-4">
+				
+			</div>
+		</div>
+		</div>
+		<!--个人中心头部导航结束-->
+		<div class="container" ms-controller="attr">
+			<!--个人中心左侧导航开始-->
+			<div class="row" ms-controller="list">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12">
+							<div>
+								<button ms-click="toggle(2)">红色</button>
+								<button ms-click="toggle(3)">黄色</button>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary">搜索</button>
-					</form>
-				</div>
-			</div>
-			<!--搜索结果-->
-			<div class="row" ms-repeat="orderList">
-				<div class="col-md-12 text-left shipper_manifest_searchlist">
-					<span>{{el.ordertime}}</span><span>&nbsp;&nbsp;订单号：{{el.ordernum}}</span><span>&nbsp;&nbsp;物流公司：{{el.logisticscompany}}</span>
-					<div class="row shipper_manifest_searchlist_row">
-						<div class="col-md-4">
-							<ul>
-								<li>货物名称：{{ el.balename }}</li>
-								<li>货物类型：{{ el.baletype }}</li>
-								<li>货物重量：{{ el.baleweight }}</li>
-								<li>货物数量：{{ el.balenum }}</li>
-							</ul>
-						</div>
-						<div class="col-md-4 text-center shipper_manifest_searchlist_col lh45">
-							<ul>
-								<li><del>预期价格：{{el.transportprice}}元</del></li>
-								<a>成交价格：{{el.endprice}}元</a>
-							</ul>
-						</div>
-						<div class="col-md-4 text-center shipper_manifest_searchlist_col lh30">
-							<ul>
-								<li>{{el.orderdetail}}</li>
-								<a href="javascript:;">
-									<li>{{el.nextstep}}</li>
-								</a>
-								<li>{{el.ordertype}}</li>
-							</ul>
-						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row shipper_manifest_searchlist_bottombutton">
-					<div class="col-md-4"></div>
-					<div class="col-md-4 text-center">
-						<button type="button" class="btn btn-default">点击加载更多数据</button>
-					</div>
-					<div class="col-md-4"></div>
+				<!--个人中心左侧导航结束-->
+				<!--个人中心首页开始-->
+				<div class="col-md-9">
+					<div ms-if="curruntIndex===1">025</div>
 				</div>
-		</div>
+				<!--个人中心首页结束-->
+				<!--我的订单-->
+				<!--筛选条件-->
+				<div class="col-md-9" ms-if="curruntIndex===2">
+					<div class="row shipper_screencondition">
+						<div class="col-md-8">
+							<div class="row" ms-controller="test">
+								<div class="col-md-2 lh34 text-center">{{word}}</div>
+								<div class="col-md-3 lh34 text-center" style="color: red;border: 1px solid;">
+									日期插件
+								</div>
+								<div class="col-md-2 text-center">
+									<button class="btn btn-default" type="submit">{{price}}
+										<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+									</button>
+								</div>
+								<div class="col-md-2 lh34 text-center">{{bidstate}}</div>
+								<div class="col-md-3">
+									<select class="form-control">
+										<option ms-repeat="bidstatelist">{{el}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4" style="padding: 0;">
+							<form class="form-inline">
+								<div class="form-group" style="width: 78%;">
+									<label class="sr-only" for="exampleInputAmount">请输入您的订单号</label>
+									<div class="input-group">
+										<div class="input-group-addon">运单号</div>
+										<input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入您的订单号">
+									</div>
+								</div>
+								<button type="submit" class="btn btn-primary" style="width: 20%;">搜索</button>
+							</form>
+						</div>
+					</div>
+					<!--搜索结果-->
+					<div role="tabpanel">
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="home">
+								<div class="row" ms-repeat="orderList">
+									<div class="col-md-12 text-left shipper_manifest_searchlist">
+										<span>{{el.ordertime}}</span><span>&nbsp;&nbsp;订单号：{{el.ordernum}}</span><span>&nbsp;&nbsp;物流公司：{{el.logisticscompany}}</span>
+										<div class="row shipper_manifest_searchlist_row">
+											<div class="col-md-4">
+												<ul>
+													<li>货物名称：{{ el.balename }}</li>
+													<li>货物类型：{{ el.baletype }}</li>
+													<li>货物重量：{{ el.baleweight }}</li>
+													<li>货物数量：{{ el.balenum }}</li>
+												</ul>
+											</div>
+											<div class="col-md-4 text-center shipper_manifest_searchlist_col lh45">
+												<ul>
+													<li><del>预期价格：{{el.transportprice}}元</del>
+													</li>
+													<a>成交价格：{{el.endprice}}元</a>
+												</ul>
+											</div>
+											<div class="col-md-4 text-center shipper_manifest_searchlist_col lh30">
+												<ul>
+													<li>{{el.orderdetail}}</li>
+													<a href="javascript:;">
+														<li>{{el.nextstep}}</li>
+													</a>
+													<li>{{el.ordertype}}</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="profile">
+								<div class="row" ms-repeat="orderList">
+									<div class="col-md-12 text-left shipper_manifest_searchlist">
+										<span>{{el.ordertime}}</span><span>&nbsp;&nbsp;订单号：{{el.ordernum}}</span><span>&nbsp;&nbsp;物流公司：{{el.logisticscompany}}</span>
+										<div class="row shipper_manifest_searchlist_row">
+											<div class="col-md-4">
+												<ul>
+													<li>货物名称：{{ el.balename }}</li>
+													<li>货物类型：{{ el.baletype }}</li>
+													<li>货物重量：{{ el.baleweight }}</li>
+													<li>货物数量：{{ el.balenum }}</li>
+												</ul>
+											</div>
+											<div class="col-md-4 text-center shipper_manifest_searchlist_col lh45">
+												<ul>
+													<li><del>预期价格：{{el.transportprice}}元</del>
+													</li>
+													<a>成交价格：{{el.endprice}}元</a>
+												</ul>
+											</div>
+											<div class="col-md-4 text-center shipper_manifest_searchlist_col lh30">
+												<ul>
+													<li>{{el.orderdetail}}</li>
+													<a href="javascript:;">
+														<li>{{el.nextstep}}</li>
+													</a>
+													<li>{{el.ordertype}}</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="messages">
+								<div class="row" ms-repeat="orderList">
+									<div class="col-md-12 text-left shipper_manifest_searchlist">
+										<span>{{el.ordertime}}</span><span>&nbsp;&nbsp;订单号：{{el.ordernum}}</span><span>&nbsp;&nbsp;物流公司：{{el.logisticscompany}}</span>
+										<div class="row shipper_manifest_searchlist_row">
+											<div class="col-md-4">
+												<ul>
+													<li>货物名称：{{ el.balename }}</li>
+													<li>货物类型：{{ el.baletype }}</li>
+													<li>货物重量：{{ el.baleweight }}</li>
+													<li>货物数量：{{ el.balenum }}</li>
+												</ul>
+											</div>
+											<div class="col-md-4 text-center shipper_manifest_searchlist_col lh45">
+												<ul>
+													<li><del>预期价格：{{el.transportprice}}元</del>
+													</li>
+													<a>成交价格：{{el.endprice}}元</a>
+												</ul>
+											</div>
+											<div class="col-md-4 text-center shipper_manifest_searchlist_col lh30">
+												<ul>
+													<li>{{el.orderdetail}}</li>
+													<a href="javascript:;">
+														<li>{{el.nextstep}}</li>
+													</a>
+													<li>{{el.ordertype}}</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="settings">
+								<div class="row" ms-repeat="orderList">
+									<div class="col-md-12 text-left shipper_manifest_searchlist">
+										<span>{{el.ordertime}}</span><span>&nbsp;&nbsp;订单号：{{el.ordernum}}</span><span>&nbsp;&nbsp;物流公司：{{el.logisticscompany}}</span>
+										<div class="row shipper_manifest_searchlist_row">
+											<div class="col-md-4">
+												<ul>
+													<li>货物名称：{{ el.balename }}</li>
+													<li>货物类型：{{ el.baletype }}</li>
+													<li>货物重量：{{ el.baleweight }}</li>
+													<li>货物数量：{{ el.balenum }}</li>
+												</ul>
+											</div>
+											<div class="col-md-4 text-center shipper_manifest_searchlist_col lh45">
+												<ul>
+													<li><del>预期价格：{{el.transportprice}}元</del>
+													</li>
+													<a>成交价格：{{el.endprice}}元</a>
+												</ul>
+											</div>
+											<div class="col-md-4 text-center shipper_manifest_searchlist_col lh30">
+												<ul>
+													<li>{{el.orderdetail}}</li>
+													<a href="javascript:;">
+														<li>{{el.nextstep}}</li>
+													</a>
+													<li>{{el.ordertype}}</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Nav tabs -->
+					<div class="col-md-12 shipper_manifest_list_bottom">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">1</a>
+							</li>
+							<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">2</a>
+							</li>
+							<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">3</a>
+							</li>
+							<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">4</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--我的订单结束-->
+				
+				<!--开始-->
+				<div class="col-md-9">
+					<div ms-if="curruntIndex===3">8525</div>
+				</div>
+				<!--结束-->
+			</div>
+			<!--avalon 标签页-->
 
+		</div>
 		<!--尾部-->
-	<footer style="background-color: #01505f;">
-	<div class="container truck_footer">
-		<div class="row">
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">中国银行</a>
-					</li>
-					<li><a href="javascript:;">平安银行</a>
-					</li>
-					<li><a href="javascript:;">浦发银行</a>
-					</li>
-					<li><a href="javascript:;">工商银行</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">农业银行</a>
-					</li>
-					<li><a href="javascript:;">建设银行</a>
-					</li>
-					<li><a href="javascript:;">光大银行</a>
-					</li>
-					<li><a href="javascript:;">招商银行</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">汽车之家</a>
-					</li>
-					<li><a href="javascript:;">卡车之家</a>
-					</li>
-					<li><a href="javascript:;">新浪汽车</a>
-					</li>
-					<li><a href="javascript:;">腾讯汽车</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">易车汽车论坛</a>
-					</li>
-					<li><a href="javascript:;">中国买车网</a>
-					</li>
-					<li><a href="javascript:;">搜狐汽车</a>
-					</li>
-					<li><a href="javascript:;">中国高速网</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">二手卡车网</a>
-					</li>
-					<li><a href="javascript:;">汽配英才网</a>
-					</li>
-					<li><a href="javascript:;">北京二手车</a>
-					</li>
-					<li><a href="javascript:;">中国人才网</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">我爱车网</a>
-					</li>
-					<li><a href="javascript:;">汽配中国网</a>
-					</li>
-					<li><a href="javascript:;">深圳二手车</a>
-					</li>
-					<li><a href="javascript:;">车生活网</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<footer style="background-color: #01505f;">
+			<div class="container truck_footer">
+				<div class="row">
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">中国银行</a>
+							</li>
+							<li><a href="javascript:;">平安银行</a>
+							</li>
+							<li><a href="javascript:;">浦发银行</a>
+							</li>
+							<li><a href="javascript:;">工商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">农业银行</a>
+							</li>
+							<li><a href="javascript:;">建设银行</a>
+							</li>
+							<li><a href="javascript:;">光大银行</a>
+							</li>
+							<li><a href="javascript:;">招商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">汽车之家</a>
+							</li>
+							<li><a href="javascript:;">卡车之家</a>
+							</li>
+							<li><a href="javascript:;">新浪汽车</a>
+							</li>
+							<li><a href="javascript:;">腾讯汽车</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">易车汽车论坛</a>
+							</li>
+							<li><a href="javascript:;">中国买车网</a>
+							</li>
+							<li><a href="javascript:;">搜狐汽车</a>
+							</li>
+							<li><a href="javascript:;">中国高速网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">二手卡车网</a>
+							</li>
+							<li><a href="javascript:;">汽配英才网</a>
+							</li>
+							<li><a href="javascript:;">北京二手车</a>
+							</li>
+							<li><a href="javascript:;">中国人才网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">我爱车网</a>
+							</li>
+							<li><a href="javascript:;">汽配中国网</a>
+							</li>
+							<li><a href="javascript:;">深圳二手车</a>
+							</li>
+							<li><a href="javascript:;">车生活网</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 
-		<div class="row truck_address">
-			<p>Copyright ©XSJ All Rights Reserved</p>
-			<p>© 2015 鑫森捷 京ICP备14026002号</p>
-		</div>
-	</div>
-</footer>
+				<div class="row truck_address">
+					<p>Copyright ©XSJ All Rights Reserved</p>
+					<p>© 2015 鑫森捷 京ICP备14026002号</p>
+				</div>
+			</div>
+		</footer>
 	</body>
 
 </html>

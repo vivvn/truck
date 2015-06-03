@@ -1,0 +1,139 @@
+body{
+	font-family: "微软雅黑";
+}
+.lh30{
+	line-height: 30px;
+}
+.lh34{
+	line-height: 34px;
+}
+.lh40{
+	line-height: 40px;
+}
+.lh45{
+	line-height: 45px;
+}
+.lh50{
+	line-height: 50px;
+}
+.lh60{
+	line-height: 60px;
+}
+.lh80{
+	line-height: 80px;
+}
+.lh25{
+	line-height: 25px;
+}
+.mgt20{
+	margin-top: 20px;
+}
+.mgb15{
+	margin-bottom: 15px;
+}
+.mglr15{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.pd0{
+	padding: 0;
+}
+/*个人中心头部导航样式开始*/
+.percenter_head_nav{
+	background: #126fb5;
+	padding: 0;
+	margin-bottom: 25px;
+}
+.percenter_head_nav_id{
+	background: #024e88;
+	color:white;
+}
+.percenter_head_nav_tit button{
+	color: white;
+	background: #126FB5;
+	border: none;
+	width: 22%;
+}
+/*个人中心头部导航样式结束*/
+/*个人中心头部导航样式开始*/
+.percenter_left_nav{
+	border: 1px solid #B1B1B1;
+	background: #F9F9F9;
+}
+.percenter_left_imformation{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.percenter_left_imformation img{
+	width: 100%;
+	border: 1px solid;
+}
+.percenter_left_pricetype div{
+	width: 50%;
+	float: left;
+	line-height: 34px;
+}
+.percenter_left_pricetype button{
+	background: none;
+	border: none;
+}
+.percenter_left_pricetype_check a{
+	color: blue;
+}
+/*个人中心左侧导航样式结束*/
+.shipper_screencondition{
+	margin-top: 40px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b1b1b1;
+}
+.shipper_manifest_searchlist{
+	margin-bottom: 20px;
+	border: 1px solid #b1b1b1;
+	border-radius: 20px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+.shipper_manifest_searchlist_row{
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #B1B1B1;
+}
+.shipper_manifest_searchlist_row ul li{
+	list-style-type: none;
+}
+
+.shipper_manifest_searchlist_bottombutton{
+	margin-bottom: 20px;
+}
+.shipper_manifest_list_bottom{
+	margin-bottom: 20px;
+	
+}
+.shipper_manifest_list_bottom ul{
+	float: right;
+}
+/*个人中心首页样式开始*/
+.percenter_homepage_order button{
+	color: blue;
+	border: none;
+	
+}
+.percenter_homepage_price{
+	border: 1px solid #cadae9;
+	background: #f4f9fd;
+	padding-bottom: 15px;
+}
+/*.percenter_shipper_wid{
+	padding: 0;
+	margin: 20px 15px 0 15px;
+	border: 1px solid #EEEEEE;
+}*/
+.percenter_shipper_wid span{
+	background: #F7F7F7;
+	border: 1px solid #EEEEEE;
+	display:block;
+	line-height: 25px;
+	padding-left: 10px;
+}
+/*个人中心首页样式结束*/
