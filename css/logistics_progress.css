@@ -122,38 +122,26 @@ line-height: 30px;
 font-size: 12px;
 }
 
-.package-status .status-list .date{
+.package-status .status-list .time{
 	font-weight: 700;
-margin-right: 8px;
-font-family: Arial;
-}
-
-.package-status .status-list .date{
+	margin-right: 8px;
+	font-family: Arial;
 	width: 62px;
 }
 
 .package-status .status-list .week{
 	font-weight: 700;
-}
-
-.package-status .status-list .week{
 	width: 24px;
 }
 
-.package-status .status-list .time{
-	margin-right: 28px;
-margin-left: 5px;
-}
 
-.package-status .status-list .time{
-	width: 48px;
-}
 
 .package-status .status-list .text{
 	display: inline-block;
-width: 653px;
-vertical-align: text-top;
-line-height: 1.3em;
+	width: 653px;
+	vertical-align: text-top;
+	line-height: 1.3em;
+	margin-left: 15px;
 }
 
 .detail-progressbar .text i{
