@@ -7,8 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>投标详情页面</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="css/truck.css" />
-		<link rel="stylesheet" href="css/bid_detailed.css">
+		<link rel="stylesheet" href="css/transport_bid_detailed.css"/>
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/avalon.min.js"></script>
@@ -36,17 +37,22 @@
 				}, ],
 				active: 3
 			});
-			avalon.ready(function(){
-				var con = avalon.define({
-				$id: "bid_detalied",
-				array: ['普通货物','大型货物','鲜活易腐','危险货物','易碎货物','贵重货物','保温冷藏','搬家货物','返空货柜']
+			avalon.ready(function() {
+				avalon.define({
+					$id: "bid_detalied",
+					array: ['普通货物','大型货物','鲜活易腐','危险货物','易碎货物','贵重货物','保温冷藏','搬家货物','返空货柜'],
 				});
-				scan();
+				avalon.scan();
 			})
 
 		</script>
 	</head>
 
+				<!--<div class="" ms-controller="bid_detalied">
+					<select>
+						<option ms-repeat="array">{{el}}</option>
+					</select>
+				</div>-->
 	<body>
 		<!--头部导航开始-->
 		<div class="wrap_header" ms-controller="tr">
@@ -68,127 +74,256 @@
 		</div>
 		<!--头部导航结束-->		
 		<!--内容-->
+		<div class="t_guidance">
+			<div class="container">
+				<ul>
+					<li>
+						<span class="t_cir_top">
+							<span class="t_big_cir" style="border: 3px solid orange;">
+								<span class="t_sm_cir"></span>
+							</span>
+						</span>
+						<span class="t_tit">车主报价，投标</span>
+						<span class="fa fa-chevron-right t_arrow_r"></span>
+					</li>
+					<li>
+						<span class="t_cir_top">
+							<span class="t_big_cir">
+								<span class="t_sm_cir"></span>
+							</span>
+						</span>
+						<span class="t_tit">货主选标</span>
+						<span class="fa fa-chevron-right t_arrow_r"></span>
+					</li>
+					<li>
+						<span class="t_cir_top">
+							<span class="t_big_cir">
+								<span class="t_sm_cir"></span>
+							</span>
+						</span>
+						<span class="t_tit">车主中标</span>
+						<span class="fa fa-chevron-right t_arrow_r"></span>
+					</li>
+					<li>
+						<span class="t_cir_top">
+							<span class="t_big_cir">
+								<span class="t_sm_cir"></span>
+							</span>
+						</span>
+						<span class="t_tit">车主开始行程</span>
+						<span class="fa fa-chevron-right t_arrow_r"></span>
+					</li>
+					<li>
+						<span class="t_cir_top">
+							<span class="t_big_cir">
+								<span class="t_sm_cir"></span>
+							</span>
+						</span>
+						<span class="t_tit">验收并付款</span>
+						<span class="fa fa-chevron-right t_arrow_r"></span>
+					</li>
+					<li>
+						<span class="t_cir_top">
+							<span class="t_big_cir">
+								<span class="t_sm_cir"></span>
+							</span>
+						</span>
+						<span class="t_tit">双方评价</span>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<div class="container">
-			<!--进度条-->
-			<div class="bid_detail_s"></div>
 			<!--订单详情-->
-			<div class="bid_order_detail">
-				<!--发货地址-->
-				<div class=""></div>
-				<!--收货地址-->
-				<div class=""></div>
-				<!--收货人，发货人-->
-				<div class="">
-					<select ms-controller="bid_detalied">
-						<option ms-repeat="array">{{el}} --- {{$index}}</option>
-					</select>
+			
+				<div class="row bid_order_detail t_mt30">
+					<div class="col-xs-8">
+						<div class="t_bid_det">
+							<h2>需求描述</h2><hr>
+							<p>路线：深圳龙岗 －－ 上海浦东</p>
+							<p>车主预算：<span style="color: orange;">¥10000</span></p>
+							<p>运输货物日期：2015年6月22日</p>
+							<p>货物交付日期：2015年6月24日</p>
+							<p>货物类型：螺纹钢材</p>
+							<p>货物重量：10吨</p>
+							<p>货物体积：大约13立方米</p>
+							<p>车辆要求：后置式升降板，高纬板，托盘，起重设备</p>
+						</div>	
+							<!--车主投标-->
+						<div class="driver_bid t_mt30">	
+							<h2>车主投标</h2><hr>
+							<label>请输入您的报价：</label><input type="text"/><br>
+							<textarea class="t_textarea" placeholder="根据需求针对性的准备方案，一份有含金量的投标，更容易打动货主，中标率远高于千篇一律的投标"></textarea>				
+							<div class="t_up_file">
+								<input type="file" class="t_co_file"/>
+								<a href="javascript:;" class="t_up_a">上传附件</a>
+							</div>
+							<button class="btn t_btn_con btn-primary">提交</button>
+						</div>
+					
+					</div>
+					<div class="col-xs-4 t_mt30">
+						<div class="t_map">地图</div>
+						<div class="t_join_dir t_mt30">
+							<div class="join_dir_tit">参与报价，开始挣钱</div>
+							<ul>
+				                <li>第1步：提交您的报价和方案</li>
+				                <li>第2步：中标后运输货物</li>
+				                <li>第3步：获得运费</li>
+           					 </ul>
+           					 <button class="btn btn-primary">成为车主，开始报价</button>
+						</div>
+					</div>
+					<div class="col-xs-12 t_mt30">
+						<h2>交易内容（只有中标车主才能看到）</h2><hr>
+						<p>发货人：陈大</p>
+						<p>联系方式：13508080808</p>
+						<p>收货人：赵敏</p>
+						<p>联系方式：13212364532</p>
+						<p>装货地点：广东省深圳市龙翔大道2188号</p>
+						<p>卸货地点：上海市浦东新区世纪大道xxx</p>
+						
+					</div>
+				
+					
+					<!--参与投标车主-->
+					<div class="col-xs-12" style="margin-top: 20px;">
+						<h2>参与投标车主</h2><hr>
+							<div class="row driver_list">
+								<div class="col-xs-4 t_align_cen" >大锤物流有限公司</div>
+								<div class="col-xs-4 t_align_cen" >好评率：100%</div>
+								<div class="col-xs-4 t_align_cen" style="color: orange;">已中标</div>
+							</div>
+							<div class="row driver_list">
+								<div class="col-xs-4 t_align_cen">顺通物流有限公司</div>
+								<div class="col-xs-4 t_align_cen">好评率：90%</div>
+								<div class="col-xs-4 t_align_cen">未中标</div>
+							</div>
+							<div class="row driver_list">
+								<div class="col-xs-4 t_align_cen">森森物流有限公司</div>
+								<div class="col-xs-4 t_align_cen">好评率：100%</div>
+								<div class="col-xs-4 t_align_cen">未中标</div>
+							</div>
+							<div class="row driver_list">
+								<div class="col-xs-4 t_align_cen">顺顺物流有限公司</div>
+								<div class="col-xs-4 t_align_cen">好评率：100%</div>
+								<div class="col-xs-4 t_align_cen">未中标</div>
+							</div><hr>
+					</div>
+					<div class="clearfix"></div>				
 				</div>
-				<!--联系方式-->
-				<!--送达时间-->
-				<!--货物类型  普通货物，大型货物，鲜活易腐，危险货物，易碎货物，贵重货物，保温冷藏，搬家货物，返空货柜，-->
-				<!--货柜规格-->
-				<!--货物名称-->
-				<!--货物体积-->
-				<!--货物数量-->
-				<!--服务车辆车长-->
-				<!--服务车辆设备：后置式升降板，高纬板，托盘，货架，叉车，输送机，起重设备，升降机-->
-				<!--运输价格-->
-				<!--其他选项-->
-				<!--是否需要增值税发票-->
-				<!--是否购买保险（延误、损坏等-->
-				<!--运输公司信用级别限制（待定）-->
-				<!--是否指定物流运输公司-->
-				<!--关于运输订单的备注-->
-			</div>
-			<!--车主投标-->
-			<div class="driver_bid">		
-			</div>
 		</div>
-	
+		<!--底部指引-->
+		<div class="t_info">
+			<div class="container">
+				<div class="col-xs-3">
+					<h3 class="t_mb10">新手指南</h3>
+					<a href="javascript:;">用户注册</a><br>
+					<a href="javascript:;">成为货主</a><br>
+					<a href="javascript:;">成为车主</a><br>
+				</div>
+				<div class="col-xs-3">
+					<h3 class="t_mb10">我是货主</h3>
+					<a href="javascript:;">发布需求</a><br>
+					<a href="javascript:;">挑选车主</a><br>
+					<a href="javascript:;">快速发货</a><br>
+				</div>
+				<div class="col-xs-3">
+					<h3 class="t_mb10">我是车主</h3>
+					<a href="javascript:;">货源列表</a><br>
+					<a href="javascript:;">投标情况</a><br>
+					<a href="javascript:;">查看评价</a><br>
+				</div>
+				<div class="col-xs-3">				
+					<h3 class="t_mt20">联系客服</h3>
+					<h4 class="t_mt10">400-000-0808</h4>
+				</div>
+			</div>	
+		</div>
 		<!--尾部-->
-	<footer style="background-color: #01505f;">
-	<div class="container truck_footer">
-		<div class="row">
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">中国银行</a>
-					</li>
-					<li><a href="javascript:;">平安银行</a>
-					</li>
-					<li><a href="javascript:;">浦发银行</a>
-					</li>
-					<li><a href="javascript:;">工商银行</a>
-					</li>
-				</ul>
+		<footer style="background-color: #01505f;">
+			<div class="container truck_footer">
+			<div class="row">
+				<div class="col-xs-4 col-xs-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">中国银行</a>
+						</li>
+						<li><a href="javascript:;">平安银行</a>
+						</li>
+						<li><a href="javascript:;">浦发银行</a>
+						</li>
+						<li><a href="javascript:;">工商银行</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-xs-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">农业银行</a>
+						</li>
+						<li><a href="javascript:;">建设银行</a>
+						</li>
+						<li><a href="javascript:;">光大银行</a>
+						</li>
+						<li><a href="javascript:;">招商银行</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-xs-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">汽车之家</a>
+						</li>
+						<li><a href="javascript:;">卡车之家</a>
+						</li>
+						<li><a href="javascript:;">新浪汽车</a>
+						</li>
+						<li><a href="javascript:;">腾讯汽车</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-xs-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">易车汽车论坛</a>
+						</li>
+						<li><a href="javascript:;">中国买车网</a>
+						</li>
+						<li><a href="javascript:;">搜狐汽车</a>
+						</li>
+						<li><a href="javascript:;">中国高速网</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-xs-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">二手卡车网</a>
+						</li>
+						<li><a href="javascript:;">汽配英才网</a>
+						</li>
+						<li><a href="javascript:;">北京二手车</a>
+						</li>
+						<li><a href="javascript:;">中国人才网</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-4 col-xs-2">
+					<ul class="list-unstyled">
+						<li><a href="javascript:;">我爱车网</a>
+						</li>
+						<li><a href="javascript:;">汽配中国网</a>
+						</li>
+						<li><a href="javascript:;">深圳二手车</a>
+						</li>
+						<li><a href="javascript:;">车生活网</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">农业银行</a>
-					</li>
-					<li><a href="javascript:;">建设银行</a>
-					</li>
-					<li><a href="javascript:;">光大银行</a>
-					</li>
-					<li><a href="javascript:;">招商银行</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">汽车之家</a>
-					</li>
-					<li><a href="javascript:;">卡车之家</a>
-					</li>
-					<li><a href="javascript:;">新浪汽车</a>
-					</li>
-					<li><a href="javascript:;">腾讯汽车</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">易车汽车论坛</a>
-					</li>
-					<li><a href="javascript:;">中国买车网</a>
-					</li>
-					<li><a href="javascript:;">搜狐汽车</a>
-					</li>
-					<li><a href="javascript:;">中国高速网</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">二手卡车网</a>
-					</li>
-					<li><a href="javascript:;">汽配英才网</a>
-					</li>
-					<li><a href="javascript:;">北京二手车</a>
-					</li>
-					<li><a href="javascript:;">中国人才网</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-xs-4 col-xs-2">
-				<ul class="list-unstyled">
-					<li><a href="javascript:;">我爱车网</a>
-					</li>
-					<li><a href="javascript:;">汽配中国网</a>
-					</li>
-					<li><a href="javascript:;">深圳二手车</a>
-					</li>
-					<li><a href="javascript:;">车生活网</a>
-					</li>
-				</ul>
+	
+			<div class="row truck_address">
+				<p>Copyright ©XSJ All Rights Reserved</p>
+				<p>© 2015 鑫森捷 京ICP备14026002号</p>
 			</div>
 		</div>
-
-		<div class="row truck_address">
-			<p>Copyright ©XSJ All Rights Reserved</p>
-			<p>© 2015 鑫森捷 京ICP备14026002号</p>
-		</div>
-	</div>
-</footer>
-	</body>
+	</footer>
+</body>
 
 </html>

@@ -1,0 +1,148 @@
+.t_guidance {
+	background-color: #01505F;
+	margin-top: 10px;
+}
+.t_guidance ul{
+	list-style: none;
+	width: 100%;
+}
+.t_guidance ul li{
+	width: 16%;
+	float: left;
+	height: 100px;
+	position: relative;	
+	color: #fff;
+	text-align: center;
+	border-top: 2px solid #b1b1b1;
+}
+.t_guidance ul li:first-child{
+	border-top:2px solid orange;
+}
+.t_guidance ul li .t_cir_top{
+	position: absolute;
+	color: orange;
+	top: -8px;
+	left: 88px;
+}
+.t_big_cir{
+	height: 14px;
+	width: 14px;
+	border-radius: 50%;
+	border: 3px solid #7D8289;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+}
+.t_sm_cir{
+	height: 8px;
+	width: 8px;
+	display: inline-block;
+	border-radius: 50%;
+	background: #FFF;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+.t_guidance ul li .t_tit{
+	line-height: 100px;
+}
+.t_guidance ul li .t_arrow_r{
+	position: absolute;
+	right: -15px;
+	top: 36px;
+	font-size: 30px;
+}
+.t_mt30{
+	margin-top: 30px;
+}
+.t_mt20{
+	margin-top: 20px;
+}
+.t_mt10{
+	margin-top: 10px;
+}
+.t_mb10{
+	margin-bottom: 10px;
+}
+.t_textarea{
+	width: 100%;
+	height: 140px;
+	margin-top: 10px;
+	resize: none;
+}
+.t_up_file{
+	position: relative;
+	display: inline-block;
+}
+.t_up_a{
+	text-decoration: underline;
+	margin-left: 5px;
+}
+.t_co_file{
+	opacity: 0;
+	width: 60px;
+	height: 20px;
+	z-index: 999;
+	position: absolute;
+}
+.t_btn_con{
+	margin-left: 20px;
+	color: #fff;
+}
+.t_map{
+	height: 300px;
+	background: #ccc;
+	text-align: center;
+	line-height: 300px;
+	color: #fff;
+}
+.t_join_dir{
+	height: 225px;
+	border-top: 2px solid #dbdbdb;
+	padding-top: 38px;
+	background: #f7f7f7;
+	text-align: center;
+}
+.join_dir_tit{
+	color: #3f3c3b;
+	font-size: 16px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+.t_join_dir ul{
+	text-align: left;
+	color: #666;
+	font-size: 14px;
+	width: 80%;
+	margin-left: 25%;
+}
+.t_align_cen{
+	text-align: center;
+}
+.t_bid_no{
+	color: #b9b9b9;
+}
+.t_join_dir ul li{
+	margin-bottom: 10px;
+}
+.driver_list {
+	height: 50px;
+	line-height: 50px;
+	background: #337ab7;
+	color: #fff;
+	border-radius: 5px;
+	margin: 5px 0;
+}
+.t_info{
+	height: 140px;
+	background-color: #4394A5;
+	text-align: center;
+	color: #fff;
+	padding-top: 20px;
+}
+.t_info a{
+	color: #bdbdbd;
+}
