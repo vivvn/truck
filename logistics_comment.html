@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 
 	<head>
 		<meta charset="utf-8">
@@ -8,7 +8,7 @@
 		<title>物流进度查询页面</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/truck.css" />
-		<link rel="stylesheet" href="css/logistics_progress.css" />
+		<link rel="stylesheet" href="css/logistic_comment.css" />
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/avalon.min.js"></script>
@@ -38,44 +38,21 @@
 			});
 			avalon.ready(function() {
 				avalon.define({
-					$id: "goods_info",
-					goods_num: "10扎",
-					goods_type: "钢材",
-					goods_weight: "10吨",
-					goods_volume: "13立方米"
+					$id: "list",
+					ordertime: "2015-05-23",
+					ordernum: "949215644817093",
+					logisticscompany: "AAA物流有限公司",
+					balename: "三文鱼",
+					baletype: "鲜活易腐",
+					baleweight: "1吨",
+					balenum: "50件",
+					endtime: "2015-05-25",
+					receiver: "XXX",
+					trucktime: "9小时"
 				});
-				avalon.define({
-					$id: "transport_info",
-					loading_address: "深圳市龙翔大道2188号",
-					loading_phone: "13423456543",
-					unloading_address: "上海市浦东新区世纪大道xxx",
-					unloading_phone: "13543212345"
-				});
-				avalon.define({
-					$id: "logistics_info",
-					logistics_specific: [{
-						logistics_time: "2015-05-30 16:20:31",
-						logistics_location: "货物装卸完成"
-					}, {
-						logistics_time: "2015-05-30 16:20:31",
-						logistics_location: "货物开始运送"
-					}, {
-						logistics_time: "2015-05-30 16:20:31",
-						logistics_location: "货物到达广东省清远"
-					}, {
-						logistics_time: "2015-05-30 16:20:31",
-						logistics_location: "货物到达江西省景德镇"
-					}, {
-						logistics_time: "2015-05-30 16:20:31",
-						logistics_location: "货物到达上海"
-					}, {
-						logistics_time: "2015-05-30 16:20:31",
-						logistics_location: "货物已经到达目的地"
-					}, {
-						logistics_time: "2015-05-30 16:20:31",
-						logistics_location: "货物已经交付，签收人是王小小"
-					}]
-				});
+				//				avalon.define({
+				//					$id: 
+				//				});
 				avalon.scan();
 			});
 		</script>
@@ -103,85 +80,56 @@
 		<!--头部导航结束-->
 
 		<!--内容-->
-		<!--广告推广-->
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12" style="height: 131px;background-color: #00ACED;color: #fff;line-height: 131px;text-align: center;">推广、广告</div>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="order-detail">
-				<div class="detail-title">
-					<span class="indent">订单信息</span>
+		<div class="container logCom_info">
+			<div class="row logCom_list" ms-controller="list">
+				<div class="logComList_title">
+					<span>{{ordertime}}</span><span>&nbsp;&nbsp;订单号：{{ordernum}}</span><span>&nbsp;&nbsp;物流公司：{{logisticscompany}}</span>
 				</div>
-
 				<div class="row">
-					<div class="col-md-12 LPinf_box">
-						<div class="LPinf_con clearfix">
-							<img src="imgs/goes_pic.jpg" alt="货物图片" class="LPinf_pic" />
-							<div class="LPinf_list" ms-controller="goods_info">
-								<p>类型:{{goods_type}}</p>
-								<br />
-								<p>数量:{{goods_num}}</p>
-								<br />
-								<p>重量:{{goods_weight}}</p>
-								<br />
-								<p>体积:{{goods_volume}}</p>
-							</div>
-						</div>
-						<div class="LPinf_adr" ms-controller="transport_info">
-							<p>上货地点:{{loading_address}}</p>
-							<p>装货联系人:{{loading_phone}}</p>
-							<p>下货地点:{{unloading_address}}</p>
-							<p>收货联系人:{{unloading_phone}}</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="detail-content">
-					<div id="progressbar">
-						<ul class="detail-progressbar">
-							<li class="step-1-done"><span class="text">发货<i>√</i></span>
-							</li>
-							<li class="step-2-done"><span class="text">运输<i>√</i></span>
-							</li>
-							<li class="step-3-done"><span class="text">派送</span>
-							</li>
-							<li class="last step-4-current"><span class="text">签收</span>
-							</li>
+					<div class="col-md-4">
+						<ul>
+							<li>货物名称：{{balename}}</li>
+							<li>货物类型：{{baletype}}</li>
+							<li>货物重量：{{baleweight}}</li>
+							<li>货物数量：{{balenum}}</li>
 						</ul>
 					</div>
-					<div class="detail-panel">
-						<div class="panel-package">
-							<div class="row">
-								<div class="col-md-12">
-									<h3 class="package-title">物流信息</h3>
-								</div>
-							</div>
-							<div class="row">
-								<div class="package-status">
-									<div class="col-md-7">
-										<div class="status-box" id="status_list" ms-controller="logistics_info">
-											<ul class="status-list">
-												<li ms-repeat="logistics_specific">
-													<span class="time">{{el.logistics_time}}</span><span class="text">{{el.logistics_location}}</span>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<div class="col-md-5">
-										<div class="LP_adrpic" style="height: 300px;line-height: 300px;background-color: #16B29A;margin-right: 10px;text-align: center;color: #fff;">
-											地图
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+					<div class="col-md-4 text-center lh45">于{{endtime}}到达</div>
+					<div class="col-md-4 text-center lh30">
+						<ul>
+							<li>签收人：{{receiver}}</li>
+							<li>运输总时间：{{trucktime}}</li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<div class="container">
+			<div class="row">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="driving" class="col-xs-1 control-label">评论</label>
+						<div class="col-xs-10">
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="driving" class="col-xs-1 control-label">简述</label>
+						<div class="col-xs-10">
+							<textarea class="form-control" rows="3"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-6 col-xs-6">
+							<button type="submit" class="btn btn-default">评&nbsp;价</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		</div>
+		<!--内容结束-->
 
 		<!--尾部-->
 		<footer style="background-color: #01505f;">
@@ -267,6 +215,8 @@
 				</div>
 			</div>
 		</footer>
+		<!--尾部结束-->
+
 	</body>
 
 </html>

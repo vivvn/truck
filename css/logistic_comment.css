@@ -1,0 +1,46 @@
+li{
+	list-style: none;
+}
+
+.logCom_info {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 5px;
+	border: #e2e2e2 1px solid;
+}
+
+.logCom_list{
+	margin: 0;
+}
+
+.logComList_title{
+	padding-bottom: 5px;
+margin-bottom: 5px;
+border-bottom: #e2e2e2 1px solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
