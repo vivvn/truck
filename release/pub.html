@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>发布需求</title>
+        <link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/css/base_ce8c42b.css">
+<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/pkg/lib_d65074b.css">
+<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/pkg/back_4ff9e37.css">
+<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/css/step_7306fb0.css">
+<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/css/pub_54df7ab.css">
+</head>
+    <body>
+        <!--头部导航开始-->
+        <div class="wrap_header" ms-controller="nav">
+            <div class="niwdoawi_center container">
+                <div class="w1000 logo clearfix">
+                    <a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo tl" style="font-size: 25px;">Logo</a>
+                    <div class="fr righ">
+                        <ul class="nav navbar-nav navbar-right text-info">
+                            <li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+                                <li>
+                                    <button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+                                    <button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--头部导航结束-->
+        <div class="container pub_container">
+            <div class="row step clearfix">
+                <ul class="step_list">
+                    <li class="step_item">
+                        <span class="step_deco step_deco_active"></span>
+                        <span class="step_val step_val_active">1</span>
+                    </li>
+                    <li class="pub_step_item">
+                        <span class="step_deco"></span>
+                        <span class="step_val">2</span>
+                    </li>
+                    <li class="pub_step_item">
+                        <span class="step_deco"></span>
+                        <span class="step_val">3</span>
+                    </li>
+                    <li class="pub_step_item">
+                        <span class="step_deco"></span>
+                        <span class="step_val">4</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="row pub_row m10 p10 pt20">
+                <form action="" method=""  class="form-horizontal pub_form col-xs-9">
+                    <fieldset>
+                        <legend class="pub_form_title">发布需求</legend>
+                        <h3 class="forms-horizontal">货源信息</h3>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">货物体积：</label>
+                            <div class="col-xs-2">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="货物体积">
+                            </div>
+                            <span class="fl pt5">方</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">货物重量：</label>
+                            <div class="col-xs-2">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="货物重量">
+                            </div>
+                            <span class="fl pt5">吨</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">货物车长：</label>
+                            <div class="col-xs-2">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="货物车长">
+                            </div>
+                            <span class="fl pt5">米</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">期望运费：</label>
+                            <div class="col-xs-2">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="运输价格">
+                            </div>
+                            <span class="fl pt5">元</span>
+                        </div>
+                        <h3 class="forms-horizontal">服务车辆描述</h3>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">服务车车长：</label>
+                            <div class="col-xs-2">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="服务车车长">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">服务车辆设备：</label>
+                            <div class="col-xs-6">
+                                <div class="checkbox">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"> 后置式升降板
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"> 高纬板
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"> 托盘
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"> 货架
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"> 叉车
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"> 输送机
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"> 起重设备
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"> 升降机
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>配送信息</h3>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">始发地：</label>
+                            <div class="col-xs-4">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="始发地">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">目的地：</label>
+                            <div class="col-xs-4">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="目的地">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">发货日期：</label>
+                            <div class="col-xs-4">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="发货日期">
+                            </div>
+                        </div>
+                        <h3 class="forms-horizontal">联系方式</h3>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">发货人手机：</label>
+                            <div class="col-xs-4">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="发货人手机">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-xs-3 control-label">收货人手机：</label>
+                            <div class="col-xs-4">
+                              <input type="text" class="form-control" id="inputEmail3" placeholder="收货人手机">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-3 col-xs-9">
+                                <button type="submit" class="btn btn-warning btn-lg">发布需求</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="col-xs-3 pub_sidebar">
+                    <div class="pub_contact">
+                        <dl>
+                            <dt>联系客服帮您发需求</dt>
+                            <dd>客服电话</dd>
+                            <dd>400-188-6666</dd>
+                            <dd>周一至周日9:00-23:00</dd>
+                            <dd><a class="pub_contact_btn" href="javascript:;">联系在线客服</a></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--         <div class="container-fluid" style="text-align:left;height: 500px; background-color: #D58512;padding-top: 50px;padding-left: 50px;">
+            发货地址、收货地址（省-市-县-街道）（地图GPS）<br>
+            发货人、收货人<br>
+            发货人联系方式、收货人联系方式（手机、固话）<br>
+            上货时间<br>
+            送达时间（允许运输时间误差）（可不选）<br>
+            货物类型：普通货物，大型货物，鲜活易腐，危险货物，易碎货物，贵重货物，保温冷藏，搬家货物，返空货柜<br>
+            货柜规格（货物类型如果选择返空货柜）<br>
+            货物名称<br>
+            货物体积<br>
+            货物数量<br>
+            服务车辆车长<br>
+            服务车辆设备：后置式升降板，高纬板，托盘，货架，叉车，输送机，起重设备，升降机<br>
+            运输价格（自定或投标)<br>
+            <b>其他选项</b><br>
+            是否需要增值税发票<br>
+            是否购买保险（延误、损坏等<br>
+            运输公司信用级别限制（待定）<br>
+            是否指定物流运输公司<br>
+            关于运输订单的备注
+        </div> -->
+<!--         <div class="container-fluid" style="height: 100px;background-color: #EC971F;padding-top: 30px;">
+            <a href="运力云运营版块首页草图.html"><button style="height: 25px;color: #000;">发布订单</button></a>
+        </div> -->
+        <!--尾部-->
+        <footer style="background-color: #01505f;">
+            <div class="container truck_footer">
+                <div class="row">
+                    <div class="col-xs-4 col-xs-2">
+                        <ul class="list-unstyled">
+                            <li><a href="javascript:;">中国银行</a>
+                            </li>
+                            <li><a href="javascript:;">平安银行</a>
+                            </li>
+                            <li><a href="javascript:;">浦发银行</a>
+                            </li>
+                            <li><a href="javascript:;">工商银行</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-xs-2">
+                        <ul class="list-unstyled">
+                            <li><a href="javascript:;">农业银行</a>
+                            </li>
+                            <li><a href="javascript:;">建设银行</a>
+                            </li>
+                            <li><a href="javascript:;">光大银行</a>
+                            </li>
+                            <li><a href="javascript:;">招商银行</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-xs-2">
+                        <ul class="list-unstyled">
+                            <li><a href="javascript:;">汽车之家</a>
+                            </li>
+                            <li><a href="javascript:;">卡车之家</a>
+                            </li>
+                            <li><a href="javascript:;">新浪汽车</a>
+                            </li>
+                            <li><a href="javascript:;">腾讯汽车</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-xs-2">
+                        <ul class="list-unstyled">
+                            <li><a href="javascript:;">易车汽车论坛</a>
+                            </li>
+                            <li><a href="javascript:;">中国买车网</a>
+                            </li>
+                            <li><a href="javascript:;">搜狐汽车</a>
+                            </li>
+                            <li><a href="javascript:;">中国高速网</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-xs-2">
+                        <ul class="list-unstyled">
+                            <li><a href="javascript:;">二手卡车网</a>
+                            </li>
+                            <li><a href="javascript:;">汽配英才网</a>
+                            </li>
+                            <li><a href="javascript:;">北京二手车</a>
+                            </li>
+                            <li><a href="javascript:;">中国人才网</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-xs-2">
+                        <ul class="list-unstyled">
+                            <li><a href="javascript:;">我爱车网</a>
+                            </li>
+                            <li><a href="javascript:;">汽配中国网</a>
+                            </li>
+                            <li><a href="javascript:;">深圳二手车</a>
+                            </li>
+                            <li><a href="javascript:;">车生活网</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row truck_address">
+                    <p>Copyright ©XSJ All Rights Reserved</p>
+                    <p>© 2015 鑫森捷 京ICP备14026002号</p>
+                </div>
+            </div>
+        </footer>
+        <!--尾部结束-->
+    </body>
+    <script type="text/javascript" charset="utf-8" src="http://ui.jejeso.com/truck/pkg/lib_7ab0a25.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://ui.jejeso.com/truck/js/pub_8af71b3.js"></script>
+</html>

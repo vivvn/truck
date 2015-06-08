@@ -1,41 +1,98 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>投标界面</title>
-        <link href="http://ui.jejeso.com/truck/css/bootstrap.min.css" rel="stylesheet">
-	</head>
+		<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/pkg/lib_d65074b.css">
+</head>
+
 	<body style="text-align: center;color:#FFFFFF;">
 		<!--导航-->
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-12" style="line-height: 45px;text-align: center;border: 1px solid;height: 50px;background: #204D74; color: white;">头部</div>
-				<a href="运力云运营版块首页草图.html"><div class="col-md-12" style="line-height: 45px;text-align: center;border: 1px solid;height: 50px;background: #F0AD4E; color: white;">导航</div></a>
-				<div class="col-md-12" style="background: #AC2925;">
+				<div class="col-md-12" style="line-height: 45px;text-align: center;border: 1px solid;height: 50px;background: #204D74; color: white;">头部(登录、注册、logo、帮助)</div>
+				<a href="运力云运营版块首页草图.html">
+					<div class="col-md-12" style="line-height: 45px;text-align: center;border: 1px solid;height: 50px;background: #F0AD4E; color: white;">导航</div>
+				</a>
+
+			</div>
+		</div>
+		<div class="container" style="background-color: #EC971F;">
+			<div class="row">
+				<div class="col-md-9">
 					<div class="row">
-						<div class="col-md-6 text-center" style="border: 1px solid white;height: 200px;">发货人信息<div>姓名</div><div>电话</div><div>地址（省-市-县）</div></div>
-						<div class="col-md-6 text-center" style="border: 1px solid white;height: 200px;">收货人信息<div>姓名</div><div>电话</div><div>地址（省-市-县）</div></div>
-						<div class="col-md-6 text-center" style="border: 1px solid white;height: 200px;">货物信息<div>货物类型</div><div>货物名称</div><div>货物数量</div><div>货物体积/重量</div><div>上货时间</div><div>送达时间（允许运输时间误差、可不选）</div></div>
-						<div class="col-md-6 text-center" style="border: 1px solid white;height: 200px;">其他信息<div>是否购买保险</div><div>填写预期价格</div><div>是否开具发票</div><div>是否指定物流</div><div>服务车辆车长</div><div>服务车辆携带设备</div><div>关于此次运输的备注</div></div>
+						<div class="col-md-12" style="background: #AC2925;">
+							<div class="row">
+								<div class="col-md-12 text-center" style="border: 1px solid white;height: 200px;">
+									<div>需求内容：</div>
+									<div>标题</div>
+									<div>预期运输价格</div>
+									<div>路线</div>
+									<div>运输日期时间</div>
+									<div>货物类型、货物重量、货物数量</div>
+									<div>车辆要求</div>
+								</div>
+								<div class="col-md-12 text-center" style="border: 1px solid white;height: 200px;">
+									<div>交易内容:(只有货主与中标车主才能浏览)</div>
+									<div>发货人联系方式、货物装载地址</div>
+									<div>收货人联系方式、货物交付地址</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 text-left">车主投标</div>
+						<div class="col-md-12 text-center" style="height: 200px;border: 1px solid white;">
+							<textarea class="form-control" rows="3" style="margin: 15px 0;height: 170px;"></textarea>
+						</div>
+						<div class="col-md-12 text-right">
+							<a href="javascript:;.html">
+								<button style="height: 25px;color: #000;">我要投标</button>
+							</a>
+						</div>
+						<div class="col-md-12" style="background: #009922;line-height: 50px;">
+							<div class="row">
+								<div class="col-md-12 text-center">已投标车主列表</div>
+								<div class="col-md-3">车主信息</div>
+								<div class="col-md-3">车辆信息</div>
+								<div class="col-md-3">车辆位置</div>
+								<div class="col-md-2">投标价格</div>
+								<div class="col-md-1"></div>
+								<div class="col-md-3">车主信息</div>
+								<div class="col-md-3">车辆信息</div>
+								<div class="col-md-3">车辆位置</div>
+								<div class="col-md-2">投标价格</div>
+								<div class="col-md-1"></div>
+								<div class="col-md-3">车主信息</div>
+								<div class="col-md-3">车辆信息</div>
+								<div class="col-md-3">车辆位置</div>
+								<div class="col-md-2">投标价格</div>
+								<div class="col-md-1" style="color: red;">中标</div>
+								<div class="col-md-3">车主信息</div>
+								<div class="col-md-3">车辆信息</div>
+								<div class="col-md-3">车辆位置</div>
+								<div class="col-md-2">投标价格</div>
+								<div class="col-md-1"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12 text-center"style="height: 200px;border: 1px solid white;background: #01505F;line-height: 200px;">地图</div>
+						<div class="col-md-12 text-center"style="height: 200px;border: 1px solid white;background: #01505F;line-height: 200px;">相似货单</div>
+						<div class="col-md-12 text-center"style="height: 200px;border: 1px solid white;background: #01505F;line-height: 200px;">网站公告</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid" style="background-color: #EC971F;">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-12 text-center" style="height: 50px;border: 1px solid white;line-height: 50px;">报价</div>
-				<div class="col-md-12 text-center" style="height: 50px;border: 1px solid white;line-height: 50px;">简单介绍、描述（车主）</div>
-				<div class="col-md-12 text-center" style="height: 50px;border: 1px solid white;line-height: 50px;">上传附件（公司照片、车辆照片）</div>
-			<a href="车主个人中心.html"><button style="height: 25px;color: #000;">我要投标</button></a>
+				<div class="col-md-12 col-xs-12" style="height: 120px;text-align: center;background: #004387;color: white;line-height: 145px;margin-top: 5px;">
+					footer
+				</div>
 			</div>
 		</div>
-		<div class="container-fluid">
-			<div class="row">
-			  	<div class="col-md-12 col-xs-12"style="height: 120px;text-align: center;background: #004387;color: white;line-height: 145px;margin-top: 5px;">
-			  		footer
-			  	</div>
-			  </div>
-		</div>
 	</body>
+
 </html>

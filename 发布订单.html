@@ -3,12 +3,30 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/base.css">
+        		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css" />
+		<script src="js/avalon.min.js"></script>
 	</head>
 	<body style="text-align: center;color:#FFFFFF;">
-		<a href="运力云运营版块首页草图.html"><div class="container-fluid" style="height: 50px;line-height: 50px; background-color: #269ABC;">
-			导航（运力云高亮）
-		</div></a>
+		<!--头部导航开始-->
+		<div class="wrap_header" ms-controller="nav">
+			<div class="niwdoawi_center container">
+				<div class="w1000 logo clearfix">
+					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo tl" style="font-size: 25px;">Logo</a>
+					<div class="fr righ">
+						<ul class="nav navbar-nav navbar-right text-info">
+							<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+								<li>
+									<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+									<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--头部导航结束-->
 		<div class="container-fluid" style="height: 80px;line-height: 80px; background-color: #AC2925;">
 			进度条
 		</div>
@@ -40,4 +58,5 @@
 			Footer
 		</div>
 	</body>
+	<script src="js/pub.js"></script>
 </html>

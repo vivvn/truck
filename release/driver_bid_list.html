@@ -5,13 +5,13 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>车主投标列表</title>
-		<link href="http://ui.jejeso.com/truck/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="http://ui.jejeso.com/truck/css/truck.css" />
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="http://ui.jejeso.com/truck/js/bootstrap.min.js"></script>
-		<script src="http://ui.jejeso.com/truck/js/avalon.min.js"></script>
-		<script>
+		<title>车主投标列表(个人中心)</title>
+		<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/pkg/lib_d65074b.css">
+<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/pkg/front_c24e634.css">
+<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/css/driver_bid_list_533eb06.css">
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8" src="http://ui.jejeso.com/truck/pkg/lib_7ab0a25.js"></script>
+<script>
 			var tr = avalon.define({
 				$id: "tr",
 				navData: [{
@@ -35,22 +35,44 @@
 				}, ],
 				active: 3
 			});
+			avalon.ready(function() {
+				avalon.define({
+					$id: "test",
+					word: "时间",
+					price: "价格",
+					bidstate: "投标状态",
+					bidstatelist: ["选择状态", "已中标", "未中标", "投标中"],
+					ordernum: "订单号",
+					ordersearch: "搜索",
+				});
+				avalon.define({
+					$id: "list",
+					orderList: [
+						{ordertime: "2015-05-23",ordernum: "949215644817093",logisticscompany: "AAA物流有限公司",balename: "三文鱼",baletype:"鲜活易腐",baleweight:"1吨",balenum:"50件",transportprice:"3000",expectprice:"2800",bidtype:"中标"}, 
+						{ordertime: "2015-05-23",ordernum: "949215644817093",logisticscompany: "BBB物流有限公司",balename: "三文鱼",baletype:"鲜活易腐",baleweight:"1吨",balenum:"50件",transportprice:"2000",expectprice:"2700",bidtype:"落标"}, 
+						{ordertime: "2015-05-23",ordernum: "949215644817093",logisticscompany: "CCC物流有限公司",balename: "三文鱼",baletype:"鲜活易腐",baleweight:"1吨",balenum:"50件",transportprice:"3000",expectprice:"2500", bidtype:"投标中"}, 
+					],
+					a : "test"
+				});
+				avalon.scan();
+			});
 		</script>
 	</head>
 
-	<body ms-controller="tr">
+	<body>
 		<!--头部导航开始-->
-		<div class="wrap_header">
+		<div class="wrap_header" ms-controller="tr">
 			<div class="niwdoawi_center container">
 				<div class="w1000 logo clearfix">
 					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
 					<div class="fr righ">
 						<ul class="nav navbar-nav navbar-right text-info">
 							<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
-								<li>
-									<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
-									<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
-								</li>
+							</li>
+							<li>
+								<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+								<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -58,94 +80,164 @@
 		</div>
 		</div>
 		<!--头部导航结束-->
-		
-		<!--内容-->
-		<div class="container">
-			
-		</div>
-	
-		<!--尾部-->
-		<footer class="container-fluid truck_footer">
-			<div class="row">
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">中国银行</a>
-						</li>
-						<li><a href="javascript:;">平安银行</a>
-						</li>
-						<li><a href="javascript:;">浦发银行</a>
-						</li>
-						<li><a href="javascript:;">工商银行</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">农业银行</a>
-						</li>
-						<li><a href="javascript:;">建设银行</a>
-						</li>
-						<li><a href="javascript:;">光大银行</a>
-						</li>
-						<li><a href="javascript:;">招商银行</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">汽车之家</a>
-						</li>
-						<li><a href="javascript:;">卡车之家</a>
-						</li>
-						<li><a href="javascript:;">新浪汽车</a>
-						</li>
-						<li><a href="javascript:;">腾讯汽车</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">易车汽车论坛</a>
-						</li>
-						<li><a href="javascript:;">中国买车网</a>
-						</li>
-						<li><a href="javascript:;">搜狐汽车</a>
-						</li>
-						<li><a href="javascript:;">中国高速网</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">二手卡车网</a>
-						</li>
-						<li><a href="javascript:;">汽配英才网</a>
-						</li>
-						<li><a href="javascript:;">北京二手车</a>
-						</li>
-						<li><a href="javascript:;">中国人才网</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">我爱车网</a>
-						</li>
-						<li><a href="javascript:;">汽配中国网</a>
-						</li>
-						<li><a href="javascript:;">深圳二手车</a>
-						</li>
-						<li><a href="javascript:;">车生活网</a>
-						</li>
-					</ul>
-				</div>
-			</div>
 
-			<div class="row truck_address">
-				<p>Copyright ©XSJ All Rights Reserved</p>
-				<p>© 2015 鑫森捷 京ICP备14026002号</p>
+		<!--内容-->
+
+		<div class="container" ms-controller="list">
+			<!--筛选条件-->
+			<div class="row screencondition">
+				<div class="col-md-8">
+					<div class="row" ms-controller="test">
+						<div class="col-md-1 lh34">{{word}}</div>
+						<div class="col-md-4 lh34 text-center" style="color: red;border: 1px solid;">
+							时间插件
+						</div>
+						<div class="col-md-2 text-center">
+							<button class="btn btn-default" type="submit">{{price}}
+								<span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+							</button>
+						</div>
+						<div class="col-md-2 lh34 text-center">{{bidstate}}</div>
+						<div class="col-md-3">
+							<select class="form-control">
+								<option ms-repeat="bidstatelist">{{el}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<form class="form-inline">
+						<div class="form-group">
+							<label class="sr-only" for="exampleInputAmount">请输入您的订单号</label>
+							<div class="input-group">
+								<div class="input-group-addon">运单号</div>
+								<input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入您的订单号">
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">搜索</button>
+					</form>
+				</div>
 			</div>
-		</footer>
+			<!--搜索结果-->
+			<div class="row" ms-repeat="orderList">
+				<div class="col-md-12 text-left driver_bid_searchlist">
+					<span>{{el.ordertime}}</span><span>&nbsp;&nbsp;订单号：{{el.ordernum}}</span><span>&nbsp;&nbsp;物流公司：{{el.logisticscompany}}</span>
+					<div class="row driver_bid_searchlist_row">
+						<div class="col-md-4">
+							<ul>
+								<li>货物名称：{{ el.balename }}</li>
+								<li>货物类型：{{ el.baletype }}</li>
+								<li>货物重量：{{ el.baleweight }}</li>
+								<li>货物数量：{{ el.balenum }}</li>
+							</ul>
+						</div>
+						<div class="col-md-4 text-center driver_bid_searchlist_col lh45">
+							<ul>
+								<li>预期价格：{{el.transportprice}}元</li>
+								<a>投标价格：{{el.expectprice}}元</a>
+							</ul>
+						</div>
+						<div class="col-md-4 text-center driver_bid_searchlist_col lh80">
+							<ul>
+								<a href="javascript:;"><li>{{el.bidtype}}</li></a>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row driver_bid_searchlist_bottombutton">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 text-center">
+					<button type="button" class="btn btn-default">点击加载更多数据</button>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>
+
+	<!--尾部-->
+	<footer style="background-color: #01505f;">
+	<div class="container truck_footer">
+		<div class="row">
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">中国银行</a>
+					</li>
+					<li><a href="javascript:;">平安银行</a>
+					</li>
+					<li><a href="javascript:;">浦发银行</a>
+					</li>
+					<li><a href="javascript:;">工商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">农业银行</a>
+					</li>
+					<li><a href="javascript:;">建设银行</a>
+					</li>
+					<li><a href="javascript:;">光大银行</a>
+					</li>
+					<li><a href="javascript:;">招商银行</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">汽车之家</a>
+					</li>
+					<li><a href="javascript:;">卡车之家</a>
+					</li>
+					<li><a href="javascript:;">新浪汽车</a>
+					</li>
+					<li><a href="javascript:;">腾讯汽车</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">易车汽车论坛</a>
+					</li>
+					<li><a href="javascript:;">中国买车网</a>
+					</li>
+					<li><a href="javascript:;">搜狐汽车</a>
+					</li>
+					<li><a href="javascript:;">中国高速网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">二手卡车网</a>
+					</li>
+					<li><a href="javascript:;">汽配英才网</a>
+					</li>
+					<li><a href="javascript:;">北京二手车</a>
+					</li>
+					<li><a href="javascript:;">中国人才网</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 col-xs-2">
+				<ul class="list-unstyled">
+					<li><a href="javascript:;">我爱车网</a>
+					</li>
+					<li><a href="javascript:;">汽配中国网</a>
+					</li>
+					<li><a href="javascript:;">深圳二手车</a>
+					</li>
+					<li><a href="javascript:;">车生活网</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row truck_address">
+			<p>Copyright ©XSJ All Rights Reserved</p>
+			<p>© 2015 鑫森捷 京ICP备14026002号</p>
+		</div>
+	</div>
+</footer>
 	</body>
 
 </html>

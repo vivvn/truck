@@ -6,12 +6,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>物流进度查询页面</title>
-		<link href="http://ui.jejeso.com/truck/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="http://ui.jejeso.com/truck/css/truck.css" />
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="http://ui.jejeso.com/truck/js/bootstrap.min.js"></script>
-		<script src="http://ui.jejeso.com/truck/js/avalon.min.js"></script>
-		<script>
+		<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/pkg/lib_d65074b.css">
+<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/pkg/front_c24e634.css">
+<link type="text/css" rel="stylesheet" href="http://ui.jejeso.com/truck/css/logistics_progress_451aa6c.css">
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8" src="http://ui.jejeso.com/truck/pkg/lib_7ab0a25.js"></script>
+<script>
 			var tr = avalon.define({
 				$id: "tr",
 				navData: [{
@@ -35,12 +35,54 @@
 				}, ],
 				active: 3
 			});
+			avalon.ready(function() {
+				avalon.define({
+					$id: "goods_info",
+					goods_num: "10扎",
+					goods_type: "钢材",
+					goods_weight: "10吨",
+					goods_volume: "13立方米"
+				});
+				avalon.define({
+					$id: "transport_info",
+					loading_address: "深圳市龙翔大道2188号",
+					loading_phone: "13423456543",
+					unloading_address: "上海市浦东新区世纪大道xxx",
+					unloading_phone: "13543212345"
+				});
+				avalon.define({
+					$id: "logistics_info",
+					logistics_specific: [{
+						logistics_time: "2015-05-30 16:20:31",
+						logistics_location: "货物装卸完成"
+					}, {
+						logistics_time: "2015-05-30 16:20:31",
+						logistics_location: "货物开始运送"
+					}, {
+						logistics_time: "2015-05-30 16:20:31",
+						logistics_location: "货物到达广东省清远"
+					}, {
+						logistics_time: "2015-05-30 16:20:31",
+						logistics_location: "货物到达江西省景德镇"
+					}, {
+						logistics_time: "2015-05-30 16:20:31",
+						logistics_location: "货物到达上海"
+					}, {
+						logistics_time: "2015-05-30 16:20:31",
+						logistics_location: "货物已经到达目的地"
+					}, {
+						logistics_time: "2015-05-30 16:20:31",
+						logistics_location: "货物已经交付，签收人是王小小"
+					}]
+				});
+				avalon.scan();
+			});
 		</script>
 	</head>
 
-	<body ms-controller="tr">
+	<body>
 		<!--头部导航开始-->
-		<div class="wrap_header">
+		<div class="wrap_header" ms-controller="tr">
 			<div class="niwdoawi_center container">
 				<div class="w1000 logo clearfix">
 					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
@@ -56,94 +98,172 @@
 				</div>
 			</div>
 		</div>
-		</div>
+
 		<!--头部导航结束-->
-		
+
 		<!--内容-->
+		<!--广告推广-->
 		<div class="container">
-			
-		</div>
-	
-		<!--尾部-->
-		<footer class="container-fluid truck_footer">
 			<div class="row">
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">中国银行</a>
-						</li>
-						<li><a href="javascript:;">平安银行</a>
-						</li>
-						<li><a href="javascript:;">浦发银行</a>
-						</li>
-						<li><a href="javascript:;">工商银行</a>
-						</li>
-					</ul>
+				<div class="col-md-12" style="height: 131px;background-color: #00ACED;color: #fff;line-height: 131px;text-align: center;">推广、广告</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="order-detail">
+				<div class="detail-title">
+					<span class="indent">订单信息</span>
 				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">农业银行</a>
-						</li>
-						<li><a href="javascript:;">建设银行</a>
-						</li>
-						<li><a href="javascript:;">光大银行</a>
-						</li>
-						<li><a href="javascript:;">招商银行</a>
-						</li>
-					</ul>
+
+				<div class="row">
+					<div class="col-md-12 LPinf_box">
+						<div class="LPinf_con clearfix">
+							<img src="http://cdn.wiiwoo.cn/xsj/imgs/goes_pic_5008c53.jpg" alt="货物图片" class="LPinf_pic" />
+							<div class="LPinf_list" ms-controller="goods_info">
+								<p>类型:{{goods_type}}</p>
+								<br />
+								<p>数量:{{goods_num}}</p>
+								<br />
+								<p>重量:{{goods_weight}}</p>
+								<br />
+								<p>体积:{{goods_volume}}</p>
+							</div>
+						</div>
+						<div class="LPinf_adr" ms-controller="transport_info">
+							<p>上货地点:{{loading_address}}</p>
+							<p>装货联系人:{{loading_phone}}</p>
+							<p>下货地点:{{unloading_address}}</p>
+							<p>收货联系人:{{unloading_phone}}</p>
+						</div>
+					</div>
 				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">汽车之家</a>
-						</li>
-						<li><a href="javascript:;">卡车之家</a>
-						</li>
-						<li><a href="javascript:;">新浪汽车</a>
-						</li>
-						<li><a href="javascript:;">腾讯汽车</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">易车汽车论坛</a>
-						</li>
-						<li><a href="javascript:;">中国买车网</a>
-						</li>
-						<li><a href="javascript:;">搜狐汽车</a>
-						</li>
-						<li><a href="javascript:;">中国高速网</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">二手卡车网</a>
-						</li>
-						<li><a href="javascript:;">汽配英才网</a>
-						</li>
-						<li><a href="javascript:;">北京二手车</a>
-						</li>
-						<li><a href="javascript:;">中国人才网</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-4 col-sm-2">
-					<ul class="list-unstyled">
-						<li><a href="javascript:;">我爱车网</a>
-						</li>
-						<li><a href="javascript:;">汽配中国网</a>
-						</li>
-						<li><a href="javascript:;">深圳二手车</a>
-						</li>
-						<li><a href="javascript:;">车生活网</a>
-						</li>
-					</ul>
+
+				<div class="detail-content">
+					<div id="progressbar">
+						<ul class="detail-progressbar">
+							<li class="step-1-done"><span class="text">发货<i>√</i></span>
+							</li>
+							<li class="step-2-done"><span class="text">运输<i>√</i></span>
+							</li>
+							<li class="step-3-done"><span class="text">派送</span>
+							</li>
+							<li class="last step-4-current"><span class="text">签收</span>
+							</li>
+						</ul>
+					</div>
+					<div class="detail-panel">
+						<div class="panel-package">
+							<div class="row">
+								<div class="col-md-12">
+									<h3 class="package-title">物流信息</h3>
+								</div>
+							</div>
+							<div class="row">
+								<div class="package-status">
+									<div class="col-md-7">
+										<div class="status-box" id="status_list" ms-controller="logistics_info">
+											<ul class="status-list">
+												<li ms-repeat="logistics_specific">
+													<span class="time">{{el.logistics_time}}</span><span class="text">{{el.logistics_location}}</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-5">
+										<div class="LP_adrpic" style="height: 300px;line-height: 300px;background-color: #16B29A;margin-right: 10px;text-align: center;color: #fff;">
+											地图
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="row truck_address">
-				<p>Copyright ©XSJ All Rights Reserved</p>
-				<p>© 2015 鑫森捷 京ICP备14026002号</p>
+		<!--尾部-->
+		<footer style="background-color: #01505f;">
+			<div class="container truck_footer">
+				<div class="row">
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">中国银行</a>
+							</li>
+							<li><a href="javascript:;">平安银行</a>
+							</li>
+							<li><a href="javascript:;">浦发银行</a>
+							</li>
+							<li><a href="javascript:;">工商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">农业银行</a>
+							</li>
+							<li><a href="javascript:;">建设银行</a>
+							</li>
+							<li><a href="javascript:;">光大银行</a>
+							</li>
+							<li><a href="javascript:;">招商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">汽车之家</a>
+							</li>
+							<li><a href="javascript:;">卡车之家</a>
+							</li>
+							<li><a href="javascript:;">新浪汽车</a>
+							</li>
+							<li><a href="javascript:;">腾讯汽车</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">易车汽车论坛</a>
+							</li>
+							<li><a href="javascript:;">中国买车网</a>
+							</li>
+							<li><a href="javascript:;">搜狐汽车</a>
+							</li>
+							<li><a href="javascript:;">中国高速网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">二手卡车网</a>
+							</li>
+							<li><a href="javascript:;">汽配英才网</a>
+							</li>
+							<li><a href="javascript:;">北京二手车</a>
+							</li>
+							<li><a href="javascript:;">中国人才网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">我爱车网</a>
+							</li>
+							<li><a href="javascript:;">汽配中国网</a>
+							</li>
+							<li><a href="javascript:;">深圳二手车</a>
+							</li>
+							<li><a href="javascript:;">车生活网</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row truck_address">
+					<p>Copyright ©XSJ All Rights Reserved</p>
+					<p>© 2015 鑫森捷 京ICP备14026002号</p>
+				</div>
 			</div>
 		</footer>
 	</body>
