@@ -600,12 +600,13 @@
 			var file1 =document.getElementById("file1").files[0];
 			var file2 =document.getElementById("file2").files[0];
 			console.log(file1);
-			// form.append("userId","");
+			form.append("user_id","");
 			form.append("city_name",$("#form_city").val());
 			form.append("debtor_name",$("#form_userName").val());
 			form.append("mobile",$("#form_phone").val());
 			form.append("idnum",$("#num_id").val());
 			form.append("vericode",$("#form_checkcode").val());
+			form.append("sid",$('#form_checkcode').data('sid'));
 			form.append("idfront", file1);
 			form.append("idback", file2);
 			$.ajax({
@@ -617,9 +618,12 @@
 			  success : function(data){
 			  	var result = JSON.parse(data);
 				console.log(result)
-			  	if(result.res == 0){
-			  		alert(result.msg);
+			  	if(!!result.mortgage_id){
+			  		var url = 'http://127.0.0.1:8083/truck/schedule.html';
+			  		showMsg('上传成功',url);
 			  		// location.href="schedule.html?userId="+1
+			  	}else{
+			  		showMsg(result.msg);
 			  	}
 			  }
 			});
@@ -699,7 +703,7 @@
 				console.log(je);
 			});
 		});
-		function showMsg(msg){
+		function showMsg(msg,url){
 			var left=($(window).width()-$('#Validform_msg').width())/2;
 			var top=($(window).height()-$('#Validform_msg').height())/2;
 			top=(document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop)+(top>0?top:0);
@@ -708,7 +712,16 @@
 			}).show().animate({
 					top:top
 			},100).find(".Validform_info").text(msg);
-
+			$('.Validform_close').click(function(){
+				console.log(url);
+				console.log(arguments[1]);
+				if(!!url){
+					var regUrl = /(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?/;
+					if(regUrl.test(url)){
+						location.href = url;
+					}
+				}
+			});
 			$(window).bind("scroll resize",function(){
 				var left=($(window).width()-$('#Validform_msg').width())/2,
 					top=($(window).height()-$('#Validform_msg').height())/2,
