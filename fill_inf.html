@@ -240,7 +240,7 @@
 			</div>
 			<div class="col-xs-5 form_mort" style="height: 480px;">
 				<p style="font-size: 20px; font-weight: bold;margin-bottom: 20px;text-align: center;">办理贷款申请</p>
-				<form id="formData"  enctype="multipart/form-data" method="post" name="fileinfo" class="form-horizontal demoform" target="hideIframe">
+				<form id="formData" name="fileinfo" class="form-horizontal demoform" target="hideIframe">
 					<div class="form-group">
 						<label for="userName" class="col-xs-3 control-label" style="padding-right: 0;">所在城市</label>
 						<div class="col-xs-8">
@@ -285,20 +285,22 @@
 					</div>
 					<div class="form-group">
 
-							<div class="col-md-3 col-xs-2" style="text-align: right;padding: 0;font-weight: bold;margin-top: 12px;">身份证</div>
-							<div class="uploader_fill white" style="margin-left: 14px;">
-								<input type="text" class="filename_fill" data-value="身份证正面" readonly="" >
-								<input type="button" name="file" class="button_fill" value="上传">
-								<input type="file" size="30" id="file1" datatype="*" nullmsg="请上传您的身份证正面。">
+							<div class="col-md-3 col-xs-2" style="text-align: right;padding: 0;font-weight: bold;margin-top: 16px;">身份证</div>
+							<div class="uploader white col-xs-4" style="margin-bottom: 0;padding-top: 10px;">
+								<div class="uploadPreview1" data-text="正面">正面</div>
+								<input type="text" class="filename" data-value="身份证正面" readonly="">
+								<input type="button" name="file" class="button" value="上传" style="margin-top: 55px; width: 38%;">
+								<input type="button" name="file" class="delete_img button" value="删除" style="margin-top: 55px; width: 38%;  margin-left: 5px">
+								<input type="file" size="30" datatype="*" id="file1" nullmsg="请上传您的身份证正面。" style="left: 15px;margin-top: 66px;">
 							</div>
-							<div class="col-md-3 col-xs-2"></div>
-							<div class="uploader_fill white" style="margin-left: 14px;margin-top: 0;">
-								<input type="text" class="filename_fill" data-value="身份证反面" readonly="" >
-								<input type="button" name="file" class="button_fill" value="上传">
-								<input type="file" size="30" id="file2" datatype="*" nullmsg="请上传您的身份证反面。">
+							<div class="uploader white col-xs-4" style="margin-bottom: 0;padding-top: 10px;">
+								<div class="uploadPreview1" data-text="反面">反面</div>
+								<input type="text" class="filename" data-value="身份证正面" readonly="">
+								<input type="button" name="file" class="button" value="上传" style="margin-top: 55px; width: 38%;">
+								<input type="button" name="file" class="delete_img button" value="删除" style="margin-top: 55px; width: 38%;  margin-left: 5px">
+								<input type="file" size="30" datatype="*" id="file2" nullmsg="请上传您的身份证正面。" style="left: 15px;margin-top: 66px;">
 							</div>
-
-						</div>
+					</div>
 					<div class="form-group" style="text-align: center;margin-bottom: 0;">
 						<button type="submit" class="btn btn-default" id="form_post" style="width: 84px;margin-left: 42px;">提 交</button>
 					</div>
@@ -593,39 +595,77 @@
 </footer>
 	<!--尾部结束-->
 	<iframe style="display: none;" name="hideIframe"></iframe>
+	<script src="js/tool.js"></script>
 	<script type="text/javascript">
 		$(".demoform").Validform();
-		$("#form_post").click(function(){
+		$('input[type=file]').change(function(){
+			var files = !!this.files ? this.files : [];
+			var self = $(this);
+			// If no files were selected, or no FileReader support, return
+			if (!files.length || !window.FileReader) return;
+
+			// Only proceed if the selected file is an image
+			if (/^image/.test( files[0].type)){
+
+			    // Create a new instance of the FileReader
+			    var reader = new FileReader();
+
+			    // Read the local file as a DataURL
+			    reader.readAsDataURL(files[0]);
+
+			    // When loaded, set image data as background of div
+			    reader.onloadend = function(){
+
+			   	self.parent().find('.uploadPreview1').css({
+			   		"background-image": "url("+this.result+")",
+			   		"background-position": "center",
+			   		"background-size": "100%"
+			   	}).text('');
+
+			    }
+			}
+			var file = this.files[0];
 			var form = new FormData();
-			var file1 =document.getElementById("file1").files[0];
-			var file2 =document.getElementById("file2").files[0];
-			console.log(file1);
-			form.append("user_id","");
-			form.append("city_name",$("#form_city").val());
-			form.append("debtor_name",$("#form_userName").val());
-			form.append("mobile",$("#form_phone").val());
-			form.append("idnum",$("#num_id").val());
-			form.append("vericode",$("#form_checkcode").val());
-			form.append("sid",$('#form_checkcode').data('sid'));
-			form.append("idfront", file1);
-			form.append("idback", file2);
+			form.append("file", file);
 			$.ajax({
-			  url: "http://xsj.wiiwoo.cn/mortgage/insert",
-			  type: "POST",
-			  data: form,
-			  processData: false,  // 告诉jQuery不要去处理发送的数据
-			  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-			  success : function(data){
-			  	var result = JSON.parse(data);
+				  url: "http://xsj.wiiwoo.cn/file/",
+				  type: "POST",
+				  data: form,
+				  processData: false,  // 告诉jQuery不要去处理发送的数据
+				  contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+				  success : function(data){
+				  	var result = JSON.parse(data);
+					console.log(result);
+					self.data('url',result.urls.file);
+				  }
+			});
+		});
+		$('.delete_img').click(function(event){
+			 var text = $(event.target).parent().find('.uploadPreview1').data('text');
+			 $(event.target).parent().find('.uploadPreview1').css("background-image", "").text(text);
+		});
+		$("#form_post").click(function(){
+			var obj = {
+				"user_id" : "",
+				"city_name" :$("#form_city").val(),
+				"debtor_name" :$("#form_userName").val(),
+				"mobile" :$("#form_phone").val(),
+				"idnum" :$("#num_id").val(),
+				"vericode" :$("#form_checkcode").val(),
+				"sid" :$('#form_checkcode').data('sid'),
+				"idfront" :$('#file1').data('url'),
+				"idback" :$('#file2').data('url')
+			}
+			var url = "http://xsj.wiiwoo.cn/mortgage/insert";
+			$.post(url,obj,function(data){
+				var result = JSON.parse(data);
 				console.log(result)
 			  	if(!!result.mortgage_id){
 			  		var url = 'http://127.0.0.1:8083/truck/schedule.html';
 			  		showMsg('上传成功',url);
-			  		// location.href="schedule.html?userId="+1
 			  	}else{
 			  		showMsg(result.msg);
 			  	}
-			  }
 			});
 		});
 		function weixinstep() {
@@ -703,36 +743,6 @@
 				console.log(je);
 			});
 		});
-		function showMsg(msg,url){
-			var left=($(window).width()-$('#Validform_msg').width())/2;
-			var top=($(window).height()-$('#Validform_msg').height())/2;
-			top=(document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop)+(top>0?top:0);
-			$('#Validform_msg').css({
-					"left":left
-			}).show().animate({
-					top:top
-			},100).find(".Validform_info").text(msg);
-			$('.Validform_close').click(function(){
-				console.log(url);
-				console.log(arguments[1]);
-				if(!!url){
-					var regUrl = /(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?/;
-					if(regUrl.test(url)){
-						location.href = url;
-					}
-				}
-			});
-			$(window).bind("scroll resize",function(){
-				var left=($(window).width()-$('#Validform_msg').width())/2,
-					top=($(window).height()-$('#Validform_msg').height())/2,
-					topTo=(document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop)+(top>0?top:0);
-
-				$('#Validform_msg').animate({
-					left : left,
-					top : topTo
-				},{ duration:400 , queue:false });
-			});
-		}
 	</script>
 </body>
 

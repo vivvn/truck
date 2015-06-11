@@ -16,6 +16,7 @@
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/avalon.min.js"></script>
+	<script src="js/tool.js"></script>
 	<script>
 		var scheduleModel = avalon.define({
 			$id : "scheduleHeader",
@@ -27,30 +28,106 @@
 			{href:"affiliate",val:"我要挂靠"},
 			{href:"join",val:"我要加盟"},
 			],
-			active : 1
+			active : 1,
 		});
 		var sModle = avalon.define({
 			$id : "schedule",
 			sArray : [
-				{header:"填写申请贷款基本资料",content:"您提交的基本信息，我们将用于查询您的个人征信情况，过程大约要1个工作日，请您耐心等候。"},
-				{header:"征信结果",content:"您的征信结果良好，您可以办理贷款。"},
-				{header:"上传申请贷款资料",content:"请您准备好贷款所需要的材料，上传所需要材料的照片，并且预约我们工作人员上门收取材料的时间。后台审核通过后会通知您，并上门收取材料。"},
-				{header:"贷款资料审核是否通过",content:"您的资料审核已经通过，您预约的时间为2015-05-09 14：00 。如要更改时间，请您联系我们工作人员。"},
-				{header:"材料是否收取",content:"我们工作人员已经收到您的贷款材料，请您耐心等待银行通知。"},
-				{header:"提交贷款所需要的手续费",content:"您本次的贷款申请已经通过，请您缴纳本次贷款的手续费之后到银行办理取款手续。"},
-				{header:"是否已经拿到贷款",content:"您已经办理完银行贷款手续，并取到贷款。"},
-				{header:"成功办理贷款",content:"您已经成功办理本次贷款，请您记得按照规定时间还贷哦，祝您生活愉快。"},
+				{
+					status_txt:'步骤1',
+					ctime:'1433759319',
+					view_num : '1',
+					array : []
+				},
+				{
+					status_txt:'步骤2',
+					ctime:'1433759319',
+					view_num : '2',
+					array : []
+				},
+				{
+					status_txt:'步骤3',
+					ctime:'1433759319',
+					view_num : '3',
+					array : []
+				},
+				{
+					status_txt:'步骤4',
+					ctime:'1433759319',
+					view_num : '4',
+					array : []
+				}
 			],
-			sNum : 2
+			sNum : 2,
+			listArray : [],
+			showSchedule : showSchedule,
+			active : false,
+			lastSta : '',
+			statusTesxt : "",
+			nowStep : 0,
+			tag : ''
 		});
-		var url = "http://127.0.0.1:8083/truck/json/schedule.php";
-		$.getJSON(url,function(data){
-			console.log(data)
-			for(var i in data.data){
-				sModle.sArray[i].content = data.data[i].status;
+		var url = "http://xsj.wiiwoo.cn/mortgage/getloan";
+		var obj = getQueryString();
+		$.getJSON(url,obj,function(obj){
+			console.log(obj.data);
+			if(obj.data){
+				var array = obj.data;
+				sModle.listArray.clear();
+				for(var i in array){
+					sModle.listArray.push(array[i]);
+				}
 			}
-			sModle.sNum = data.num;
+			var length = 0;
+			var objTag = {
+				tag : obj.data[length].tag
+			}
+			$.getJSON(url,objTag,function(data){
+				console.log(data.data.log);
+				update(data,objTag.tag);
+			});
 		});
+		function update(data,tag){
+			for(var z in sModle.sArray){
+				sModle.sArray[z].array = [];
+				sModle.active = false;
+			}
+			for(var i in data.data.log){
+				for(var j in sModle.sArray){
+					if(sModle.sArray[j].view_num == data.data.log[i].view_num){
+						sModle.sArray[j].array.push(data.data.log[i]);
+						sModle.active = true;
+					}
+					if(data.data.log[i].failed == 1){
+						sModle.active = false;
+					}
+				}
+			}
+			var len = data.data.log.length - 1;
+			sModle.lastSta = data.data.log[len].status_txt;
+			sModle.nowStep = data.data.log[len].view_num;
+			if(data.data.log[len].failed==1){
+				sModle.statusTesxt = "贷款失败";
+			}else if(data.data.log[len].rework==1){
+				sModle.statusTesxt = "贷款有误";
+			}else if(data.data.log[len].view_num==4){
+				sModle.statusTesxt = "贷款成功";
+			}else{
+				sModle.statusTesxt = "贷款进行中";
+			}
+			sModle.tag = tag;
+		}
+		function showSchedule(){
+			$('.schedule_button').removeClass('active');
+			$(event.target).addClass('active');
+			var objTag = {
+				tag : $(event.target).data('tag')
+			}
+			$.getJSON(url,objTag,function(data){
+				console.log(data.data.log);
+				update(data,objTag.tag);
+			});
+		}
 	</script>
 </head>
 
@@ -74,19 +151,38 @@
 		</div>
 	</div>
 	<!--头部导航结束-->
-	<section id="cd-timeline" class="cd-container" ms-controller="schedule">
-		<div class="cd-timeline-block" ms-repeat="sArray">
-			<div class="cd-timeline-img cd-picture" ms-class="btn_color:el.content!='未开始'">
-				<p>{{ $index+1 }}</p>
+	<div class="container" ms-controller="schedule">
+		<h1 class="schedule_title">车贷组</h1>
+		<ul>
+			<li class="schedule_button" ms-repeat="listArray" ms-class="active:$index==0"` ms-data-tag="el.tag" ms-click="showSchedule">车贷{{$index+1}}</li>
+		</ul>
+		<h1 class="schedule_title">进度</h1>
+		<section>
+			<p class="now_status">当前进行到：{{ lastSta }}<span class="status_text" ms-class="status_erro:!active">{{ statusTesxt }}</span></p>
+
+		</section>
+		<section id="cd-timeline" class="cd-container">
+			<div class="cd-timeline-block" ms-repeat="sArray">
+				<div class="cd-timeline-img cd-picture"
+				     ms-class="btn_color:active">
+					<p>{{ $index+1 }}</p>
+				</div>
+				<div class="cd-timeline-content">
+					<h2>{{ el.status_txt }}</h2>
+					<p>{{ el.status_txt }}</p>
+					<a ms-if-loop="nowStep == 2&&active&&$index==1" ms-attr-href="'upload_data.html?tag='+tag" class="cd-read-more" style="  position: absolute;right: 0;top: 18px;">上传资料</a>
+					<span class="cd-date">{{ el.ctime | date("yyyy年MM月dd日")}}</span>
+					<ol class="clearfix">
+						<li ms-repeat="el.array" class="tip_text" ms-class="error:el.failed==1">
+							<p>时间：{{el.ctime|date("yyyy年MM月dd日")}}</p>
+							<p>角色：{{el.cby_name}}</p>
+							<p>事件：{{el.status_txt}}</p>
+						</li>
+					</ol>
+				</div>
 			</div>
-			<div class="cd-timeline-content">
-				<h2>{{ el.header }}</h2>
-				<p>{{ el.content }}</p>
-				<a ms-if-loop="$index == 2&&sModle.sNum<=3" href="upload_data.html" class="cd-read-more">上传资料</a>
-				<span class="cd-date">2015-05-06</span>
-			</div>
-		</div>
-	</section>
+		</section>
+	</div>
 	<!--尾部-->
 	<footer style="background-color: #01505f;">
 	<div class="container truck_footer">

@@ -10,19 +10,6 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" type="text/css" href="css/validform.css" />
 		<link rel="stylesheet" type="text/css" href="css/upload_data.css" />
-		<style>
-			.uploadPreview {
-			    width: 200px;
-			    height: 150px;
-			    background-position: center center;
-			    background-size: cover;
-			    border: 4px solid #fff;
-			    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
-			    display: inline-block;
-			    float: left;
-			    margin: 5px;
-			}
-		</style>
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/Validform.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -556,14 +543,7 @@
 		</div>
 		<script type="text/javascript">
 			//		使用表单验证插件
-		 	$(".demoform").Validform({
-		 		beforeSubmit:function(curform){
-			 	alert("您已经上传成功");
-			 	return false;
-			 	//这里明确return false的话表单将不会提交;
-		 		}
-
-		 	});
+		 	$(".demoform").Validform();
 
 			for(var i=1;i<=$('input[type=file]').length;i++){
 			    (function(i){
@@ -591,7 +571,7 @@
 					        }
 
 					    }
-					ff(i);
+					    ff(i);
 					});
 					$('#delete'+i).click(function(){
 						 $("#uploadPreview"+i).css("background-image", "");
@@ -623,7 +603,7 @@
 				obj['time'] = time;
 				$.post("json/upload_data.php",obj,function(){
 					console.log(data)
-				})
+				});
 			});
 		</script>
 	</body>

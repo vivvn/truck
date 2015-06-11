@@ -33,6 +33,7 @@ Modules - reusable parts of our design
   margin: 0 auto;
   width: 1024px !important;
   padding: 20px;
+  min-height: 360px;
 }
 .cd-container::after {
   /* clearfix */
@@ -312,4 +313,62 @@ h2.top_title{margin:4px 20px; padding-top:15px; padding-left:20px; padding-botto
  .google_ad{width:100%; margin:40px auto; text-align:center}
 .ad_76090,.ad_demo{width:100%; height:auto; margin:40px auto;text-align:center}
 .demo{width:98%; margin:10px auto}
+}
+
+.schedule_title{
+    margin:10px 0;
+    padding-left: 10px;
+    border-left: 3px solid #297fb8;
+    font-size: 20px;
+    line-height: 2;
+}
+.schedule_button{
+  cursor: pointer;
+  padding: 15px 30px;
+  display: inline-block;
+  border: 2px solid #4378a7;
+  color: #297fb8;
+  font-size: 17px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.schedule_button:hover,.schedule_button.active{
+  background-color: #4378a7;
+  color: #fff;
+}
+.tip_text{
+  font-size: 16px;
+  border-left: 4px solid #4378A7;
+  padding-left: 8px;
+  margin: 5px 0px;
+}
+.tip_text.error{
+  border-left: 4px solid #c00;
+}
+.cd-timeline-block:nth-child(odd) ol {
+  float: right;
+}
+.now_status{
+  font-size: 18px;
+  border-left: 17px solid #0D5878;
+  padding-left: 8px;
+  margin-left: 20px;
+  margin-bottom: -30px;
+  margin-top: 22px;
+}
+.status_text{
+  margin-left: 20px;
+  font-size: 26px;
+  color: #4378A7;
+}
+.status_erro{
+  color: #c00;
 }
