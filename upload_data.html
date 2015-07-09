@@ -448,9 +448,9 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
-				<button type="submit" id="data_post" class="btn btn-primary btn-lg btn-block center-block" data-toggle="modal" data-target=".bs-example-modal-sm" style="width: 50%;">提交资料</button> -->
+				<button type="button" id="data_post" class="btn btn-primary btn-lg btn-block center-block" data-toggle="modal" data-target=".bs-example-modal-sm" style="width: 50%;">查询进度</button>
 
 			</form>
 		</div>
@@ -593,7 +593,6 @@
 					localStorage.setItem('tag',getQueryString().tag);
 					form.append("title",$('#file1').parent().prev().text());
 					$.ajax({
-						  // url: "http://xsj.wiiwoo.cn/file/",
 						  url:"http://xsj.wiiwoo.cn/Home/Mortgage/addfile",
 						  type: "POST",
 						  data: form,
@@ -610,11 +609,12 @@
 			}
 
 			$("#data_post").click(function(){
-				var time = $("#file22").val();
-				obj['time'] = time;
-				$.post("json/upload_data.php",obj,function(){
-					console.log(data)
-				});
+				// var time = $("#file22").val();
+				// obj['time'] = time;
+				// $.post("json/upload_data.php",obj,function(){
+				// 	console.log(data)
+				// });
+				location.href = "schedule.html?idnum="+getQueryString().idnum+"&mobile="+getQueryString().mobile;
 			});
 		</script>
 	</body>

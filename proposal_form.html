@@ -5,224 +5,269 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
 		<title>营业用货/客车贷款保证保险申请表</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/validform.css"/>
 		<style type="text/css">
-			.row {
-				margin: 0;
-			}
+			.container{padding-bottom:20px;}
 		</style>
+		<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/avalon.min.js"></script>
+		<script>
+			var mortModel = avalon.define({
+				$id: "proFomr",
+				navData: [{
+					href: "index",
+					val: "首页"
+				}, {
+					href: "mortgage",
+					val: "车贷服务"
+				}, {
+					href: "trucks",
+					val: "重卡平台"
+				}, {
+					href: "transport",
+					val: "运力云"
+				}, {
+					href: "affiliate",
+					val: "我要挂靠"
+				}, {
+					href: "join",
+					val: "我要加盟"
+				}, ],
+				active: 1
+			});
+		</script>
 	</head>
 
 	<body>
+		<!--头部导航开始-->
+		<div class="wrap_header" ms-controller="proFomr">
+			<div class="niwdoawi_center container">
+				<div class="w1000 logo clearfix">
+					<a href="javascript:;" title="鑫森捷" class="fl pl_17 s_holiday_logo" style="font-size: 25px;">Logo</a>
+					<div class="fr righ">
+						<ul class="nav navbar-nav navbar-right text-info">
+							<li ms-class="truck_active:active == $index" ms-repeat="navData"><a ms-attr-href="el.href+'.html'">{{ el.val }}</a>
+								<li>
+									<button class="btn btn-default truck_sign" type="submit" onclick="location.href='login.html'" style=" background-color: #00aadd; color: #fff;">注册</button>
+									<button class="btn btn-default truck_login" type="submit" onclick="location.href='login.html'" style=" background: #0d5878;color: #fff;">登录</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--头部导航结束-->
 		<div class="container">
-			<div class="row">
+			<form class="row addScore" target="hideIframe">
 				<div class="form_wrap">
 					<div class="col-md-12 upload_abc">
 						<h3 style="padding-bottom: 20px;">营业用货车/客车保险申请表</h3>
 					</div>
 
 					<!--客户名称-->
-					<form class="form-horizontal">
+					<div class="form-horizontal">
 						<div class="form-group">
 							<div class="row">
-								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;">姓名</label>
+								<label class="col-md-3 control-label" style="height: 35px;">姓名</label>
 								<div class="uploader white col-md-3">
 									<input type="text" class="form-control" placeholder="请输入您的名字">
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 					<!--客户身份证号码-->
-					<form class="form-horizontal">
+					<div class="form-horizontal">
 						<div class="form-group">
 							<div class="row">
-								<label for="inputEmail3" class="col-md-3 control-label" style="height: 35px;">身份证号</label>
+								<label class="col-md-3 control-label" style="height: 35px;">身份证号</label>
 								<div class="uploader white col-md-3">
 									<input type="text" class="form-control" placeholder="请输入合法的16位中国大陆身份证号码">
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 					<!--自然状况-->
 					<span style="border: 1px solid #b1b1b1; width: 100%;display: block;"></span>
 					<h4>自然状况</h4>
 
 					<!--年龄-->
-					<form class="form-horizontal">
+					<div class="form-horizontal" data-name="age_group">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">年龄：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="1"> 18-25（不含25岁）
+										<input type="radio" name="radioAge" id="radioAge1"  data-score="1" datatype="*" nullmsg="请选择年龄！"> 18-25（不含25岁）
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 25-40（不含40岁）
+										<input type="radio" name="radioAge" id="radioAge2" data-score="4"> 25-40（不含40岁）
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" data-score="3"> 40-50（不含50岁）
+										<input type="radio" name="radioAge" id="radioAge3" data-score="3"> 40-50（不含50岁）
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" data-score="2"> 50以上
+										<input type="radio" name="radioAge" id="radioAge3" data-score="2"> 50以上
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--健康情况-->
-					<form class="form-horizontal">
+					<div class="form-horizontal" data-name="health_status">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">健康情况：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="2"> 良好
+										<input type="radio" name="radioHeath" id="radioHeath1" data-score="2" datatype="*" nullmsg="请选择健康情况！"> 良好
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 差
+										<input type="radio" name="radioHeath" id="radioHeath2" data-score="0"> 差
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" data-score="-51"> 患重大疾病或一至二级残废
+										<input type="radio" name="radioHeath" id="iradioHeath3" data-score="-51"> 患重大疾病或一至二级残废
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--婚姻状况-->
-					<form class="form-horizontal">
+					<div class="form-horizontal" data-name="marital_status">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">婚姻状况：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="5"> 已婚有子女
+										<input type="radio" name="radioMarital" id="radioMarital1" " data-score="5" datatype="*" nullmsg="请选择婚姻状况！"> 已婚有子女
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 已婚无子女
+										<input type="radio" name="radioMarital" id="radioMarital2" " data-score="4"> 已婚无子女
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" data-score="3"> 未婚
+										<input type="radio" name="radioMarital" id="radioMarital3" " data-score="3"> 未婚
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" data-score="2"> 其他
+										<input type="radio" name="radioMarital" id="radioMarital3" data-score="2"> 其他
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--受教育程度-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="edu_level">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">受教育程度：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="5"> 硕士研究生及以上
+										<input type="radio" name="radioEdu" id="radioEdu1" data-score="5" datatype="*" nullmsg="请选择受教育程度！"> 硕士研究生及以上
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 大学本科
+										<input type="radio" name="radioEdu" id="radioEdu2"  data-score="4"> 大学本科
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" data-score="3"> 大学专科
+										<input type="radio" name="radioEdu" id="radioEdu3"  data-score="3"> 大学专科
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" data-score="2"> 中专、高中
+										<input type="radio" name="radioEdu" id="radioEdu3"  data-score="2"> 中专、高中
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" data-score="1"> 其他
+										<input type="radio" name="radioEdu" id="radioEdu3"  data-score="1"> 其他
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--户籍状况-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="home_town">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">户籍状况：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="3"> 本地户籍
+										<input type="radio" name="radioHome" id="radioHome1"  data-score="3" datatype="*" nullmsg="请选择户籍！"> 本地户籍
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 非本地户籍
+										<input type="radio" name="radioHome" id="radioHome2"  data-score="0"> 非本地户籍
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--经济状况-->
 					<span style="border: 1px solid #b1b1b1; width: 100%;display: block;"></span>
 					<h4>经济状况</h4>
 
 					<!--职业-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="occupation">
 						<div class="form-group">
 							<div class="row">
-								<label for="inputEmail3" class="col-md-3 control-label">职业：</label>
+								<label class="col-md-3 control-label">职业：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="7"> 电信、金融、保险、律师、注册、会计师、医生
+										<input type="radio" name="radioOccupation" id="radioOccupation1" value="option1" data-score="7" data-score="3" datatype="*" nullmsg="请选择职业！"> 电信、金融、保险、律师、注册、会计师、医生
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="6"> 机关事业单位
+										<input type="radio" name="radioOccupation" id="radioOccupation2" value="option2" data-score="6"> 机关事业单位
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="5"> 供水、供电、供气
+										<input type="radio" name="radioOccupation" id="radioOccupation3" value="option2" data-score="5"> 供水、供电、供气
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 建筑、制造业
+										<input type="radio" name="radioOccupation" id="radioOccupation4" value="option2" data-score="4"> 建筑、制造业
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="3"> 房地产、服务业、运输业
+										<input type="radio" name="radioOccupation" id="iradioOccupation5" value="option2" data-score="3"> 房地产、服务业、运输业
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="2"> 农业牧渔业
+										<input type="radio" name="radioOccupation" id="radioOccupation6" value="option2" data-score="2"> 农业牧渔业
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> 其他
+										<input type="radio" name="radioOccupation" id="radioOccupation7" value="option2" data-score="1"> 其他
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 无职业
+										<input type="radio" name="radioOccupation" id="radioOccupation8" value="option2" data-score="0"> 无职业
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--现单位或职业从业年限-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="current_emp_yrs">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">现单位或职业从业年限：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="5"> 8年以上
+										<input type="radio" name="radioYrs" id="radioYrs1" data-score="5" data-score="3" datatype="*" nullmsg="请选择从业年限！"> 8年以上
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 5-8年（含8年）
+										<input type="radio" name="radioYrs" id="radioYrs2" data-score="4"> 5-8年（含8年）
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="3"> 2-5年（含5年）
+										<input type="radio" name="radioYrs" id="radioYrs3" data-score="3"> 2-5年（含5年）
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> 2年及以下
+										<input type="radio" name="radioYrs" id="radioYrs4" data-score="1"> 2年及以下
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--现任职务-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="current_work_level">
 						<div class="form-group">
 							<div class="row">
 								<div class="row">
@@ -233,22 +278,22 @@
 									<label for="inputEmail3" class="col-md-3 control-label" style="font-weight: normal;">机关事业单位</label>
 									<div class="col-md-5 col-xs-12">
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="7"> 厅局级
+											<input type="radio" name="radioWorkLevel"  data-score="7" datatype="*" nullmsg="请选择现任职务！"> 厅局级
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="6"> 处级
+											<input type="radio" name="radioWorkLevel"  data-score="6"> 处级
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 科级
+											<input type="radio" name="radioWorkLevel" data-score="4"> 科级
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="2"> 一般工作人员
+											<input type="radio" name="radioWorkLevel" data-score="2"> 一般工作人员
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> 其他
+											<input type="radio" name="radioWorkLevel" data-score="1"> 其他
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 无工作单位
+											<input type="radio" name="radioWorkLevel" data-score="0"> 无工作单位
 										</label>
 									</div>
 								</div>
@@ -259,115 +304,115 @@
 									<label for="inputEmail3" class="col-md-3 control-label" style="font-weight: normal;">企业</label>
 									<div class="col-md-5 col-xs-12">
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="7"> 公司级管理人员
+											<input type="radio" name="radioWorkLevel"  value="option1" data-score="7"> 公司级管理人员
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="6"> 部门级管理人员
+											<input type="radio" name="radioWorkLevel" data-score="6"> 部门级管理人员
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 处级管理人员
+											<input type="radio" name="radioWorkLevel" data-score="4"> 处级管理人员
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="2"> 一般工作人员
+											<input type="radio" name="radioWorkLevel" data-score="2"> 一般工作人员
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> 其他
+											<input type="radio" name="radioWorkLevel" data-score="1"> 其他
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 无工作单位
+											<input type="radio" name="radioWorkLevel" data-score="0"> 无工作单位
 										</label>
 									</div>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--主要收入来源-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="main_revenue">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">主要收入来源：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="8"> 工资
+										<input type="radio" name="radioRevenue" data-score="8" data-score="7" datatype="*" nullmsg="请选择收入来源"> 工资
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="5"> 经营、租赁所得
+										<input type="radio" name="radioRevenue" data-score="5"> 经营、租赁所得
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="2"> 投资、佣金
+										<input type="radio" name="radioRevenue" data-score="2"> 投资、佣金
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> 其他
+										<input type="radio" name="radioRevenue" data-score="1"> 其他
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 无
+										<input type="radio" name="radioRevenue" data-score="0"> 无
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--所购车辆净价格与前一年家庭总收入的比例-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="pay_revenue_rate">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">所购车辆净价格与前一年家庭总收入的比例：</label>
 								<div class="col-md-9 col-xs-12">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="5"> < 100%
+										<input type="radio" name="radioRate"  data-score="5" data-score="7" datatype="*" nullmsg="请选择收入比例"> < 100%
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> < 150%
+										<input type="radio" name="radioRate"  data-score="4"> < 150%
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="3"> < 200%
+										<input type="radio" name="radioRate"  data-score="3"> < 200%
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="2"> < 225%
+										<input type="radio" name="radioRate"  data-score="2"> < 225%
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> < 250%
+										<input type="radio" name="radioRate"  data-score="1"> < 250%
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> > 250%
+										<input type="radio" name="radioRate"  data-score="0"> > 250%
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--家庭月均收入-家庭已有借款月还款额-本款借款月还款额）/家庭人口数-扣除额-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="revenue_amt">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">家庭月均收入-家庭已有借款月还款额-本款借款月还款额）/家庭人口数-扣除额：</label>
 								<div class="col-md-9 col-xs-12" style="padding: 10px 15px;">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="10"> > 5000
+										<input type="radio" name="radioAmt" data-score="10" data-score="7" datatype="*" nullmsg="请选择还款能力"> > 5000
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="7"> 2000-5000(含5000)
+										<input type="radio" name="radioAmt" data-score="7"> 2000-5000(含5000)
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="5"> 1000-2000(含2000)
+										<input type="radio" name="radioAmt" data-score="5"> 1000-2000(含2000)
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="3"> 500-1000(含1000)
+										<input type="radio" name="radioAmt" data-score="3"> 500-1000(含1000)
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> < 500
+										<input type="radio" name="radioAmt" data-score="1"> < 500
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="-51"> < 0
+										<input type="radio" name="radioAmt" data-score="-51"> < 0
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--居住状况-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="property_type">
 						<div class="form-group">
 							<div class="row">
 								<div class="row">
@@ -378,33 +423,33 @@
 									<label for="inputEmail3" class="col-md-3 control-label" style="font-weight: normal;">产权</label>
 									<div class="col-md-5 col-xs-12">
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="7"> 自有完全产权且无贷款
+											<input type="radio" name="radioType" data-score="7" data-score="7" datatype="*" nullmsg="请选择住房产权"> 自有完全产权且无贷款
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 单位或父母产权
+											<input type="radio" name="radioType" data-score="0"> 单位或父母产权
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="5"> 自有产权但尚在贷款偿还期
+											<input type="radio" name="radioType" id="inlineRadio2" value="option2" data-score="5"> 自有产权但尚在贷款偿还期
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 租赁
+											<input type="radio" name="radioType" data-score="0"> 租赁
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 农村小产权
+											<input type="radio" name="radioType" data-score="0"> 农村小产权
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 农民自有完全产权
+											<input type="radio" name="radioType" data-score="0"> 农民自有完全产权
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 其他
+											<input type="radio" name="radioType" data-score="0"> 其他
 										</label>
 									</div>
 								</div>
 
 							</div>
 						</div>
-					</form>
-					<form class="form-horizontal">
+					</div>
+					<div class="form-horizontal " data-name="property_style">
 						<div class="form-group">
 							<div class="row">
 								<div class="row" style="margin-top: 10px;">
@@ -412,30 +457,30 @@
 									<label for="inputEmail3" class="col-md-3 control-label" style="font-weight: normal;">类型</label>
 									<div class="col-md-5 col-xs-12">
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="6"> 别墅、公寓
+											<input type="radio" name="radioStyle" data-score="6" data-score="7" datatype="*" nullmsg="请选择住房类型"> 别墅、公寓
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="5"> 使用时间5年以下的普通城市住宅楼
+											<input type="radio" name="radioStyle" data-score="5"> 使用时间5年以下的普通城市住宅楼
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 使用时间15年以上的普通城市住宅楼、平房
+											<input type="radio" name="radioStyle" data-score="4"> 使用时间15年以上的普通城市住宅楼、平房
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="3"> 农村自建房
+											<input type="radio" name="radioStyle" data-score="3"> 农村自建房
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> 其他
+											<input type="radio" name="radioStyle" data-score="1"> 其他
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 无住房
+											<input type="radio" name="radioStyle" data-score="0"> 无住房
 										</label>
 									</div>
 								</div>
 
 							</div>
 						</div>
-					</form>
-					<form class="form-horizontal">
+					</div>
+					<div class="form-horizontal " data-name="property_src">
 						<div class="form-group">
 							<div class="row">
 								<div class="row" style="margin-top: 10px;">
@@ -443,101 +488,189 @@
 									<label for="inputEmail3" class="col-md-3 control-label" style="font-weight: normal;">来源</label>
 									<div class="col-md-5 col-xs-12">
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="5"> 商品房
+											<input type="radio" name="radioSrc" data-score="5" data-score="7" datatype="*" nullmsg="请选择住来源"> 商品房
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="3"> 房改房
+											<input type="radio" name="radioSrc" data-score="3"> 房改房
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="2"> 安居房
+											<input type="radio" name="radioSrc" data-score="2"> 安居房
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="4"> 集资房
+											<input type="radio" name="radioSrc" data-score="4"> 集资房
 										</label>
 										<label class="checkbox-inline">
-											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="1"> 其他
+											<input type="radio" name="radioSrc" data-score="1"> 其他
 										</label>
 									</div>
 								</div>
 
 							</div>
 						</div>
-					</form>
+					</div>
 
 
 					<!--信用还款记录-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="credit_pay">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">信用还款记录：</label>
 								<div class="col-md-9 col-xs-12" style="padding: 10px 15px;">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="10"> 无不良记录
+										<input type="radio" name="radioPay" data-score="10" data-score="7" datatype="*" nullmsg="请选择还款记录"> 无不良记录
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 无信用记录
+										<input type="radio" name="radioPay" data-score="0"> 无信用记录
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="-5"> 有不良记录但及时补还款
+										<input type="radio" name="radioPay" data-score="-5"> 有不良记录但及时补还款
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="-51"> 有不良记录且被银行列入黑名单
+										<input type="radio" name="radioPay" data-score="-51"> 有不良记录且被银行列入黑名单
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--公共事业付费记录-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="utility_pay">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">公共事业付费记录：</label>
 								<div class="col-md-9 col-xs-12" style="padding: 10px 15px;">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="5"> 及时缴费
+										<input type="radio" name="radioUtilityPay" data-score="5" data-score="7" datatype="*" nullmsg="请选择公共事业付费记录"> 及时缴费
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="0"> 无记录
+										<input type="radio" name="radioUtilityPay" data-score="0"> 无记录
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="-5"> 存在未及时缴费记录
+										<input type="radio" name="radioUtilityPay" data-score="-5"> 存在未及时缴费记录
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="-51"> 存在未及时缴费记录且被列入黑名单
+										<input type="radio" name="radioUtilityPay" data-score="-51"> 存在未及时缴费记录且被列入黑名单
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 
 					<!--其他记录-->
-					<form class="form-horizontal">
+					<div class="form-horizontal " data-name="other_rec">
 						<div class="form-group">
 							<div class="row">
 								<label for="inputEmail3" class="col-md-3 control-label">其他记录：</label>
 								<div class="col-md-9 col-xs-12" style="padding: 10px 15px;">
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-score="5"> 无其他不良记录
+										<input type="radio" name="radioRec" data-score="5" data-score="7" datatype="*" nullmsg="请选择其他记录"> 无其他不良记录
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="-5"> 有其他不良记录
+										<input type="radio" name="radioRec" data-score="-5"> 有其他不良记录
 									</label>
 									<label class="checkbox-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-score="-51"> 有诈骗、犯罪、吸毒、赌博记录
+										<input type="radio" name="radioRec" data-score="-51"> 有诈骗、犯罪、吸毒、赌博记录
 									</label>
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 					  <div class="form-group">
 					    <div class="col-sm-offset-3 col-sm-9">
 					      <button type="submit" class="btn btn-primary btn-lg sub_btn">提交</button>
 					    </div>
 					  </div>
-				</div>
+				</form>
 			</div>
 		</div>
+		<!--尾部-->
+		<footer style="background-color: #01505f;">
+			<div class="container truck_footer">
+				<div class="row">
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">中国银行</a>
+							</li>
+							<li><a href="javascript:;">平安银行</a>
+							</li>
+							<li><a href="javascript:;">浦发银行</a>
+							</li>
+							<li><a href="javascript:;">工商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">农业银行</a>
+							</li>
+							<li><a href="javascript:;">建设银行</a>
+							</li>
+							<li><a href="javascript:;">光大银行</a>
+							</li>
+							<li><a href="javascript:;">招商银行</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">汽车之家</a>
+							</li>
+							<li><a href="javascript:;">卡车之家</a>
+							</li>
+							<li><a href="javascript:;">新浪汽车</a>
+							</li>
+							<li><a href="javascript:;">腾讯汽车</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">易车汽车论坛</a>
+							</li>
+							<li><a href="javascript:;">中国买车网</a>
+							</li>
+							<li><a href="javascript:;">搜狐汽车</a>
+							</li>
+							<li><a href="javascript:;">中国高速网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">二手卡车网</a>
+							</li>
+							<li><a href="javascript:;">汽配英才网</a>
+							</li>
+							<li><a href="javascript:;">北京二手车</a>
+							</li>
+							<li><a href="javascript:;">中国人才网</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-4 col-xs-2">
+						<ul class="list-unstyled">
+							<li><a href="javascript:;">我爱车网</a>
+							</li>
+							<li><a href="javascript:;">汽配中国网</a>
+							</li>
+							<li><a href="javascript:;">深圳二手车</a>
+							</li>
+							<li><a href="javascript:;">车生活网</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row truck_address">
+					<p>Copyright ©XSJ All Rights Reserved</p>
+					<p>© 2015 鑫森捷 京ICP备14026002号</p>
+				</div>
+			</div>
+		</footer>
+		<!--尾部结束-->
+		<iframe style="display: none;" name="hideIframe"></iframe>
 	</body>
+	<script src="js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/tool.js"></script>
 	<script src="js/pf.js"></script>
 </html>

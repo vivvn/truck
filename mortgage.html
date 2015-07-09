@@ -634,7 +634,12 @@
 			if (!mobilePhone) {showMsg('请输入您的手机号码！'); return;};
 			if (!/^13[0-9]{9}$|15[0-9]{9}$|18[0-9]{9}$/.test(mobilePhone)) {showMsg('请输入正确的手机号码！'); return;};
 			var url = 'http://127.0.0.1:8083/truck/schedule.html?idnum='+$('#check_id').val()+'&mobile='+$('#check_phone').val();
-			location.href = url;
+			$.post('http://xsj.wiiwoo.cn/mortgage/getloan',{idnum:$('#check_id').val(),mobile:$('#check_phone').val()},function(data){
+				if(JSON.parse(data).data.length==0){
+					showMsg('用户不存在！'); return;
+				}
+				location.href = url;
+			});
 		});
 
 	</script>

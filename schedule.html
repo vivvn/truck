@@ -65,7 +65,9 @@
 			lastSta : '',
 			statusTesxt : "",
 			nowStep : 0,
-			tag : ''
+			tag : '',
+			idnum:"",
+			mobile:""
 		});
 		var url = "http://xsj.wiiwoo.cn/mortgage/getloan";
 		var obj = getQueryString();
@@ -116,6 +118,8 @@
 				sModle.statusTesxt = "贷款进行中";
 			}
 			sModle.tag = tag;
+			sModle.idnum = getQueryString().idnum;
+			sModle.mobile = getQueryString().mobile;
 		}
 		function showSchedule(){
 			$('.schedule_button').removeClass('active');
@@ -164,13 +168,14 @@
 		<section id="cd-timeline" class="cd-container">
 			<div class="cd-timeline-block" ms-repeat="sArray">
 				<div class="cd-timeline-img cd-picture"
-				     ms-class="btn_color:active">
+				     ms-class="btn_color:active&&$index<nowStep">
 					<p>{{ $index+1 }}</p>
 				</div>
 				<div class="cd-timeline-content">
 					<h2>{{ el.status_txt }}</h2>
 					<p>{{ el.status_txt }}</p>
-					<a ms-if-loop="nowStep == 2&&active&&$index==1" ms-attr-href="'upload_data.html?tag='+tag" class="cd-read-more" style="  position: absolute;right: 0;top: 18px;">上传资料</a>
+					<a ms-if-loop="nowStep == 2&&active&&$index==1" ms-attr-href="'upload_data.html?tag='+tag+'&idnum='+idnum+'&mobile='+mobile" class="cd-read-more" style="  position: absolute;right: 0;top: 18px;">上传资料</a>
+					<a ms-if-loop="nowStep == 2&&active&&$index==1" ms-attr-href="'proposal_form.html?tag='+tag" class="cd-read-more" style="  position: absolute;right: 100px;top: 18px;">用户计分</a>
 					<span class="cd-date">{{ el.ctime | date("yyyy年MM月dd日")}}</span>
 					<ol class="clearfix">
 						<li ms-repeat="el.array" class="tip_text" ms-class="error:el.failed==1">
